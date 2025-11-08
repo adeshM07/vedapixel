@@ -1,0 +1,66 @@
+import React, { useEffect, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
+import "../CSS/Body.css";
+
+const InfiniteScrollNodes = ({ direction = "left", baseSpeed = 90 }) => {
+  const controls = useAnimation();
+  const [speed, setSpeed] = useState(baseSpeed);
+
+  const items = [
+    "WEB DESIGN",
+    "IOS DEVELOPMENT",
+    "WEB DEVELOPMENTS",
+    "UX RESEARCH",
+    "USER EXPERIENCE",
+    "CUSTOM SOFTWARE",
+    "CLOUD APPLICATIONS",
+    "MOBILE APPLICATIONS",
+  ];
+
+  // Duplicate items for smooth seamless loop
+  const loopItems = Array(8).fill(items).flat();
+
+  // Function to start animation
+  const startAnimation = (duration) => {
+    controls.start({
+      x: direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"],
+      transition: {
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "linear",
+        duration,
+      },
+    });
+  };
+
+  // Start on mount
+  useEffect(() => {
+    startAnimation(speed);
+  }, []);
+
+  // Handle hover to slow down speed
+  const handleHover = (isHovering) => {
+    const newSpeed = isHovering ? 200 : baseSpeed;
+    setSpeed(newSpeed);
+    startAnimation(newSpeed);
+  };
+
+  return (
+    <div className="relative w-full min-h-[100px] overflow-hidden flex items-center justify-center">
+      <motion.div animate={controls} className="flex gap-3 whitespace-nowrap">
+        {loopItems.map((text, index) => (
+          <div
+            key={index}
+            onMouseEnter={() => handleHover(true)}
+            onMouseLeave={() => handleHover(false)}
+            className="infinite-scroll-node h-[68px] w-[287px] text-[20px] flex items-center justify-center text-white rounded-[10px] border border-white font-semibold"
+          >
+            {text}
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
+export default InfiniteScrollNodes;

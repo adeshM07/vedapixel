@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Garota Sans';
+  src: url('../fonts/garota_sans/GarotaSans-Regular-FFP.ttf') format('truetype');
+  /* font-weight: 700; */
+  font-style: normal;
+}
+
+.industry-title {
+  font-family: 'Garota Sans';
+  font-style: normal;
+  color: white;
+}
