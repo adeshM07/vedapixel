@@ -68,7 +68,7 @@ const Industries = () => {
               ease: "easeOut",
             }}
             viewport={{ once: true }}
-            className="w-[80vw]  h-[20vh] md:w-[35vw] md:h-[22vh] lg:w-[27vw] lg:h-[28vh]  2xl:w-[23vw] 2xl:h-[22vh] border border-white rounded-[10px] flex flex-col gap-[20px] md:gap-[12px] justify-center pl-7 hover:bg-[#FFFFFF0A] transition-all duration-500"
+            className="w-[80vw]  h-[20vh] md:w-[35vw] md:h-[22vh] lg:w-[27vw] lg:h-[28vh]  2xl:w-[23vw] 2xl:h-[22vh] border border-white rounded-[10px] flex flex-col gap-[20px] md:gap-[12px] justify-evenly py-4  pl-7 hover:bg-[#FFFFFF0A] transition-all duration-500"
           >
             <motion.img
               src={item.img}
@@ -78,7 +78,7 @@ const Industries = () => {
               transition={{ duration: 0.3 }}
             />
             <motion.p
-              className="text-[1.8rem] md:text-[2rem] 2xl:text-[1.75rem] industry-title"
+              className="text-[1.8rem] md:text-[2rem] 2xl:text-[1.75rem] lg:leading-9 industry-title"
               whileHover={{ x: 4 }}
               transition={{ duration: 0.3 }}
             >

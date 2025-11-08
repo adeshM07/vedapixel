@@ -104,25 +104,46 @@ const Body = () => {
   // const [teamTitleRef, teamVisible] = useSmoothVisibility(120, 600);
 
   // ✅ Nav highlight detection
+  // ✅ Final stable Nav Highlight Detection (fixes Aim ↔ Services inversion)
   useEffect(() => {
     const sections = [
       { id: "about", ref: aboutRef },
       { id: "services", ref: servicesRef },
-      { id: "team", ref: teamRef },
       { id: "process", ref: processRef },
+      { id: "team", ref: teamRef },
     ];
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.find((entry) => entry.isIntersecting);
-        if (visible) setActiveSection(visible.target.id);
-      },
-      { threshold: 0.4 }
-    );
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const viewportHeight = window.innerHeight;
 
-    sections.forEach((s) => s.ref.current && observer.observe(s.ref.current));
-    return () => observer.disconnect();
+      // Track which section occupies most of the viewport
+      let maxVisibleHeight = 0;
+      let currentSection = "about";
+
+      sections.forEach(({ id, ref }) => {
+        const element = ref.current;
+        if (!element) return;
+        const rect = element.getBoundingClientRect();
+
+        // How much of the section is visible in the viewport
+        const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+
+        // Only count if at least 10–15% of it is visible
+        if (visibleHeight > maxVisibleHeight && visibleHeight > viewportHeight * 0.15) {
+          maxVisibleHeight = visibleHeight;
+          currentSection = id;
+        }
+      });
+
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // run once on load
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
 
   // ✅ Show sidebar nav after section enters viewport
   useEffect(() => {
@@ -134,11 +155,11 @@ const Body = () => {
       let visible = false;
 
       if (width >= 1024) {
-        // 💻 Laptop/Desktop → keep original behavior
-        visible = entry.intersectionRatio > 0.3;
+        // 💻 Laptop/Desktop → keep nav visible slightly longer (for "Our Process")
+        visible = entry.intersectionRatio > 0.15;
       } else if (width >= 768 && width < 1024) {
-        // 📱 Tablet → delay visibility slightly
-        visible = entry.intersectionRatio > 0.55;
+        // 📱 Tablet → extend range too
+        visible = entry.intersectionRatio > 0.4;
       } else {
         // 📲 Mobile → hidden anyway
         visible = false;
@@ -148,12 +169,14 @@ const Body = () => {
     };
 
     const observer = new IntersectionObserver(handleObserverUpdate, {
-      threshold: Array.from({ length: 11 }, (_, i) => i * 0.1),
+      threshold: Array.from({ length: 21 }, (_, i) => i * 0.05),
     });
 
     observer.observe(bodySection);
     return () => observer.disconnect();
   }, []);
+
+
 
   // ✅ Handle resize
   useEffect(() => {
@@ -189,7 +212,7 @@ const Body = () => {
             .getElementById(id)
             ?.scrollIntoView({ behavior: "smooth", block: "start" })
         }
-        className="body-nav relative cursor-pointer pl-3 lg:pl-2 md:text-[18px] lg:text-[28px] flex items-center transition-all duration-300"
+        className="body-nav  relative cursor-pointer pl-3 lg:pl-1 md:text-[18px] lg:text-[28px] flex items-center transition-all duration-300"
         animate={{
           color: isActive ? "#b19cd9" : "#d1d5db",
           x: isActive ? 4 : 0,
@@ -197,7 +220,7 @@ const Body = () => {
         transition={{ duration: 0.4, ease: "easeInOut" }}
       >
         <motion.span
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-[#b19cd9] rounded-full"
+          className="absolute border-2 -left-1 top-1/2 -translate-y-1/2 bg-[#b19cd9] rounded-full"
           initial={{ height: 0, opacity: 0 }}
           animate={{
             height: isActive ? "100%" : 0,
@@ -345,13 +368,15 @@ const Body = () => {
             >
               {navItem("about", "Our Aim")}
               {navItem("services", "Our Services")}
+              {navItem("process", "Our Process")} {/* ✅ Added this line */}
               {navItem("team", "Ready to Begin?")}
             </motion.nav>
           )}
         </AnimatePresence>
 
+
         {/* ✅ Content */}
-        <div className="flex px-[2vw]  flex-col gap-[10rem] w-full md:pl-[30vw] lg:pl-[30vw]">
+        <div className="flex px-[2vw]   flex-col gap-[10rem] w-full md:pl-[30vw] lg:pl-[30vw]">
           {/* --- Our Aim --- */}
           <section
             id="about"
@@ -382,7 +407,7 @@ const Body = () => {
                 />
               </motion.p>
             )}
-            <p className="text-white text-[20px]  md:text-[28px] lg:text-[3rem] leading-[1.3]">
+            <p className="text-white text-[20px]  md:text-[28px] lg:text-[2.2rem] 2xl:text-[3rem] leading-[1.3]">
               We bridge innovation and execution with user-centric, future-ready
               systems that <br />
               <span
@@ -411,7 +436,7 @@ const Body = () => {
                 </AnimatePresence>
               </span>
             </p>
-            <p className="about-card-desc text-[#C8C1C1] text-[12px] md:text-[16px]  lg:text-[1.5rem]">
+            <p className="about-card-desc text-[#C8C1C1] text-[12px] md:text-[16px] lg:text-[0.9rem]  2xl:text-[1.5rem]">
               We offer future-ready solutions to streamline your business, drive
               <br />
               growth, and put your processes in place. Explore our range of
@@ -464,7 +489,9 @@ const Body = () => {
             </div>
           </section>
 
-          {/* <section
+          {/* our Process */}
+
+          <section
             id="process"
             ref={processRef}
             className="w-full  text-white py-16 px-6 flex flex-col items-center lg:mt-[7vw] overflow-hidden"
@@ -484,8 +511,8 @@ const Body = () => {
                 >
                   <div
                     className={`flex w-full md:w-1/2 ${index % 2 === 0
-                        ? "md:justify-end md:pr-12 text-right"
-                        : "md:justify-start md:pl-12 text-left"
+                      ? "md:justify-end md:pr-12 text-right"
+                      : "md:justify-start md:pl-12 text-left"
                       }`}
                   >
                     <div className="p-6 rounded-2xl   w-full md:w-[100%] ">
@@ -499,8 +526,8 @@ const Body = () => {
                   </div>
                   <div
                     className={`absolute about-card-desc transform -translate-y-[120%] w-10 h-10 flex items-center justify-center rounded-full  text-[#C8C1C1]  text-[3rem] ${index % 2 === 0
-                        ? "md:left-[calc(50%+10px)]"
-                        : "md:right-[calc(50%+10px)]"
+                      ? "md:left-[calc(50%+10px)]"
+                      : "md:right-[calc(50%+10px)]"
                       }`}
                   >
                     {step.id}.
@@ -508,7 +535,7 @@ const Body = () => {
                 </motion.div>
               ))}
             </div>
-          </section>; */}
+          </section>
 
 
 

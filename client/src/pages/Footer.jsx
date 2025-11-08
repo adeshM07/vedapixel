@@ -168,7 +168,7 @@ const Footer = () => {
                     <motion.img
                       src={linkedin}
                       alt="LinkedIn"
-                      className="w-[25px] sm:w-[30px] md:w-[22px] 2xl:w-[2vw] cursor-pointer"
+                      className="w-[25px] sm:w-[30px] md:w-[22px]  2xl:w-[2vw] cursor-pointer"
                       whileHover={{ scale: 1.2, y: -3 }}
                     />
                   </a>
@@ -179,7 +179,7 @@ const Footer = () => {
                     <motion.img
                       src={Instagram}
                       alt="Instagram"
-                      className="w-[25px] sm:w-[30px] md:w-[22px] 2xl:w-[2vw] cursor-pointer"
+                      className="w-[25px] sm:w-[30px] md:w-[22px] ] 2xl:w-[2vw] cursor-pointer"
                       whileHover={{ scale: 1.2, y: -3 }}
                     />
                   </a>
@@ -187,7 +187,7 @@ const Footer = () => {
                     <motion.img
                       src={whatsapp}
                       alt="whatsapp"
-                      className="w-[25px] sm:w-[30px] md:w-[22px] 2xl:w-[26px] cursor-pointer"
+                      className="w-[25px] sm:w-[30px] md:w-[22px]  2xl:w-[2vw] cursor-pointer"
                       whileHover={{ scale: 1.2, y: -3 }}
                     />
                   </a>

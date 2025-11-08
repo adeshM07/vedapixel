@@ -136,51 +136,80 @@ const AboutPage = () => {
 
         {/* --- Background + Boxes Section --- */}
         <motion.div
-          id="layout"
-          className="w-[90%] md:w-[95%]  lg:w-[90%]  2xl:w-[66%] lg:h-[170vh] 2xl:h-[130vh] mx-auto flex flex-col items-center  md:gap-0"
-          variants={layoutVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-        >
-          {/* --- Info Cards --- */}
-          <div className="w-full   flex justify-end md:justify-end ">
-            <div className="about-card gap-3   2xl:gap-[9px] w-[32.5%] md:px-7 md:py-4 md:w-[32vw]  2xl:w-[22vw] h-[15vh] md:h-[22vh] lg:h-[43vh] lg:w-[29vw] 2xl:h-[42vh]">
-              <p className="about-card-title text-[0.6rem] md:text-[1.3rem] lg:text-[1.7rem] 2xl:text-[1.75rem] text-[#F8F9FA]">
-                Our Mission
-              </p>
-              <p className="mt-3 md:mt-4 2xl:mt-0 about-card-title text-[7px] md:text-[1.2rem] lg:text-[1.4rem]  2xl:text-[1.5rem] text-[#C8C1C1]">
-                Vedapixel uses tech to bring clarity, speed, and reliability to
-                outdated sectors, building ecosystems where innovation can
-                thrive.
-              </p>
-            </div>
-          </div>
+  id="layout"
+  className="w-[90%] sm:w-[95%] lg:w-[90%] 2xl:w-[66%] mx-auto flex flex-col items-center gap-6 md:gap-8"
+  variants={layoutVariant}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: false, amount: 0.3 }}
+>
+  {/* --- Info Cards --- */}
 
-          <div className="w-full flex justify-center md:justify-center">
-            <div className="about-card gap-3 2xl:gap-[9px]  w-[32.5%] md:px-7 md:py-4  px-1 py-1 md:w-[32vw] 2xl:w-[22vw] h-[15vh] lg:h-[43vh] lg:w-[29vw]  md:h-[22vh] 2xl:h-[42vh]">
-              <p className="about-card-title text-[0.6rem] md:text-[1.3rem] lg:text-[1.7rem] 2xl:text-[1.75rem] text-[#F8F9FA]">
-                Our Vision
-              </p>
-              <p className="about-card-title text-[7px] mt-3 md:mt-4 2xl:mt-0  md:text-[1.2rem] lg:text-[1.4rem]  2xl:text-[1.5rem] text-[#C8C1C1]">
-                We redefine how businesses use tech by creating integrated
-                platforms that simplify workflows and unlock new growth.
-              </p>
-            </div>
-          </div>
+  {/* Our Mission */}
+  <div className="w-full flex justify-center sm:justify-end">
+    <div
+      className="
+        about-card flex flex-col gap-2 sm:gap-3 lg:gap-4
+        w-[90vw] sm:w-[60vw] md:w-[32vw] lg:w-[29vw] 2xl:w-[22vw]
+        h-auto min-h-[16vh] sm:min-h-[20vh] md:h-[22vh] lg:h-fit 2xl:h-[42vh]
+        px-4 sm:px-6 md:px-7 py-3 sm:py-5
+        transition-all duration-300
+      "
+    >
+      <p className="about-card-title font-semibold text-[1rem] sm:text-[1.2rem] md:text-[1.4rem] lg:text-[1.6rem] 2xl:text-[1.8rem] text-[#F8F9FA] leading-tight">
+        Our Mission
+      </p>
+      <p className="mt-1 sm:mt-2 md:mt-3 text-[0.85rem] sm:text-[1rem] md:text-[1.1rem] lg:text-[1.25rem] 2xl:text-[1.35rem] text-[#C8C1C1] leading-relaxed sm:leading-normal md:leading-relaxed">
+        Vedapixel uses tech to bring clarity, speed, and reliability to outdated
+        sectors, building ecosystems where innovation can thrive.
+      </p>
+    </div>
+  </div>
 
-          <div className="w-full flex justify-start md:justify-start">
-            <div className="about-card border-2 border-green-600 gap-3 2xl:gap-[9px] w-[32.5%] px-1 py-1 md:px-7 md:py-4 md:w-[32vw]  lg:h-[43vh] lg:w-[29vw] 2xl:w-[22vw] h-[15vh] md:h-[22vh] 2xl:h-[42vh]">
-              <p className="about-card-title text-[0.6rem] md:text-[1.3rem] lg:text-[1.7rem] 2xl:text-[1.75rem] text-[#F8F9FA]">
-                Our Story
-              </p>
-              <p className="about-card-title text-[7px] mt-3 md:mt-4 2xl:mt-0  md:text-[1.2rem] lg:text-[1.4rem] 2xl:text-[1.5rem] text-[#C8C1C1]">
-                Vedapixel Tech Solutions Pvt. Ltd. builds intelligent, scalable
-                digital platforms that solve real-world business challenges.
-              </p>
-            </div>
-          </div>
-        </motion.div>
+  {/* Our Vision */}
+  <div className="w-full flex justify-center">
+    <div
+      className="
+        about-card flex flex-col gap-2 sm:gap-3 lg:gap-4
+        w-[90vw] sm:w-[60vw] md:w-[32vw] lg:w-[29vw] 2xl:w-[22vw]
+        h-auto min-h-[16vh] sm:min-h-[20vh] md:h-[22vh] lg:h-fit 2xl:h-[42vh]
+        px-4 sm:px-6 md:px-7 py-3 sm:py-5
+        transition-all duration-300
+      "
+    >
+      <p className="about-card-title font-semibold text-[1rem] sm:text-[1.2rem] md:text-[1.4rem] lg:text-[1.6rem] 2xl:text-[1.8rem] text-[#F8F9FA] leading-tight">
+        Our Vision
+      </p>
+      <p className="mt-1 sm:mt-2 md:mt-3 text-[0.85rem] sm:text-[1rem] md:text-[1.1rem] lg:text-[1.25rem] 2xl:text-[1.35rem] text-[#C8C1C1] leading-relaxed sm:leading-normal md:leading-relaxed">
+        We redefine how businesses use tech by creating integrated platforms
+        that simplify workflows and unlock new growth.
+      </p>
+    </div>
+  </div>
+
+  {/* Our Story */}
+  <div className="w-full flex justify-center sm:justify-start">
+    <div
+      className="
+        about-card flex flex-col gap-2 sm:gap-3 lg:gap-4
+        w-[90vw] sm:w-[60vw] md:w-[32vw] lg:w-[29vw] 2xl:w-[22vw]
+        h-auto min-h-[16vh] sm:min-h-[20vh] md:h-[22vh] lg:h-fit 2xl:h-[42vh]
+        px-4 sm:px-6 md:px-7 py-3 sm:py-5
+        transition-all duration-300
+      "
+    >
+      <p className="about-card-title font-semibold text-[1rem] sm:text-[1.2rem] md:text-[1.4rem] lg:text-[1.6rem] 2xl:text-[1.8rem] text-[#F8F9FA] leading-tight">
+        Our Story
+      </p>
+      <p className="mt-1 sm:mt-2 md:mt-3 text-[0.85rem] sm:text-[1rem] md:text-[1.1rem] lg:text-[1.25rem] 2xl:text-[1.35rem] text-[#C8C1C1] leading-relaxed sm:leading-normal md:leading-relaxed">
+        Vedapixel Tech Solutions Pvt. Ltd. builds intelligent, scalable digital
+        platforms that solve real-world business challenges.
+      </p>
+    </div>
+  </div>
+</motion.div>
+
+
       </div>
     </>
   );

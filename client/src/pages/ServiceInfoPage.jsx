@@ -1108,25 +1108,36 @@ const ServiceInfoPage = () => {
           <p className="service-title text-center md:text-start text-[2.5rem] md:text-[3rem] text-white">
             Our Expertise
           </p>
-          <div className="flex  flex-wrap gap-[1.5rem] md:gap-[1rem] justify-center">
-            {serviceInfo[service]?.expertise.map((item) => (
-              <div className="w-[80vw] h-[20vh] md:w-[23vw] md:h-[21vh] flex flex-col gap-[0.8rem] border border-white rounded-md justify-center px-5">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-6 md:gap-4 lg:gap-6">
+            {serviceInfo[service]?.expertise.map((item, index) => (
+              <div
+                key={index}
+                className="
+        w-[90vw] sm:w-[42vw] md:w-[30vw] lg:w-[22vw] 
+        h-auto min-h-[20vh] 
+        flex flex-col justify-center gap-[0.8rem] 
+        border border-white rounded-md 
+        px-5 py-4 
+        transition-all duration-300 hover:scale-[1.02]
+      "
+              >
                 <p className="text-[1.8rem] md:text-[1.8rem] service-title text-[#F8F9FA]">
                   {item.title}
                 </p>
-                <p className="text-[#C8C1C1]  service-desc text-[1rem] md:text-[1rem]">
+                <p className="text-[#C8C1C1] service-desc text-[1rem] md:text-[1rem] leading-relaxed">
                   {item.desc}
                 </p>
               </div>
             ))}
           </div>
+
         </div>
         <div className="relative mt-[150px] md:mt-[100px]">
           <p className="text-[2rem] md:text-[4rem] service-title-noweight bg-gradient-to-b font-bold  from-[#C7B9F6] to-[#6A6185] bg-clip-text text-transparent leading-[1] absolute -top-5 md:-top-11 left-0 z-20 ">
             Why VedaPixel ?
           </p>
           <div
-            className="w-[90vw] h-[20vh] md:w-[72vw] flex place-items-center px-7 md:px-14 md:h-[42vh] border-2 rounded-b-[80px] rounded-tr-[80px]"
+            className="w-[90vw] h-[20vh] md:w-[72vw] flex place-items-center px-7 md:px-14 md:h-[42vh] lg:h-[21vh] xl:h-[35vh] border-2 rounded-b-[80px] rounded-tr-[80px]"
             style={{
               background:
                 "linear-gradient(139.47deg, rgba(47, 54, 64, 0.8) -45.69%, rgba(16, 24, 32, 0.8) 54.7%)",
@@ -1152,13 +1163,20 @@ const ServiceInfoPage = () => {
           <p className="text-[2rem] md:text-[3rem] text-[#F8F9FA] service-title">
             Our Process
           </p>
-          <div className="">
+
+          <div>
             {serviceInfo[service]?.process.map((item, index) => (
-              <div className="flex   place-items-center gap-3 md:gap-7">
-                <p className="text-[#C8C1C1]  w-[5vw] text-[1rem] md:w-[3vw]  md:text-[2rem] service-desc">
+              <div
+                key={index}
+                className="flex items-start md:items-center gap-3 md:gap-7 "
+              >
+                {/* Step number */}
+                <p className="text-[#C8C1C1] w-[8vw] sm:w-[6vw] md:w-[3vw] text-[1rem] md:text-[2rem] service-desc">
                   {index + 1}.
                 </p>
-                <p className="flex border border-gray-800 border-l-white rounded-lg pl-4 md:pl-4 place-items-center service-title text-[#C8C1C1] text-[1rem] md:text-[2rem] md:h-[12vh] w-full h-[5vh] md:w-[68vw] gap-1">
+
+                {/* Step content */}
+                <p className="flex flex-wrap border border-gray-800 border-l-white rounded-lg pl-4 md:pl-4 items-center service-title text-[#C8C1C1] text-[1rem] md:text-[2rem] md:h-[12vh] w-full md:w-[68vw] gap-1">
                   <span className="font-semibold">{item.title}</span>
                   <span>-</span>
                   <span className="text-[0.7rem] md:text-[1.6rem]">
@@ -1169,6 +1187,8 @@ const ServiceInfoPage = () => {
             ))}
           </div>
         </div>
+
+
         <div className="w-[90vw] md:w-[73vw] flex mt-[100px] flex-col gap-[1.3rem]">
           <p className="text-[2.3rem] md:text-[3rem] service-title text-[#F8F9FA]">
             FAQs
@@ -1191,9 +1211,8 @@ const ServiceInfoPage = () => {
                 </button>
 
                 <div
-                  className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${
-                    openIndex === index ? "max-h-40 py-3" : "max-h-0"
-                  }`}
+                  className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? "max-h-40 py-3" : "max-h-0"
+                    }`}
                 >
                   <p className="text-[#C8C1C1] service-desc text-[1rem] leading-relaxed">
                     {faq.answer}
