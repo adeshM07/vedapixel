@@ -10,7 +10,9 @@ const Body = () => {
   const [activeSection, setActiveSection] = useState("about");
   const [navOpacity, setNavOpacity] = useState(1);
   const [showTeamPopup, setShowTeamPopup] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+ const [isMobile, setIsMobile] = useState(() =>
+  typeof window !== "undefined" ? window.innerWidth < 768 : false
+);
   const [currentWord, setCurrentWord] = useState("streamline operations");
 
   const aboutRef = useRef(null);
@@ -146,35 +148,85 @@ const Body = () => {
 
 
   // ✅ Show sidebar nav after section enters viewport
-  useEffect(() => {
-    const bodySection = document.querySelector(".body-content");
-    if (!bodySection) return;
+  // useEffect(() => {
+  //   const bodySection = document.querySelector(".body-content");
+  //   if (!bodySection) return;
 
-    const handleObserverUpdate = ([entry]) => {
-      const width = window.innerWidth;
-      let visible = false;
+  //   const handleObserverUpdate = ([entry]) => {
+  //     const width = window.innerWidth;
+  //     let visible = false;
 
-      if (width >= 1024) {
-        // 💻 Laptop/Desktop → keep nav visible slightly longer (for "Our Process")
-        visible = entry.intersectionRatio > 0.15;
-      } else if (width >= 768 && width < 1024) {
-        // 📱 Tablet → extend range too
-        visible = entry.intersectionRatio > 0.4;
-      } else {
-        // 📲 Mobile → hidden anyway
-        visible = false;
-      }
+  //     if (width >= 1024) {
+  //       // 💻 Laptop/Desktop → keep nav visible slightly longer (for "Our Process")
+  //       visible = entry.intersectionRatio > 0.15;
+  //     } else if (width >= 768 && width < 1024) {
+  //       // 📱 Tablet → extend range too
+  //       visible = entry.intersectionRatio > 0.4;
+  //     } else {
+  //       // 📲 Mobile → hidden anyway
+  //       visible = false;
+  //     }
 
-      setShowBody(visible);
-    };
+  //     setShowBody(visible);
+  //   };
 
-    const observer = new IntersectionObserver(handleObserverUpdate, {
-      threshold: Array.from({ length: 21 }, (_, i) => i * 0.05),
-    });
+  //   const observer = new IntersectionObserver(handleObserverUpdate, {
+  //     threshold: Array.from({ length: 21 }, (_, i) => i * 0.05),
+  //   });
 
-    observer.observe(bodySection);
-    return () => observer.disconnect();
-  }, []);
+  //   observer.observe(bodySection);
+  //   return () => observer.disconnect();
+  // }, []);
+  // ✅ Show sidebar nav after section enters viewport
+// ✅ Hybrid: reliable + context-aware nav visibility
+useEffect(() => {
+  const bodySection = document.querySelector(".body-content");
+  if (!bodySection) return;
+
+  const handleObserverUpdate = (entries) => {
+    const entry = entries[0];
+    const width = window.innerWidth;
+    let visible = false;
+
+    // fix: ensure bounding rect is calculated correctly
+    const rect = entry.target.getBoundingClientRect();
+    const isInView =
+      rect.top < window.innerHeight - 110 && rect.bottom > 450;
+
+    if (width >= 1024) {
+      // 💻 Laptop/Desktop → keep nav visible slightly longer (for "Our Process")
+      visible = entry.isIntersecting && isInView && entry.intersectionRatio > 0.05;
+    } else if (width >= 768 && width < 1024) {
+      // 📱 Tablet → extend range too
+      visible = entry.isIntersecting && isInView && entry.intersectionRatio > 0.1;
+    } else {
+      // 📲 Mobile → hidden anyway
+      visible = false;
+    }
+
+    setShowBody(visible);
+  };
+
+  // fix: use multiple thresholds + rootMargin to increase sensitivity
+  const observer = new IntersectionObserver(handleObserverUpdate, {
+    root: null,
+    rootMargin: "0px 0px -10% 0px", // extend detection a little before it leaves view
+    threshold: Array.from({ length: 21 }, (_, i) => i * 0.05),
+  });
+
+  observer.observe(bodySection);
+
+  // immediate check on mount (helps GitHub/SSR environments)
+  const rect = bodySection.getBoundingClientRect();
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    setShowBody(true);
+  }
+
+  return () => observer.disconnect();
+}, []);
+
+
+
 
 
 
@@ -212,7 +264,7 @@ const Body = () => {
             .getElementById(id)
             ?.scrollIntoView({ behavior: "smooth", block: "start" })
         }
-        className="body-nav  relative cursor-pointer pl-3 lg:pl-1 md:text-[18px] lg:text-[28px] flex items-center transition-all duration-300"
+        className="body-nav   relative cursor-pointer pl-3 lg:pl-1 md:text-[18px] lg:text-[28px] flex items-center transition-all duration-300"
         animate={{
           color: isActive ? "#b19cd9" : "#d1d5db",
           x: isActive ? 4 : 0,
@@ -351,6 +403,7 @@ const Body = () => {
       {/* ✅ Main Body */}
       <div className="body-content  px-[2%] relative min-h-screen flex flex-col  transition-all duration-700 ease-out w-full pt-[6vw]">
         {/* Sidebar Nav */}
+        {console.log("showBody:", showBody, "isMobile:", isMobile, "width:", window.innerWidth)}
         <AnimatePresence>
           {!isMobile && showBody && (
             <motion.nav
