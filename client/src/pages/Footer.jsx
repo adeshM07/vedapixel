@@ -148,7 +148,7 @@ const Footer = () => {
                   <motion.img
                     src={icon}
                     alt="send"
-                    className="w-[30px] sm:w-[35px] md:w-[3vw] 2xl:w-[2vw] rotate-45 cursor-pointer"
+                    className="w-[30px] sm:w-[35px] md:w-[3vw] lg:w-[2vw] 2xl:w-[2vw] rotate-45 cursor-pointer"
                     whileHover={{ scale: 1.2, rotate: 0 }}
                     transition={{ duration: 0.3 }}
                   />

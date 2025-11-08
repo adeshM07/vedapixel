@@ -137,19 +137,19 @@ const AboutPage = () => {
         {/* --- Background + Boxes Section --- */}
         <motion.div
           id="layout"
-          className="w-[90%] md:w-[95%] lg:w-[90%]  2xl:w-[66%] lg:h-[80vh] 2xl:h-[130vh] mx-auto flex flex-col items-center  md:gap-0"
+          className="w-[90%] md:w-[95%]  lg:w-[90%]  2xl:w-[66%] lg:h-[170vh] 2xl:h-[130vh] mx-auto flex flex-col items-center  md:gap-0"
           variants={layoutVariant}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
         >
           {/* --- Info Cards --- */}
-          <div className="w-full   flex justify-end md:justify-end">
-            <div className="about-card gap-3   2xl:gap-[9px] w-[32.5%] md:px-7 md:py-4 md:w-[32vw] lg:w-[30vw] 2xl:w-[22vw] h-[15vh] md:h-[22vh] lg:h-[21vh] 2xl:h-[42vh]">
-              <p className="about-card-title text-[0.6rem] md:text-[1.3rem] lg:text-[1.5rem] 2xl:text-[1.75rem] text-[#F8F9FA]">
+          <div className="w-full   flex justify-end md:justify-end ">
+            <div className="about-card gap-3   2xl:gap-[9px] w-[32.5%] md:px-7 md:py-4 md:w-[32vw]  2xl:w-[22vw] h-[15vh] md:h-[22vh] lg:h-[43vh] lg:w-[29vw] 2xl:h-[42vh]">
+              <p className="about-card-title text-[0.6rem] md:text-[1.3rem] lg:text-[1.7rem] 2xl:text-[1.75rem] text-[#F8F9FA]">
                 Our Mission
               </p>
-              <p className="mt-3 md:mt-4 2xl:mt-0 about-card-title text-[7px] md:text-[1.2rem] lg:text-[1.3rem]  2xl:text-[1.5rem] text-[#C8C1C1]">
+              <p className="mt-3 md:mt-4 2xl:mt-0 about-card-title text-[7px] md:text-[1.2rem] lg:text-[1.4rem]  2xl:text-[1.5rem] text-[#C8C1C1]">
                 Vedapixel uses tech to bring clarity, speed, and reliability to
                 outdated sectors, building ecosystems where innovation can
                 thrive.
@@ -158,11 +158,11 @@ const AboutPage = () => {
           </div>
 
           <div className="w-full flex justify-center md:justify-center">
-            <div className="about-card gap-3 2xl:gap-[9px]  w-[32.5%] md:px-7 md:py-4  px-1 py-1 md:w-[32vw] lg:w-[30vw] 2xl:w-[22vw] h-[15vh] lg:h-[21vh] md:h-[22vh] 2xl:h-[42vh]">
-              <p className="about-card-title text-[0.6rem] md:text-[1.3rem] lg:text-[1.5rem] 2xl:text-[1.75rem] text-[#F8F9FA]">
+            <div className="about-card gap-3 2xl:gap-[9px]  w-[32.5%] md:px-7 md:py-4  px-1 py-1 md:w-[32vw] 2xl:w-[22vw] h-[15vh] lg:h-[43vh] lg:w-[29vw]  md:h-[22vh] 2xl:h-[42vh]">
+              <p className="about-card-title text-[0.6rem] md:text-[1.3rem] lg:text-[1.7rem] 2xl:text-[1.75rem] text-[#F8F9FA]">
                 Our Vision
               </p>
-              <p className="about-card-title text-[7px] mt-3 md:mt-4 2xl:mt-0  md:text-[1.2rem] lg:text-[1.3rem]  2xl:text-[1.5rem] text-[#C8C1C1]">
+              <p className="about-card-title text-[7px] mt-3 md:mt-4 2xl:mt-0  md:text-[1.2rem] lg:text-[1.4rem]  2xl:text-[1.5rem] text-[#C8C1C1]">
                 We redefine how businesses use tech by creating integrated
                 platforms that simplify workflows and unlock new growth.
               </p>
@@ -170,11 +170,11 @@ const AboutPage = () => {
           </div>
 
           <div className="w-full flex justify-start md:justify-start">
-            <div className="about-card border-2 border-green-600 gap-3 2xl:gap-[9px] w-[32.5%] px-1 py-1 md:px-7 md:py-4 md:w-[32vw] lg:w-[30vw] 2xl:w-[22vw] h-[15vh] lg:h-[21vh] md:h-[22vh] 2xl:h-[42vh]">
-              <p className="about-card-title text-[0.6rem] md:text-[1.3rem] lg:text-[1.5rem] 2xl:text-[1.75rem] text-[#F8F9FA]">
+            <div className="about-card border-2 border-green-600 gap-3 2xl:gap-[9px] w-[32.5%] px-1 py-1 md:px-7 md:py-4 md:w-[32vw]  lg:h-[43vh] lg:w-[29vw] 2xl:w-[22vw] h-[15vh] md:h-[22vh] 2xl:h-[42vh]">
+              <p className="about-card-title text-[0.6rem] md:text-[1.3rem] lg:text-[1.7rem] 2xl:text-[1.75rem] text-[#F8F9FA]">
                 Our Story
               </p>
-              <p className="about-card-title text-[7px] mt-3 md:mt-4 2xl:mt-0  md:text-[1.2rem] lg:text-[1.3rem] 2xl:text-[1.5rem] text-[#C8C1C1]">
+              <p className="about-card-title text-[7px] mt-3 md:mt-4 2xl:mt-0  md:text-[1.2rem] lg:text-[1.4rem] 2xl:text-[1.5rem] text-[#C8C1C1]">
                 Vedapixel Tech Solutions Pvt. Ltd. builds intelligent, scalable
                 digital platforms that solve real-world business challenges.
               </p>

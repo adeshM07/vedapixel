@@ -164,8 +164,8 @@ const Services = () => {
   ];
   return (
     <>
-      <div className=" flex flex-col gap-10 mt-20 md:mt-45 lg:mt-60 px-6 sm:px-10  md:px-16 2xl:px-28">
-        <p className="service-title text-4xl md:text-[4rem] font-semibold text-white pl-[30px]  md:pl-24">
+      <div className=" flex flex-col gap-10 mt-20 md:mt-45 lg:mt-40 px-6 sm:px-10  md:px-16 2xl:px-28">
+        <p className="service-title text-4xl md:text-[4rem] lg:text-[4.5rem] font-semibold text-white pl-[30px]  md:pl-24 lg:pl-0">
           Our Services
         </p>
 
@@ -185,7 +185,7 @@ const Services = () => {
             >
               <motion.div
                 key={index}
-                className="w-full sm:w-[80%] md:w-[40vw]   2xl:w-[23vw] h-auto border border-[#F2F2F2] flex flex-col gap-3 rounded-xl p-6 hover:bg-[#141414] transition-all duration-300"
+                className="w-full sm:w-[80%] md:w-[40vw] lg:w-[27vw]   2xl:w-[23vw] h-auto border border-[#F2F2F2] flex flex-col gap-3 rounded-xl p-6 hover:bg-[#141414] transition-all duration-300"
                 variants={card}
                 custom={index}
                 // use transform for subpixel/GPU rendering
@@ -206,18 +206,18 @@ const Services = () => {
                 <motion.img
                   src={service.img}
                   alt={service.title}
-                  className="w-[60px] h-[60px] md:w-[70px] md:h-[70px] object-contain"
+                  className="w-[60px] h-[60px] md:w-[70px] md:h-[70px] lg:w-[50px] lg:h-[50px] object-contain"
                   variants={img}
                   custom={index}
                   // small accessibility improvement: avoid layout shifts
                   loading="lazy"
                 />
 
-                <p className="service-title text-xl md:text-[1.75rem] text-white font-semibold">
+                <p className="service-title text-xl md:text-[1.75rem] lg:text-[1.7rem] text-white font-semibold">
                   {service.title}
                 </p>
 
-                <p className="service-desc text-sm md:text-[1rem] text-[#C8C1C1] leading-relaxed">
+                <p className="service-desc text-sm md:text-[1rem] lg:text-[0.8rem]  text-[#C8C1C1] leading-relaxed">
                   {service.desc}
                 </p>
               </motion.div>

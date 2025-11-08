@@ -76,6 +76,8 @@ const Contact = () => {
                   rounded-[clamp(4px,1vw,10px)]
                   w-[46%]  md:w-[47%] 2xl:w-[32vw]
                   md:h-[clamp(35px,4vh,55px)]
+                  lg:w-[32vw]
+                  lg:h-[clamp(35px,7vh,55px)]
                   2xl:h-[clamp(35px,6vh,55px)]
                 "
               />
@@ -89,6 +91,9 @@ const Contact = () => {
                   p-[clamp(6px,1vw,10px)]
                   rounded-[clamp(4px,1vw,10px)]
                   w-[46%] sm:w-[44%] md:w-[47%] 2xl:w-[33vw]
+
+                  lg:w-[32vw]
+                  lg:h-[clamp(35px,7vh,55px)]
                   md:h-[clamp(35px,4vh,55px)]
                   2xl:h-[clamp(35px,6vh,55px)]
                 "
@@ -103,6 +108,8 @@ const Contact = () => {
                   p-[clamp(6px,1vw,10px)]
                   rounded-[clamp(4px,1vw,10px)]
                   w-[46%] sm:w-[44%] md:w-[47%] 2xl:w-[32vw]
+                  lg:w-[32vw]
+                  lg:h-[clamp(35px,7vh,55px)]
                   md:h-[clamp(35px,4vh,55px)]
                   2xl:h-[clamp(35px,6vh,55px)]
                 "
@@ -116,7 +123,9 @@ const Contact = () => {
                   bg-transparent
                   p-[clamp(6px,1vw,10px)]
                   rounded-[clamp(4px,1vw,10px)]
-                  w-[46%] sm:w-[44%] md:w-[47%] lg:w-[33vw]
+                  w-[46%] sm:w-[44%] md:w-[47%] 
+                  lg:w-[32vw]
+                  lg:h-[clamp(35px,7vh,55px)]
                   md:h-[clamp(35px,4vh,55px)]
                   2xl:h-[clamp(35px,6vh,55px)]
                 "
@@ -152,6 +161,7 @@ const Contact = () => {
               md:w-[40vw]
               2xl:w-[24vw] 
               md:h-[clamp(40px,4vh,60px)]
+              lg:h-[clamp(50px,5vh,60px)]
               2xl:h-[clamp(40px,7vh,60px)]         
               mx-auto
               mt-[clamp(10px,2vw,20px)]

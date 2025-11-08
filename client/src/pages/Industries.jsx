@@ -35,7 +35,7 @@ const Industries = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
-        className="w-fit mt-[20vh] md:mt-0 md:w-[80vw] 2xl:w-[72vw] flex flex-col   md:flex-row flex-wrap 2xl:h-[96vh]   gap-[20px] mx-auto"
+        className="w-fit mt-[20vh]  md:mt-0 md:w-[80vw] lg:w-[85vw] 2xl:w-[72vw] flex flex-col   md:flex-row flex-wrap 2xl:h-[96vh]   gap-[20px] mx-auto"
       >
         {/* Heading */}
         <motion.div
@@ -43,10 +43,10 @@ const Industries = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="2xl:w-[23vw]  md:w-[35vw] md:h-[22vh] 2xl:h-[22vh]"
+          className="2xl:w-[23vw]   md:w-[35vw] md:h-[22vh] lg:w-[27vw] lg:h-[28vh] 2xl:h-[22vh]"
         >
           <p
-            className="text-[4rem] leading-16 md:text-[3.8rem] 2xl:text-[4rem] pt-0 md:pt-10 2xl:pt-0 font-bold industry-title text-transparent bg-gradient-to-b from-[#BBABEB] md:leading-14 2xl:leading-16 to-[#6A6185] bg-clip-text inline-block"
+            className="text-[4rem]  leading-16 md:text-[3.8rem] 2xl:text-[4rem] pt-0 md:pt-10 2xl:pt-0 font-bold industry-title text-transparent bg-gradient-to-b from-[#BBABEB] md:leading-14 2xl:leading-16 to-[#6A6185] bg-clip-text inline-block"
             style={{
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -68,12 +68,12 @@ const Industries = () => {
               ease: "easeOut",
             }}
             viewport={{ once: true }}
-            className="w-[80vw]  h-[20vh] md:w-[35vw] md:h-[22vh] 2xl:w-[23vw] 2xl:h-[22vh] border border-white rounded-[10px] flex flex-col gap-[20px] md:gap-[12px] justify-center pl-7 hover:bg-[#FFFFFF0A] transition-all duration-500"
+            className="w-[80vw]  h-[20vh] md:w-[35vw] md:h-[22vh] lg:w-[27vw] lg:h-[28vh]  2xl:w-[23vw] 2xl:h-[22vh] border border-white rounded-[10px] flex flex-col gap-[20px] md:gap-[12px] justify-center pl-7 hover:bg-[#FFFFFF0A] transition-all duration-500"
           >
             <motion.img
               src={item.img}
               alt={item.name}
-              className=" w-[17vw] h-[8vh] md:w-[10vw] md:h-[7vh] 2xl:w-[5vw] 2xl:h-[10vh]"
+              className=" w-[17vw] h-[8vh] md:w-[10vw] md:h-[7vh] lg:w-[6vw] lg:h-[9vh] 2xl:w-[5vw] 2xl:h-[10vh]"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             />
