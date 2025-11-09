@@ -48,5 +48,29 @@
 //   </div>
 // </section>; 
 
+useEffect(() => {
+  const bodySection = document.querySelector(".body-content");
+  if (!bodySection) return;
+
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const rect = bodySection.getBoundingClientRect();
+
+    // is body-content in view at all
+    const isVisible = rect.bottom > 100 && rect.top < window.innerHeight - 100;
+
+    let visible = false;
+    if (width >= 1024) visible = isVisible && scrollY > 50;
+    else if (width >= 768 && width < 1024) visible = isVisible && scrollY > 100;
+    else visible = false;
+
+    setShowBody(visible);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
 

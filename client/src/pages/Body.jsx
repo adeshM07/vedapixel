@@ -264,7 +264,7 @@ useEffect(() => {
             .getElementById(id)
             ?.scrollIntoView({ behavior: "smooth", block: "start" })
         }
-        className="body-nav   relative cursor-pointer pl-3 lg:pl-1 md:text-[18px] lg:text-[28px] flex items-center transition-all duration-300"
+        className="body-nav   relative cursor-pointer pl-3 lg:pl-1 md:text-[18px] lg:text-[24px] 2xl:text-[28px] flex items-center transition-all duration-300"
         animate={{
           color: isActive ? "#b19cd9" : "#d1d5db",
           x: isActive ? 4 : 0,
