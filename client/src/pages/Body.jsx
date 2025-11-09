@@ -10,9 +10,9 @@ const Body = () => {
   const [activeSection, setActiveSection] = useState("about");
   const [navOpacity, setNavOpacity] = useState(1);
   const [showTeamPopup, setShowTeamPopup] = useState(false);
- const [isMobile, setIsMobile] = useState(() =>
-  typeof window !== "undefined" ? window.innerWidth < 768 : false
-);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined" ? window.innerWidth < 768 : false
+  );
   const [currentWord, setCurrentWord] = useState("streamline operations");
 
   const aboutRef = useRef(null);
@@ -178,52 +178,52 @@ const Body = () => {
   //   return () => observer.disconnect();
   // }, []);
   // ✅ Show sidebar nav after section enters viewport
-// ✅ Hybrid: reliable + context-aware nav visibility
-useEffect(() => {
-  const bodySection = document.querySelector(".body-content");
-  if (!bodySection) return;
+  // ✅ Hybrid: reliable + context-aware nav visibility
+  useEffect(() => {
+    const bodySection = document.querySelector(".body-content");
+    if (!bodySection) return;
 
-  const handleObserverUpdate = (entries) => {
-    const entry = entries[0];
-    const width = window.innerWidth;
-    let visible = false;
+    const handleObserverUpdate = (entries) => {
+      const entry = entries[0];
+      const width = window.innerWidth;
+      let visible = false;
 
-    // fix: ensure bounding rect is calculated correctly
-    const rect = entry.target.getBoundingClientRect();
-    const isInView =
-      rect.top < window.innerHeight - 110 && rect.bottom > 450;
+      // fix: ensure bounding rect is calculated correctly
+      const rect = entry.target.getBoundingClientRect();
+      const isInView =
+        rect.top < window.innerHeight - 110 && rect.bottom > 450;
 
-    if (width >= 1024) {
-      // 💻 Laptop/Desktop → keep nav visible slightly longer (for "Our Process")
-      visible = entry.isIntersecting && isInView && entry.intersectionRatio > 0.05;
-    } else if (width >= 768 && width < 1024) {
-      // 📱 Tablet → extend range too
-      visible = entry.isIntersecting && isInView && entry.intersectionRatio > 0.1;
-    } else {
-      // 📲 Mobile → hidden anyway
-      visible = false;
+      if (width >= 1024) {
+        // 💻 Laptop/Desktop → keep nav visible slightly longer (for "Our Process")
+        visible = entry.isIntersecting && isInView && entry.intersectionRatio > 0.05;
+      } else if (width >= 768 && width < 1024) {
+        // 📱 Tablet → extend range too
+        visible = entry.isIntersecting && isInView && entry.intersectionRatio > 0.1;
+      } else {
+        // 📲 Mobile → hidden anyway
+        visible = false;
+      }
+
+      setShowBody(visible);
+    };
+
+    // fix: use multiple thresholds + rootMargin to increase sensitivity
+    const observer = new IntersectionObserver(handleObserverUpdate, {
+      root: null,
+      rootMargin: "0px 0px -10% 0px", // extend detection a little before it leaves view
+      threshold: Array.from({ length: 21 }, (_, i) => i * 0.05),
+    });
+
+    observer.observe(bodySection);
+
+    // immediate check on mount (helps GitHub/SSR environments)
+    const rect = bodySection.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setShowBody(true);
     }
 
-    setShowBody(visible);
-  };
-
-  // fix: use multiple thresholds + rootMargin to increase sensitivity
-  const observer = new IntersectionObserver(handleObserverUpdate, {
-    root: null,
-    rootMargin: "0px 0px -10% 0px", // extend detection a little before it leaves view
-    threshold: Array.from({ length: 21 }, (_, i) => i * 0.05),
-  });
-
-  observer.observe(bodySection);
-
-  // immediate check on mount (helps GitHub/SSR environments)
-  const rect = bodySection.getBoundingClientRect();
-  if (rect.top < window.innerHeight && rect.bottom > 0) {
-    setShowBody(true);
-  }
-
-  return () => observer.disconnect();
-}, []);
+    return () => observer.disconnect();
+  }, []);
 
 
 
@@ -326,13 +326,94 @@ useEffect(() => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const stepElements = document.querySelectorAll(".process-step");
+
+    const handleScroll = () => {
+      let closestStep = null;
+      let closestDistance = Infinity;
+
+      // Step 1: find the step closest to viewport center
+      stepElements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const distanceToCenter = Math.abs(
+          rect.top + rect.height / 2 - window.innerHeight / 2
+        );
+        if (distanceToCenter < closestDistance) {
+          closestDistance = distanceToCenter;
+          closestStep = el;
+        }
+      });
+
+      // Step 2: reset all titles & borders
+      stepElements.forEach((el) => {
+        const title = el.querySelector(".process-title");
+        const box = el.querySelector("div.flex.border-2");
+        if (title) {
+          title.style.color = "#C8C1C1";
+          title.style.transition = "color 0.4s ease";
+        }
+        if (box) {
+          // reset all sides to white
+          box.style.borderTopColor = "#101820";
+          box.style.borderBottomColor = "#101820";
+          box.style.borderLeftColor = "#101820";
+          box.style.borderRightColor = "#101820";
+          box.style.transition = "border-color 0.4s ease";
+        }
+      });
+
+      // Step 3: highlight the active one (title + inner border)
+      if (closestStep) {
+        const activeTitle = closestStep.querySelector(".process-title");
+        const activeBox = closestStep.querySelector("div.flex.border-2");
+
+        // detect if this step is on left or right
+        const isLeft = closestStep.classList.contains("md:justify-end");
+
+        if (activeTitle) {
+          activeTitle.style.color = "#A27CF0";
+          activeTitle.style.transition = "color 0.4s ease";
+        }
+
+        if (activeBox) {
+          // Keep all sides white but color only the center side purple
+          activeBox.style.borderTopColor = "#101820";
+          activeBox.style.borderBottomColor = "#101820";
+
+          if (isLeft) {
+            // box is on left → right border is the inner side
+            activeBox.style.borderRightColor = "#101820";
+            activeBox.style.borderLeftColor = "#A27CF0";
+          } else {
+            // box is on right → left border is the inner side
+            activeBox.style.borderLeftColor = "#101820";
+            activeBox.style.borderRightColor = "#A27CF0";
+          }
+
+          activeBox.style.transition = "border-color 0.4s ease";
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
+
+
+
+
   return (
     <>
       {/* ✅ Team Popup */}
       <AnimatePresence>
         {showTeamPopup && (
           <motion.div
-            className="fixed inset-0 bg-black/50 backdrop-blur-[8px] flex justify-center items-center z-[200] px-4 sm:px-6"
+            className=" fixed inset-0 bg-black/50 backdrop-blur-[8px] flex justify-center items-center z-[200] px-4 sm:px-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -544,12 +625,13 @@ useEffect(() => {
 
           {/* our Process */}
 
-          <section
+          {isMobile ? <section
             id="process"
             ref={processRef}
-            className="w-full  text-white py-16 px-6 flex flex-col items-center lg:mt-[7vw] overflow-hidden"
+            className="w-full text-white py-10 sm:py-16 px-3 sm:px-6 flex flex-col items-center lg:mt-[7vw] overflow-hidden"
           >
             <div className="relative w-full max-w-5xl">
+              {/* Center vertical line */}
               <div className="absolute left-1/2 transform -translate-x-1/2 bg-[#6A6185] w-[2px] h-full"></div>
 
               {steps.map((step, index) => (
@@ -559,36 +641,139 @@ useEffect(() => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className={`relative flex flex-col md:flex-row items-center mb-16 md:mb-24 ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"
+                  className={`process-step relative flex flex-col md:flex-row items-center mb-10 sm:mb-16 md:mb-20 ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"
                     }`}
                 >
+                  {/* Wrapper */}
                   <div
-                    className={`flex w-full md:w-1/2 ${index % 2 === 0
-                      ? "md:justify-end md:pr-12 text-right"
-                      : "md:justify-start md:pl-12 text-left"
+                    className={`relative flex w-full md:w-1/2 items-center justify-center ${index % 2 === 0
+                        ? "md:justify-end md:pr-4 lg:pr-10 text-right"
+                        : "md:justify-start md:pl-4 lg:pl-10 text-left"
                       }`}
                   >
-                    <div className="p-6 rounded-2xl   w-full md:w-[100%] ">
-                      <h3 className="text-[#C8C1C1] text-[1.9rem] about-card-title  mb-2">
+                    {/* ✅ Number on one side of the line (left/right alternation on mobile) */}
+                    <motion.div
+                      className={`absolute top-1/2 -translate-y-1/2 text-[#C8C1C1] font-semibold 
+            text-[1.6rem] sm:text-[2rem] md:text-[2.4rem]
+            ${index % 2 === 0
+                          ? "left-[calc(50%-24px)] md:left-auto md:right-[calc(100%+10px)]"
+                          : "right-[calc(50%-24px)] md:right-auto md:left-[calc(100%+10px)]"
+                        }`}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
+                      {step.id}.
+                    </motion.div>
+
+                    {/* ✅ Text Box opposite the number */}
+                    <div
+                      className={` rounded-2xl p-3 sm:p-4 md:p-6 w-[70%] sm:w-[60%] md:w-full transition-all duration-500
+            ${index % 2 === 0
+                          ? "ml-[55%] text-left md:ml-0 md:text-right"
+                          : "mr-[55%] text-right md:mr-0 md:text-left"
+                        }`}
+                    >
+                      <motion.h3
+                        className="process-title text-[#C8C1C1]
+              text-[1rem] sm:text-[1.3rem] md:text-[1.5rem] lg:text-[1.7rem]
+              2xl:text-[1.9rem] font-semibold leading-snug break-words"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: 'easeOut' }}
+                      >
                         {step.title}
-                      </h3>
-                      <p className="text-gray-200 text-[1.5rem] leading-relaxed">
+                      </motion.h3>
+
+                      {/* Hidden on mobile */}
+                      <motion.p
+                        className="hidden md:block text-gray-200 text-[1rem] md:text-[1.1rem]
+              2xl:text-[1.2rem] leading-relaxed transition-colors duration-300"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
+                      >
                         {step.desc}
-                      </p>
+                      </motion.p>
                     </div>
-                  </div>
-                  <div
-                    className={`absolute about-card-desc transform -translate-y-[120%] w-10 h-10 flex items-center justify-center rounded-full  text-[#C8C1C1]  text-[3rem] ${index % 2 === 0
-                      ? "md:left-[calc(50%+10px)]"
-                      : "md:right-[calc(50%+10px)]"
-                      }`}
-                  >
-                    {step.id}.
                   </div>
                 </motion.div>
               ))}
             </div>
           </section>
+
+
+
+
+
+
+
+            :
+
+            <section
+              id="process"
+              ref={processRef}
+              className="w-full text-white py-10 sm:py-16 px-3 sm:px-6 flex flex-col items-center lg:mt-[7vw] overflow-hidden"
+            >
+              <div className="relative w-full  max-w-5xl">
+                {/* center vertical line */}
+                <div className="absolute left-1/2  transform -translate-x-1/2 bg-[#6A6185] w-[1.5px] sm:w-[2px] h-full"></div>
+
+                {steps.map((step, index) => (
+                  <motion.div
+                    key={step.id}
+                    initial={{ opacity: 0, y: 80 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className={`process-step relative  flex flex-col md:flex-row items-center mb-10 sm:mb-16 md:mb-24 ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"
+                      }`}
+                  >
+                    <div
+                      className={`flex border-2 border-white w-full md:w-1/2 ${index % 2 === 0
+                        ? "md:justify-end md:pr-3 sm:md:pr-4 lg:pr-12 text-right"
+                        : "md:justify-start md:pl-3 sm:md:pl-4 lg:pl-12 text-left"
+                        }`}
+                    >
+                      <div className=" rounded-2xl p-3 sm:p-4 md:p-6 w-full md:w-[100%] transition-all duration-500">
+                        <motion.h3
+                          className="process-title text-[#C8C1C1] text-[1.1rem] sm:text-[1.3rem] md:text-[1.5rem] lg:text-[1.7rem] 2xl:text-[1.9rem] font-semibold mb-2"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, ease: 'easeOut' }}
+                          viewport={{ once: false, amount: 0.4 }}
+                        >
+                          {step.title}
+                        </motion.h3>
+
+                        {/* Description hidden on mobile */}
+                        <motion.p
+                          className="hidden md:block text-gray-200 text-[1rem] md:text-[1.1rem] 2xl:text-[1.2rem] leading-relaxed transition-colors duration-300"
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
+                          viewport={{ once: false, amount: 0.4 }}
+                        >
+                          {step.desc}
+                        </motion.p>
+                      </div>
+                    </div>
+
+                    {/* Step number */}
+                    <div
+                      className={`absolute about-card-desc transform -translate-y-[110%] w-8 sm:w-9 md:w-10 h-8 sm:h-9 md:h-10 flex items-center justify-center rounded-full text-[#C8C1C1] text-[2rem] sm:text-[2.5rem] md:text-[3rem] ${index % 2 === 0
+                        ? "md:left-[calc(50%+8px)]"
+                        : "md:right-[calc(50%+8px)]"
+                        }`}
+                    >
+                      {step.id}.
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </section>}
+
+
 
 
 
