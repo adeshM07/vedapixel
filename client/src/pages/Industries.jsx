@@ -68,7 +68,7 @@ const Industries = () => {
               ease: "easeOut",
             }}
             viewport={{ once: true }}
-            className="w-[80vw]  h-[20vh] md:w-[35vw] md:h-[22vh] lg:w-[27vw] lg:h-[28vh]  2xl:w-[23vw] 2xl:h-[22vh] [@media(min-width:2000px)]:h-[19vh]  border border-white rounded-[10px] flex flex-col gap-[20px] md:gap-[12px] justify-evenly py-4  pl-7 hover:bg-[#FFFFFF0A] transition-all duration-500"
+            className="w-[80vw] [@media(min-width:300px)]:h-[24vh]  h-[20vh] md:w-[35vw] md:h-[22vh] lg:w-[27vw] lg:h-[28vh]  2xl:w-[23vw] 2xl:h-[22vh] [@media(min-width:2000px)]:h-[19vh]  border border-white rounded-[10px] flex flex-col gap-[20px] md:gap-[12px] justify-evenly py-4 [@media(min-width:300px)]:pl-4 pl-7 md:pl-7 hover:bg-[#FFFFFF0A] transition-all duration-500"
           >
             <motion.img
               src={item.img}

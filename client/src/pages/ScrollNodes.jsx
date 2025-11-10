@@ -47,6 +47,9 @@ const ScrollNodes = ({ direction = "left", baseSpeed = 75 }) => {
               flex items-center justify-center
               text-white font-medium select-none
               border border-white rounded-[10px]
+              [@media(min-width:300px)]:h-[35px]
+              [@media(min-width:2000px)]:text-[12px]
+              [@media(min-width:2000px)]:w-[41vw]
               px-2 sm:px-3 md:px-4
               h-[6vh] sm:h-[6vh] md:h-[60px] lg:h-[68px]
               w-[40vw] sm:w-[60vw] md:w-[220px] lg:w-[287px]

@@ -12,16 +12,16 @@ const MainSection = () => {
       <div className="flex flex-col gap-4">
         <Body></Body>
         <Industries></Industries>
-        <div className="w-screen   md:mt-[70px] lg:mt-[96px]">
+        <div className="w-screen  mt-[70px]    md:mt-[70px] lg:mt-[96px]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="  md:w-[72%] mx-auto flex flex-col gap-7"
+            className="mx-[40px]  md:w-[72%] md:mx-auto flex flex-col gap-7"
           >
             <p
-              className="pl-10 md:pl-0 text-[2.4rem] leading-14 md:text-[3.5rem]  font-bold industry-title text-transparent bg-gradient-to-b from-[#BBABEB] md:leading-16 to-[#6A6185] bg-clip-text inline-block"
+              className=" md:pl-0 text-[2.4rem] leading-14 md:text-[3.5rem]  font-bold industry-title text-transparent bg-gradient-to-b from-[#BBABEB] md:leading-16 to-[#6A6185] bg-clip-text inline-block"
               style={{
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",

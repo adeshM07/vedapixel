@@ -41,7 +41,7 @@ const Contact = () => {
               contact-box-title 
               text-[#C8C1C1] 
               text-[clamp(0.9rem,2vw,1.5rem)] 
-              text-center md:text-left
+              text-left md:text-left
               2xl:text-[1.4rem]
               popins
             "

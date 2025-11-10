@@ -543,7 +543,7 @@ const Body = () => {
                 />
               </motion.p>
             )}
-            <p className="text-white text-[20px]  md:text-[28px] lg:text-[2.2rem] 2xl:text-[3rem] leading-[1.3]">
+            <p className="text-white   [@media(min-width:300px)]:text-[18px]  text-[20px]   md:text-[28px] lg:text-[2.2rem] 2xl:text-[3rem] leading-[1.3]">
               We bridge innovation and execution with <br /> user-centric, future-ready
               systems that <br />
               <span
@@ -572,7 +572,7 @@ const Body = () => {
                 </AnimatePresence>
               </span>
             </p>
-            <p className="about-card-desc text-[#C8C1C1] text-[12px] md:text-[16px] lg:text-[0.9rem]  2xl:text-[1.5rem]">
+            <p className="about-card-desc [@media(min-width:300px)]:text-[10px] text-[#C8C1C1] text-[12px] md:text-[16px] lg:text-[0.9rem]  2xl:text-[1.5rem]">
               We offer future-ready solutions to streamline your business, drive
               <br />
               growth, and put your processes in place. Explore our range of
@@ -833,7 +833,7 @@ const Body = () => {
                     </button>
                   </div> */}
                   <div className="relative inline-block">
-                    <button  onClick={() => setShowTeamPopup(true)} className="rotating-btn relative  text-[#b19cd9] font-garota text-[12px] md:text-[16px] rounded-md w-[25vw] md:h-[clamp(50px,6vh,55px)] md:w-[clamp(110px,10vw,160px)]  overflow-hidden">
+                    <button  onClick={() => setShowTeamPopup(true)} className="rotating-btn relative  text-[#b19cd9] font-garota text-[12px] md:text-[16px] rounded-md w-[25vw] [@media(min-width:300px)]:h-[3vh] h-[4vh] md:h-[clamp(50px,6vh,55px)] md:w-[clamp(110px,10vw,160px)]  overflow-hidden">
                       Our Team
                     </button>
                   </div>

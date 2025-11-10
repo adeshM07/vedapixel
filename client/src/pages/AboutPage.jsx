@@ -97,7 +97,7 @@ const AboutPage = () => {
         {/* --- Top Text Section --- */}
         <div className="w-[85%] h-[auto] md:h-[40vh] p-[10px]  mx-auto">
           <motion.p
-            className="about-part-title text-[2rem] md:text-[3rem] text-white text-center md:text-left"
+            className="about-part-title  text-[2rem] md:text-[3rem] text-white "
             variants={headingVariant}
             initial="hidden"
             whileInView="visible"
@@ -107,7 +107,7 @@ const AboutPage = () => {
           </motion.p>
 
           <motion.p
-            className="about-part1-desc text-[1rem] md:text-[1.5rem] text-[#C8C1C1] text-center md:text-left"
+            className="about-part1-desc text-[1rem] md:text-[1.5rem] text-[#C8C1C1] text-left"
             variants={paragraphVariant}
             initial="hidden"
             whileInView="visible"
@@ -121,7 +121,7 @@ const AboutPage = () => {
           </motion.p>
 
           <motion.p
-            className="about-part-title text-[2rem] md:text-[3rem] text-[#BBABEB] text-end"
+            className="about-part-title mt-4 md:mt-1  text-[1.4rem] md:text-[3rem] text-[#BBABEB] text-end"
             variants={glowTextVariant}
             initial="hidden"
             whileInView="visible"

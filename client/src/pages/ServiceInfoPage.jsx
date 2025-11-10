@@ -1052,16 +1052,16 @@ const ServiceInfoPage = () => {
     <>
       {/* {service && ( */}
       <div className=" w-screen pt-[80px] flex flex-col place-items-center">
-        <div className="w-[90vw] text-center md:text-start md:w-[73vw]  mt-[100px] flex flex-col gap-[1.2rem]">
-          <p className="text-[2.6rem] md:text-[3rem] text-[#F8F9FA] service-title">
+        <div className="w-[90vw] text-start md:w-[73vw]  mt-[100px] flex flex-col gap-[1.2rem]">
+          <p className="text-[2rem] md:text-[3rem] text-[#F8F9FA] service-title">
             {serviceInfo[service]?.title}
           </p>
-          <p className="text-[1.2rem] md:text-[1.5rem] text-[#C8C1C1] service-desc">
+          <p className="text-[1rem] md:text-[1.5rem] text-[#C8C1C1] service-desc">
             {serviceInfo[service]?.intro}
           </p>
         </div>
         <div className="lg:w-[73vw]  mt-[80px] md:mt-[40px] overflow-hidden">
-          <p className="service-desc  text-[1.8rem] md:text-[1.8rem] text-center md:text-start  text-[#C8C1C1] mb-4">
+          <p className="service-desc  text-[1.5rem] md:text-[1.8rem] text-center md:text-start  text-[#C8C1C1] mb-4">
             Technologies We Use
           </p>
 
@@ -1082,7 +1082,7 @@ const ServiceInfoPage = () => {
                 <div
                   key={index}
                   className="py-3 px-4 h-fit w-fit rounded-md border border-[#C8C1C1]
-                       service-desc text-[1.5rem] text-[#C8C1C1]
+                       service-desc text-[1rem] md:text-[1.5rem] text-[#C8C1C1]
                        whitespace-nowrap"
                 >
                   {value}
@@ -1104,7 +1104,7 @@ const ServiceInfoPage = () => {
           >
             {serviceInfo[service]?.buttonText}
           </button> */}
-        <button className="rotating-btn relative font-garota text-[0.7rem] md:text-[1.5rem] text-[#C8C1C1] w-[90vw] md:w-[73vw] mt-[60px] md:mt-[40px]  font-garota rounded-md px-3 py-2 md:px-6 md:py-3 overflow-hidden">
+        <button className="rotating-btn relative font-garota text-[0.7rem] md:text-[1.5rem] text-[#C8C1C1] w-[90vw] md:w-[73vw] mt-[60px] md:mt-[40px]  font-garota rounded-md px-3 [@media(min-width:300px)]:py-3  py-2 md:px-6 md:py-3 overflow-hidden">
           {serviceInfo[service]?.buttonText}
         </button>
         {/* </div> */}
