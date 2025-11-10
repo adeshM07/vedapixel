@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../CSS/Body.css";
 
-const ScrollNodes = ({ direction = "left", baseSpeed = 35 }) => {
+const ScrollNodes = ({ direction = "left", baseSpeed = 75 }) => {
   const [speed, setSpeed] = useState(baseSpeed);
 
   const items = [
@@ -12,29 +12,16 @@ const ScrollNodes = ({ direction = "left", baseSpeed = 35 }) => {
     "MOBILE APPLICATIONS",
     "USER EXPERIENCE",
     "CUSTOM SOFTWARE",
-    "WEB DESIGN",
-    "CLOUD APPLICATIONS",
-    "MOBILE APPLICATIONS",
-    "WEB DESIGN",
-    "IOS DEVELOPMENT",
-    "WEB DEVELOPMENT",
-    "UX RESEARCH",
-    "MOBILE APPLICATIONS",
-    "USER EXPERIENCE",
-    "CUSTOM SOFTWARE",
-    "WEB DESIGN",
-    "CLOUD APPLICATIONS",
-    "MOBILE APPLICATIONS",
-    "WEB DESIGN",
-    "IOS DEVELOPMENT",
-    "WEB DEVELOPMENT",
-    "UX RESEARCH",
-    "MOBILE APPLICATIONS",
-    "USER EXPERIENCE",
-    "CUSTOM SOFTWARE",
-    "WEB DESIGN",
-    "CLOUD APPLICATIONS",
-    "MOBILE APPLICATIONS",
+    "GAME DEVELOPMENT",
+    "AR/VR",
+    "ERP Solutions",
+    "Chatbot Development",
+    "Artificial Intelligence",
+    "CRM Development",
+    "Cloud Computing",
+    "Maintenance & Support",
+    "Blockchain Development",
+    "IoT Development"
   ];
 
   // ✅ Duplicate twice (for perfect looping)

@@ -165,7 +165,7 @@ const Services = () => {
   return (
     <>
       <div className=" flex flex-col gap-10 mt-20 md:mt-45 lg:mt-40 px-6 sm:px-10  md:px-16 2xl:px-28">
-        <p className="service-title text-4xl md:text-[4rem] lg:text-[4.5rem] font-semibold text-white pl-[30px]  md:pl-24 lg:pl-0">
+        <p className="service-title  mx-auto w-[73vw] md:w-full 2xl:w-[73vw] text-4xl md:text-[4rem] lg:text-[4.5rem] font-semibold text-white">
           Our Services
         </p>
 

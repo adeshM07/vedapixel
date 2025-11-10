@@ -1,5 +1,6 @@
 import React from "react";
 import "../CSS/Contact.css";
+import "../CSS/Body.css"
 import { motion } from "framer-motion";
 
 const Contact = () => {
@@ -10,7 +11,7 @@ const Contact = () => {
           w-full 
           flex flex-col-reverse   md:flex-row 
           justify-center items-center md:items-start
-          mt-[10vh] md:mt-[25vh]
+          mt-[10vh] md:mt-[11vh]
           gap-[5vw] md:gap-0
           px-[4vw]
         "
@@ -151,8 +152,10 @@ const Contact = () => {
 
           {/* ✅ Button */}
           {/* this too  */}
-          <button
-            className="
+          <div className="relative flex   justify-center">
+            <button
+              className="
+            rotating-btn
               border border-[#B1A2DF]
               rounded-[8px]
               text-white
@@ -163,7 +166,7 @@ const Contact = () => {
               2xl:w-[24vw] 
               md:h-[clamp(40px,4vh,60px)]
               lg:h-[clamp(50px,5vh,60px)]
-              2xl:h-[clamp(40px,7vh,60px)]         
+              2xl:h-[clamp(40px,8vh,60px)]         
               mx-auto
               mt-[clamp(10px,2vw,20px)]
               hover:bg-[#B1A2DF]/10 
@@ -173,9 +176,10 @@ const Contact = () => {
               2xl:text-[1.4rem]
               popins
             "
-          >
-            Get in Touch
-          </button>
+            >
+              Get in Touch
+            </button>
+          </div>
         </div>
       </div>
     </>

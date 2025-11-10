@@ -62,7 +62,7 @@ const Footer = () => {
               <p className="footer-company-name text-white text-[clamp(1.4rem,4vw,2.3rem)] md:text-[clamp(1.4rem,2vw,2.3rem)] 2xl:text-[clamp(1.4rem,4vw,2.3rem)] font-semibold leading-tight 2xl:leading-10">
                 VedaPixel
               </p>
-              <p className="footer-company-desc text-white/80 text-[clamp(0.7rem,2vw,1rem)] md:text-[clamp(0.7rem,1.2vw,1rem)] 2xl:text-[50%]">
+              <p className="footer-company-desc text-white text-[clamp(0.7rem,2vw,1rem)] md:text-[clamp(0.7rem,1.2vw,1rem)] 2xl:text-[50%]">
                 Innovation in every Pixel
               </p>
             </div>
@@ -105,26 +105,32 @@ const Footer = () => {
           >
             {/* Footer Navigation */}
             <motion.div
-              className="footer-nav w-full sm:w-1/2 2xl:w-1/3 md:pl-[10%] flex flex-col items-start gap-3"
+              className="footer-nav  w-full sm:w-1/2 2xl:w-1/3 md:pl-[10%] flex flex-col items-start gap-3"
               variants={item}
             >
-              <p className="footer-nav-links text-white text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] font-semibold mb-1">
-                Our Company
+              <Link to="/about">
+              <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] font-semibold mb-1 hover:text-[#b19cd9] transition">
+                About Us
               </p>
-              <p className="footer-nav-links text-[#E4E3E3] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
-                Privacy Policy
+              </Link>
+              <Link to="/services">
+              <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
+                Our Services
               </p>
+              </Link>
               <Link to="/faqs">
-                <p className="footer-nav-links text-[#E4E3E3] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
+                <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
                   FAQs
                 </p>
               </Link>
-              <p className="footer-nav-links text-[#E4E3E3] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
+              <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
                 Our Team
               </p>
-              <p className="footer-nav-links text-[#E4E3E3] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
+              <Link to="/contactus">
+              <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
                 Career
               </p>
+              </Link>
             </motion.div>
 
             {/* Contact / Social Section */}

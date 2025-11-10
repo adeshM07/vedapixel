@@ -7,8 +7,8 @@
 #layout::before {
   content: "";
   position: absolute;
-  width: 65vw;
-  height: 130vh;
+  width: 52vw;
+  height: 120vh;
   background: url("../assets/aboutbg.png") no-repeat center center;
   background-size: cover;
   opacity: 0.35;
@@ -107,20 +107,20 @@
 }
 
 
-@media (min-width: 1201px) and (max-width: 1535px ) {
+@media (min-width: 1201px)  {
   #layout::before {
-  content: "";
-  position: absolute;
-  width: 100vw;
-  height: 130vh;
-  /* scale: 0.9; */
-  background: url("../assets/aboutbg.png") no-repeat center center;
-  background-size: contain;
-  opacity: 0.35;
-  filter: brightness(0.8) contrast(1.1);
-  z-index: 0;
-  pointer-events: none;
-}
+    content: "";
+    position: absolute;
+    width: 81vw;
+    height: 122vh;
+    /* scale: 0.9; */
+    background: url("../assets/aboutbg.png") no-repeat center center;
+    background-size: contain;
+    opacity: 0.35;
+    filter: brightness(0.8) contrast(1.1);
+    z-index: 0;
+    pointer-events: none;
+  }
 }
 
 /* =====================
@@ -137,6 +137,21 @@
   }
 
 
+}
+
+@media (min-width: 2000px) {
+  #layout::before {
+    content: "";
+    position: absolute;
+    width: 63vw;
+    height: 110vh;
+    background: url("../assets/aboutbg.png") no-repeat center center;
+    background-size: cover;
+    opacity: 0.35;
+    filter: brightness(0.8) contrast(1.1);
+    z-index: 0;
+    pointer-events: none;
+  }
 }
 
 /* 📱 Tablet */
@@ -174,3 +189,4 @@
     opacity: 0.35;
   }
 } */
+

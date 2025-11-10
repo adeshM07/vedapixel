@@ -3,6 +3,7 @@ import "../CSS/ServiceInfoPage.css";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import "../CSS/Body.css"
 
 const ServiceInfoPage = () => {
   const location = useLocation();
@@ -1059,7 +1060,7 @@ const ServiceInfoPage = () => {
             {serviceInfo[service]?.intro}
           </p>
         </div>
-        <div className="lg:w-[73vw] mt-[80px] md:mt-[40px] overflow-hidden">
+        <div className="lg:w-[73vw]  mt-[80px] md:mt-[40px] overflow-hidden">
           <p className="service-desc  text-[1.8rem] md:text-[1.8rem] text-center md:text-start  text-[#C8C1C1] mb-4">
             Technologies We Use
           </p>
@@ -1090,9 +1091,9 @@ const ServiceInfoPage = () => {
             </motion.div>
           </div>
         </div>
-        <div className="h-[20vh] w-[90vw]  md:w-[74vw]">
-          <button
-            className="w-[90vw] md:w-[73vw] mt-[60px] md:mt-[40px] bg-[#101820] service-desc text-[1.5rem] text-[#C8C1C1] 
+        {/* <div className="h-[20vh] w-[90vw]  md:w-[73vw] relative inline-block"> */}
+        {/* <button
+            className="rotating-btn w-[90vw] md:w-[73vw] mt-[60px] md:mt-[40px]  font-garota  text-[1.5rem] text-[#C8C1C1] 
              py-3 rounded-md transition-all duration-300 hover:scale-[1.02]"
             style={{
               border: "1.5px solid transparent",
@@ -1102,33 +1103,38 @@ const ServiceInfoPage = () => {
             }}
           >
             {serviceInfo[service]?.buttonText}
-          </button>
-        </div>
+          </button> */}
+        <button className="rotating-btn relative font-garota text-[0.7rem] md:text-[1.5rem] text-[#C8C1C1] w-[90vw] md:w-[73vw] mt-[60px] md:mt-[40px]  font-garota rounded-md px-3 py-2 md:px-6 md:py-3 overflow-hidden">
+          {serviceInfo[service]?.buttonText}
+        </button>
+        {/* </div> */}
         <div className="lg:w-[73vw] mt-[100px]   flex flex-col gap-[0.8rem]">
-          <p className="service-title text-center md:text-start text-[2.5rem] md:text-[3rem] text-white">
+          <p className="service-title text-center  md:text-start text-[2.5rem] md:text-[3rem] w-[90vw] sm:w-[42vw] md:w-[30vw] lg:w-[22vw]  text-white">
             Our Expertise
           </p>
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-6 md:gap-4 lg:gap-6">
-            {serviceInfo[service]?.expertise.map((item, index) => (
-              <div
-                key={index}
-                className="
-        w-[90vw] sm:w-[42vw] md:w-[30vw] lg:w-[22vw] 
+          <div className="">
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-6 md:gap-4 lg:gap-6">
+              {serviceInfo[service]?.expertise.map((item, index) => (
+                <div
+                  key={index}
+                  className="
+        w-[90vw] sm:w-[42vw] md:w-[30vw] lg:w-[21vw] 
         h-auto min-h-[20vh] 
         flex flex-col justify-center gap-[0.8rem] 
         border border-white rounded-md 
         px-5 py-4 
         transition-all duration-300 hover:scale-[1.02]
       "
-              >
-                <p className="text-[1.8rem] md:text-[1.8rem] service-title text-[#F8F9FA]">
-                  {item.title}
-                </p>
-                <p className="text-[#C8C1C1] service-desc text-[1rem] md:text-[1rem] leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+                >
+                  <p className="text-[1.8rem] md:text-[1.8rem] service-title text-[#F8F9FA]">
+                    {item.title}
+                  </p>
+                  <p className="text-[#C8C1C1] service-desc text-[1rem] md:text-[1rem] leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>
@@ -1137,7 +1143,7 @@ const ServiceInfoPage = () => {
             Why VedaPixel ?
           </p>
           <div
-            className="w-[90vw] h-[20vh] md:w-[72vw] flex place-items-center px-7 md:px-14 md:h-[42vh] lg:h-[21vh] xl:h-[35vh] border-2 rounded-b-[80px] rounded-tr-[80px]"
+            className="w-[90vw] h-[20vh] md:w-[72vw] flex place-items-center px-7 md:px-14 md:h-[42vh] lg:h-[21vh] xl:h-[40vh] [@media(min-width:2550px)]:h-[20vh] border-2 rounded-b-[80px] rounded-tr-[80px]"
             style={{
               background:
                 "linear-gradient(139.47deg, rgba(47, 54, 64, 0.8) -45.69%, rgba(16, 24, 32, 0.8) 54.7%)",
@@ -1176,7 +1182,7 @@ const ServiceInfoPage = () => {
                 </p>
 
                 {/* Step content */}
-                <p className="flex flex-wrap border border-gray-800 border-l-white rounded-lg pl-4 md:pl-4 items-center service-title text-[#C8C1C1] text-[1rem] md:text-[2rem] md:h-[12vh] w-full md:w-[68vw] gap-1">
+                <p className="flex flex-wrap border border-gray-800 border-l-white rounded-lg pl-4 md:pl-4 items-center service-title text-[#F8F9FA] text-[1rem] md:text-[2rem] md:h-[12vh] w-full md:w-[68vw] gap-1">
                   <span className="font-semibold">{item.title}</span>
                   <span>-</span>
                   <span className="text-[0.7rem] md:text-[1.6rem]">

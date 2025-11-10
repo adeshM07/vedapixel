@@ -36,29 +36,43 @@ const ContactPage = () => {
   }, []);
 
   // ✅ Smooth nav visibility logic
-  useEffect(() => {
-    if (!collaborateRef.current || !careerRef.current) return;
+// ✅ Smooth nav visibility logic — FINAL VERSION (stays visible slightly into Career)
+useEffect(() => {
+  if (!collaborateRef.current || !careerRef.current) return;
 
-    const handleScroll = () => {
-      if (isMobile) {
-        setShowNav(false);
-        return;
-      }
+  const handleScroll = () => {
+    if (isMobile) {
+      setShowNav(false);
+      return;
+    }
 
-      const collabRect = collaborateRef.current.getBoundingClientRect();
-      const careerRect = careerRef.current.getBoundingClientRect();
+    const collabRect = collaborateRef.current.getBoundingClientRect();
+    const careerRect = careerRef.current.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
 
-      const shouldShow =
-        collabRect.top <= 200 && careerRect.top > 100 && collabRect.bottom > 0;
+    // ✅ Conditions:
+    // 1️⃣ Nav appears once Collaborate enters viewport
+    // 2️⃣ Nav remains visible while Collaborate is still around
+    // 3️⃣ Nav stays slightly into Career (15–20% of its height visible)
+    const collabInView =
+      collabRect.top < windowHeight * 0.8 && collabRect.bottom > 100;
 
-      if (shouldShow && !showNav) setShowNav(true);
-      else if (!shouldShow && showNav) setShowNav(false);
-    };
+    const careerOverlap =
+      careerRect.top < windowHeight * 0.85 && careerRect.top > -windowHeight * 0.2;
+    // 👆 keeps nav visible until 20% of Career passes top
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isMobile, showNav]);
+    const shouldShow = collabInView || careerOverlap;
+
+    setShowNav(shouldShow);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [isMobile]);
+
+
+
 
   // ✅ Active section observer
   useEffect(() => {
@@ -209,7 +223,7 @@ const ContactPage = () => {
         </AnimatePresence>
 
         {/* ===== MAIN CONTENT ===== */}
-        <div className="flex flex-col pt-[54px] w-full">
+        <div className="flex flex-col  pt-[54px] w-full">
           {/* Banner */}
           <div
             ref={bannerRef}
@@ -235,7 +249,7 @@ const ContactPage = () => {
           </div>
 
           {/* Sections */}
-          <div className="flex flex-col gap-20 pl-0 sm:pl-[25vw] lg:pl-[30vw]  items-center sm:items-start">
+          <div className="flex flex-col gap-20 pl-0 sm:pl-[25vw] lg:pl-[30vw] 2xl:gap-[200px]  items-center sm:items-start">
             {/* === COLLABORATE SECTION === */}
             <section
               id="collaborate"
@@ -288,14 +302,7 @@ const ContactPage = () => {
                   }}
                   animate={{
                     opacity: activeSection === "collaborate" ? 1 : 0.5,
-                    boxShadow:
-                      activeSection === "collaborate"
-                        ? "0px 0px 25px rgba(177, 162, 223, 0.3)"
-                        : "0px 0px 0px rgba(0,0,0,0)",
-                    filter:
-                      activeSection === "collaborate"
-                        ? "brightness(1)"
-                        : "brightness(0.85)",
+                    
                   }}
                   transition={{
                     duration: 0.6,
@@ -347,7 +354,7 @@ const ContactPage = () => {
                   </form>
 
                   <button
-                    className="border border-[#B1A2DF] rounded-[8px] text-white font-medium 
+                    className="border rotating-btn border-[#B1A2DF] rounded-[8px] text-white font-medium 
                                      w-[clamp(200px,60vw,300px)] h-[clamp(40px,5vh,60px)] md:h-[clamp(40px,3vh,60px)] 2xlh-[clamp(40px,5vh,60px)] 
                                      md:w-[clamp(200px,30vw,300px)] 2xl:w-[clamp(500px,60vw,300px)] mx-auto mt-[clamp(10px,2vw,20px)] 
                                      hover:bg-[#B1A2DF]/10 transition text-[clamp(0.9rem,1.5vw,1.3rem)]"
@@ -409,14 +416,7 @@ const ContactPage = () => {
                   }}
                   animate={{
                     opacity: activeSection === "career" ? 1 : 0.5,
-                    boxShadow:
-                      activeSection === "career"
-                        ? "0px 0px 25px rgba(177, 162, 223, 0.3)"
-                        : "0px 0px 0px rgba(0,0,0,0)",
-                    filter:
-                      activeSection === "career"
-                        ? "brightness(1)"
-                        : "brightness(0.85)",
+                    
                   }}
                   transition={{
                     duration: 0.6,
@@ -468,7 +468,7 @@ const ContactPage = () => {
                   </form>
 
                   <button
-                    className="border border-[#B1A2DF] rounded-[8px] text-white font-medium 
+                    className="border rotating-btn border-[#B1A2DF] rounded-[8px] text-white font-medium 
                                      w-[clamp(200px,60vw,300px)] h-[clamp(40px,5vh,60px)] md:h-[clamp(40px,3vh,60px)] 2xlh-[clamp(40px,5vh,60px)] 
                                      md:w-[clamp(200px,30vw,300px)] 2xl:w-[clamp(500px,60vw,300px)] mx-auto mt-[clamp(10px,2vw,20px)] 
                                      hover:bg-[#B1A2DF]/10 transition text-[clamp(0.9rem,1.5vw,1.3rem)]"

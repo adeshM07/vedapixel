@@ -29,13 +29,13 @@ const Industries = () => {
   ];
 
   return (
-    <div className="mt-25  ">
+    <div className="mt-45  ">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
-        className="w-fit mt-[20vh]  md:mt-0 md:w-[80vw] lg:w-[85vw] 2xl:w-[72vw] flex flex-col   md:flex-row flex-wrap 2xl:h-[96vh]   gap-[20px] mx-auto"
+        className="w-fit mt-[20vh]  md:mt-0 md:w-[80vw]  lg:w-[85vw] 2xl:w-[72vw] flex flex-col   md:flex-row flex-wrap 2xl:h-[96vh]   gap-[20px] [@media(min-width:2000px)]:gap-[30px]  mx-auto"
       >
         {/* Heading */}
         <motion.div
@@ -43,10 +43,10 @@ const Industries = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="2xl:w-[23vw]   md:w-[35vw] md:h-[22vh] lg:w-[27vw] lg:h-[28vh] 2xl:h-[22vh]"
+          className="2xl:w-[23vw]  [@media(min-width:2000px)]:h-[19vh]  md:w-[35vw] md:h-[22vh] lg:w-[27vw] lg:h-[28vh] 2xl:h-[22vh]"
         >
           <p
-            className="text-[4rem]  leading-16 md:text-[3.8rem] 2xl:text-[4rem] pt-0 md:pt-10 2xl:pt-0 font-bold industry-title text-transparent bg-gradient-to-b from-[#BBABEB] md:leading-14 2xl:leading-16 to-[#6A6185] bg-clip-text inline-block"
+            className="text-[4rem]  leading-16 md:text-[3.8rem] 2xl:text-[4rem] pt-0 md:pt-10 2xl:pt-0 font-bold industry-title text-transparent bg-gradient-to-b from-[#BBABEB] md:leading-14 2xl:leading-16 to-[#6A6185] bg-clip-text inline-block [@media(min-width:2000px)]:text-[5.5rem] [@media(min-width:2000px)]:leading-20 [@media(min-width:2000px)]:place-items-center [@media(min-width:2000px)]:pt-14"
             style={{
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -68,17 +68,17 @@ const Industries = () => {
               ease: "easeOut",
             }}
             viewport={{ once: true }}
-            className="w-[80vw]  h-[20vh] md:w-[35vw] md:h-[22vh] lg:w-[27vw] lg:h-[28vh]  2xl:w-[23vw] 2xl:h-[22vh] border border-white rounded-[10px] flex flex-col gap-[20px] md:gap-[12px] justify-evenly py-4  pl-7 hover:bg-[#FFFFFF0A] transition-all duration-500"
+            className="w-[80vw]  h-[20vh] md:w-[35vw] md:h-[22vh] lg:w-[27vw] lg:h-[28vh]  2xl:w-[23vw] 2xl:h-[22vh] [@media(min-width:2000px)]:h-[19vh]  border border-white rounded-[10px] flex flex-col gap-[20px] md:gap-[12px] justify-evenly py-4  pl-7 hover:bg-[#FFFFFF0A] transition-all duration-500"
           >
             <motion.img
               src={item.img}
               alt={item.name}
-              className=" w-[17vw] h-[8vh] md:w-[10vw] md:h-[7vh] lg:w-[6vw] lg:h-[9vh] 2xl:w-[5vw] 2xl:h-[10vh]"
+              className=" w-[17vw] h-[8vh] md:w-[10vw] md:h-[7vh] lg:w-[6vw] lg:h-[9vh] 2xl:w-[5vw] 2xl:h-[10vh] [@media(min-width:2000px)]:h-[7vh] [@media(min-width:2000px)]:w-[7vh]"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             />
             <motion.p
-              className="text-[1.8rem] md:text-[2rem] 2xl:text-[1.75rem] lg:leading-9 industry-title"
+              className="text-[1.8rem] md:text-[2rem] 2xl:text-[1.75rem] [@media(min-width:2000px)]:text-[2.7rem] lg:leading-9 industry-title"
               whileHover={{ x: 4 }}
               transition={{ duration: 0.3 }}
             >

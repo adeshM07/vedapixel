@@ -3,6 +3,8 @@ import React, { useEffect, useState, useRef } from "react";
 import "../CSS/Body.css";
 import { motion, AnimatePresence } from "framer-motion";
 import InfiniteScrollNodes from "./InfiniteScrollNodes";
+import InfiniteScrollNodes2 from "./InfiniteScrollNodes2";
+import InfiniteScrollNodes3 from "./InfiniteScrollNodes3";
 import profileImg from "../assets/profileImg.png";
 
 const Body = () => {
@@ -484,11 +486,11 @@ const Body = () => {
       {/* ✅ Main Body */}
       <div className="body-content  px-[2%] relative min-h-screen flex flex-col  transition-all duration-700 ease-out w-full pt-[6vw]">
         {/* Sidebar Nav */}
-        {console.log("showBody:", showBody, "isMobile:", isMobile, "width:", window.innerWidth)}
+
         <AnimatePresence>
           {!isMobile && showBody && (
             <motion.nav
-              className="text-white flex flex-col gap-[10px]"
+              className="text-white flex flex-col  gap-[15px] [@media(min-width:2000px)]:gap-[32px] 2xl:gap-[15px]"
               style={{
                 position: "fixed",
                 left: navPosition.left,
@@ -542,7 +544,7 @@ const Body = () => {
               </motion.p>
             )}
             <p className="text-white text-[20px]  md:text-[28px] lg:text-[2.2rem] 2xl:text-[3rem] leading-[1.3]">
-              We bridge innovation and execution with user-centric, future-ready
+              We bridge innovation and execution with <br /> user-centric, future-ready
               systems that <br />
               <span
                 id="tag"
@@ -616,10 +618,10 @@ const Body = () => {
             )}
             <div className="flex flex-col  lg:w-[60vw]  lg:gap-4">
               <InfiniteScrollNodes direction="left" baseSpeed={65} />
-              <InfiniteScrollNodes direction="right" baseSpeed={65} />
-              <InfiniteScrollNodes direction="left" baseSpeed={65} />
-              <InfiniteScrollNodes direction="right" baseSpeed={65} />
-              <InfiniteScrollNodes direction="left" baseSpeed={65} />
+              <InfiniteScrollNodes direction="right" baseSpeed={75} />
+              <InfiniteScrollNodes2 direction="left" baseSpeed={65} />
+              <InfiniteScrollNodes2 direction="right" baseSpeed={75} />
+              <InfiniteScrollNodes3 direction="left" baseSpeed={65} />
             </div>
           </section>
 
@@ -647,8 +649,8 @@ const Body = () => {
                   {/* Wrapper */}
                   <div
                     className={`relative flex w-full md:w-1/2 items-center justify-center ${index % 2 === 0
-                        ? "md:justify-end md:pr-4 lg:pr-10 text-right"
-                        : "md:justify-start md:pl-4 lg:pl-10 text-left"
+                      ? "md:justify-end md:pr-4 lg:pr-10 text-right"
+                      : "md:justify-start md:pl-4 lg:pl-10 text-left"
                       }`}
                   >
                     {/* ✅ Number on one side of the line (left/right alternation on mobile) */}
@@ -701,15 +703,7 @@ const Body = () => {
               ))}
             </div>
           </section>
-
-
-
-
-
-
-
             :
-
             <section
               id="process"
               ref={processRef}
@@ -726,7 +720,7 @@ const Body = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className={`process-step relative  flex flex-col md:flex-row items-center mb-10 sm:mb-16 md:mb-24 ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"
+                    className={`process-step  relative  flex flex-col md:flex-row items-center mb-10 sm:mb-16 md:mb-24  [@media(min-width:2000px)]:mb-110 ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"
                       }`}
                   >
                     <div
@@ -737,7 +731,8 @@ const Body = () => {
                     >
                       <div className=" rounded-2xl p-3 sm:p-4 md:p-6 w-full md:w-[100%] transition-all duration-500">
                         <motion.h3
-                          className="process-title text-[#C8C1C1] text-[1.1rem] sm:text-[1.3rem] md:text-[1.5rem] lg:text-[1.7rem] 2xl:text-[1.9rem] font-semibold mb-2"
+
+                          className="process-title [@media(min-width:2000px)]:text-[3rem]  process-title-css text-[#C8C1C1] text-[1.1rem] sm:text-[1.3rem] md:text-[1.5rem] lg:text-[1.7rem] font-semibold mb-2"
                           initial={{ opacity: 0, y: 20 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -748,7 +743,8 @@ const Body = () => {
 
                         {/* Description hidden on mobile */}
                         <motion.p
-                          className="hidden md:block text-gray-200 text-[1rem] md:text-[1.1rem] 2xl:text-[1.2rem] leading-relaxed transition-colors duration-300"
+                          className="hidden [@media(min-width:2000px)]:text-[1.8rem] process-des-css md:block text-gray-200 text-[1rem] md:text-[1.1rem] lg:text-[1.3rem]
+                           leading-relaxed transition-colors duration-300"
                           initial={{ opacity: 0, y: 10 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
@@ -772,13 +768,6 @@ const Body = () => {
                 ))}
               </div>
             </section>}
-
-
-
-
-
-
-
           {/* --- Our Team --- */}
           <section
             id="team"
@@ -835,12 +824,20 @@ const Body = () => {
                     Driving enterprise & consumer innovation
                   </p>
 
-                  <button
-                    className="begin-card-button border-2 border-[#B1A2DF] text-white text-[12px] md:text-[16px] py-2 rounded-[8px] mt-[clamp(15px,2vw,25px)] w-[25vw] md:h-[clamp(50px,6vh,55px)] md:w-[clamp(110px,10vw,160px)] transition-all duration-300 hover:scale-105 hover:bg-[#B1A2DF]/20"
-                    onClick={() => setShowTeamPopup(true)}
-                  >
-                    Our Team
-                  </button>
+                  {/* <div className="relative inline-block">
+                    <button
+                      className="rotating-btn-teams  begin-card-button  text-white text-[12px] md:text-[16px] py-2 rounded-[8px] mt-[clamp(15px,2vw,25px)] w-[25vw] md:h-[clamp(50px,6vh,55px)] md:w-[clamp(110px,10vw,160px)] transition-all duration-300 hover:scale-105 hover:bg-[#B1A2DF]/20"
+                      onClick={() => setShowTeamPopup(true)}
+                    >
+                      Our Team
+                    </button>
+                  </div> */}
+                  <div className="relative inline-block">
+                    <button className="rotating-btn relative  text-[#b19cd9] font-garota text-[12px] md:text-[16px] rounded-md w-[25vw] md:h-[clamp(50px,6vh,55px)] md:w-[clamp(110px,10vw,160px)]  overflow-hidden">
+                      Know More
+                    </button>
+                  </div>
+
                 </div>
               </div>
             </div>

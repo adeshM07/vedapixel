@@ -17,7 +17,7 @@ const Base = () => {
     // If we’re on homepage, show only after scroll.
     if (location.pathname === "/") {
       const unsubscribe = scrollY.on("change", (latest) => {
-        setShowMenu(latest > 700);
+        setShowMenu(latest > 350);
       });
       return () => unsubscribe();
     } else {

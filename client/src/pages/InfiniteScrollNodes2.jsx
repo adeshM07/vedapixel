@@ -1,44 +1,44 @@
 import React, { useState } from "react";
 import "../CSS/Body.css";
 
-const InfiniteScrollNodes = ({ direction = "left", baseSpeed = 35 }) => {
+const InfiniteScrollNodes2 = ({ direction = "left", baseSpeed = 35 }) => {
   const [speed, setSpeed] = useState(baseSpeed);
 
   const items = [
-    "Web Design",
-    "IOS Development",
-    "Web Development",
-    "UX Research",
-    "Mobile Applications",
-    "User Experience",
-    "Custom Software",
-    "Game Development",
-    "AR/VR",
-    "ERP Solutions",
-    "Chatbot Development",
-    "Artificial Intelligence",
-    "CRM Development",
-    "Cloud Computing",
-    "Maintenance & Support",
-    "Blockchain Development",
-    "IoT Development",
-    "Web Design",
-    "IOS Development",
-    "Web Development",
-    "UX Research",
-    "Mobile Applications",
-    "User Experience",
-    "Custom Software",
-    "Game Development",
-    "AR/VR",
-    "ERP Solutions",
-    "Chatbot Development",
-    "Artificial Intelligence",
-    "CRM Development",
-    "Cloud Computing",
-    "Maintenance & Support",
-    "Blockchain Development",
-    "IoT Development",
+  "Artificial Intelligence",
+  "Web Development",
+  "AR/VR",
+  "Custom Software",
+  "Blockchain Development",
+  "Mobile Applications",
+  "CRM Development",
+  "Web Design",
+  "Iot Development",
+  "Chatbot Development",
+  "UX Research",
+  "Cloud Computing",
+  "User Experience",
+  "ERP Solutions",
+  "Maintenance & Support",
+  "Game Development",
+  "IOS Development",
+  "Artificial Intelligence",
+  "Web Development",
+  "AR/VR",
+  "Custom Software",
+  "Blockchain Development",
+  "Mobile Applications",
+  "CRM Development",
+  "Web Design",
+  "Iot Development",
+  "Chatbot Development",
+  "UX Research",
+  "Cloud Computing",
+  "User Experience",
+  "ERP Solutions",
+  "Maintenance & Support",
+  "Game Development",
+  "IOS Development"
   ];
 
   // ✅ Duplicate twice (for perfect looping)
@@ -56,7 +56,7 @@ const InfiniteScrollNodes = ({ direction = "left", baseSpeed = 35 }) => {
         onMouseEnter={() => setSpeed(baseSpeed * 4)}
         onMouseLeave={() => setSpeed(baseSpeed)}
       >
-        {loopItems.reverse().map((text, index) => (
+        {loopItems.map((text, index) => (
           <div
             key={index}
             className="
@@ -80,4 +80,4 @@ const InfiniteScrollNodes = ({ direction = "left", baseSpeed = 35 }) => {
   );
 };
 
-export default InfiniteScrollNodes;
+export default InfiniteScrollNodes2;
