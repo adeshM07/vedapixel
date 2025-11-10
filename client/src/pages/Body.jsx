@@ -833,8 +833,8 @@ const Body = () => {
                     </button>
                   </div> */}
                   <div className="relative inline-block">
-                    <button className="rotating-btn relative  text-[#b19cd9] font-garota text-[12px] md:text-[16px] rounded-md w-[25vw] md:h-[clamp(50px,6vh,55px)] md:w-[clamp(110px,10vw,160px)]  overflow-hidden">
-                      Know More
+                    <button  onClick={() => setShowTeamPopup(true)} className="rotating-btn relative  text-[#b19cd9] font-garota text-[12px] md:text-[16px] rounded-md w-[25vw] md:h-[clamp(50px,6vh,55px)] md:w-[clamp(110px,10vw,160px)]  overflow-hidden">
+                      Our Team
                     </button>
                   </div>
 
