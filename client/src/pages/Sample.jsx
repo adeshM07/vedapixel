@@ -48,80 +48,196 @@
 //   </div>
 // </section>; 
 
-<section
-  id="process"
-  ref={processRef}
-  className="w-full text-white py-10 sm:py-16 px-3 sm:px-6 flex flex-col items-center lg:mt-[7vw] overflow-hidden"
->
-  <div className="relative w-full max-w-5xl">
-    {/* ✅ Center vertical line */}
-    <div className="absolute left-1/2 transform -translate-x-1/2 bg-[#6A6185] w-[1.5px] sm:w-[2px] h-full"></div>
+import React from "react";
+import "../CSS/About.css";
+import { motion } from "framer-motion";
+import { useEffect } from "react";
 
-    {steps.map((step, index) => (
-      <motion.div
-        key={step.id}
-        initial={{ opacity: 0, y: 80 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: index * 0.1 }}
-        viewport={{ once: true }}
-        className={`process-step relative flex flex-col md:flex-row items-center mb-10 sm:mb-16 md:mb-20 ${
-          index % 2 === 0 ? "md:justify-start" : "md:justify-end"
-        }`}
+const AboutPage = () => {
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  // }, []);
+
+  // --- Grid setup ---
+  // const topLeftGrid = {
+  //   startX: "0%",
+  //   startY: "0%",
+  //   width: "50%",
+  //   height: "35%",
+  //   numHorizontalLines: 4,
+  //   numVerticalLines: 20,
+  // };
+
+  // const bottomRightGrid = {
+  //   startX: "50%",
+  //   startY: "60%",
+  //   width: "50%",
+  //   height: "50%",
+  //   numHorizontalLines: 4,
+  //   numVerticalLines: 20,
+  // };
+
+  // const textDelay = 1.5;
+
+  // --- Variants ---
+  // const lineVariants = {
+  //   hidden: { opacity: 0, scale: 0.8 },
+  //   visible: {
+  //     opacity: 0.5,
+  //     scale: 1,
+  //     transition: { duration: 0.5, ease: "easeOut" },
+  //   },
+  // };
+
+  // const containerVariants = {
+  //   hidden: { opacity: 0 },
+  //   visible: {
+  //     opacity: 1,
+  //     transition: {
+  //       staggerChildren: 0.03,
+  //       when: "beforeChildren",
+  //       opacity: { delay: 0.2, duration: 2.0, ease: "easeInOut" },
+  //     },
+  //   },
+  // };
+
+  const headingVariant = {
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const paragraphVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, ease: "easeOut", delay: 0.4 },
+    },
+  };
+
+  const glowTextVariant = {
+    hidden: { opacity: 0, scale: 0.8, y: 30 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: { duration: 1, ease: "easeOut", delay: 0.8 },
+    },
+  };
+
+  const layoutVariant = {
+    hidden: { opacity: 0.25 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.8, ease: "easeInOut" },
+    },
+  };
+
+  return (
+    <>
+      <div
+        id="about"
+        className=" flex mt-16 flex-col gap-40 relative overflow-hidden"
       >
-        {/* ✅ Left or Right Side Alignment */}
-        <div
-          className={`flex items-center justify-between w-full md:w-1/2 ${
-            index % 2 === 0
-              ? "md:justify-end md:pr-3 sm:md:pr-4 lg:pr-12 text-right flex-row-reverse"
-              : "md:justify-start md:pl-3 sm:md:pl-4 lg:pl-12 text-left flex-row"
-          }`}
-        >
-          {/* ✅ Step Number */}
-          <motion.div
-            className={`flex-shrink-0 text-[#C8C1C1] text-[1.8rem] sm:text-[2.3rem] md:text-[2.8rem] font-semibold ${
-              index % 2 === 0
-                ? "md:ml-5 ml-3 order-2"
-                : "md:mr-5 mr-3 order-1"
-            }`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            viewport={{ once: false, amount: 0.4 }}
+        {/* --- Top Text Section --- */}
+        <div className="w-[85%] h-[auto] md:h-[40vh] p-[10px] mx-auto">
+          <motion.p
+            className="about-part-title text-[2rem] md:text-[3rem] text-white text-center md:text-left"
+            variants={headingVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
           >
-            {step.id}.
-          </motion.div>
+            Our Company
+          </motion.p>
 
-          {/* ✅ Title + Description */}
-          <div className="border-2 border-white rounded-2xl p-3 sm:p-4 md:p-6 w-full transition-all duration-500">
-            <motion.h3
-              className="process-title text-[#C8C1C1] 
-              text-[1rem] sm:text-[1.3rem] md:text-[1.5rem] lg:text-[1.7rem] 
-              2xl:text-[1.9rem] font-semibold leading-snug break-words"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: false, amount: 0.4 }}
-            >
-              {step.title}
-            </motion.h3>
+          <motion.p
+            className="about-part1-desc text-[1rem] md:text-[1.5rem] text-[#C8C1C1] text-center md:text-left"
+            variants={paragraphVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+          >
+            Vedapixel Tech Solutions Pvt. Ltd. builds intelligent, scalable
+            digital platforms that solve real-world business challenges. With
+            over a decade of experience, we focus on creating solutions that
+            streamline operations, enhance accessibility, and enable sustainable
+            growth across industries. We don't just deliver technology.
+          </motion.p>
 
-            {/* ✅ Hidden on mobile */}
-            <motion.p
-              className="hidden md:block text-gray-200 text-[1rem] md:text-[1.1rem] 
-              2xl:text-[1.2rem] leading-relaxed transition-colors duration-300"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-              viewport={{ once: false, amount: 0.4 }}
-            >
-              {step.desc}
-            </motion.p>
-          </div>
+          <motion.p
+            className="about-part-title text-[2rem] md:text-[3rem] text-[#BBABEB] text-end"
+            variants={glowTextVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            style={{
+              textShadow: "0px 0px 15px rgba(187,171,235,0.8)",
+            }}
+          >
+            We deliver Impact
+          </motion.p>
         </div>
-      </motion.div>
-    ))}
-  </div>
-</section>
+
+        {/* --- Background + Boxes Section --- */}
+        <motion.div
+          id="layout"
+          className="w-[90%]  md:w-[66%] md:h-[130vh] mx-auto flex flex-col items-center  md:gap-0"
+          variants={layoutVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+        >
+          {/* --- Info Cards --- */}
+          <div className="w-full   flex justify-end md:justify-end">
+            <div className="about-card gap-3 md:gap-[9px] w-[32.5%] md:px-7 md:py-4 md:w-1/2 lg:w-[22vw] h-[15vh] md:h-[42vh]">
+              <p className="about-card-title text-[0.6rem] md:text-[1.75rem] text-[#F8F9FA]">
+                Our Mission
+              </p>
+              <p className="mt-3 md:mt-0 about-card-title text-[7px]  md:text-[1.5rem] text-[#C8C1C1]">
+                Vedapixel uses tech to bring clarity, speed, and reliability to
+                outdated sectors, building ecosystems where innovation can
+                thrive.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full flex justify-center md:justify-center">
+            <div className="about-card gap-3 md:gap-[9px] border-2 border-green-600 w-[32.5%] md:px-7 md:py-4 md:w-1/2 lg:w-[22vw] h-[15vh] md:h-[42vh]">
+              <p className="about-card-title text-[0.6rem] md:text-[1.75rem] text-[#F8F9FA]">
+                Our Vision
+              </p>
+              <p className="about-card-title text-[7px] mt-3 md:mt-0 md:text-[1.5rem] text-[#C8C1C1]">
+                We redefine how businesses use tech by creating integrated
+                platforms that simplify workflows and unlock new growth.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full flex justify-start md:justify-start">
+            <div className="about-card border-2 border-green-600 gap-3 md:gap-[9px] w-[32.5%] px-1 py-1 md:px-7 md:py-4 md:w-1/2 lg:w-[22vw] h-[15vh] md:h-[42vh]">
+              <p className="about-card-title text-[0.6rem] md:text-[1.75rem] text-[#F8F9FA]">
+                Our Story
+              </p>
+              <p className="about-card-title text-[7px] mt-3 md:mt-0  md:text-[1.5rem] text-[#C8C1C1]">
+                Vedapixel Tech Solutions Pvt. Ltd. builds intelligent, scalable
+                digital platforms that solve real-world business challenges.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </>
+  );
+};
+
+export default AboutPage;
+
 
 
 
