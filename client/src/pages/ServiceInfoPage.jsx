@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "../CSS/Body.css"
+import up from "../assets/upwards.png"
+import down from "../assets/downwards.png"
 
 const ServiceInfoPage = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -1157,7 +1159,7 @@ const ServiceInfoPage = () => {
                     transition: { duration: 0.1, ease: "easeOut" },
                   }}
                 >
-                  <p className="text-[1.8rem] md:text-[1.8rem] service-title text-[#F8F9FA]">
+                  <p className="text-[1.8rem] md:text-[1.5rem] service-desc text-[#F8F9FA]">
                     {item.title}
                   </p>
                   <p className="text-[#C8C1C1] service-desc text-[1rem] md:text-[1rem] leading-relaxed">
@@ -1257,11 +1259,11 @@ const ServiceInfoPage = () => {
                   }
                   className="w-full flex justify-between items-center px-6 py-5 text-left text-[#F8F9FA] hover:text-[#BBABEB] transition-all duration-200"
                 >
-                  <span className="text-[1.3rem] md:text-[1.8rem] service-title ">
+                  <span className="text-[1.3rem] md:text-[1.5rem] service-desc ">
                     {faq.question}
                   </span>
                   <span className="text-[#BBABEB] text-[1rem] md:text-2xl">
-                    {openIndex === index ? "▴" : "▾"}
+                    {openIndex === index ? <img src={up} className="h-[25px] w-[25px]"></img>  : <img className="h-[25px] w-[25px]" src={down}></img> }
                   </span>
                 </button>
 
