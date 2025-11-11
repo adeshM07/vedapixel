@@ -415,11 +415,12 @@ const Body = () => {
       <AnimatePresence>
         {showTeamPopup && (
           <motion.div
-            className=" fixed inset-0 bg-black/50 backdrop-blur-[8px] flex justify-center items-center z-[200] px-4 sm:px-6"
+            className=" fixed mt-20 inset-0 bg-black/50 backdrop-blur-[8px] flex justify-center items-center  px-4 sm:px-6 z-999"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
+            style={{ zIndex: 9999 }}
           >
             <motion.div
               className="relative w-full max-w-[95vw] md:w-[700px] lg:w-[80vw] lg:h-[85vh]
