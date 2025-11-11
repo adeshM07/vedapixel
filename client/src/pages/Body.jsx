@@ -435,13 +435,13 @@ const Body = () => {
               transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <button
-                className="absolute md:top-4 right-6 text-white text-[16px] md:text-[24px] hover:text-[#b19cd9] transition-all"
+                className="absolute md:top-4 right-6 text-white text-[24px] hover:text-[#b19cd9] transition-all"
                 onClick={() => setShowTeamPopup(false)}
               >
                 ✕
               </button>
 
-              <p className="popup-teamCard-title text-white text-center md:text-left text-[20px]  lg:text-[39px] pb-14 font-semibold">
+              <p className="popup-teamCard-title text-white text-center md:text-left text-[2rem] lg:text-[39px] pb-14 font-semibold">
                 Meet Our Team
               </p>
 

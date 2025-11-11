@@ -33,7 +33,7 @@ const Industries = () => {
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
         className="w-fit mt-[20vh]  md:mt-0 md:w-[80vw]  lg:w-[85vw] 2xl:w-[72vw] flex flex-col   md:flex-row flex-wrap 2xl:h-[96vh]   gap-[20px] [@media(min-width:2000px)]:gap-[30px]  mx-auto"
       >
@@ -41,7 +41,7 @@ const Industries = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           viewport={{ once: true }}
           className="2xl:w-[23vw]  [@media(min-width:2000px)]:h-[19vh]  md:w-[35vw] md:h-[22vh] lg:w-[27vw] lg:h-[28vh] 2xl:h-[22vh]"
         >
