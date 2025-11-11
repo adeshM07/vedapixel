@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "../CSS/Body.css";
 import "../CSS/Contact.css";
 import banner from "../assets/contact-banner.png";
+import upIcon from "../assets/up-loading.png"
 import { motion, AnimatePresence } from "framer-motion";
 
 const ContactPage = () => {
@@ -36,40 +37,40 @@ const ContactPage = () => {
   }, []);
 
   // ✅ Smooth nav visibility logic
-// ✅ Smooth nav visibility logic — FINAL VERSION (stays visible slightly into Career)
-useEffect(() => {
-  if (!collaborateRef.current || !careerRef.current) return;
+  // ✅ Smooth nav visibility logic — FINAL VERSION (stays visible slightly into Career)
+  useEffect(() => {
+    if (!collaborateRef.current || !careerRef.current) return;
 
-  const handleScroll = () => {
-    if (isMobile) {
-      setShowNav(false);
-      return;
-    }
+    const handleScroll = () => {
+      if (isMobile) {
+        setShowNav(false);
+        return;
+      }
 
-    const collabRect = collaborateRef.current.getBoundingClientRect();
-    const careerRect = careerRef.current.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
+      const collabRect = collaborateRef.current.getBoundingClientRect();
+      const careerRect = careerRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
 
-    // ✅ Conditions:
-    // 1️⃣ Nav appears once Collaborate enters viewport
-    // 2️⃣ Nav remains visible while Collaborate is still around
-    // 3️⃣ Nav stays slightly into Career (15–20% of its height visible)
-    const collabInView =
-      collabRect.top < windowHeight * 0.8 && collabRect.bottom > 100;
+      // ✅ Conditions:
+      // 1️⃣ Nav appears once Collaborate enters viewport
+      // 2️⃣ Nav remains visible while Collaborate is still around
+      // 3️⃣ Nav stays slightly into Career (15–20% of its height visible)
+      const collabInView =
+        collabRect.top < windowHeight * 0.8 && collabRect.bottom > 100;
 
-    const careerOverlap =
-      careerRect.top < windowHeight * 0.85 && careerRect.top > -windowHeight * 0.2;
-    // 👆 keeps nav visible until 20% of Career passes top
+      const careerOverlap =
+        careerRect.top < windowHeight * 0.85 && careerRect.top > -windowHeight * 0.2;
+      // 👆 keeps nav visible until 20% of Career passes top
 
-    const shouldShow = collabInView || careerOverlap;
+      const shouldShow = collabInView || careerOverlap;
 
-    setShowNav(shouldShow);
-  };
+      setShowNav(shouldShow);
+    };
 
-  window.addEventListener("scroll", handleScroll);
-  handleScroll();
-  return () => window.removeEventListener("scroll", handleScroll);
-}, [isMobile]);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isMobile]);
 
 
 
@@ -302,7 +303,7 @@ useEffect(() => {
                   }}
                   animate={{
                     opacity: activeSection === "collaborate" ? 1 : 0.5,
-                    
+
                   }}
                   transition={{
                     duration: 0.6,
@@ -416,7 +417,7 @@ useEffect(() => {
                   }}
                   animate={{
                     opacity: activeSection === "career" ? 1 : 0.5,
-                    
+
                   }}
                   transition={{
                     duration: 0.6,
@@ -450,13 +451,25 @@ useEffect(() => {
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
                                    w-[46%] md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
                       />
-                      <input
-                        type="file"
-                        placeholder="Resume *"
-                        className="border border-[#989BA1] text-[#818181] bg-transparent 
-                                   p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
-                                   w-[46%] md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
-                      />
+                      <div className="relative w-[46%] md:w-[47%] 2xl:w-[21vw]">
+                        <input
+                          type="file"
+                          id="resume"
+                          onChange={(e) =>
+                            setFileName(e.target.files[0] ? e.target.files[0].name : "Upload Resume *")
+                          }
+                          className="hidden "
+                        />
+                        <label
+                          htmlFor="resume"
+                          className="flex items-center justify-between   border border-[#989BA1] text-[#818181] bg-transparent 
+                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
+                                   md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
+                        >
+                          {isMobile?"Resume":"Upload Your Resume"}
+                          <img src={upIcon} className="h-[2vh] md:h-[3vh] [@media(min-width:2000px)]:h-[2vh]" />
+                        </label>
+                      </div>
                     </div>
 
                     <textarea
