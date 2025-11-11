@@ -423,7 +423,7 @@ const Body = () => {
             style={{ zIndex: 9999 }}
           >
             <motion.div
-              className="relative w-full max-w-[95vw] md:w-[700px] lg:w-[80vw] lg:h-[85vh]
+              className="relative w-full max-w-[95vw] md:w-[700px] lg:w-[80vw]  md:h-[85vh]
                    flex flex-col gap-6 sm:gap-8 md:gap-10
                    rounded-[30px] sm:rounded-[40px]
                    border border-white/20 bg-white/10 backdrop-blur-[20px]
@@ -435,13 +435,13 @@ const Body = () => {
               transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <button
-                className="absolute md:top-4 right-6 text-white text-[24px] hover:text-[#b19cd9] transition-all"
+                className="absolute md:top-4 right-6 text-white text-[16px] md:text-[24px] hover:text-[#b19cd9] transition-all"
                 onClick={() => setShowTeamPopup(false)}
               >
                 ✕
               </button>
 
-              <p className="popup-teamCard-title text-white text-center md:text-left text-[2rem] lg:text-[39px] pb-14 font-semibold">
+              <p className="popup-teamCard-title text-white text-center md:text-left text-[20px]  lg:text-[39px] pb-14 font-semibold">
                 Meet Our Team
               </p>
 
@@ -649,18 +649,18 @@ const Body = () => {
                 >
                   {/* Wrapper */}
                   <div
-                    className={`relative flex w-full md:w-1/2 items-center justify-center ${index % 2 === 0
+                    className={`  relative flex w-full md:w-1/2 items-center justify-center ${index % 2 === 0
                       ? "md:justify-end md:pr-4 lg:pr-10 text-right"
                       : "md:justify-start md:pl-4 lg:pl-10 text-left"
                       }`}
                   >
                     {/* ✅ Number on one side of the line (left/right alternation on mobile) */}
                     <motion.div
-                      className={`absolute top-1/2 -translate-y-1/2 text-[#C8C1C1] font-semibold 
+                      className={`  absolute top-1/2 -translate-y-1/2 text-[#C8C1C1] font-semibold 
             text-[1.6rem] sm:text-[2rem] md:text-[2.4rem]
             ${index % 2 === 0
-                          ? "left-[calc(50%-24px)] md:left-auto md:right-[calc(100%+10px)]"
-                          : "right-[calc(50%-24px)] md:right-auto md:left-[calc(100%+10px)]"
+                          ? "left-[calc(50%-24px)] md:left-auto md:right-[calc(100%+10px)] border-r-3 border-r-[#BBABEB] "
+                          : "right-[calc(50%-24px)] md:right-auto md:left-[calc(100%+10px)] border-l-3 border-l-[#BBABEB]"
                         }`}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
