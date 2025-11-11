@@ -5,40 +5,40 @@ const InfiniteScrollNodes2 = ({ direction = "left", baseSpeed = 35 }) => {
   const [speed, setSpeed] = useState(baseSpeed);
 
   const items = [
-  "Artificial Intelligence",
-  "Web Development",
-  "AR/VR",
-  "Custom Software",
-  "Blockchain Development",
-  "Mobile Applications",
-  "CRM Development",
-  "Web Design",
-  "Iot Development",
-  "Chatbot Development",
-  "UX Research",
-  "Cloud Computing",
-  "User Experience",
-  "ERP Solutions",
-  "Maintenance & Support",
-  "Game Development",
-  "IOS Development",
-  "Artificial Intelligence",
-  "Web Development",
-  "AR/VR",
-  "Custom Software",
-  "Blockchain Development",
-  "Mobile Applications",
-  "CRM Development",
-  "Web Design",
-  "Iot Development",
-  "Chatbot Development",
-  "UX Research",
-  "Cloud Computing",
-  "User Experience",
-  "ERP Solutions",
-  "Maintenance & Support",
-  "Game Development",
-  "IOS Development"
+    "Artificial Intelligence",
+    "Web Development",
+    "AR/VR",
+    "Custom Software",
+    "Blockchain Development",
+    "Mobile Applications",
+    "CRM Development",
+    "Web Design",
+    "Iot Development",
+    "Chatbot Development",
+    "UX Research",
+    "Cloud Computing",
+    "User Experience",
+    "ERP Solutions",
+    "Maintenance & Support",
+    "Game Development",
+    "IOS Development",
+    "Artificial Intelligence",
+    "Web Development",
+    "AR/VR",
+    "Custom Software",
+    "Blockchain Development",
+    "Mobile Applications",
+    "CRM Development",
+    "Web Design",
+    "Iot Development",
+    "Chatbot Development",
+    "UX Research",
+    "Cloud Computing",
+    "User Experience",
+    "ERP Solutions",
+    "Maintenance & Support",
+    "Game Development",
+    "IOS Development"
   ];
 
   // ✅ Duplicate twice (for perfect looping)
@@ -47,14 +47,15 @@ const InfiniteScrollNodes2 = ({ direction = "left", baseSpeed = 35 }) => {
   return (
     <div className="relative w-full h-[70px] overflow-hidden flex items-center justify-center">
       <div
-        className={`scroll-track flex gap-[14px] whitespace-nowrap ${
-          direction === "left" ? "scroll-left" : "scroll-right"
-        }`}
+        className={`scroll-track flex gap-[14px] whitespace-nowrap ${direction === "left" ? "scroll-left" : "scroll-right"
+          }`}
         style={{
-          animationDuration: `${speed}s`,
+          animationDuration: `${baseSpeed}s`,
+          animationPlayState: speed === 0 ? "paused" : "running",
         }}
-        onMouseEnter={() => setSpeed(baseSpeed * 4)}
+        onMouseEnter={() => setSpeed(0)}
         onMouseLeave={() => setSpeed(baseSpeed)}
+
       >
         {loopItems.map((text, index) => (
           <div

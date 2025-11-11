@@ -374,7 +374,7 @@ const Body = () => {
         const isLeft = closestStep.classList.contains("md:justify-end");
 
         if (activeTitle) {
-          activeTitle.style.color = "#A27CF0";
+          activeTitle.style.color = "#BBABEB";
           activeTitle.style.transition = "color 0.4s ease";
         }
 
@@ -386,11 +386,11 @@ const Body = () => {
           if (isLeft) {
             // box is on left → right border is the inner side
             activeBox.style.borderRightColor = "#101820";
-            activeBox.style.borderLeftColor = "#A27CF0";
+            activeBox.style.borderLeftColor = "#BBABEB";
           } else {
             // box is on right → left border is the inner side
             activeBox.style.borderLeftColor = "#101820";
-            activeBox.style.borderRightColor = "#A27CF0";
+            activeBox.style.borderRightColor = "#BBABEB";
           }
 
           activeBox.style.transition = "border-color 0.4s ease";
@@ -618,11 +618,11 @@ const Body = () => {
               </motion.p>
             )}
             <div className="flex flex-col  lg:w-[60vw]  lg:gap-4">
-              <InfiniteScrollNodes direction="left" baseSpeed={65} />
-              <InfiniteScrollNodes direction="right" baseSpeed={75} />
-              <InfiniteScrollNodes2 direction="left" baseSpeed={65} />
-              <InfiniteScrollNodes2 direction="right" baseSpeed={75} />
-              <InfiniteScrollNodes3 direction="left" baseSpeed={65} />
+              <InfiniteScrollNodes direction="left" baseSpeed={85} />
+              <InfiniteScrollNodes direction="right" baseSpeed={95} />
+              <InfiniteScrollNodes2 direction="left" baseSpeed={85} />
+              <InfiniteScrollNodes2 direction="right" baseSpeed={95} />
+              <InfiniteScrollNodes3 direction="left" baseSpeed={95} />
             </div>
           </section>
 
@@ -721,7 +721,7 @@ const Body = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className={`process-step  relative  flex flex-col md:flex-row items-center mb-10 sm:mb-16 md:mb-24  [@media(min-width:2000px)]:mb-110 ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"
+                    className={`process-step  relative  flex flex-col md:flex-row items-center    ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"
                       }`}
                   >
                     <div

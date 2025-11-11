@@ -1,6 +1,8 @@
 import React from "react";
 import "../CSS/ServiceInfoPage.css";
 import { useState } from "react";
+import down from "../assets/downwards.png";
+import up from "../assets/upwards.png";
 
 const Faq = () => {
   let faqJSON = [
@@ -90,7 +92,7 @@ const Faq = () => {
                     {faq.question}
                   </span>
                   <span className="text-[#BBABEB] text-[0.8rem] md:text-2xl">
-                    {openIndex === index ? "▴" : "▾"}
+                    {openIndex === index ? <img src={up} className="h-[25px] w-[25px]"></img>  : <img className="h-[25px] w-[25px]" src={down}></img> }
                   </span>
                 </button>
 
