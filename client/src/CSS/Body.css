@@ -262,3 +262,32 @@
 .animate-fadeSlideIn {
   animation: fadeSlideIn 0.8s ease-out forwards;
 }
+
+
+@media (min-width: 301px) and (max-width: 780px){
+  .rotating-btn {
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background:
+    linear-gradient(#101820, #101820) padding-box,
+    conic-gradient(from var(--border-angle),
+      #101820,
+      #9c88ff,
+      #b19cd9,
+      #d1c4e9,
+      #b19cd9) border-box;
+  animation: border-rotate 3s linear infinite;
+  transition: color 0.3s smooth;
+}
+
+@keyframes border-rotate {
+  from {
+    --border-angle: 0deg;
+  }
+
+  to {
+    --border-angle: 360deg;
+  }
+}
+}

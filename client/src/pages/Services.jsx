@@ -224,6 +224,18 @@ const Services = () => {
             </Link>
           ))}
         </motion.div>
+
+        <div className="mt-[80px]  mx-auto flex [@media(min-width:300px)_and_(max-width:448px)]:w-[70vw]    w-[90vw] sm:w-[85vw] md:w-[80vw] lg:w-full 2xl:w-[73vw]">
+          <p className="text-[#F8F9FA] text-[1.2rem] sm:text-[1.4rem] md:text-[1.6rem] lg:text-[2.2rem] xl:text-[2.6rem] 2xl:text-[3rem]  service-title">
+            Have any questions?
+            <Link to="/faqs">
+              <span className=" mx-3 underline decoration-[#BBABEB] text-[#BBABEB] text-[1rem] sm:text-[1.2rem] md:text-[1.4rem] lg:text-[1.6rem] xl:text-[1.8rem] service-title">
+                FAQs
+              </span>
+            </Link>
+          </p>
+        </div>
+
       </div>
     </>
   );

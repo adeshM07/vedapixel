@@ -6,6 +6,21 @@ import { useLocation } from "react-router-dom";
 import "../CSS/Body.css"
 
 const ServiceInfoPage = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => setIsMobile(window.innerWidth < 1024);
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  const handleToggle = (index) => {
+    if (isMobile) {
+      setActiveIndex(activeIndex === index ? null : index);
+    }
+  };
   const location = useLocation();
   const [service, setService] = useState();
   useEffect(() => {
@@ -1157,7 +1172,7 @@ const ServiceInfoPage = () => {
               {serviceInfo[service]?.whyUs.map((value, index) => (
                 <li
                   key={index}
-                  className="service-desc text-[0.8rem] md:text-[1.5rem] text-[#C8C1C1]"
+                  className="service-desc [@media(min-width:300px)_and_(max-width:450px)]:text-[0.6rem] text-[0.8rem] md:text-[1.5rem] text-[#C8C1C1]"
                 >
                   {value}
                 </li>
@@ -1174,25 +1189,43 @@ const ServiceInfoPage = () => {
             {serviceInfo[service]?.process.map((item, index) => (
               <div
                 key={index}
-                className="flex items-start md:items-center gap-3 md:gap-7 "
+                className="flex flex-row items-start md:items-center gap-3 md:gap-7"
               >
                 {/* Step number */}
-                <p className="text-[#C8C1C1] w-[8vw] sm:w-[6vw] md:w-[3vw] text-[1rem] md:text-[2rem] service-desc">
+                <p className="text-[#C8C1C1] w-[8vw] sm:w-[6vw] md:w-[3vw] text-[1rem] md:text-[2rem]">
                   {index + 1}.
                 </p>
 
                 {/* Step content */}
-                <p className="flex flex-wrap border border-gray-800 border-l-white rounded-lg pl-4 md:pl-4 items-center service-title text-[#F8F9FA] text-[1rem] md:text-[2rem] md:h-[12vh] w-full md:w-[68vw] gap-1">
-                  <span className="font-semibold">{item.title}</span>
-                  <span>-</span>
-                  <span className="text-[0.7rem] md:text-[1.6rem]">
+                <div
+                  onClick={() => handleToggle(index)}
+                  className="group relative flex flex-col border border-gray-800 border-l-white rounded-lg pl-4 md:pl-4 cursor-pointer text-[#F8F9FA] text-[1rem] md:text-[2rem] w-full md:w-[68vw] gap-1 py-2 md:py-3 transition-all duration-300 ease-in-out hover:border-[#BBABEB]/40"
+                >
+                  {/* Title */}
+                  <p className="font-semibold text-left hover:text-[#BBABEB] z-10">
+                    {item.title}
+                  </p>
+
+                  {/* Description */}
+                  <div
+                    className={`
+              text-[0.8rem] md:text-[1.2rem] transition-all duration-500 ease-in-out overflow-hidden
+              ${isMobile
+                        ? activeIndex === index
+                          ? "max-h-[500px] opacity-100 mt-2"
+                          : "max-h-0 opacity-0 mt-0"
+                        : "opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-[500px] group-hover:mt-2"
+                      }
+            `}
+                  >
                     {item.desc}
-                  </span>
-                </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
+
 
 
         <div className="w-[90vw] md:w-[73vw] flex mt-[100px] flex-col gap-[1.3rem]">

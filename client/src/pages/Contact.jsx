@@ -12,6 +12,7 @@ const Contact = () => {
           flex flex-col-reverse   md:flex-row 
           justify-center items-center md:items-start
           mt-[10vh] md:mt-[11vh]
+          [@media(min-width:2000px)]:mt-[100px]
           gap-[5vw] md:gap-0
           px-[4vw]
         "

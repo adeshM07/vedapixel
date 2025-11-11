@@ -12,7 +12,7 @@ const MainSection = () => {
       <div className="flex flex-col gap-4">
         <Body></Body>
         <Industries></Industries>
-        <div className="w-screen  mt-[70px]    md:mt-[70px] lg:mt-[96px]">
+        <div className="w-screen  mt-[70px]    md:mt-[70px] lg:mt-[100px] 2xl:mt-[140px] [@media(min-width:2000px)]:mt-[150px]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

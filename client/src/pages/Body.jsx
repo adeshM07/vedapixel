@@ -543,7 +543,7 @@ const Body = () => {
                 />
               </motion.p>
             )}
-            <p className="text-white   [@media(min-width:300px)]:text-[18px]  text-[20px]   md:text-[28px] lg:text-[2.2rem] 2xl:text-[3rem] leading-[1.3]">
+            <p className="text-white   [@media(min-width:300px)_and_(max-width:410px)]:text-[18px]  text-[20px]   md:text-[28px] lg:text-[2.2rem] 2xl:text-[3rem] leading-[1.3]">
               We bridge innovation and execution with <br /> user-centric, future-ready
               systems that <br />
               <span
@@ -572,7 +572,7 @@ const Body = () => {
                 </AnimatePresence>
               </span>
             </p>
-            <p className="about-card-desc [@media(min-width:300px)]:text-[10px] text-[#C8C1C1] text-[12px] md:text-[16px] lg:text-[0.9rem]  2xl:text-[1.5rem]">
+            <p className="about-card-desc [@media(min-width:300px)_and_(max-width:410px)]:text-[10px] text-[#C8C1C1] text-[12px] md:text-[16px] lg:text-[0.9rem]  2xl:text-[1.5rem]">
               We offer future-ready solutions to streamline your business, drive
               <br />
               growth, and put your processes in place. Explore our range of
@@ -643,7 +643,7 @@ const Body = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className={`process-step relative flex flex-col md:flex-row items-center mb-10 sm:mb-16 md:mb-20 ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"
+                  className={`process-step relative flex flex-col md:flex-row items-center mb-50 sm:mb-16 md:mb-20 ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"
                     }`}
                 >
                   {/* Wrapper */}
@@ -816,7 +816,7 @@ const Body = () => {
               >
                 <div className="flex flex-col justify-center items-start h-full space-y-3">
                   <p className="begin-card-title text-[clamp(1.3rem,2.5vw,3rem)] text-white font-semibold leading-tight">
-                    we are experienced innovators building scalable digital
+                    we are experienced innovators <br /> building scalable digital
                     platforms
                   </p>
 
@@ -833,7 +833,7 @@ const Body = () => {
                     </button>
                   </div> */}
                   <div className="relative inline-block">
-                    <button  onClick={() => setShowTeamPopup(true)} className="rotating-btn relative  text-[#b19cd9] font-garota text-[12px] md:text-[16px] rounded-md w-[25vw] [@media(min-width:300px)]:h-[3vh] h-[4vh] md:h-[clamp(50px,6vh,55px)] md:w-[clamp(110px,10vw,160px)]  overflow-hidden">
+                    <button  onClick={() => setShowTeamPopup(true)} className="rotating-btn relative  text-[#b19cd9] font-garota text-[12px] md:text-[16px] rounded-md w-[25vw] [@media(min-width:300px)_and_(max-width:410px)]:h-[4vh] h-[4vh] md:h-[clamp(50px,6vh,55px)] md:w-[clamp(110px,10vw,160px)]  overflow-hidden">
                       Our Team
                     </button>
                   </div>
