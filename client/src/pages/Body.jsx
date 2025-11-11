@@ -423,19 +423,19 @@ const Body = () => {
             style={{ zIndex: 9999 }}
           >
             <motion.div
-              className="relative pt-5 w-full max-w-[95vw] md:w-[700px] lg:w-[80vw] lg:h-[85vh]
+              className="relative w-full max-w-[95vw] md:w-[700px] lg:w-[80vw] lg:h-[85vh]
                    flex flex-col gap-6 sm:gap-8 md:gap-10
                    rounded-[30px] sm:rounded-[40px]
                    border border-white/20 bg-white/10 backdrop-blur-[20px]
                    shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]
-                    p-4 sm:p-6 md:p-8"
+                    p-4 sm:p-6 md:p-8 pt-10 "
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <button
-                className="absolute top-4 right-6 text-white text-[24px] hover:text-[#b19cd9] transition-all"
+                className="absolute md:top-4 right-6 text-white text-[24px] hover:text-[#b19cd9] transition-all"
                 onClick={() => setShowTeamPopup(false)}
               >
                 ✕
