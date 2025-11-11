@@ -89,7 +89,7 @@ const Faq = () => {
                   <span className="text-[1.2rem] md:text-[1.8rem] service-title ">
                     {faq.question}
                   </span>
-                  <span className="text-[#7c8aff] text-[0.8rem] md:text-2xl">
+                  <span className="text-[#BBABEB] text-[0.8rem] md:text-2xl">
                     {openIndex === index ? "▴" : "▾"}
                   </span>
                 </button>

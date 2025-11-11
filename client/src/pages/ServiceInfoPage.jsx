@@ -1260,7 +1260,7 @@ const ServiceInfoPage = () => {
                   <span className="text-[1.3rem] md:text-[1.8rem] service-title ">
                     {faq.question}
                   </span>
-                  <span className="text-[#7c8aff] text-[1rem] md:text-2xl">
+                  <span className="text-[#BBABEB] text-[1rem] md:text-2xl">
                     {openIndex === index ? "▴" : "▾"}
                   </span>
                 </button>
