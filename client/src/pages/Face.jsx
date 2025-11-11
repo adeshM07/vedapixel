@@ -17,7 +17,7 @@ const Face = ({ scrollProgress }) => {
   }, []);
 
   let fadeRange;
-  if (deviceType === "mobile") fadeRange = [0.02, 0.14];
+  if (deviceType === "mobile") fadeRange = [0.0, 0.1];
   else if (deviceType === "tablet") fadeRange = [0.03, 0.1];
   else fadeRange = [0.05, 0.1];
 
