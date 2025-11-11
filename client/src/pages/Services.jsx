@@ -185,7 +185,7 @@ const Services = () => {
             >
               <motion.div
                 key={index}
-                className="w-full sm:w-[80%] md:w-[40vw] lg:w-[27vw]   2xl:w-[23vw] h-auto border border-[#F2F2F2] flex flex-col gap-3 rounded-xl p-6 hover:bg-[#141414] transition-all duration-300"
+                className="w-full  sm:w-[80%] md:w-[40vw] lg:w-[27vw]   2xl:w-[23vw] h-auto border border-[#F2F2F2] flex flex-col gap-3 rounded-xl p-6 hover:bg-[#141414] transition-all duration-300"
                 variants={card}
                 custom={index}
                 // use transform for subpixel/GPU rendering

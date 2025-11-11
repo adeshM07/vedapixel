@@ -3,6 +3,7 @@ import "../CSS/Body.css";
 import "../CSS/Contact.css";
 import banner from "../assets/contact-banner.png";
 import upIcon from "../assets/up-loading.png"
+import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ContactPage = () => {
@@ -11,6 +12,31 @@ const ContactPage = () => {
   const [isMobile, setIsMobile] = useState(
     typeof window !== "undefined" ? window.innerWidth < 768 : false
   );
+
+  const location = useLocation();
+  const [service, setService] = useState();
+  useEffect(() => {
+    if (location.state && location.state.status) {
+      const { status } = location.state;
+      console.log("Status", status);
+      setService(status);
+    } else {
+      console.warn("No service received in state");
+    }
+  }, [location.state]);
+
+  useEffect(() => {
+    if (service) {
+      const careerSection = document.getElementById("career");
+      if (careerSection) {
+        const yOffset = -120; // 👈 adjust this value as needed (e.g., -100 or -150)
+        const y =
+          careerSection.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }
+  }, [service]);
+
 
   const pageRef = useRef(null);
   const bannerRef = useRef(null);
@@ -370,7 +396,7 @@ const ContactPage = () => {
             <section
               id="career"
               ref={careerRef}
-              className="flex flex-col w-full items-center"
+              className="flex  flex-col w-full items-center"
             >
               {isMobile && (
                 <motion.p
@@ -466,7 +492,7 @@ const ContactPage = () => {
                                     p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
                                    md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
                         >
-                          {isMobile?"Resume":"Upload Your Resume"}
+                          {isMobile ? "Resume" : "Upload Your Resume"}
                           <img src={upIcon} className="h-[2vh] md:h-[3vh] [@media(min-width:2000px)]:h-[2vh]" />
                         </label>
                       </div>

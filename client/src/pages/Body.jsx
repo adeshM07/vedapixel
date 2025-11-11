@@ -812,6 +812,7 @@ const Body = () => {
                   WebkitBackdropFilter: "blur(12px) saturate(180%)",
                   border: "2px solid rgba(255, 255, 255, 0.15)",
                   boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
+                 
                 }}
               >
                 <div className="flex flex-col justify-center items-start h-full space-y-3">

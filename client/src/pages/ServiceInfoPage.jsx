@@ -1130,16 +1130,32 @@ const ServiceInfoPage = () => {
           <div className="">
             <div className="flex flex-wrap justify-center gap-6 sm:gap-6 md:gap-4 lg:gap-6">
               {serviceInfo[service]?.expertise.map((item, index) => (
-                <div
+                <motion.div
                   key={index}
                   className="
+                  
         w-[90vw] sm:w-[42vw] md:w-[30vw] lg:w-[21vw] 
-        h-auto min-h-[20vh] 
+        h-auto min-h-[20vh]  
         flex flex-col justify-center gap-[0.8rem] 
         border border-white rounded-md 
         px-5 py-4 
-        transition-all duration-300 hover:scale-[1.02]
+        transition-all duration-300 
       "
+                  style={{
+                    transform: "translateZ(0)",
+                     background:
+      "linear-gradient(139.47deg, rgba(16, 24, 32, 0.85) -45.69%, rgba(16, 24, 32, 0.95) 54.7%)",
+                  }}
+                  whileHover={{
+                    scale: 1.03,
+                    background:
+                      "linear-gradient(139.47deg, rgba(50, 58, 68, 0.8) -45.69%, rgba(16, 24, 32, 0.9) 54.7%)",
+                    border: "2px solid rgba(255, 255, 255, 0.15)",
+                    boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
+                    backdropFilter: "blur(10px) saturate(180%)",
+                    WebkitBackdropFilter: "blur(10px) saturate(180%)",
+                    transition: { duration: 0.1, ease: "easeOut" },
+                  }}
                 >
                   <p className="text-[1.8rem] md:text-[1.8rem] service-title text-[#F8F9FA]">
                     {item.title}
@@ -1147,7 +1163,7 @@ const ServiceInfoPage = () => {
                   <p className="text-[#C8C1C1] service-desc text-[1rem] md:text-[1rem] leading-relaxed">
                     {item.desc}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

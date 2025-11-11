@@ -126,7 +126,9 @@ const Footer = () => {
               <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
                 Our Team
               </p>
-              <Link to="/contactus">
+              <Link to="/contactus" state={{
+                status: true,
+              }}>
               <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
                 Career
               </p>
