@@ -3,6 +3,28 @@
   font-weight: 800;
   font-style: normal;
 }
+.body-nav {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.body-nav::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #BBABEB, #6A6185);
+  transition: width 0.3s ease-in-out;
+  border-radius: 2px;
+}
+
+.body-nav:hover::after {
+  width: 100%;
+}
+
 
 .manuBar {
   font-family: "Poppins", sans-serif;

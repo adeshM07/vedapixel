@@ -1,44 +1,151 @@
 import React, { useState } from "react";
 import "../CSS/Body.css";
+import { Link } from "react-router-dom";
 
 const InfiniteScrollNodes = ({ direction = "left", baseSpeed = 35 }) => {
   const [speed, setSpeed] = useState(baseSpeed);
 
+  // const items = [
+  //   "Web Design",
+  //   "Web Development",
+  //   "Mobile Applications",
+  //   "Game Development",
+  //   "AR/VR",
+  //   "ERP Solutions",
+  //   "Chatbot Development",
+  //   "Artificial Intelligence",
+  //   "CRM Development",
+  //   "Cloud Computing",
+  //   "Maintenance & Support",
+  //   "Blockchain Development",
+  //   "IoT Development",
+
+  // ];
+
   const items = [
-    "Web Design",
-    "IOS Development",
-    "Web Development",
-    "UX Research",
-    "Mobile Applications",
-    "User Experience",
-    "Custom Software",
-    "Game Development",
-    "AR/VR",
-    "ERP Solutions",
-    "Chatbot Development",
-    "Artificial Intelligence",
-    "CRM Development",
-    "Cloud Computing",
-    "Maintenance & Support",
-    "Blockchain Development",
-    "IoT Development",
-    "Web Design",
-    "IOS Development",
-    "Web Development",
-    "UX Research",
-    "Mobile Applications",
-    "User Experience",
-    "Custom Software",
-    "Game Development",
-    "AR/VR",
-    "ERP Solutions",
-    "Chatbot Development",
-    "Artificial Intelligence",
-    "CRM Development",
-    "Cloud Computing",
-    "Maintenance & Support",
-    "Blockchain Development",
-    "IoT Development",
+    {
+      title: "Web Design",
+      link: "web"
+    },
+    {
+      title: "Web Development",
+      link: "Web"
+    },
+    {
+      title: "Mobile Applications",
+      link: "mobile"
+    },
+    {
+      title: "Game Development",
+      link: "game"
+    },
+    {
+      title: "AR/VR",
+      link: "arvr"
+    },
+    {
+      title: "ERP Solutions",
+      link: "erp"
+    },
+    {
+      title: "Chatbot Development",
+      link: "chatbot"
+    },
+    {
+      title: "Artificial Intelligence",
+      link: "ai"
+    },
+    {
+      title: "Cloud Computing",
+      link: "cloud"
+    },
+
+    {
+      title: "CRM Development",
+      link: "crm"
+    },
+    {
+      title: "Machine Learning",
+      link: "ai"
+    },
+    {
+      title: "Devops Services",
+      link: "cloud"
+    },
+    {
+      title: "Maintenance & Support",
+      link: "maintenance"
+    },
+    {
+      title: "Blockchain Development",
+      link: "blockchain"
+    },
+    {
+      title: "Iot Development",
+      link: "iot"
+    },
+    {
+      title: "Web Design",
+      link: "web"
+    },
+    {
+      title: "Web Development",
+      link: "Web"
+    },
+    {
+      title: "Mobile Applications",
+      link: "mobile"
+    },
+    {
+      title: "Game Development",
+      link: "game"
+    },
+    {
+      title: "AR/VR",
+      link: "arvr"
+    },
+    {
+      title: "ERP Solutions",
+      link: "erp"
+    },
+    {
+      title: "Chatbot Development",
+      link: "chatbot"
+    },
+    {
+      title: "Artificial Intelligence",
+      link: "ai"
+    },
+    {
+      title: "Cloud Computing",
+      link: "cloud"
+    },
+
+    {
+      title: "CRM Development",
+      link: "crm"
+    },
+    {
+      title: "Machine Learning",
+      link: "ai"
+    },
+    {
+      title: "Devops Services",
+      link: "cloud"
+    },
+    {
+      title: "Maintenance & Support",
+      link: "maintenance"
+    },
+    {
+      title: "Blockchain Development",
+      link: "blockchain"
+    },
+    {
+      title: "Iot Development",
+      link: "iot"
+    },
+
   ];
 
   // ✅ Duplicate twice (for perfect looping)
@@ -58,9 +165,13 @@ const InfiniteScrollNodes = ({ direction = "left", baseSpeed = 35 }) => {
 
       >
         {loopItems.reverse().map((text, index) => (
-          <div
-            key={index}
-            className="
+
+          <Link to='/serviceInfo' state={{
+                askedService: text.link,
+              }}>
+            <div
+              key={index}
+              className="
               infinite-scroll-node
               flex items-center justify-center
               text-white font-medium select-none
@@ -72,9 +183,10 @@ const InfiniteScrollNodes = ({ direction = "left", baseSpeed = 35 }) => {
               hover:bg-gradient-to-r hover:from-[#BBABEB] hover:to-[#6A6185]
               transition-all duration-300 ease-in-out
             "
-          >
-            {text}
-          </div>
+            >
+              {text.title}
+            </div>
+          </Link>
         ))}
       </div>
     </div>

@@ -10,6 +10,13 @@
   font-weight: 400;
   font-style: normal;
 }
+.active-btn {
+  background: linear-gradient(90deg, #bbabeb, #6a6185);
+  border: none;
+  color: white;
+  box-shadow: 0 0 15px rgba(187, 171, 235, 0.4);
+  transition: all 0.4s ease-in-out;
+}
 
 .begin-card-button {
   position: relative;

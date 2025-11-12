@@ -1,45 +1,133 @@
 import React, { useState } from "react";
 import "../CSS/Body.css";
+import { Link } from "react-router-dom";
 
 const InfiniteScrollNodes3 = ({ direction = "left", baseSpeed = 35 }) => {
   const [speed, setSpeed] = useState(baseSpeed);
 
-  const items = [
-    "ERP Solutions",
-    "Mobile Applications",
-    "Artificial Intelligence",
-    "Web Design",
-    "AR/VR",
-    "Maintenance & Support",
-    "Game Development",
-    "CRM Development",
-    "Web Development",
-    "Iot Development",
-    "UX Research",
-    "Custom Software",
-    "Blockchain Development",
-    "Cloud Computing",
-    "Chatbot Development",
-    "User Experience",
-    "IOS Development",
-    "ERP Solutions",
-    "Mobile Applications",
-    "Artificial Intelligence",
-    "Web Design",
-    "AR/VR",
-    "Maintenance & Support",
-    "Game Development",
-    "CRM Development",
-    "Web Development",
-    "Iot Development",
-    "UX Research",
-    "Custom Software",
-    "Blockchain Development",
-    "Cloud Computing",
-    "Chatbot Development",
-    "User Experience",
-    "IOS Development"
-  ];
+ const items = [
+  {
+    title: "IoT Development",
+    link: "iot"
+  },
+  {
+    title: "Game Development",
+    link: "game"
+  },
+  {
+    title: "Cloud Computing",
+    link: "cloud"
+  },
+  {
+    title: "Web Design",
+    link: "web"
+  },
+  {
+    title: "Artificial Intelligence",
+    link: "ai"
+  },
+  {
+    title: "AR/VR",
+    link: "arvr"
+  },
+  {
+    title: "Web Development",
+    link: "web"
+  },
+  {
+    title: "Machine Learning",
+    link: "ai"
+  },
+  {
+    title: "Chatbot Development",
+    link: "chatbot"
+  },
+  {
+    title: "DevOps Services",
+    link: "cloud"
+  },
+  {
+    title: "Blockchain Development",
+    link: "blockchain"
+  },
+  {
+    title: "Mobile Applications",
+    link: "mobile"
+  },
+  {
+    title: "CRM Development",
+    link: "crm"
+  },
+  {
+    title: "ERP Solutions",
+    link: "erp"
+  },
+  {
+    title: "Maintenance & Support",
+    link: "maintenance"
+  },
+  {
+    title: "IoT Development",
+    link: "iot"
+  },
+  {
+    title: "Game Development",
+    link: "game"
+  },
+  {
+    title: "Cloud Computing",
+    link: "cloud"
+  },
+  {
+    title: "Web Design",
+    link: "web"
+  },
+  {
+    title: "Artificial Intelligence",
+    link: "ai"
+  },
+  {
+    title: "AR/VR",
+    link: "arvr"
+  },
+  {
+    title: "Web Development",
+    link: "web"
+  },
+  {
+    title: "Machine Learning",
+    link: "ai"
+  },
+  {
+    title: "Chatbot Development",
+    link: "chatbot"
+  },
+  {
+    title: "DevOps Services",
+    link: "cloud"
+  },
+  {
+    title: "Blockchain Development",
+    link: "blockchain"
+  },
+  {
+    title: "Mobile Applications",
+    link: "mobile"
+  },
+  {
+    title: "CRM Development",
+    link: "crm"
+  },
+  {
+    title: "ERP Solutions",
+    link: "erp"
+  },
+  {
+    title: "Maintenance & Support",
+    link: "maintenance"
+  }
+];
+
 
   // ✅ Duplicate twice (for perfect looping)
   const loopItems = [...items, ...items];
@@ -58,6 +146,9 @@ const InfiniteScrollNodes3 = ({ direction = "left", baseSpeed = 35 }) => {
 
       >
         {loopItems.map((text, index) => (
+          <Link to='/serviceInfo' state={{
+                askedService: text.link,
+              }}>
           <div
             key={index}
             className="
@@ -73,8 +164,9 @@ const InfiniteScrollNodes3 = ({ direction = "left", baseSpeed = 35 }) => {
               transition-all duration-300 ease-in-out
             "
           >
-            {text}
+            {text.title}
           </div>
+          </Link>
         ))}
       </div>
     </div>

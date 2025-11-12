@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "../CSS/ServiceInfoPage.css";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
@@ -1121,9 +1122,22 @@ const ServiceInfoPage = () => {
           >
             {serviceInfo[service]?.buttonText}
           </button> */}
-        <button className="rotating-btn relative font-garota text-[0.7rem] md:text-[1.5rem] text-[#C8C1C1] w-[90vw] md:w-[73vw] mt-[60px] md:mt-[40px]  font-garota rounded-md px-3 [@media(min-width:300px)]:py-3  py-2 md:px-6 md:py-3 overflow-hidden">
-          {serviceInfo[service]?.buttonText}
-        </button>
+        <Link to='/contactus'>
+          <button
+            className="rotating-btn relative font-garota text-[0.7rem] md:text-[1.5rem] text-[#C8C1C1]
+             w-[90vw] md:w-[73vw] mt-[60px] md:mt-[40px] rounded-md px-3 
+             [@media(min-width:300px)]:py-3 py-2 md:px-6 md:py-3 overflow-hidden
+             bg-gradient-to-r from-[#1b1b2f] to-[#101820] border border-[#6A6185]
+             transition-all duration-500 ease-in-out
+             hover:from-[#6A6185] hover:to-[#B19CD9]
+             hover:text-white hover:shadow-[0_0_15px_rgba(177,156,217,0.4)]
+             hover:-translate-y-1"
+          >
+            {serviceInfo[service]?.buttonText}
+          </button>
+
+        </Link>
+
         {/* </div> */}
         <div className="lg:w-[73vw] mt-[100px]   flex flex-col gap-[0.8rem]">
           <p className="service-title text-center  md:text-start text-[2.5rem] md:text-[3rem] w-[90vw] sm:w-[42vw] md:w-[30vw] lg:w-[22vw]  text-white">
@@ -1145,8 +1159,8 @@ const ServiceInfoPage = () => {
       "
                   style={{
                     transform: "translateZ(0)",
-                     background:
-      "linear-gradient(139.47deg, rgba(16, 24, 32, 0.85) -45.69%, rgba(16, 24, 32, 0.95) 54.7%)",
+                    background:
+                      "linear-gradient(139.47deg, rgba(16, 24, 32, 0.85) -45.69%, rgba(16, 24, 32, 0.95) 54.7%)",
                   }}
                   whileHover={{
                     scale: 1.03,
@@ -1263,7 +1277,7 @@ const ServiceInfoPage = () => {
                     {faq.question}
                   </span>
                   <span className="text-[#BBABEB] text-[1rem] md:text-2xl">
-                    {openIndex === index ? <img src={up} className="h-[25px] w-[25px]"></img>  : <img className="h-[25px] w-[25px]" src={down}></img> }
+                    {openIndex === index ? <img src={up} className="h-[25px] w-[25px]"></img> : <img className="h-[25px] w-[25px]" src={down}></img>}
                   </span>
                 </button>
 

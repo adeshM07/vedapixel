@@ -2,8 +2,29 @@ import React from "react";
 import "../CSS/Contact.css";
 import "../CSS/Body.css"
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    company: "",
+    email: "",
+    contact: "",
+    idea: "",
+  });
+
+  const [isFilled, setIsFilled] = useState(false);
+
+  // 🧩 Update on change
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // ✅ Check if all are filled
+  useEffect(() => {
+    const allFilled = Object.values(formData).every((val) => val.trim() !== "");
+    setIsFilled(allFilled);
+  }, [formData]);
   return (
     <>
       <div
@@ -51,6 +72,7 @@ const Contact = () => {
           </p>
 
           <form
+            onSubmit={(e) => e.preventDefault()}
             className="
               w-full 
               flex flex-col 
@@ -70,6 +92,9 @@ const Contact = () => {
               <input
                 type="text"
                 placeholder="Name *"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 className="
                   border border-[#989BA1]
                   text-[#818181]
@@ -85,7 +110,10 @@ const Contact = () => {
               />
               <input
                 type="text"
+                name="company"
                 placeholder="Company Name *"
+                value={formData.company}
+                onChange={handleChange}
                 className="
                   border border-[#989BA1]
                   text-[#818181]
@@ -102,7 +130,10 @@ const Contact = () => {
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Email Id *"
+                value={formData.email}
+                onChange={handleChange}
                 className="
                   border border-[#989BA1]
                   text-[#818181]
@@ -118,7 +149,10 @@ const Contact = () => {
               />
               <input
                 type="text"
+                name="contact"
                 placeholder="Contact no. *"
+                value={formData.contact}
+                onChange={handleChange}
                 className="
                   border border-[#989BA1]
                   text-[#818181]
@@ -148,38 +182,28 @@ const Contact = () => {
                 resize-none
               "
               placeholder="Project Idea *"
+              name="idea"
+              value={formData.idea}
+              onChange={handleChange}
             ></textarea>
           </form>
 
           {/* ✅ Button */}
           {/* this too  */}
-          <div className="relative flex   justify-center">
+          <div className="relative flex justify-center">
             <button
-              className="
-            rotating-btn
-              border border-[#B1A2DF]
-              rounded-[8px]
-              text-white
-              font-medium
-              w-[clamp(200px,60vw,300px)]
-              h-[clamp(40px,5vh,60px)]
-              md:w-[40vw]
-              2xl:w-[24vw] 
-              md:h-[clamp(40px,4vh,60px)]
-              lg:h-[clamp(50px,5vh,60px)]
-              2xl:h-[clamp(40px,8vh,60px)]         
-              mx-auto
-              mt-[clamp(10px,2vw,20px)]
-              hover:bg-[#B1A2DF]/10 
-              transition
-              text-[clamp(0.9rem,1.5vw,1.3rem)]
-              md:text-[clamp(0.9rem,2.8vw,1.3rem)]
-              2xl:text-[1.4rem]
-              popins
-            "
+              className={`${isFilled ? "active-btn" : "rotating-btn"
+                } w-[clamp(200px,60vw,300px)] h-[clamp(40px,5vh,60px)]
+     md:w-[40vw] text-white 2xl:w-[24vw] md:h-[clamp(40px,4vh,60px)]
+     lg:h-[clamp(50px,5vh,60px)] 2xl:h-[clamp(40px,8vh,60px)]
+     mx-auto mt-[clamp(10px,2vw,20px)]
+     text-[clamp(0.9rem,1.5vw,1.3rem)] md:text-[clamp(0.9rem,2.8vw,1.3rem)] 
+     2xl:text-[1.4rem] popins font-medium rounded-[8px]`}
             >
               Get in Touch
             </button>
+
+
           </div>
         </div>
       </div>

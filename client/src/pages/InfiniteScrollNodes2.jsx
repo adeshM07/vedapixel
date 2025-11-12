@@ -1,45 +1,133 @@
 import React, { useState } from "react";
 import "../CSS/Body.css";
+import { Link } from "react-router-dom";
 
 const InfiniteScrollNodes2 = ({ direction = "left", baseSpeed = 35 }) => {
   const [speed, setSpeed] = useState(baseSpeed);
 
   const items = [
-    "Artificial Intelligence",
-    "Web Development",
-    "AR/VR",
-    "Custom Software",
-    "Blockchain Development",
-    "Mobile Applications",
-    "CRM Development",
-    "Web Design",
-    "Iot Development",
-    "Chatbot Development",
-    "UX Research",
-    "Cloud Computing",
-    "User Experience",
-    "ERP Solutions",
-    "Maintenance & Support",
-    "Game Development",
-    "IOS Development",
-    "Artificial Intelligence",
-    "Web Development",
-    "AR/VR",
-    "Custom Software",
-    "Blockchain Development",
-    "Mobile Applications",
-    "CRM Development",
-    "Web Design",
-    "Iot Development",
-    "Chatbot Development",
-    "UX Research",
-    "Cloud Computing",
-    "User Experience",
-    "ERP Solutions",
-    "Maintenance & Support",
-    "Game Development",
-    "IOS Development"
+    {
+      title: "Artificial Intelligence",
+      link: "ai"
+    },
+    {
+      title: "Blockchain Development",
+      link: "blockchain"
+    },
+    {
+      title: "Cloud Computing",
+      link: "cloud"
+    },
+    {
+      title: "IoT Development",
+      link: "iot"
+    },
+    {
+      title: "Machine Learning",
+      link: "ai"
+    },
+    {
+      title: "ERP Solutions",
+      link: "erp"
+    },
+    {
+      title: "AR/VR",
+      link: "arvr"
+    },
+    {
+      title: "Game Development",
+      link: "game"
+    },
+    {
+      title: "Chatbot Development",
+      link: "chatbot"
+    },
+    {
+      title: "CRM Development",
+      link: "crm"
+    },
+    {
+      title: "DevOps Services",
+      link: "cloud"
+    },
+    {
+      title: "Maintenance & Support",
+      link: "maintenance"
+    },
+    {
+      title: "Mobile Applications",
+      link: "mobile"
+    },
+    {
+      title: "Web Development",
+      link: "web"
+    },
+    {
+      title: "Web Design",
+      link: "web"
+    },
+    {
+      title: "Artificial Intelligence",
+      link: "ai"
+    },
+    {
+      title: "Blockchain Development",
+      link: "blockchain"
+    },
+    {
+      title: "Cloud Computing",
+      link: "cloud"
+    },
+    {
+      title: "IoT Development",
+      link: "iot"
+    },
+    {
+      title: "Machine Learning",
+      link: "ai"
+    },
+    {
+      title: "ERP Solutions",
+      link: "erp"
+    },
+    {
+      title: "AR/VR",
+      link: "arvr"
+    },
+    {
+      title: "Game Development",
+      link: "game"
+    },
+    {
+      title: "Chatbot Development",
+      link: "chatbot"
+    },
+    {
+      title: "CRM Development",
+      link: "crm"
+    },
+    {
+      title: "DevOps Services",
+      link: "cloud"
+    },
+    {
+      title: "Maintenance & Support",
+      link: "maintenance"
+    },
+    {
+      title: "Mobile Applications",
+      link: "mobile"
+    },
+    {
+      title: "Web Development",
+      link: "web"
+    },
+    {
+      title: "Web Design",
+      link: "web"
+    }
   ];
+
 
   // ✅ Duplicate twice (for perfect looping)
   const loopItems = [...items, ...items];
@@ -58,9 +146,12 @@ const InfiniteScrollNodes2 = ({ direction = "left", baseSpeed = 35 }) => {
 
       >
         {loopItems.map((text, index) => (
-          <div
-            key={index}
-            className="
+          <Link to='/serviceInfo' state={{
+            askedService: text.link,
+          }}>
+            <div
+              key={index}
+              className="
               infinite-scroll-node
               flex items-center justify-center
               text-white font-medium select-none
@@ -72,9 +163,10 @@ const InfiniteScrollNodes2 = ({ direction = "left", baseSpeed = 35 }) => {
               hover:bg-gradient-to-r hover:from-[#BBABEB] hover:to-[#6A6185]
               transition-all duration-300 ease-in-out
             "
-          >
-            {text}
-          </div>
+            >
+              {text.title}
+            </div>
+          </Link>
         ))}
       </div>
     </div>

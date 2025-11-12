@@ -34,9 +34,10 @@ const ScrollNodes = ({ direction = "left", baseSpeed = 75 }) => {
           direction === "left" ? "scroll-left" : "scroll-right"
         }`}
         style={{
-          animationDuration: `${speed}s`,
+           animationDuration: `${baseSpeed}s`,
+          animationPlayState: speed === 0 ? "paused" : "running",
         }}
-        onMouseEnter={() => setSpeed(baseSpeed * 4)}
+        onMouseEnter={() => setSpeed(0)}
         onMouseLeave={() => setSpeed(baseSpeed)}
       >
         {loopItems.map((text, index) => (
