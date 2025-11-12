@@ -73,7 +73,7 @@ const Footer = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 cursor-pointer">
                   <img
                     src={email}
                     alt="email"
@@ -84,13 +84,13 @@ const Footer = () => {
                   </span>
                 </div>
                 <div className="hidden sm:block text-white">|</div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 cursor-pointer">
                   <img
                     src={phone}
                     alt="phone"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
                   />
-                  <span className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]">
+                  <span href="tel:+919036354261" className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]">
                     +91 9036354261
                   </span>
                 </div>
