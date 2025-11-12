@@ -639,6 +639,31 @@ const Body = () => {
             ref={processRef}
             className="w-full text-white py-10 sm:py-16 px-3 sm:px-6 flex flex-col items-center lg:mt-[7vw] overflow-hidden"
           >
+            {isMobile && (
+              <motion.p
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                }}
+                initial={{ opacity: 0, y: 25, scale: 0.97 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="relative my-[60px] text-center text-[clamp(1.3rem,4vw,2rem)] font-semibold
+      bg-gradient-to-r from-[#C7B9F6] via-[#A699D9] to-[#6A6185]
+      bg-clip-text text-transparent inline-block"
+              >
+                Our Process
+                <motion.span
+                  className="absolute  left-1/2 -translate-x-1/2 bottom-[-5px] h-[2px] w-[105%]
+       bg-gradient-to-r from-[#C7B9F6] via-[#A699D9] to-[#6A6185] rounded-full"
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  whileInView={{ scaleX: 1, opacity: 1 }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                  viewport={{ once: false, amount: 0.4 }}
+                />
+              </motion.p>
+            )}
+
             <div className="relative w-full max-w-5xl">
               {/* Center vertical line */}
               <div className="absolute left-1/2 transform -translate-x-1/2 bg-[#6A6185] w-[2px] h-full"></div>
