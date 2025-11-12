@@ -650,7 +650,7 @@ const Body = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className={`process-step relative flex flex-col md:flex-row items-center mb-50 sm:mb-16 md:mb-20 ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"
+                  className={`process-step relative flex flex-col md:flex-row items-center mb-10  md:mb-20 ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"
                     }`}
                 >
                   {/* Wrapper */}
@@ -665,8 +665,8 @@ const Body = () => {
                       className={`  absolute top-1/2 -translate-y-1/2 text-[#C8C1C1] font-semibold 
             text-[1.6rem] sm:text-[2rem] md:text-[2.4rem]
             ${index % 2 === 0
-                          ? "left-[calc(50%-24px)] md:left-auto md:right-[calc(100%+10px)] border-r-3 border-r-[#BBABEB] "
-                          : "right-[calc(50%-24px)] md:right-auto md:left-[calc(100%+10px)] border-l-3 border-l-[#BBABEB]"
+                          ? "left-[calc(50%-24px)] md:left-auto md:right-[calc(100%+10px)]  border-r-[#BBABEB] "
+                          : "right-[calc(50%-24px)] md:right-auto md:left-[calc(100%+10px)]  border-l-[#BBABEB]"
                         }`}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}

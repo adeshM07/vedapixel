@@ -12,6 +12,9 @@ const ContactPage = () => {
   const [isMobile, setIsMobile] = useState(
     typeof window !== "undefined" ? window.innerWidth < 768 : false
   );
+  const [isTab, setIsTab] = useState(
+    typeof window !== "undefined" ? window.innerWidth < 1536 : false
+  );
 
   const [collabForm, setCollabForm] = useState({
     name: "",
@@ -547,7 +550,7 @@ const ContactPage = () => {
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
                                    w-[46%] md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
                       />
-                      <div className="relative w-[46%] md:w-[47%] 2xl:w-[21vw]">
+                      <div className="relative w-[46%]  md:w-[47%] 2xl:w-[21vw]">
                         <input
                           type="file"
                           onChange={handleCareerFile}
@@ -559,11 +562,11 @@ const ContactPage = () => {
                         />
                         <label
                           htmlFor="resume"
-                          className="flex items-center justify-between   border border-[#989BA1] text-[#818181] bg-transparent 
-                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
-                                   md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
+                          className="flex  items-center justify-between   border border-[#989BA1] text-[#818181] bg-transparent 
+                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)] w-[100%] 
+                                   md:w-[100%] lg:w-[21vw] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
                         >
-                          {isMobile
+                          {isTab
                             ? "Resume"
                             : careerForm.resume
                               ? careerForm.resume.name.length > 20
@@ -571,7 +574,14 @@ const ContactPage = () => {
                                 : careerForm.resume.name
                               : "Upload Your Resume"}
 
-                          <img src={upIcon} className="h-[2vh] md:h-[3vh] [@media(min-width:2000px)]:h-[2vh]" />
+                          <img src={upIcon} className="h-[2vh] md:h-[2vh] lg:h-[1.4vh] [@media(min-width:2000px)]:h-[2vh]" />
+                          {/* <img
+                            src={upIcon}
+                            alt="Upload Icon"
+                            className=" h-[2.2vh] sm:h-[2.6vh] md:h-[3vh] lg:h-[3.4vh] xl:h-[3.8vh] 2xl:h-[4.2vh] 3xl:h-[4.5vh] w-auto object-contain transition-all duration-300 ease-in-out
+  "
+                          /> */}
+
                         </label>
                       </div>
                     </div>

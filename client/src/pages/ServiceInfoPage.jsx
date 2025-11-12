@@ -235,18 +235,41 @@ const ServiceInfoPage = () => {
       ],
       faq: [
         {
-          question: "Do you offer CMS solutions?",
+          question: " What types of web solutions does Vedapixel offer?",
           answer:
-            "Yes, we develop CMS-powered sites using WordPress, Strapi, or headless setups.",
+            "We develop a wide range of web solutions — from corporate websites and web applications to enterprise systems, dashboards, and industry-specific platforms across all sectors.",
         },
         {
-          question: "Are your websites SEO optimized?",
-          answer: "Yes, we integrate SEO best practices into every project.",
+          question: "What technologies do you use for web development?",
+          answer: "Our team works with React.js, Angular, Vue.js, Node.js, Python (Django), PHP (Laravel), and .NET Core — along with MySQL, MongoDB, and Firebase for databases.",
         },
         {
-          question: "Can you migrate existing websites?",
+          question: " Can you redesign or upgrade an existing website?",
           answer:
-            "Absolutely, we handle complete website migration and modernization.",
+            "Yes, we specialize in website redesigns, performance optimization, and technology migration to modern frameworks without disrupting your existing operations.",
+        },
+        {
+          question: "How long does it take to build a website or web app?",
+          answer:
+            "It depends on complexity — a basic website may take 3–5 weeks, while advanced web apps or portals may take 2–4 months. We provide clear timelines before development starts.",
+        },
+        {
+          question: "Will my website be mobile-friendly and SEO-optimized?",
+          answer: "Absolutely. We design responsive, mobile-first, and SEO-ready websites to ensure high performance across devices and better visibility on search engines.",
+        },
+        {
+          question: "Do you provide hosting and domain services?",
+          answer:
+            "While we primarily focus on development, we can assist with hosting setup, server deployment, and domain configuration through trusted cloud providers.",
+        },
+        {
+          question: "Can you integrate third-party APIs or systems?",
+          answer: "Yes, we can integrate CRMs, ERPs, payment systems, analytics tools, AI models, or any thirdparty APIs required for your business operations.",
+        },
+        {
+          question: "Do you offer post-launch support for websites and web apps?",
+          answer:
+            "Yes. We provide long-term maintenance, updates, monitoring, and technical support to ensure consistent uptime, security, and scalability.",
         },
       ],
     },
@@ -324,18 +347,37 @@ const ServiceInfoPage = () => {
       ],
       faq: [
         {
-          question: "Which platforms do you support?",
-          answer: "We build games for iOS, Android, Windows, and WebGL.",
+          question: "Do you develop games for all platforms?",
+          answer: "Yes, we create games for Android, iOS, PC, web, and consoles.",
         },
         {
-          question: "Do you develop multiplayer games?",
+          question: "What game engines do you use?",
           answer:
-            "Yes, we specialize in real-time multiplayer games with backend support.",
+            "We primarily use Unity and Unreal Engine, depending on the project’s complexity.",
         },
         {
-          question: "Can you handle 3D asset creation?",
+          question: "Can you assist with game publishing?",
           answer:
-            "Yes, our team designs 3D models, characters, and animations in-house.",
+            "Yes, we support deployment, publishing, and marketing strategy for app stores and Steam.",
+        },
+        {
+          question: "Do you provide game art and animation?",
+          answer: "Yes, we offer full in-house design — from concept art to 3D modeling and animation.",
+        },
+        {
+          question: "How long does it take to develop a game?",
+          answer:
+            "It varies based on scope — casual games may take 2–3 months; advanced ones up to 6–8 months.",
+        },
+        {
+          question: "Can you integrate multiplayer features?",
+          answer:
+            "Absolutely. We implement real-time multiplayer, chat, and leaderboard systems.",
+        },
+        {
+          question: "Do you handle post-launch updates?",
+          answer:
+            "Yes, we provide continuous support, new level additions, and performance enhancements.",
         },
       ],
     },
@@ -408,20 +450,42 @@ const ServiceInfoPage = () => {
       ],
       faq: [
         {
-          question: "Do you develop for Oculus and HoloLens?",
-          answer: "Yes, we create experiences for all major AR/VR hardware.",
+          question: "What types of AR/VR solutions do you provide?",
+          answer:
+            "We develop AR/VR apps for product visualization, training, gaming, and virtual collaboration.",
         },
         {
-          question: "Can AR/VR apps be used for training?",
+          question: "Do your AR/VR apps support multiple devices?",
           answer:
-            "Absolutely. We build realistic simulations for employee training and education.",
+            "Yes, we build for Oculus, HTC Vive, Meta Quest, mobile AR, and mixed-reality headsets.",
         },
         {
-          question: "Do you provide custom 3D content?",
+          question: "Can AR/VR help in business operations?",
           answer:
-            "Yes, we create and optimize 3D assets specifically for your project.",
+            "Absolutely. Businesses use AR/VR for virtual training, marketing, design visualization, and remote collaboration.",
+        },
+        {
+          question: "How long does AR/VR app development take?",
+          answer:
+            "Typically 8–16 weeks, depending on complexity and hardware integrations.",
+        },
+        {
+          question: "Do you offer content creation and 3D modeling?",
+          answer:
+            "Yes, our in-house design team creates all required 3D assets and animations.",
+        },
+        {
+          question: "Can you integrate AR/VR with existing software?",
+          answer:
+            "Yes, we can integrate with CRMs, ERPs, or learning platforms through APIs.",
+        },
+        {
+          question: "Do you provide post-deployment support?",
+          answer:
+            "Yes, we handle performance monitoring, version upgrades, and feature expansions.",
         },
       ],
+
     },
     erp: {
       title: "ERP Solutions",
@@ -497,21 +561,37 @@ const ServiceInfoPage = () => {
       ],
       faq: [
         {
-          question: "Can you integrate ERP with CRM or HR systems?",
+          question: "Do you provide both on-premise and cloud-based ERP solutions?",
           answer:
-            "Yes, we ensure seamless integration with existing business tools.",
+            "Yes, we develop ERP systems deployable on local servers or secure cloud environments.",
         },
         {
-          question: "Do you provide cloud-based ERP?",
+          question: "Can you integrate ERP with third-party tools?",
           answer:
-            "Yes, we build ERP solutions deployable on AWS, Azure, or Google Cloud.",
+            "Absolutely. We integrate with CRMs, accounting software, APIs, and other enterprise platforms.",
         },
         {
-          question: "Can I customize modules later?",
+          question: "Is ERP development suitable for small businesses?",
           answer:
-            "Absolutely. Our ERP systems are modular and easily extendable.",
+            "Yes. We create modular ERP solutions that scale as your business grows.",
+        },
+        {
+          question: "How long does ERP implementation take?",
+          answer:
+            "Typically 3–6 months, depending on features, modules, and complexity.",
+        },
+        {
+          question: "Do you offer ERP maintenance and upgrades?",
+          answer:
+            "Yes, we provide end-to-end support, performance tuning, and version updates.",
+        },
+        {
+          question: "Can you migrate data from existing systems?",
+          answer:
+            "Yes. We ensure secure data migration from legacy or third-party software.",
         },
       ],
+
     },
 
     chatbot: {
@@ -581,18 +661,31 @@ const ServiceInfoPage = () => {
       faq: [
         {
           question: "Can chatbots handle multiple languages?",
-          answer: "Yes, we design multilingual bots for global audiences.",
-        },
-        {
-          question: "Do your bots integrate with CRMs?",
           answer:
-            "Yes, our bots can connect with Salesforce, HubSpot, and custom CRMs.",
+            "Yes, our chatbots can be trained to understand and respond in multiple languages.",
         },
         {
-          question: "Are they AI-powered or rule-based?",
-          answer: "We build both, depending on project requirements.",
+          question: "Can you integrate the chatbot with CRM or ERP systems?",
+          answer:
+            "Absolutely. We integrate bots with CRM, ERP, and third-party APIs for seamless workflows.",
+        },
+        {
+          question: "Do you build both text and voice-based bots?",
+          answer:
+            "Yes, we develop chatbots and voice assistants for a wide range of platforms.",
+        },
+        {
+          question: "Can your bots work on social media apps?",
+          answer:
+            "Yes, we create chatbots for WhatsApp, Instagram, Facebook, and Telegram.",
+        },
+        {
+          question: "How long does it take to build a chatbot?",
+          answer:
+            "Typically 3–5 weeks for basic bots, and up to 8–10 weeks for advanced conversational systems.",
         },
       ],
+
     },
 
     ai: {
@@ -654,20 +747,32 @@ const ServiceInfoPage = () => {
       ],
       faq: [
         {
-          question: "Do you offer AI integration for existing products?",
+          question: "What industries do you serve with AI/ML?",
           answer:
-            "Yes, we integrate AI modules into current software ecosystems.",
+            "We provide AI/ML solutions for healthcare, retail, manufacturing, finance, and logistics.",
         },
         {
-          question: "Can AI improve customer experience?",
+          question: "Do you offer custom AI model development?",
           answer:
-            "Absolutely, through personalization, automation, and insights.",
+            "Yes, we build models tailored to your business objectives and data patterns.",
         },
         {
-          question: "Do you handle data privacy?",
-          answer: "Yes, we comply with GDPR and global privacy standards.",
+          question: "Can AI be integrated into existing systems?",
+          answer:
+            "Absolutely. We integrate AI modules into CRMs, ERPs, and analytics platforms.",
+        },
+        {
+          question: "Do you provide data analysis and visualization?",
+          answer:
+            "Yes, we offer dashboards, visual analytics, and reporting for AI insights.",
+        },
+        {
+          question: "How do you ensure data privacy in AI solutions?",
+          answer:
+            "We comply with GDPR and best practices for secure data handling and anonymization.",
         },
       ],
+
     },
 
     crm: {
@@ -736,18 +841,32 @@ const ServiceInfoPage = () => {
       ],
       faq: [
         {
-          question: "Can you migrate from existing CRMs?",
-          answer: "Yes, we provide complete CRM migration and data import.",
+          question: "Do you develop both cloud and on-premise CRMs?",
+          answer:
+            "Yes, we develop both types based on your data and business requirements.",
         },
         {
-          question: "Do you build industry-specific CRMs?",
-          answer: "Yes, tailored CRMs for healthcare, real estate, and more.",
+          question: "Can CRM be integrated with our website or ERP?",
+          answer:
+            "Absolutely. We offer end-to-end integration with existing systems.",
         },
         {
-          question: "Is training provided?",
-          answer: "Yes, we offer admin and end-user training post-deployment.",
+          question: "Do you build CRMs for specific industries?",
+          answer:
+            "Yes, we tailor CRMs for real estate, finance, logistics, healthcare, and more.",
+        },
+        {
+          question: "Can you migrate from existing CRM software?",
+          answer:
+            "Yes, we ensure secure and complete data migration from tools like Zoho or HubSpot.",
+        },
+        {
+          question: "Do you offer ongoing CRM support?",
+          answer:
+            "Yes, we provide continuous maintenance, optimization, and new feature rollout.",
         },
       ],
+
     },
 
     cloud: {
@@ -809,18 +928,32 @@ const ServiceInfoPage = () => {
       ],
       faq: [
         {
+          question: "Do you handle cloud migration for existing systems?",
+          answer:
+            "Yes, we offer end-to-end migration with zero data loss and minimal downtime.",
+        },
+        {
           question: "Which cloud platforms do you support?",
-          answer: "AWS, Google Cloud, Azure, and hybrid environments.",
+          answer:
+            "We work with AWS, Azure, and Google Cloud — as well as hybrid and private clouds.",
         },
         {
-          question: "Do you offer DevOps services?",
-          answer: "Yes, we provide full CI/CD pipeline setup and maintenance.",
+          question: "Can you automate our deployment process?",
+          answer:
+            "Absolutely. We build CI/CD pipelines tailored to your infrastructure.",
         },
         {
-          question: "Is data migration secure?",
-          answer: "Yes, all migrations are encrypted and fully compliant.",
+          question: "Do you offer ongoing cloud management?",
+          answer:
+            "Yes, we provide managed cloud services including monitoring, scaling, and cost optimization.",
+        },
+        {
+          question: "Is DevOps suitable for small businesses?",
+          answer:
+            "Definitely. Automation and scalability help businesses of any size improve productivity.",
         },
       ],
+
     },
 
     maintenance: {
@@ -891,19 +1024,32 @@ const ServiceInfoPage = () => {
       ],
       faq: [
         {
-          question: "Do you offer annual maintenance contracts?",
-          answer: "Yes, we provide flexible support plans (monthly or yearly).",
-        },
-        {
-          question: "Can we request new features anytime?",
+          question: "Do you provide support for third-party applications?",
           answer:
-            "Absolutely, we accommodate all enhancements per your roadmap.",
+            "Yes, we can maintain and enhance software developed by other vendors.",
         },
         {
-          question: "Is downtime minimized?",
-          answer: "Yes, all updates are planned for minimal disruption.",
+          question: "How often do you perform updates?",
+          answer:
+            "We schedule updates based on project needs — monthly, quarterly, or as required.",
+        },
+        {
+          question: "Can you fix issues without disrupting operations?",
+          answer:
+            "Absolutely. We implement fixes in staging environments before live deployment.",
+        },
+        {
+          question: "Do you offer 24/7 monitoring?",
+          answer:
+            "Yes, our monitoring and alert systems ensure round-the-clock availability.",
+        },
+        {
+          question: "Can you scale existing applications?",
+          answer:
+            "Yes, we specialize in performance tuning and scalability optimization.",
         },
       ],
+
     },
 
     blockchain: {
@@ -969,18 +1115,32 @@ const ServiceInfoPage = () => {
       ],
       faq: [
         {
-          question: "Do you offer smart contract audits?",
-          answer: "Yes, we provide in-depth security audits and fixes.",
+          question: "Do you build both public and private blockchain solutions?",
+          answer:
+            "Yes, we design both based on business needs and security preferences.",
         },
         {
-          question: "Can you integrate crypto payments?",
-          answer: "Yes, we enable crypto gateways and wallet integrations.",
+          question: "Can you create NFTs or tokenization platforms?",
+          answer:
+            "Absolutely. We specialize in NFT, DeFi, and token development.",
         },
         {
-          question: "Do you build NFT marketplaces?",
-          answer: "Absolutely, we specialize in NFT marketplace development.",
+          question: "How do you ensure blockchain security?",
+          answer:
+            "We follow strict audit protocols and implement multi-layer security mechanisms.",
+        },
+        {
+          question: "Can blockchain integrate with our existing system?",
+          answer:
+            "Yes, we build APIs to connect blockchain with your ERP, CRM, or web apps.",
+        },
+        {
+          question: "What industries can benefit from blockchain?",
+          answer:
+            "Finance, logistics, supply chain, healthcare, and real estate are among the most common.",
         },
       ],
+
     },
 
     iot: {
@@ -1043,20 +1203,38 @@ const ServiceInfoPage = () => {
       ],
       faq: [
         {
-          question: "Which IoT protocols do you use?",
-          answer: "We support MQTT, HTTP, CoAP, and custom integrations.",
+          question: "Do you develop both hardware and software for IoT?",
+          answer:
+            "Yes, we handle firmware programming, device setup, and software development.",
         },
         {
-          question: "Can IoT work offline?",
-          answer: "Yes, using edge devices with periodic sync to the cloud.",
+          question: "Can IoT integrate with AI and analytics systems?",
+          answer:
+            "Absolutely. We integrate IoT data with AI models for predictive insights.",
         },
         {
-          question: "Do you offer predictive analytics?",
-          answer: "Yes, through machine learning integration with IoT data.",
+          question: "How do you ensure IoT security?",
+          answer:
+            "We use encryption, authentication, and secure communication protocols like MQTT and SSL.",
+        },
+        {
+          question: "Do you work with specific IoT platforms?",
+          answer:
+            "Yes, we use AWS IoT, Azure IoT, and Google Cloud IoT depending on project needs.",
+        },
+        {
+          question: "Can IoT be customized for any industry?",
+          answer:
+            "Yes, our IoT solutions are adaptable for manufacturing, logistics, healthcare, agriculture, and more.",
         },
       ],
+
     },
   };
+
+
+
+
 
   if (!service || !serviceInfo[service]) {
     return (
@@ -1162,7 +1340,7 @@ const ServiceInfoPage = () => {
                     background:
                       "linear-gradient(139.47deg, rgba(16, 24, 32, 0.85) -45.69%, rgba(16, 24, 32, 0.95) 54.7%)",
                   }}
-                  
+
                 >
                   <p className="text-[1.8rem] md:text-[1.5rem] service-desc text-[#F8F9FA]">
                     {item.title}
