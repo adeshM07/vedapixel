@@ -5,23 +5,24 @@ const ScrollNodes = ({ direction = "left", baseSpeed = 75 }) => {
   const [speed, setSpeed] = useState(baseSpeed);
 
   const items = [
-    "WEB DESIGN",
-    "IOS DEVELOPMENT",
-    "WEB DEVELOPMENT",
-    "UX RESEARCH",
-    "MOBILE APPLICATIONS",
-    "USER EXPERIENCE",
-    "CUSTOM SOFTWARE",
-    "GAME DEVELOPMENT",
-    "AR/VR",
-    "ERP Solutions",
-    "Chatbot Development",
-    "Artificial Intelligence",
-    "CRM Development",
-    "Cloud Computing",
-    "Maintenance & Support",
-    "Blockchain Development",
-    "IoT Development"
+    "Confidential Agreement",
+    "Free Consultation",
+    "Transparent Pricing",
+    "Flexible Engagement",
+    "Quick Onboarding",
+    "Code Ownership",
+    "Confidential Agreement",
+    "Free Consultation",
+    "Transparent Pricing",
+    "Flexible Engagement",
+    "Quick Onboarding",
+    "Code Ownership",
+    "Confidential Agreement",
+    "Free Consultation",
+    "Transparent Pricing",
+    "Flexible Engagement",
+    "Quick Onboarding",
+    "Code Ownership",
   ];
 
   // ✅ Duplicate twice (for perfect looping)
@@ -30,11 +31,10 @@ const ScrollNodes = ({ direction = "left", baseSpeed = 75 }) => {
   return (
     <div className="relative w-full h-[70px] overflow-hidden flex items-center justify-center">
       <div
-        className={`scroll-track flex gap-[14px] whitespace-nowrap ${
-          direction === "left" ? "scroll-left" : "scroll-right"
-        }`}
+        className={`scroll-track flex gap-[14px] whitespace-nowrap ${direction === "left" ? "scroll-left" : "scroll-right"
+          }`}
         style={{
-           animationDuration: `${baseSpeed}s`,
+          animationDuration: `${baseSpeed}s`,
           animationPlayState: speed === 0 ? "paused" : "running",
         }}
         onMouseEnter={() => setSpeed(0)}
