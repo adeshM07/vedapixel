@@ -9,8 +9,11 @@ import phone from "../assets/phone.png";
 import whatsapp from "../assets/whatsapp.png";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import sent from "../assets/sent.png"
+import { useState } from "react";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
   // Animation variants
   const container = {
     hidden: { opacity: 0, y: 30 },
@@ -109,14 +112,14 @@ const Footer = () => {
               variants={item}
             >
               <Link to="/about">
-              <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] font-semibold mb-1 hover:text-[#b19cd9] transition">
-                About Us
-              </p>
+                <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] font-semibold mb-1 hover:text-[#b19cd9] transition">
+                  About Us
+                </p>
               </Link>
               <Link to="/services">
-              <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
-                Our Services
-              </p>
+                <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
+                  Our Services
+                </p>
               </Link>
               <Link to="/faqs">
                 <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
@@ -129,9 +132,9 @@ const Footer = () => {
               <Link to="/contactus" state={{
                 status: true,
               }}>
-              <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
-                Career
-              </p>
+                <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
+                  Career
+                </p>
               </Link>
             </motion.div>
 
@@ -148,13 +151,15 @@ const Footer = () => {
                 <div className="flex flex-wrap items-center gap-3">
                   <input
                     type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="Your Email Id"
                     className="text-[#818181] w-[70vw] sm:w-[250px] md:w-[140px] 2xl:w-[18vw]
                                h-[36px] sm:h-[38px] md:h-[30px] 2xl:h-[42px] text-[clamp(0.8rem,2vw,1rem)]
                                rounded-[10px] border border-[#F2F2F7] px-3 focus:outline-none"
                   />
                   <motion.img
-                    src={icon}
+                     src={email.trim() ? sent : icon}
                     alt="send"
                     className="w-[30px] sm:w-[35px] md:w-[3vw] lg:w-[2vw] 2xl:w-[2vw] rotate-45 cursor-pointer"
                     whileHover={{ scale: 1.2, rotate: 0 }}
