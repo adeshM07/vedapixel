@@ -90,9 +90,9 @@ const Footer = () => {
                     alt="phone"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
                   />
-                  <span href="tel:+919036354261" className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]">
+                  <a href="tel:+919036354261" className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] no-underline md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]">
                     +91 9036354261
-                  </span>
+                  </a>
                 </div>
               </div>
             </div>
