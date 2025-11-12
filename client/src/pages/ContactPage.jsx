@@ -13,6 +13,51 @@ const ContactPage = () => {
     typeof window !== "undefined" ? window.innerWidth < 768 : false
   );
 
+  const [collabForm, setCollabForm] = useState({
+    name: "",
+    company: "",
+    email: "",
+    contact: "",
+    idea: "",
+  });
+  const [careerForm, setCareerForm] = useState({
+    name: "",
+    email: "",
+    contact: "",
+    message: "",
+    resume: null,
+  });
+  const [collabFilled, setCollabFilled] = useState(false);
+  const [careerFilled, setCareerFilled] = useState(false);
+
+  // ✅ Handle input changes
+  const handleCollabChange = (e) => {
+    setCollabForm({ ...collabForm, [e.target.name]: e.target.value });
+  };
+
+  const handleCareerChange = (e) => {
+    setCareerForm({ ...careerForm, [e.target.name]: e.target.value });
+  };
+  const handleCareerFile = (e) => {
+    const file = e.target.files[0];
+    setCareerForm({ ...careerForm, resume: file });
+  };
+
+  // ✅ Check if all fields are filled (Collaborate)
+  useEffect(() => {
+    const allFilled = Object.values(collabForm).every((v) => v.trim() !== "");
+    setCollabFilled(allFilled);
+  }, [collabForm]);
+
+  // ✅ Check if all fields are filled (Career)
+  useEffect(() => {
+    const allFilled = Object.values(careerForm).every((v) =>
+      typeof v === "string" ? v.trim() !== "" : v !== null
+    );
+    setCareerFilled(allFilled);
+  }, [careerForm]);
+
+
   const location = useLocation();
   const [service, setService] = useState();
   useEffect(() => {
@@ -344,6 +389,9 @@ const ContactPage = () => {
                     <div className="flex flex-wrap justify-between gap-[clamp(15px,2vw,26px)]">
                       <input
                         type="text"
+                        name="name"
+                        value={collabForm.name}
+                        onChange={handleCollabChange}
                         placeholder="Name *"
                         className="border border-[#989BA1] text-[#818181] bg-transparent 
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
@@ -352,12 +400,18 @@ const ContactPage = () => {
                       <input
                         type="text"
                         placeholder="Company Name *"
+                        name="company"
+                        value={collabForm.company}
+                        onChange={handleCollabChange}
                         className="border border-[#989BA1] text-[#818181] bg-transparent 
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
                                    w-[46%] md:w-[47%]  md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
                       />
                       <input
                         type="email"
+                        name="email"
+                        value={collabForm.email}
+                        onChange={handleCollabChange}
                         placeholder="Email Id *"
                         className="border border-[#989BA1] text-[#818181] bg-transparent 
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
@@ -365,6 +419,9 @@ const ContactPage = () => {
                       />
                       <input
                         type="number"
+                        name="contact"
+                        value={collabForm.contact}
+                        onChange={handleCollabChange}
                         placeholder="Contact No. *"
                         className="border border-[#989BA1] text-[#818181] bg-transparent 
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
@@ -373,6 +430,9 @@ const ContactPage = () => {
                     </div>
 
                     <textarea
+                      name="idea"
+                      value={collabForm.idea}
+                      onChange={handleCollabChange}
                       className="w-full rounded-[clamp(6px,1vw,10px)] bg-transparent 
                                  border border-[#989BA1] p-[clamp(8px,1vw,12px)] 
                                  text-[#818181] h-[clamp(100px,5vh,160px)] resize-none"
@@ -381,10 +441,11 @@ const ContactPage = () => {
                   </form>
 
                   <button
-                    className="border rotating-btn border-[#B1A2DF] rounded-[8px] text-white font-medium 
+                    className={` ${collabFilled ? "active-btn" : "rotating-btn"
+                      } border  border-[#B1A2DF] rounded-[8px] text-white font-medium 
                                      w-[clamp(200px,60vw,300px)] h-[clamp(40px,5vh,60px)] md:h-[clamp(40px,3vh,60px)] 2xlh-[clamp(40px,5vh,60px)] 
                                      md:w-[clamp(200px,30vw,300px)] 2xl:w-[clamp(500px,60vw,300px)] mx-auto mt-[clamp(10px,2vw,20px)] 
-                                     hover:bg-[#B1A2DF]/10 transition text-[clamp(0.9rem,1.5vw,1.3rem)]"
+                                     hover:bg-[#B1A2DF]/10 transition text-[clamp(0.9rem,1.5vw,1.3rem)]`}
                   >
                     Submit
                   </button>
@@ -459,12 +520,18 @@ const ContactPage = () => {
                       <input
                         type="text"
                         placeholder="Name *"
+                        name="name"
+                        value={careerForm.name}
+                        onChange={handleCareerChange}
                         className="border border-[#989BA1] text-[#818181] bg-transparent 
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
                                   w-[46%] md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
                       />
                       <input
                         type="email"
+                        name="email"
+                        value={careerForm.email}
+                        onChange={handleCareerChange}
                         placeholder="Email Id *"
                         className="border border-[#989BA1] text-[#818181] bg-transparent 
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
@@ -472,6 +539,9 @@ const ContactPage = () => {
                       />
                       <input
                         type="number"
+                        name="contact"
+                        value={careerForm.contact}
+                        onChange={handleCareerChange}
                         placeholder="Contact no. *"
                         className="border border-[#989BA1] text-[#818181] bg-transparent 
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
@@ -480,10 +550,11 @@ const ContactPage = () => {
                       <div className="relative w-[46%] md:w-[47%] 2xl:w-[21vw]">
                         <input
                           type="file"
+                          onChange={handleCareerFile}
                           id="resume"
-                          onChange={(e) =>
-                            setFileName(e.target.files[0] ? e.target.files[0].name : "Upload Resume *")
-                          }
+                          // onChange={(e) =>
+                          //   setFileName(e.target.files[0] ? e.target.files[0].name : "Upload Resume *")
+                          // }
                           className="hidden "
                         />
                         <label
@@ -492,25 +563,37 @@ const ContactPage = () => {
                                     p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
                                    md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
                         >
-                          {isMobile ? "Resume" : "Upload Your Resume"}
+                          {isMobile
+                            ? "Resume"
+                            : careerForm.resume
+                              ? careerForm.resume.name.length > 20
+                                ? careerForm.resume.name.slice(0, 20) + "..."
+                                : careerForm.resume.name
+                              : "Upload Your Resume"}
+
                           <img src={upIcon} className="h-[2vh] md:h-[3vh] [@media(min-width:2000px)]:h-[2vh]" />
                         </label>
                       </div>
                     </div>
 
                     <textarea
+                      name="message"
+                      value={careerForm.message}
+                      onChange={handleCareerChange}
+                      placeholder="Any Message *"
                       className="w-full rounded-[clamp(6px,1vw,10px)] bg-transparent 
                                  border border-[#989BA1] p-[clamp(8px,1vw,12px)] 
                                  text-[#818181] h-[clamp(100px,5vh,160px)] resize-none"
-                      placeholder="Any message *"
+
                     ></textarea>
                   </form>
 
                   <button
-                    className="border rotating-btn border-[#B1A2DF] rounded-[8px] text-white font-medium 
+                    className={` ${careerFilled ? "active-btn" : "rotating-btn"
+                      } border rotating-btn border-[#B1A2DF] rounded-[8px] text-white font-medium 
                                      w-[clamp(200px,60vw,300px)] h-[clamp(40px,5vh,60px)] md:h-[clamp(40px,3vh,60px)] 2xlh-[clamp(40px,5vh,60px)] 
                                      md:w-[clamp(200px,30vw,300px)] 2xl:w-[clamp(500px,60vw,300px)] mx-auto mt-[clamp(10px,2vw,20px)] 
-                                     hover:bg-[#B1A2DF]/10 transition text-[clamp(0.9rem,1.5vw,1.3rem)]"
+                                     hover:bg-[#B1A2DF]/10 transition text-[clamp(0.9rem,1.5vw,1.3rem)]`}
                   >
                     Submit
                   </button>

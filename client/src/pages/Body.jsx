@@ -6,6 +6,7 @@ import InfiniteScrollNodes from "./InfiniteScrollNodes";
 import InfiniteScrollNodes2 from "./InfiniteScrollNodes2";
 import InfiniteScrollNodes3 from "./InfiniteScrollNodes3";
 import profileImg from "../assets/profileImg.png";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [showBody, setShowBody] = useState(false);
@@ -581,9 +582,14 @@ const Body = () => {
               solutions below.
             </p>
             <div className="relative inline-block">
-              <button className="rotating-btn relative text-[#b19cd9] font-garota text-[0.7rem] md:text-[1.5rem] rounded-md px-3 py-2 md:px-6 md:py-3 overflow-hidden">
-                Know More
-              </button>
+              <Link to="/about">
+
+                <button className="rotating-btn relative text-[#b19cd9] font-garota text-[0.7rem] md:text-[1.5rem] rounded-md px-3 py-2 md:px-6 md:py-3 overflow-hidden hover:from-[#6A6185] hover:to-[#B19CD9]
+             hover:text-white hover:shadow-[0_0_15px_rgba(177,156,217,0.4)]
+             hover:-translate-y-1">
+                  Know More
+                </button>
+              </Link>
             </div>
           </section>
 
@@ -773,7 +779,7 @@ const Body = () => {
           <section
             id="team"
             ref={teamRef}
-            className="flex  flex-col gap-[12px] mt-[7vw]"
+            className="flex  flex-col gap-[12px] mt-[2vw]"
           >
             {isMobile && (
               <motion.p
@@ -813,7 +819,7 @@ const Body = () => {
                   WebkitBackdropFilter: "blur(12px) saturate(180%)",
                   border: "2px solid rgba(255, 255, 255, 0.15)",
                   boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
-                 
+
                 }}
               >
                 <div className="flex flex-col justify-center items-start h-full space-y-3">
@@ -835,7 +841,7 @@ const Body = () => {
                     </button>
                   </div> */}
                   <div className="relative inline-block">
-                    <button  onClick={() => setShowTeamPopup(true)} className="rotating-btn relative  text-[#b19cd9] font-garota text-[12px] md:text-[16px] rounded-md w-[25vw] [@media(min-width:300px)_and_(max-width:410px)]:h-[4vh] h-[4vh] md:h-[clamp(50px,6vh,55px)] md:w-[clamp(110px,10vw,160px)]  overflow-hidden">
+                    <button onClick={() => setShowTeamPopup(true)} className="rotating-btn relative  text-[#b19cd9] font-garota text-[12px] md:text-[16px] rounded-md w-[25vw] [@media(min-width:300px)_and_(max-width:410px)]:h-[4vh] h-[4vh] md:h-[clamp(50px,6vh,55px)] md:w-[clamp(110px,10vw,160px)]  overflow-hidden">
                       Our Team
                     </button>
                   </div>

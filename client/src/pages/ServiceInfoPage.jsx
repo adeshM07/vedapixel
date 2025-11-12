@@ -1162,16 +1162,7 @@ const ServiceInfoPage = () => {
                     background:
                       "linear-gradient(139.47deg, rgba(16, 24, 32, 0.85) -45.69%, rgba(16, 24, 32, 0.95) 54.7%)",
                   }}
-                  whileHover={{
-                    scale: 1.03,
-                    background:
-                      "linear-gradient(139.47deg, rgba(50, 58, 68, 0.8) -45.69%, rgba(16, 24, 32, 0.9) 54.7%)",
-                    border: "2px solid rgba(255, 255, 255, 0.15)",
-                    boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
-                    backdropFilter: "blur(10px) saturate(180%)",
-                    WebkitBackdropFilter: "blur(10px) saturate(180%)",
-                    transition: { duration: 0.1, ease: "easeOut" },
-                  }}
+                  
                 >
                   <p className="text-[1.8rem] md:text-[1.5rem] service-desc text-[#F8F9FA]">
                     {item.title}
