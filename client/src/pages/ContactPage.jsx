@@ -4,9 +4,18 @@ import "../CSS/Contact.css";
 import banner from "../assets/contact-banner.png";
 import upIcon from "../assets/up-loading.png"
 import { useLocation } from "react-router-dom";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ContactPage = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const [showNav, setShowNav] = useState(false);
   const [activeSection, setActiveSection] = useState("banner");
   const [isMobile, setIsMobile] = useState(
@@ -16,22 +25,26 @@ const ContactPage = () => {
     typeof window !== "undefined" ? window.innerWidth < 1536 : false
   );
 
+
   const [collabForm, setCollabForm] = useState({
     name: "",
     company: "",
     email: "",
-    contact: "",
+    contact: "+91",
     idea: "",
   });
   const [careerForm, setCareerForm] = useState({
     name: "",
     email: "",
-    contact: "",
+    contact: "+91",
     message: "",
     resume: null,
   });
   const [collabFilled, setCollabFilled] = useState(false);
   const [careerFilled, setCareerFilled] = useState(false);
+
+
+
 
   // ✅ Handle input changes
   const handleCollabChange = (e) => {
@@ -402,7 +415,7 @@ const ContactPage = () => {
                       />
                       <input
                         type="text"
-                        placeholder="Company Name *"
+                        placeholder="Company Name "
                         name="company"
                         value={collabForm.company}
                         onChange={handleCollabChange}
@@ -420,16 +433,64 @@ const ContactPage = () => {
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
                                    w-[46%] md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
                       />
-                      <input
-                        type="number"
-                        name="contact"
-                        value={collabForm.contact}
-                        onChange={handleCollabChange}
-                        placeholder="Contact No. *"
-                        className="border border-[#989BA1] text-[#818181] bg-transparent 
-                                   p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
-                                   w-[46%] md:w-[47%]  md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
-                      />
+                      <div className="w-[46%] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]   md:w-[47%] 2xl:w-[21vw]">
+                        <PhoneInput
+                          country={"in"} // Default country (India 🇮🇳)
+                          value={collabForm.contact}
+                          onChange={(value, country) => {
+                            // Automatically prepend country dial code when selected
+                            const dialCode = `+${country.dialCode}`;
+                            if (!value.startsWith(dialCode)) {
+                              value = dialCode; // Set default code if missing
+                            }
+                            setCollabForm({
+                              ...collabForm,
+                              contact: value,
+                              countryCode: dialCode,
+                            });
+                          }}
+                          inputProps={{
+                            name: "contact",
+                            required: true,
+                          }}
+                          enableAreaCodes={true}
+                          enableSearch={true} // 🔍 allows typing country name to search
+                          countryCodeEditable={false} // ✅ prevents user from deleting the country code
+                          placeholder="Enter contact number"
+                          inputStyle={{
+                            width: "100%",
+                            background: "transparent",
+                            border: "1px solid #989BA1",
+                            borderRadius:
+                              windowWidth < 640
+                                ? "5px"
+                                : windowWidth <= 1024
+                                  ? "10px"
+                                  : "10px",
+                            color: "#818181",
+                            fontSize: "clamp(0.8rem, 1vw, 1rem)",
+                            height:
+                              windowWidth < 640
+                                ? "4vh"
+                                : windowWidth <= 1024
+                                  ? "3vh"
+                                  : "6vh",
+
+                            paddingLeft: "50px",
+                          }}
+                          buttonStyle={{
+                            border: "none",
+                            background: "transparent",
+                            borderRight: "1px solid #989BA1",
+                          }}
+                          dropdownStyle={{
+                            background: "#101820",
+                            color: "#fff",
+                          }}
+                        />
+                      </div>
+
+
                     </div>
 
                     <textarea
@@ -540,16 +601,59 @@ const ContactPage = () => {
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
                                    w-[46%] md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
                       />
-                      <input
-                        type="number"
-                        name="contact"
-                        value={careerForm.contact}
-                        onChange={handleCareerChange}
-                        placeholder="Contact no. *"
-                        className="border border-[#989BA1] text-[#818181] bg-transparent 
-                                   p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
-                                   w-[46%] md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
-                      />
+                      <div className="w-[46%] md:w-[47%] 2xl:w-[21vw]">
+                        <PhoneInput
+                          country={"in"} // 🇮🇳 Default to India
+                          value={careerForm.contact}
+                          onChange={(value, country) => {
+                            const dialCode = `+${country.dialCode}`;
+                            if (!value.startsWith(dialCode)) value = dialCode;
+
+                            setCareerForm({
+                              ...careerForm,
+                              contact: value,
+                              countryCode: dialCode,
+                            });
+                          }}
+                          enableSearch={true}
+                          countryCodeEditable={false}
+                          placeholder="Contact No. *"
+                          inputProps={{
+                            name: "contact",
+                            required: true,
+                          }}
+                          inputStyle={{
+                            width: "100%",
+                            background: "transparent",
+                            border: "1px solid #989BA1",
+                            borderRadius:
+                              windowWidth < 640
+                                ? "5px"
+                                : windowWidth <= 1024
+                                  ? "10px"
+                                  : "10px",
+                            color: "#818181",
+                            fontSize: "clamp(0.8rem, 1vw, 1rem)",
+                            height:
+                              windowWidth < 640
+                                ? "4vh"
+                                : windowWidth <= 1024
+                                  ? "3vh"
+                                  : "6vh",
+                            paddingLeft: "50px",
+                          }}
+                          buttonStyle={{
+                            border: "none",
+                            background: "transparent",
+                            borderRight: "1px solid #989BA1",
+                          }}
+                          dropdownStyle={{
+                            background: "#101820",
+                            color: "#fff",
+                          }}
+                        />
+                      </div>
+
                       <div className="relative w-[46%]  md:w-[47%] 2xl:w-[21vw]">
                         <input
                           type="file"
@@ -574,7 +678,7 @@ const ContactPage = () => {
                                 : careerForm.resume.name
                               : "Upload Your Resume"}
 
-                          <img src={upIcon} className="h-[2vh] md:h-[2vh] lg:h-[1.4vh] [@media(min-width:2000px)]:h-[2vh]" />
+                          <img src={upIcon} className="h-[2vh] md:h-[1.6vh] lg:h-[1.4vh] xl:h-[2vh] [@media(min-width:2000px)]:h-[2vh]" />
                           {/* <img
                             src={upIcon}
                             alt="Upload Icon"
