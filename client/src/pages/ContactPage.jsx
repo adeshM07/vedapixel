@@ -423,16 +423,6 @@ const ContactPage = () => {
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
                                    w-[46%] md:w-[47%]  md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
                       />
-                      <input
-                        type="email"
-                        name="email"
-                        value={collabForm.email}
-                        onChange={handleCollabChange}
-                        placeholder="Email Id *"
-                        className="border border-[#989BA1] text-[#818181] bg-transparent 
-                                   p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
-                                   w-[46%] md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
-                      />
                       <div className="w-[46%] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]   md:w-[47%] 2xl:w-[21vw]">
                         <PhoneInput
                           country={"in"} // Default country (India 🇮🇳)
@@ -489,6 +479,17 @@ const ContactPage = () => {
                           }}
                         />
                       </div>
+                      <input
+                        type="email"
+                        name="email"
+                        value={collabForm.email}
+                        onChange={handleCollabChange}
+                        placeholder="Email Id *"
+                        className="border border-[#989BA1] text-[#818181] bg-transparent 
+                                   p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
+                                   w-[46%] md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
+                      />
+
 
 
                     </div>
@@ -604,6 +605,7 @@ const ContactPage = () => {
                       <div className="w-[46%] md:w-[47%] 2xl:w-[21vw]">
                         <PhoneInput
                           country={"in"} // 🇮🇳 Default to India
+
                           value={careerForm.contact}
                           onChange={(value, country) => {
                             const dialCode = `+${country.dialCode}`;

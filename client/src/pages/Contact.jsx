@@ -2,6 +2,8 @@ import React from "react";
 import "../CSS/Contact.css";
 import "../CSS/Body.css"
 import { motion } from "framer-motion";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import { useState, useEffect } from "react";
 
 const Contact = () => {
@@ -9,9 +11,17 @@ const Contact = () => {
     name: "",
     company: "",
     email: "",
-    contact: "",
+    contact: "+91",
     idea: "",
   });
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const [isFilled, setIsFilled] = useState(false);
 
@@ -111,7 +121,7 @@ const Contact = () => {
               <input
                 type="text"
                 name="company"
-                placeholder="Company Name *"
+                placeholder="Company Name"
                 value={formData.company}
                 onChange={handleChange}
                 className="
@@ -128,6 +138,50 @@ const Contact = () => {
                   2xl:h-[clamp(35px,6vh,55px)]
                 "
               />
+              <div className="w-[46%] md:w-[47%] 2xl:w-[33vw] relative">
+                <PhoneInput
+                  country={"in"} // 🇮🇳 default India
+                  value={formData.contact}
+                  onChange={(value, country) => {
+                    const dialCode = `+${country.dialCode}`;
+                    if (!value.startsWith(dialCode)) value = dialCode;
+                    setFormData({ ...formData, contact: value });
+                  }}
+                  enableSearch={true}
+                  countryCodeEditable={false}
+                  inputProps={{
+                    name: "contact",
+                    required: true,
+                  }}
+                  placeholder="Contact no. *"
+                  inputStyle={{
+                    width: "100%",
+                    background: "transparent",
+                    border: "1px solid #989BA1",
+                    borderRadius:
+                      windowWidth < 640
+                        ? "5px"
+                        : windowWidth <= 1024
+                          ? "10px"
+                          : "10px",
+                    color: "#818181",
+                    fontSize: "clamp(0.8rem, 1vw, 1rem)",
+                    height:
+                      windowWidth < 640
+                        ? "4vh"
+                        : windowWidth <= 1024
+                          ? "3vh"
+                          : "6vh",
+                    paddingLeft: "50px",
+                  }}
+                  buttonStyle={{
+                    border: "none",
+                    background: "transparent",
+                    borderRight: "1px solid #989BA1",
+                  }}
+
+                />
+              </div>
               <input
                 type="email"
                 name="email"
@@ -147,26 +201,7 @@ const Contact = () => {
                   2xl:h-[clamp(35px,6vh,55px)]
                 "
               />
-              <input
-                type="text"
-                name="contact"
-                placeholder="Contact no. *"
-                value={formData.contact}
-                onChange={handleChange}
-                className="
-                  border border-[#989BA1]
-                  text-[#818181]
-                  bg-transparent
-                  p-[clamp(6px,1vw,10px)]
-                  rounded-[clamp(4px,1vw,10px)]
-                  w-[46%] sm:w-[44%] md:w-[47%] 2xl:w-[33vw]
 
-                  lg:w-[32vw]
-                  lg:h-[clamp(35px,7vh,55px)]
-                  md:h-[clamp(35px,4vh,55px)]
-                  2xl:h-[clamp(35px,6vh,55px)]
-                "
-              />
             </div>
 
             {/* ✅ Textarea (auto responsive) */}
