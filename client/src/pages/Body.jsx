@@ -734,7 +734,7 @@ const Body = () => {
 
           {isMobile ?
             <section id="process"
-              ref={processRef} className="w-full flex justify-center py-10 px-4 flex-col">
+              ref={processRef} className=" overflow-x-hidden  w-full flex justify-center py-10 px-4 flex-col">
               <motion.p
                 animate={{
                   opacity: 1,
