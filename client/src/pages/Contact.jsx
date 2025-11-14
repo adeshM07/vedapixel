@@ -168,7 +168,7 @@ const Contact = () => {
                     fontSize: "clamp(0.8rem, 1vw, 1rem)",
                     height:
                       windowWidth <= 410
-                        ? "5vh"
+                        ? "5.6vh"
                         : windowWidth < 640
                         ? "4vh"
                         : windowWidth <= 1024
