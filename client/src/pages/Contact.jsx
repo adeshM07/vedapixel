@@ -1,6 +1,6 @@
 import React from "react";
 import "../CSS/Contact.css";
-import "../CSS/Body.css"
+import "../CSS/Body.css";
 import { motion } from "framer-motion";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
@@ -118,8 +118,7 @@ const Contact = () => {
                   2xl:h-[clamp(35px,6vh,55px)]
                 "
               />
-              <input                                                                                                                                        
-              
+              <input
                 type="text"
                 name="company"
                 placeholder="Company Name"
@@ -163,16 +162,18 @@ const Contact = () => {
                       windowWidth < 640
                         ? "5px"
                         : windowWidth <= 1024
-                          ? "10px"
-                          : "10px",
+                        ? "10px"
+                        : "10px",
                     color: "#818181",
                     fontSize: "clamp(0.8rem, 1vw, 1rem)",
                     height:
-                      windowWidth < 640
+                      windowWidth <= 410
+                        ? "5vh"
+                        : windowWidth < 640
                         ? "4vh"
                         : windowWidth <= 1024
-                          ? "3vh"
-                          : "6vh",
+                        ? "3vh"
+                        : "6vh",
                     paddingLeft: "50px",
                   }}
                   buttonStyle={{
@@ -180,7 +181,6 @@ const Contact = () => {
                     background: "transparent",
                     borderRight: "1px solid #989BA1",
                   }}
-
                 />
               </div>
               <input
@@ -202,7 +202,6 @@ const Contact = () => {
                   2xl:h-[clamp(35px,6vh,55px)]
                 "
               />
-
             </div>
 
             {/* ✅ Textarea (auto responsive) */}
@@ -228,8 +227,9 @@ const Contact = () => {
           {/* this too  */}
           <div className="relative flex justify-center">
             <button
-              className={`${isFilled ? "active-btn" : "rotating-btn"
-                } w-[clamp(200px,60vw,300px)] h-[clamp(40px,5vh,60px)]
+              className={`${
+                isFilled ? "active-btn" : "rotating-btn"
+              } w-[clamp(200px,60vw,300px)] h-[clamp(40px,5vh,60px)]
      md:w-[40vw] text-white 2xl:w-[24vw] md:h-[clamp(40px,4vh,60px)]
      lg:h-[clamp(50px,5vh,60px)] 2xl:h-[clamp(40px,8vh,60px)]
      mx-auto mt-[clamp(10px,2vw,20px)]
@@ -238,8 +238,6 @@ const Contact = () => {
             >
               Get in Touch
             </button>
-
-
           </div>
         </div>
       </div>

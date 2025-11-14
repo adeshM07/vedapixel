@@ -447,7 +447,9 @@ const ContactPage = () => {
                             color: "#818181",
                             fontSize: "clamp(0.8rem, 1vw, 1rem)",
                             height:
-                              windowWidth < 640
+                              windowWidth <= 410
+                                ? "5vh"
+                                : windowWidth < 640
                                 ? "4vh"
                                 : windowWidth <= 1024
                                 ? "3vh"
@@ -627,11 +629,14 @@ const ContactPage = () => {
                             color: "#818181",
                             fontSize: "clamp(0.8rem, 1vw, 1rem)",
                             height:
-                              windowWidth < 640
+                              windowWidth <= 410
+                                ? "5vh"
+                                : windowWidth < 640
                                 ? "4vh"
                                 : windowWidth <= 1024
                                 ? "3vh"
                                 : "6vh",
+
                             paddingLeft: "50px",
                           }}
                           buttonStyle={{
@@ -664,41 +669,40 @@ const ContactPage = () => {
                           // }
                           className="hidden "
                         />
-                       <label
-  htmlFor="resume"
-  className="flex items-center gap-2 border border-[#989BA1] text-[#818181] bg-transparent 
+                        <label
+                          htmlFor="resume"
+                          className="flex items-center gap-2 border border-[#989BA1] text-[#818181] bg-transparent 
              p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)] w-full 
              md:w-[100%] lg:w-[21vw] 2xl:w-[21vw]
              md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]
              overflow-hidden"
-  style={{
-    minWidth: 0, // ✅ ensures flex text can shrink properly
-  }}
->
-  {/* ✅ Text container that won't collapse */}
-  <span
-    className="truncate text-[clamp(0.8rem,2.5vw,1rem)] flex-1 min-w-0 block"
-    style={{
-      whiteSpace: "nowrap",
-      overflow: "hidden",
-      textOverflow: "ellipsis",
-    }}
-  >
-    {careerForm.resume
-      ? careerForm.resume.name.length > 25
-        ? careerForm.resume.name.slice(0, 25) + "..."
-        : careerForm.resume.name
-      : "Upload Your Resume"}
-  </span>
+                          style={{
+                            minWidth: 0, // ✅ ensures flex text can shrink properly
+                          }}
+                        >
+                          {/* ✅ Text container that won't collapse */}
+                          <span
+                            className="truncate text-[clamp(0.8rem,2.5vw,1rem)] flex-1 min-w-0 block"
+                            style={{
+                              whiteSpace: "nowrap",
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                            }}
+                          >
+                            {careerForm.resume
+                              ? careerForm.resume.name.length > 25
+                                ? careerForm.resume.name.slice(0, 25) + "..."
+                                : careerForm.resume.name
+                              : "Upload Your Resume"}
+                          </span>
 
-  {/* ✅ Icon stays fixed */}
-  <img
-    src={upIcon}
-    alt="Upload"
-    className="flex-shrink-0 h-[2vh] md:h-[1.6vh] lg:h-[1.4vh] xl:h-[2vh] [@media(min-width:2000px)]:h-[2vh]"
-  />
-</label>
-
+                          {/* ✅ Icon stays fixed */}
+                          <img
+                            src={upIcon}
+                            alt="Upload"
+                            className="flex-shrink-0 h-[2vh] md:h-[1.6vh] lg:h-[1.4vh] xl:h-[2vh] [@media(min-width:2000px)]:h-[2vh]"
+                          />
+                        </label>
                       </div>
                     </div>
 
