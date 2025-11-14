@@ -52,12 +52,10 @@
 
 /* ✅ Optional Hover Glow */
 
-
-
-
-
-
-
+.process-step {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
 
 .about-card {
   font-family: "DM Sans", sans-serif;

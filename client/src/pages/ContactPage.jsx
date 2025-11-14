@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "../CSS/Body.css";
 import "../CSS/Contact.css";
 import banner from "../assets/contact-banner.png";
-import upIcon from "../assets/up-loading.png"
+import upIcon from "../assets/up-loading.png";
 import { useLocation } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
@@ -25,7 +25,6 @@ const ContactPage = () => {
     typeof window !== "undefined" ? window.innerWidth < 1536 : false
   );
 
-
   const [collabForm, setCollabForm] = useState({
     name: "",
     company: "",
@@ -42,9 +41,6 @@ const ContactPage = () => {
   });
   const [collabFilled, setCollabFilled] = useState(false);
   const [careerFilled, setCareerFilled] = useState(false);
-
-
-
 
   // ✅ Handle input changes
   const handleCollabChange = (e) => {
@@ -73,7 +69,6 @@ const ContactPage = () => {
     setCareerFilled(allFilled);
   }, [careerForm]);
 
-
   const location = useLocation();
   const [service, setService] = useState();
   useEffect(() => {
@@ -97,7 +92,6 @@ const ContactPage = () => {
       }
     }
   }, [service]);
-
 
   const pageRef = useRef(null);
   const bannerRef = useRef(null);
@@ -146,7 +140,8 @@ const ContactPage = () => {
         collabRect.top < windowHeight * 0.8 && collabRect.bottom > 100;
 
       const careerOverlap =
-        careerRect.top < windowHeight * 0.85 && careerRect.top > -windowHeight * 0.2;
+        careerRect.top < windowHeight * 0.85 &&
+        careerRect.top > -windowHeight * 0.2;
       // 👆 keeps nav visible until 20% of Career passes top
 
       const shouldShow = collabInView || careerOverlap;
@@ -158,9 +153,6 @@ const ContactPage = () => {
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isMobile]);
-
-
-
 
   // ✅ Active section observer
   useEffect(() => {
@@ -390,7 +382,6 @@ const ContactPage = () => {
                   }}
                   animate={{
                     opacity: activeSection === "collaborate" ? 1 : 0.5,
-
                   }}
                   transition={{
                     duration: 0.6,
@@ -451,16 +442,16 @@ const ContactPage = () => {
                               windowWidth < 640
                                 ? "5px"
                                 : windowWidth <= 1024
-                                  ? "10px"
-                                  : "10px",
+                                ? "10px"
+                                : "10px",
                             color: "#818181",
                             fontSize: "clamp(0.8rem, 1vw, 1rem)",
                             height:
                               windowWidth < 640
                                 ? "4vh"
                                 : windowWidth <= 1024
-                                  ? "3vh"
-                                  : "6vh",
+                                ? "3vh"
+                                : "6vh",
                             paddingLeft: "50px",
                           }}
                           buttonStyle={{
@@ -481,8 +472,6 @@ const ContactPage = () => {
                             zIndex: 9999,
                           }}
                         />
-
-
                       </div>
                       <input
                         type="email"
@@ -494,9 +483,6 @@ const ContactPage = () => {
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
                                    w-[46%] md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
                       />
-
-
-
                     </div>
 
                     <textarea
@@ -511,8 +497,9 @@ const ContactPage = () => {
                   </form>
 
                   <button
-                    className={` ${collabFilled ? "active-btn" : "rotating-btn"
-                      } border  border-[#B1A2DF] rounded-[8px] text-white font-medium 
+                    className={` ${
+                      collabFilled ? "active-btn" : "rotating-btn"
+                    } border  border-[#B1A2DF] rounded-[8px] text-white font-medium 
                                      w-[clamp(200px,60vw,300px)] h-[clamp(40px,5vh,60px)] md:h-[clamp(40px,3vh,60px)] 2xlh-[clamp(40px,5vh,60px)] 
                                      md:w-[clamp(200px,30vw,300px)] 2xl:w-[clamp(500px,60vw,300px)] mx-auto mt-[clamp(10px,2vw,20px)] 
                                      hover:bg-[#B1A2DF]/10 transition text-[clamp(0.9rem,1.5vw,1.3rem)]`}
@@ -574,7 +561,6 @@ const ContactPage = () => {
                   }}
                   animate={{
                     opacity: activeSection === "career" ? 1 : 0.5,
-
                   }}
                   transition={{
                     duration: 0.6,
@@ -610,7 +596,6 @@ const ContactPage = () => {
                       <div className="w-[46%] md:w-[47%] 2xl:w-[21vw]">
                         <PhoneInput
                           country={"in"} // 🇮🇳 Default to India
-
                           value={careerForm.contact}
                           onChange={(value, country) => {
                             const dialCode = `+${country.dialCode}`;
@@ -637,16 +622,16 @@ const ContactPage = () => {
                               windowWidth < 640
                                 ? "5px"
                                 : windowWidth <= 1024
-                                  ? "10px"
-                                  : "10px",
+                                ? "10px"
+                                : "10px",
                             color: "#818181",
                             fontSize: "clamp(0.8rem, 1vw, 1rem)",
                             height:
                               windowWidth < 640
                                 ? "4vh"
                                 : windowWidth <= 1024
-                                  ? "3vh"
-                                  : "6vh",
+                                ? "3vh"
+                                : "6vh",
                             paddingLeft: "50px",
                           }}
                           buttonStyle={{
@@ -679,29 +664,41 @@ const ContactPage = () => {
                           // }
                           className="hidden "
                         />
-                        <label
-                          htmlFor="resume"
-                          className="flex  items-center justify-between   border border-[#989BA1] text-[#818181] bg-transparent 
-                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)] w-[100%] 
-                                   md:w-[100%] lg:w-[21vw] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
-                        >
-                          {isTab
-                            ? "Resume"
-                            : careerForm.resume
-                              ? careerForm.resume.name.length > 20
-                                ? careerForm.resume.name.slice(0, 20) + "..."
-                                : careerForm.resume.name
-                              : "Upload Your Resume"}
+                       <label
+  htmlFor="resume"
+  className="flex items-center gap-2 border border-[#989BA1] text-[#818181] bg-transparent 
+             p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)] w-full 
+             md:w-[100%] lg:w-[21vw] 2xl:w-[21vw]
+             md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]
+             overflow-hidden"
+  style={{
+    minWidth: 0, // ✅ ensures flex text can shrink properly
+  }}
+>
+  {/* ✅ Text container that won't collapse */}
+  <span
+    className="truncate text-[clamp(0.8rem,2.5vw,1rem)] flex-1 min-w-0 block"
+    style={{
+      whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+    }}
+  >
+    {careerForm.resume
+      ? careerForm.resume.name.length > 25
+        ? careerForm.resume.name.slice(0, 25) + "..."
+        : careerForm.resume.name
+      : "Upload Your Resume"}
+  </span>
 
-                          <img src={upIcon} className="h-[2vh] md:h-[1.6vh] lg:h-[1.4vh] xl:h-[2vh] [@media(min-width:2000px)]:h-[2vh]" />
-                          {/* <img
-                            src={upIcon}
-                            alt="Upload Icon"
-                            className=" h-[2.2vh] sm:h-[2.6vh] md:h-[3vh] lg:h-[3.4vh] xl:h-[3.8vh] 2xl:h-[4.2vh] 3xl:h-[4.5vh] w-auto object-contain transition-all duration-300 ease-in-out
-  "
-                          /> */}
+  {/* ✅ Icon stays fixed */}
+  <img
+    src={upIcon}
+    alt="Upload"
+    className="flex-shrink-0 h-[2vh] md:h-[1.6vh] lg:h-[1.4vh] xl:h-[2vh] [@media(min-width:2000px)]:h-[2vh]"
+  />
+</label>
 
-                        </label>
                       </div>
                     </div>
 
@@ -713,13 +710,13 @@ const ContactPage = () => {
                       className="w-full rounded-[clamp(6px,1vw,10px)] bg-transparent 
                                  border border-[#989BA1] p-[clamp(8px,1vw,12px)] 
                                  text-[#818181] h-[clamp(100px,5vh,160px)] resize-none"
-
                     ></textarea>
                   </form>
 
                   <button
-                    className={` ${careerFilled ? "active-btn" : "rotating-btn"
-                      } border rotating-btn border-[#B1A2DF] rounded-[8px] text-white font-medium 
+                    className={` ${
+                      careerFilled ? "active-btn" : "rotating-btn"
+                    } border rotating-btn border-[#B1A2DF] rounded-[8px] text-white font-medium 
                                      w-[clamp(200px,60vw,300px)] h-[clamp(40px,5vh,60px)] md:h-[clamp(40px,3vh,60px)] 2xlh-[clamp(40px,5vh,60px)] 
                                      md:w-[clamp(200px,30vw,300px)] 2xl:w-[clamp(500px,60vw,300px)] mx-auto mt-[clamp(10px,2vw,20px)] 
                                      hover:bg-[#B1A2DF]/10 transition text-[clamp(0.9rem,1.5vw,1.3rem)]`}
