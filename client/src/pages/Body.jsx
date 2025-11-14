@@ -634,7 +634,7 @@ const Body = () => {
 
           {/* our Process */}
 
-          {isMobile ? <section
+          {/* <section
             id="process"
             ref={processRef}
             className="w-full text-white py-10 sm:py-16 px-3 sm:px-6 flex flex-col items-center lg:mt-[7vw] overflow-hidden"
@@ -665,7 +665,6 @@ const Body = () => {
             )}
 
             <div className="relative w-full max-w-5xl">
-              {/* Center vertical line */}
               <div className="absolute left-1/2 transform -translate-x-1/2 bg-[#6A6185] w-[2px] h-full"></div>
 
               {steps.map((step, index) => (
@@ -678,14 +677,12 @@ const Body = () => {
                   className={`process-step relative flex flex-col md:flex-row items-center mb-10  md:mb-20 ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"
                     }`}
                 >
-                  {/* Wrapper */}
                   <div
                     className={`  relative flex w-full md:w-1/2 items-center justify-center ${index % 2 === 0
                       ? "md:justify-end md:pr-4 lg:pr-10 text-right"
                       : "md:justify-start md:pl-4 lg:pl-10 text-left"
                       }`}
                   >
-                    {/* ✅ Number on one side of the line (left/right alternation on mobile) */}
                     <motion.div
                       className={`  absolute top-1/2 -translate-y-1/2 text-[#C8C1C1] font-semibold 
             text-[1.6rem] sm:text-[2rem] md:text-[2.4rem]
@@ -700,8 +697,7 @@ const Body = () => {
                       {step.id}.
                     </motion.div>
 
-                    {/* ✅ Text Box opposite the number */}
-                    <div
+                     <div
                       className={` rounded-2xl p-3 sm:p-4 md:p-6 w-[70%] sm:w-[60%] md:w-full transition-all duration-500
             ${index % 2 === 0
                           ? "ml-[55%] text-left md:ml-0 md:text-right"
@@ -719,7 +715,7 @@ const Body = () => {
                         {step.title}
                       </motion.h3>
 
-                      {/* Hidden on mobile */}
+                      
                       <motion.p
                         className="hidden md:block text-gray-200 text-[1rem] md:text-[1.1rem]
               2xl:text-[1.2rem] leading-relaxed transition-colors duration-300"
@@ -734,7 +730,54 @@ const Body = () => {
                 </motion.div>
               ))}
             </div>
-          </section>
+          </section> */}
+
+          {isMobile ?
+            <section id="process"
+              ref={processRef} className="w-full flex justify-center py-10 px-4 flex-col">
+              <motion.p
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                }}
+                initial={{ opacity: 0, y: 25, scale: 0.97 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="relative my-[60px] text-center text-[clamp(1.3rem,4vw,2rem)] font-semibold
+      bg-gradient-to-r from-[#C7B9F6] via-[#A699D9] to-[#6A6185]
+      bg-clip-text text-transparent inline-block"
+              >
+                Our Process
+                <motion.span
+                  className="absolute  left-1/2 -translate-x-1/2 bottom-[-5px] h-[2px] w-[35%]
+       bg-gradient-to-r from-[#C7B9F6] via-[#A699D9] to-[#6A6185] rounded-full"
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  whileInView={{ scaleX: 1, opacity: 1 }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                  viewport={{ once: false, amount: 0.4 }}
+                />
+              </motion.p>
+              <div className="w-full flex flex-col gap-10 mx-auto">
+                {steps.map((step, index) => (
+                  <motion.div
+                    key={step.id}
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    className="process-step flex flex-col gap-2 border border-[#2b2b2b] p-4 rounded-xl bg-[#101820]/40 backdrop-blur-md"
+                  >
+                    <motion.p
+                      className={`process-title text-[1.4rem] font-semibold transition-all duration-500 ${activeSection === `step-${step.id}` ? "text-[#B1A2DF]" : "text-[#C8C1C1]"
+                        }`}
+                    >
+                      {step.id}. {step.title}
+                    </motion.p>
+                    <p className="text-[#F8F9FA] text-[0.95rem] leading-relaxed">{step.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </section>
             :
             <section
               id="process"

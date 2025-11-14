@@ -118,7 +118,8 @@ const Contact = () => {
                   2xl:h-[clamp(35px,6vh,55px)]
                 "
               />
-              <input
+              <input                                                                                                                                        
+              
                 type="text"
                 name="company"
                 placeholder="Company Name"
