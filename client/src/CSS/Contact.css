@@ -10,6 +10,7 @@
   font-weight: 400;
   font-style: normal;
 }
+
 .active-btn {
   background: linear-gradient(90deg, #bbabeb, #6a6185);
   border: none;
@@ -77,4 +78,109 @@
   font-family: "Poppins";
   font-weight: 400;
   font-style: normal;
+}
+
+/* Completely hide scrollbar in dropdown */
+.react-tel-input .country-list::-webkit-scrollbar {
+  display: none;
+}
+
+.react-tel-input .country-list {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  background: transparent !important;
+  /* 👈 ensures no gray bg behind */
+}
+
+.react-tel-input .country-list .country {
+  background: transparent !important;
+  color: #e4e3e3 !important;
+  /* visible text */
+}
+
+.react-tel-input .country:hover {
+  background: rgba(187, 171, 235, 0.15) !important;
+  /* subtle hover highlight */
+}
+
+/* Hide scrollbar and polish dropdown */
+.react-tel-input .country-list::-webkit-scrollbar {
+  display: none;
+}
+
+.react-tel-input .country-list {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  background: rgba(16, 24, 32, 0.25) !important; /* light transparent base */
+  backdrop-filter: blur(6px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(6px) saturate(160%) !important;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.react-tel-input .country-list .country {
+  background: transparent !important;
+  color: #e4e3e3 !important;
+  transition: background 0.3s ease;
+}
+
+.react-tel-input .country-list .country:hover {
+  background: linear-gradient(90deg, #bbabeb15, #6a618515) !important; /* soft gradient hover */
+}
+
+
+
+/* === Default state (simple & transparent) === */
+.react-tel-input .flag-dropdown {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 10px 0 0 10px !important;
+  transition: all 0.35s ease-in-out;
+}
+
+/* === Hover & active (glassy look only for flag box) === */
+.react-tel-input .flag-dropdown:hover,
+.react-tel-input .flag-dropdown.open,
+.react-tel-input .flag-dropdown:focus {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(10px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(160%) !important;
+  border-color: rgba(177, 162, 223, 0.4) !important;
+  box-shadow: 0 0 8px rgba(177, 162, 223, 0.25);
+}
+
+/* === Selected flag (no white bg ever) === */
+.react-tel-input .selected-flag {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* === Arrow inside flag area (purple accent) === */
+.react-tel-input .selected-flag .arrow {
+  border-top: 4px solid #B1A2DF !important;
+  opacity: 0.85;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.react-tel-input .flag-dropdown.open .arrow {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* === Dropdown list stays clean (no glassy change) === */
+.react-tel-input .country-list {
+  background: rgba(16, 24, 32, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Hide scrollbar */
+.react-tel-input .country-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hover on each country */
+.react-tel-input .country-list .country:hover {
+  background: rgba(177, 162, 223, 0.25) !important;
 }

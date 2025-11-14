@@ -138,7 +138,7 @@ const Contact = () => {
                   2xl:h-[clamp(35px,6vh,55px)]
                 "
               />
-              <div className="w-[46%] md:w-[47%] 2xl:w-[33vw] relative">
+              <div className="w-[46%] md:w-[47%] lg:w-[32vw] 2xl:w-[32vw] relative">
                 <PhoneInput
                   country={"in"} // 🇮🇳 default India
                   value={formData.contact}
@@ -147,7 +147,7 @@ const Contact = () => {
                     if (!value.startsWith(dialCode)) value = dialCode;
                     setFormData({ ...formData, contact: value });
                   }}
-                  enableSearch={true}
+                  enableSearch={false}
                   countryCodeEditable={false}
                   inputProps={{
                     name: "contact",
@@ -194,7 +194,7 @@ const Contact = () => {
                   bg-transparent
                   p-[clamp(6px,1vw,10px)]
                   rounded-[clamp(4px,1vw,10px)]
-                  w-[46%] sm:w-[44%] md:w-[47%] 2xl:w-[32vw]
+                  w-[46%] sm:w-[44%] md:w-[47%]  2xl:w-[33vw]
                   lg:w-[32vw]
                   lg:h-[clamp(35px,7vh,55px)]
                   md:h-[clamp(35px,4vh,55px)]

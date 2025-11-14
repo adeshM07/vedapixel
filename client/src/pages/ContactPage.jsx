@@ -425,14 +425,11 @@ const ContactPage = () => {
                       />
                       <div className="w-[46%] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]   md:w-[47%] 2xl:w-[21vw]">
                         <PhoneInput
-                          country={"in"} // Default country (India 🇮🇳)
+                          country={"in"} // 🇮🇳 Default country
                           value={collabForm.contact}
                           onChange={(value, country) => {
-                            // Automatically prepend country dial code when selected
                             const dialCode = `+${country.dialCode}`;
-                            if (!value.startsWith(dialCode)) {
-                              value = dialCode; // Set default code if missing
-                            }
+                            if (!value.startsWith(dialCode)) value = dialCode;
                             setCollabForm({
                               ...collabForm,
                               contact: value,
@@ -443,9 +440,8 @@ const ContactPage = () => {
                             name: "contact",
                             required: true,
                           }}
-                          enableAreaCodes={true}
-                          enableSearch={true} // 🔍 allows typing country name to search
-                          countryCodeEditable={false} // ✅ prevents user from deleting the country code
+                          enableSearch={false} // ❌ hide search bar
+                          countryCodeEditable={false}
                           placeholder="Enter contact number"
                           inputStyle={{
                             width: "100%",
@@ -465,7 +461,6 @@ const ContactPage = () => {
                                 : windowWidth <= 1024
                                   ? "3vh"
                                   : "6vh",
-
                             paddingLeft: "50px",
                           }}
                           buttonStyle={{
@@ -474,10 +469,20 @@ const ContactPage = () => {
                             borderRight: "1px solid #989BA1",
                           }}
                           dropdownStyle={{
-                            background: "#101820",
-                            color: "#fff",
+                            background: "rgba(16, 24, 32, 0.25)", // 🌫 transparent with slight tint
+                            backdropFilter: "blur(6px) saturate(160%)", // 💎 subtle blur
+                            WebkitBackdropFilter: "blur(6px) saturate(160%)",
+                            border: "1px solid rgba(255, 255, 255, 0.1)",
+                            borderRadius: "10px",
+                            color: "#E4E3E3",
+                            boxShadow: "0 4px 18px rgba(0, 0, 0, 0.3)",
+                            scrollbarWidth: "none",
+                            msOverflowStyle: "none",
+                            zIndex: 9999,
                           }}
                         />
+
+
                       </div>
                       <input
                         type="email"
@@ -617,7 +622,7 @@ const ContactPage = () => {
                               countryCode: dialCode,
                             });
                           }}
-                          enableSearch={true}
+                          enableSearch={false}
                           countryCodeEditable={false}
                           placeholder="Contact No. *"
                           inputProps={{
@@ -650,8 +655,16 @@ const ContactPage = () => {
                             borderRight: "1px solid #989BA1",
                           }}
                           dropdownStyle={{
-                            background: "#101820",
-                            color: "#fff",
+                            background: "rgba(16, 24, 32, 0.25)", // transparent with slight tint
+                            backdropFilter: "blur(6px) saturate(160%)",
+                            WebkitBackdropFilter: "blur(6px) saturate(160%)",
+                            border: "1px solid rgba(255, 255, 255, 0.1)",
+                            borderRadius: "10px",
+                            color: "#E4E3E3",
+                            boxShadow: "0 4px 18px rgba(0, 0, 0, 0.3)",
+                            scrollbarWidth: "none",
+                            msOverflowStyle: "none",
+                            zIndex: 9999,
                           }}
                         />
                       </div>
