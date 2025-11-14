@@ -132,10 +132,14 @@ const Body = () => {
         const rect = element.getBoundingClientRect();
 
         // How much of the section is visible in the viewport
-        const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+        const visibleHeight =
+          Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
 
         // Only count if at least 10–15% of it is visible
-        if (visibleHeight > maxVisibleHeight && visibleHeight > viewportHeight * 0.15) {
+        if (
+          visibleHeight > maxVisibleHeight &&
+          visibleHeight > viewportHeight * 0.15
+        ) {
           maxVisibleHeight = visibleHeight;
           currentSection = id;
         }
@@ -148,7 +152,6 @@ const Body = () => {
     handleScroll(); // run once on load
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
 
   // ✅ Show sidebar nav after section enters viewport
   // useEffect(() => {
@@ -193,15 +196,16 @@ const Body = () => {
 
       // fix: ensure bounding rect is calculated correctly
       const rect = entry.target.getBoundingClientRect();
-      const isInView =
-        rect.top < window.innerHeight - 110 && rect.bottom > 450;
+      const isInView = rect.top < window.innerHeight - 110 && rect.bottom > 450;
 
       if (width >= 1024) {
         // 💻 Laptop/Desktop → keep nav visible slightly longer (for "Our Process")
-        visible = entry.isIntersecting && isInView && entry.intersectionRatio > 0.05;
+        visible =
+          entry.isIntersecting && isInView && entry.intersectionRatio > 0.05;
       } else if (width >= 768 && width < 1024) {
         // 📱 Tablet → extend range too
-        visible = entry.isIntersecting && isInView && entry.intersectionRatio > 0.1;
+        visible =
+          entry.isIntersecting && isInView && entry.intersectionRatio > 0.1;
       } else {
         // 📲 Mobile → hidden anyway
         visible = false;
@@ -227,11 +231,6 @@ const Body = () => {
 
     return () => observer.disconnect();
   }, []);
-
-
-
-
-
 
   // ✅ Handle resize
   useEffect(() => {
@@ -304,6 +303,36 @@ const Body = () => {
 
     return () => clearInterval(interval);
   }, []);
+  const [activeStep, setActiveStep] = useState(null);
+
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const stepElements = document.querySelectorAll(".process-step");
+
+    const handleScroll = () => {
+      let closestIndex = null;
+      let closestDistance = Infinity;
+
+      stepElements.forEach((el, i) => {
+        const rect = el.getBoundingClientRect();
+        const distanceToCenter = Math.abs(
+          rect.top + rect.height / 2 - window.innerHeight / 2
+        );
+        if (distanceToCenter < closestDistance) {
+          closestDistance = distanceToCenter;
+          closestIndex = i;
+        }
+      });
+
+      setActiveStep(closestIndex);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isMobile]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -404,11 +433,6 @@ const Body = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-
-
-
-
 
   return (
     <>
@@ -512,7 +536,6 @@ const Body = () => {
           )}
         </AnimatePresence>
 
-
         {/* ✅ Content */}
         <div className="flex px-[2vw]   flex-col gap-[10rem] w-full md:pl-[30vw] lg:pl-[30vw]">
           {/* --- Our Aim --- */}
@@ -546,8 +569,8 @@ const Body = () => {
               </motion.p>
             )}
             <p className="text-white   [@media(min-width:300px)_and_(max-width:410px)]:text-[18px]  text-[20px]   md:text-[28px] lg:text-[2.2rem] 2xl:text-[3rem] leading-[1.3]">
-              We bridge innovation and execution with <br /> user-centric, future-ready
-              systems that <br />
+              We bridge innovation and execution with <br /> user-centric,
+              future-ready systems that <br />
               <span
                 id="tag"
                 className=" relative  inline-block align-baseline text-[#b19cd9]  overflow-hidden"
@@ -583,10 +606,11 @@ const Body = () => {
             </p>
             <div className="relative inline-block">
               <Link to="/about">
-
-                <button className="rotating-btn relative text-[#b19cd9] font-garota text-[0.7rem] md:text-[1.5rem] rounded-md px-3 py-2 md:px-6 md:py-3 overflow-hidden hover:from-[#6A6185] hover:to-[#B19CD9]
+                <button
+                  className="rotating-btn relative text-[#b19cd9] font-garota text-[0.7rem] md:text-[1.5rem] rounded-md px-3 py-2 md:px-6 md:py-3 overflow-hidden hover:from-[#6A6185] hover:to-[#B19CD9]
              hover:text-white hover:shadow-[0_0_15px_rgba(177,156,217,0.4)]
-             hover:-translate-y-1">
+             hover:-translate-y-1"
+                >
                   Know More
                 </button>
               </Link>
@@ -732,53 +756,61 @@ const Body = () => {
             </div>
           </section> */}
 
-          {isMobile ?
-            <section id="process"
-              ref={processRef} className=" overflow-x-hidden  w-full flex justify-center py-10 px-4 flex-col">
-              <motion.p
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                }}
-                initial={{ opacity: 0, y: 25, scale: 0.97 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="relative my-[60px] text-center text-[clamp(1.3rem,4vw,2rem)] font-semibold
+          {isMobile ? (
+            <section
+              id="process"
+              ref={processRef}
+              className="w-full flex justify-center py-10 px-4 flex-col "
+            >
+              <div className="w-full flex flex-col gap-10 mx-auto overflow-x-hidden">
+                <motion.p
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                  }}
+                  initial={{ opacity: 0, y: 25, scale: 0.97 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="relative my-[60px] text-center text-[clamp(1.3rem,4vw,2rem)] font-semibold
       bg-gradient-to-r from-[#C7B9F6] via-[#A699D9] to-[#6A6185]
       bg-clip-text text-transparent inline-block"
-              >
-                Our Process
-                <motion.span
-                  className="absolute  left-1/2 -translate-x-1/2 bottom-[-5px] h-[2px] w-[35%]
+                >
+                  Our Process
+                  <motion.span
+                    className="absolute  left-1/2 -translate-x-1/2 bottom-[-5px] h-[2px] w-[35%]
        bg-gradient-to-r from-[#C7B9F6] via-[#A699D9] to-[#6A6185] rounded-full"
-                  initial={{ scaleX: 0, opacity: 0 }}
-                  whileInView={{ scaleX: 1, opacity: 1 }}
-                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-                  viewport={{ once: false, amount: 0.4 }}
-                />
-              </motion.p>
-              <div className="w-full flex flex-col gap-10 mx-auto">
+                    initial={{ scaleX: 0, opacity: 0 }}
+                    whileInView={{ scaleX: 1, opacity: 1 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                    viewport={{ once: false, amount: 0.4 }}
+                  />
+                </motion.p>
                 {steps.map((step, index) => (
                   <motion.div
                     key={step.id}
+                    className={`process-step flex flex-col gap-2 border border-[#2b2b2b] p-4 rounded-xl bg-[#101820]/40 backdrop-blur-md transition-all duration-500 `}
                     initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.7, ease: "easeOut" }}
-                    viewport={{ once: false, amount: 0.3 }}
-                    className="process-step flex flex-col gap-2 border border-[#2b2b2b] p-4 rounded-xl bg-[#101820]/40 backdrop-blur-md"
+                    viewport={{ once: true, amount: 0.3 }}
                   >
-                    <motion.p
-                      className={`process-title text-[1.4rem] font-semibold transition-all duration-500 ${activeSection === `step-${step.id}` ? "text-[#B1A2DF]" : "text-[#C8C1C1]"
-                        }`}
+                    <p
+                      className={`process-title text-[1.4rem] font-semibold transition-all duration-500 ${
+                        index === activeStep
+                          ? "text-[#B1A2DF]"
+                          : "text-[#C8C1C1]"
+                      }`}
                     >
                       {step.id}. {step.title}
-                    </motion.p>
-                    <p className="text-[#F8F9FA] text-[0.95rem] leading-relaxed">{step.desc}</p>
+                    </p>
+                    <p className="text-[#F8F9FA] text-[0.95rem] leading-relaxed">
+                      {step.desc}
+                    </p>
                   </motion.div>
                 ))}
               </div>
             </section>
-            :
+          ) : (
             <section
               id="process"
               ref={processRef}
@@ -795,22 +827,23 @@ const Body = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className={`process-step  relative  flex flex-col md:flex-row items-center    ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"
-                      }`}
+                    className={`process-step  relative  flex flex-col md:flex-row items-center    ${
+                      index % 2 === 0 ? "md:justify-start" : "md:justify-end"
+                    }`}
                   >
                     <div
-                      className={`flex border-2 border-white w-full md:w-1/2 ${index % 2 === 0
-                        ? "md:justify-end md:pr-3 sm:md:pr-4 lg:pr-12 text-right"
-                        : "md:justify-start md:pl-3 sm:md:pl-4 lg:pl-12 text-left"
-                        }`}
+                      className={`flex border-2 border-white w-full md:w-1/2 ${
+                        index % 2 === 0
+                          ? "md:justify-end md:pr-3 sm:md:pr-4 lg:pr-12 text-right"
+                          : "md:justify-start md:pl-3 sm:md:pl-4 lg:pl-12 text-left"
+                      }`}
                     >
                       <div className=" rounded-2xl p-3 sm:p-4 md:p-6 w-full md:w-[100%] transition-all duration-500">
                         <motion.h3
-
                           className="process-title [@media(min-width:2000px)]:text-[3rem]  process-title-css text-[#C8C1C1] text-[1.1rem] sm:text-[1.3rem] md:text-[1.5rem] lg:text-[1.7rem] font-semibold mb-2"
                           initial={{ opacity: 0, y: 20 }}
                           whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6, ease: 'easeOut' }}
+                          transition={{ duration: 0.6, ease: "easeOut" }}
                           viewport={{ once: false, amount: 0.4 }}
                         >
                           {step.title}
@@ -822,7 +855,11 @@ const Body = () => {
                            leading-relaxed transition-colors duration-300"
                           initial={{ opacity: 0, y: 10 }}
                           whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
+                          transition={{
+                            duration: 0.7,
+                            ease: "easeOut",
+                            delay: 0.1,
+                          }}
                           viewport={{ once: false, amount: 0.4 }}
                         >
                           {step.desc}
@@ -832,17 +869,19 @@ const Body = () => {
 
                     {/* Step number */}
                     <div
-                      className={`absolute about-card-desc transform -translate-y-[110%] w-8 sm:w-9 md:w-10 h-8 sm:h-9 md:h-10 flex items-center justify-center rounded-full text-[#C8C1C1] text-[2rem] sm:text-[2.5rem] md:text-[3rem] ${index % 2 === 0
-                        ? "md:left-[calc(50%+8px)]"
-                        : "md:right-[calc(50%+8px)]"
-                        }`}
+                      className={`absolute about-card-desc transform -translate-y-[110%] w-8 sm:w-9 md:w-10 h-8 sm:h-9 md:h-10 flex items-center justify-center rounded-full text-[#C8C1C1] text-[2rem] sm:text-[2.5rem] md:text-[3rem] ${
+                        index % 2 === 0
+                          ? "md:left-[calc(50%+8px)]"
+                          : "md:right-[calc(50%+8px)]"
+                      }`}
                     >
                       {step.id}.
                     </div>
                   </motion.div>
                 ))}
               </div>
-            </section>}
+            </section>
+          )}
           {/* --- Our Team --- */}
           <section
             id="team"
@@ -887,13 +926,12 @@ const Body = () => {
                   WebkitBackdropFilter: "blur(12px) saturate(180%)",
                   border: "2px solid rgba(255, 255, 255, 0.15)",
                   boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
-
                 }}
               >
                 <div className="flex flex-col justify-center items-start h-full space-y-3">
                   <p className="begin-card-title text-[clamp(1.3rem,2.5vw,3rem)] text-white font-semibold leading-tight">
-                    we are experienced innovators <br /> building scalable digital
-                    platforms
+                    we are experienced innovators <br /> building scalable
+                    digital platforms
                   </p>
 
                   <p className="begin-card-desc text-[#C8C1C1] text-[clamp(0.9rem,1.8vw,1.5rem)]">
@@ -909,13 +947,15 @@ const Body = () => {
                     </button>
                   </div> */}
                   <div className="relative inline-block">
-                    <button onClick={() => setShowTeamPopup(true)} className="rotating-btn relative  text-[#b19cd9] font-garota text-[12px] md:text-[16px] rounded-md w-[25vw] [@media(min-width:300px)_and_(max-width:410px)]:h-[4vh] h-[4vh] md:h-[clamp(50px,6vh,55px)] md:w-[clamp(110px,10vw,160px)]  overflow-hidden hover:from-[#6A6185] hover:to-[#B19CD9]
+                    <button
+                      onClick={() => setShowTeamPopup(true)}
+                      className="rotating-btn relative  text-[#b19cd9] font-garota text-[12px] md:text-[16px] rounded-md w-[25vw] [@media(min-width:300px)_and_(max-width:410px)]:h-[4vh] h-[4vh] md:h-[clamp(50px,6vh,55px)] md:w-[clamp(110px,10vw,160px)]  overflow-hidden hover:from-[#6A6185] hover:to-[#B19CD9]
              hover:text-white hover:shadow-[0_0_15px_rgba(177,156,217,0.4)]
-             hover:-translate-y-1">
+             hover:-translate-y-1"
+                    >
                       Our Team
                     </button>
                   </div>
-
                 </div>
               </div>
             </div>
