@@ -1,0 +1,186 @@
+@font-face {
+  font-family: 'Garota Sans';
+  src: url('../fonts/garota_sans/GarotaSans-Bold-FFP.ttf') format('truetype');
+  font-weight: 700;
+  font-style: bold;
+}
+
+.contact-box-title {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-style: normal;
+}
+
+.active-btn {
+  background: linear-gradient(90deg, #bbabeb, #6a6185);
+  border: none;
+  color: white;
+  box-shadow: 0 0 15px rgba(187, 171, 235, 0.4);
+  transition: all 0.4s ease-in-out;
+}
+
+.begin-card-button {
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  background:
+    linear-gradient(#101820) padding-box,
+    /* inner background */
+    linear-gradient(90deg, #BBABEB, #6A6185) border-box;
+  /* gradient border */
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.contact-title {
+  font-family: 'Garota Sans';
+  font-weight: 700;
+  font-style: bold;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+  width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Apply custom placeholder text using the ::before pseudo-element */
+/* This works in many modern browsers to replace the default text */
+.custom-file-input::before {
+  content: 'Upload Your Resume *';
+  /* The desired placeholder text */
+  color: #818181;
+  display: inline-block;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 24px;
+  /* Adjust based on input height */
+}
+
+/* Adjust the input to visually align the pseudo-element */
+.custom-file-input {
+  color: transparent;
+  /* Hide actual selected filename text */
+}
+
+/* Show the filename text back if a file is selected (optional but useful) */
+.custom-file-input.file-chosen {
+  /* color: #F8F9FA; */
+  /* Or any visible color */
+}
+
+
+.popins {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Completely hide scrollbar in dropdown */
+.react-tel-input .country-list::-webkit-scrollbar {
+  display: none;
+}
+
+.react-tel-input .country-list {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  background: transparent !important;
+  /* 👈 ensures no gray bg behind */
+}
+
+.react-tel-input .country-list .country {
+  background: transparent !important;
+  color: #e4e3e3 !important;
+  /* visible text */
+}
+
+.react-tel-input .country:hover {
+  background: rgba(187, 171, 235, 0.15) !important;
+  /* subtle hover highlight */
+}
+
+/* Hide scrollbar and polish dropdown */
+.react-tel-input .country-list::-webkit-scrollbar {
+  display: none;
+}
+
+.react-tel-input .country-list {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  background: rgba(16, 24, 32, 0.25) !important; /* light transparent base */
+  backdrop-filter: blur(6px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(6px) saturate(160%) !important;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.react-tel-input .country-list .country {
+  background: transparent !important;
+  color: #e4e3e3 !important;
+  transition: background 0.3s ease;
+}
+
+.react-tel-input .country-list .country:hover {
+  background: linear-gradient(90deg, #bbabeb15, #6a618515) !important; /* soft gradient hover */
+}
+
+
+
+/* === Default state (simple & transparent) === */
+.react-tel-input .flag-dropdown {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 10px 0 0 10px !important;
+  transition: all 0.35s ease-in-out;
+}
+
+/* === Hover & active (glassy look only for flag box) === */
+.react-tel-input .flag-dropdown:hover,
+.react-tel-input .flag-dropdown.open,
+.react-tel-input .flag-dropdown:focus {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(10px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(160%) !important;
+  border-color: rgba(177, 162, 223, 0.4) !important;
+  box-shadow: 0 0 8px rgba(177, 162, 223, 0.25);
+}
+
+/* === Selected flag (no white bg ever) === */
+.react-tel-input .selected-flag {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* === Arrow inside flag area (purple accent) === */
+.react-tel-input .selected-flag .arrow {
+  border-top: 4px solid #B1A2DF !important;
+  opacity: 0.85;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.react-tel-input .flag-dropdown.open .arrow {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* === Dropdown list stays clean (no glassy change) === */
+.react-tel-input .country-list {
+  background: rgba(16, 24, 32, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Hide scrollbar */
+.react-tel-input .country-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hover on each country */
+.react-tel-input .country-list .country:hover {
+  background: rgba(177, 162, 223, 0.25) !important;
+}

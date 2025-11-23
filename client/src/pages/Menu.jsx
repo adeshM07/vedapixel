@@ -1,0 +1,213 @@
+import React, { useEffect, useState } from "react";
+import logo from "../assets/vedaPixelLogo.png";
+import { Link } from "react-router-dom";
+import { motion, AnimatePresence, useAnimation } from "framer-motion";
+import "../CSS/Menu.css";
+import email from "../assets/email.png";
+import phone from "../assets/phone.png";
+
+const Menu = () => {
+  const controls = useAnimation();
+  const [navPopup, setNavPopup] = useState(false);
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.innerWidth < 768 : false
+  );
+
+  useEffect(() => {
+    let lastVisible = null;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const shouldBeVisible = scrollY > 20; // start animation only after 20px scroll
+
+      // ✅ only trigger if visibility actually changes
+      if (shouldBeVisible !== lastVisible) {
+        lastVisible = shouldBeVisible;
+        controls.start({
+          opacity: shouldBeVisible ? 0.98 : 1, // smooth fade, no flicker
+          y: 0,
+          transition: { duration: 0.4, ease: "easeOut" },
+        });
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [controls]);
+
+  // ✅ Optional: auto-close navPopup when resizing above mobile width
+  useEffect(() => {
+    const handleResize = () => {
+      const isNowMobile = window.innerWidth < 768;
+      setIsMobile(isNowMobile);
+      if (!isNowMobile) setNavPopup(false);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return (
+    <>
+      <div
+        className="menu-sticky  py-10 place-items-center sticky top-0 z-10 
+        flex justify-between items-center 
+        px-[7%] h-[9vh]
+        w-screen backdrop-blur-[6px]"
+      >
+        {/* --- Logo + Company Name --- */}
+        <div className="flex mt-5 md:mt-0 place-items-end">
+          <img
+            src={logo}
+            alt="VedaPixel Logo"
+            className="w-[10vw] md:w-[clamp(40px,5vw,65px)] md:h-[clamp(40px,5vw,65px)] object-contain"
+          />
+          <p
+            className="company-name text-white 
+              text-[clamp(16px,2vw,26px)] 
+              tracking-tight"
+          >
+            VedaPixel
+          </p>
+        </div>
+
+        {/* --- Navigation Links --- */}
+        {isMobile ? (
+          <div>
+            {navPopup ? (
+              <i
+                class="fa-solid fa-xmark text-2xl mt-5 text-white cursor-pointer"
+                onClick={() => setNavPopup(!navPopup)}
+              ></i>
+            ) : (
+              <i
+                className="fa-solid fa-bars text-2xl mt-5 text-white cursor-pointer"
+                onClick={() => setNavPopup(!navPopup)}
+              ></i>
+            )}
+          </div>
+        ) : (
+          <div
+            className="nav-links 
+            flex flex-wrap place-items-end justify-end 
+            gap-[clamp(10px,3vw,3rem)] 
+            text-white"
+          >
+            <Link to="/">
+              <p
+                className="body-nav md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
+              md:text-[clamp(14px,1.4vw,22px)] cursor-pointer"
+              >
+                Home
+              </p>
+            </Link>
+
+            <Link to="/about">
+              <p
+                className="body-nav text-[12px] md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] 
+              md:text-[clamp(14px,1.4vw,22px)] cursor-pointer"
+              >
+                About Us
+              </p>
+            </Link>
+            <Link to="/services">
+              <p
+                className="body-nav text-[12px] md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] 
+              md:text-[clamp(14px,1.4vw,22px)] cursor-pointer"
+              >
+                Services
+              </p>
+            </Link>
+
+            <Link to="/contactus">
+              <motion.p
+                className="contact-button 
+                  text-[clamp(10px,2.5vw,14px)] 
+                  px-[clamp(6px,2vw,10px)] 
+                  py-[clamp(4px,1.5vw,6px)]
+                  sm:text-[clamp(11px,2vw,15px)] sm:px-[clamp(8px,2vw,12px)] sm:py-[clamp(5px,1.5vw,7px)]
+                  md:text-[clamp(13px,1.3vw,20px)] md:px-[clamp(10px,2vw,18px)] md:py-[clamp(6px,1vw,10px)]
+                  lg:text-[clamp(14px,1.2vw,22px)] lg:px-[clamp(12px,2vw,20px)] lg:py-[clamp(6px,1vw,10px)]
+                  rounded-md cursor-pointer 
+                  font-semibold tracking-wide 
+                  text-[#1a1c22]
+                  flex items-center justify-center"
+              >
+                Contact&nbsp;Us
+              </motion.p>
+            </Link>
+          </div>
+        )}
+
+        {/* --- Animated Mobile Menu Popup --- */}
+        <AnimatePresence>
+          {navPopup && (
+            <motion.div
+              key="menu-popup"
+              initial={{ opacity: 0, scale: 0.9, y: -10 }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                transition: { duration: 0.45, ease: "easeOut" },
+              }}
+              exit={{
+                opacity: 0,
+                scale: 0.95,
+                y: -10,
+                transition: { duration: 0.35, ease: "easeInOut" },
+              }}
+              className="menuBar absolute right-4 w-[65%] top-24 h-[45vh] 
+                         flex flex-col text-[20px] 
+                         px-6 py-5 text-white gap-5 rounded-xl
+                         border border-white/20 shadow-lg
+                         backdrop-blur-[20px] bg-[rgba(30,30,40,0.45)]
+                         bg-gradient-to-br from-[rgba(40,40,60,0.55)] to-[rgba(20,20,30,0.25)]
+                         overflow-hidden"
+            >
+              <Link to="/" onClick={() => setNavPopup(!navPopup)}>
+                <p className="hover:text-[#C7B9F6] cursor-pointer transition">
+                  Home
+                </p>
+              </Link>
+              <Link to="/about" onClick={() => setNavPopup(!navPopup)}>
+                <p className="hover:text-[#C7B9F6] cursor-pointer transition">
+                  About us
+                </p>
+              </Link>
+              <Link to="/contactus" onClick={() => setNavPopup(!navPopup)}>
+                <p className="hover:text-[#C7B9F6] cursor-pointer transition">
+                  Contact us
+                </p>
+              </Link>
+              <Link to="/services" onClick={() => setNavPopup(!navPopup)}>
+                <p className="hover:text-[#C7B9F6] cursor-pointer transition">
+                  Services
+                </p>
+              </Link>
+
+              <div className="flex items-center gap-2 mt-3">
+                <img src={email} alt="email" className="h-[16px] sm:h-[20px]" />
+                <span className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)]">
+                  info@vedapixel.com
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <img src={phone} alt="phone" className="h-[16px] sm:h-[20px]" />
+                <span className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)]">
+                  +91 9036354261
+                </span>
+              </div>
+
+              <p className="text-[#F8F9FA]/80 text-[12px] mt-auto">
+                &copy; 2025 VedaPixel Tech Solution Pvt. Ltd. All Rights
+                Reserved.
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </>
+  );
+};
+
+export default Menu;

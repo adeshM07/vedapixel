@@ -1,0 +1,214 @@
+.about-page {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌌 Background image behind grid */
+#layout::before {
+  content: "";
+  position: absolute;
+  width: 52vw;
+  height: 120vh;
+  background: url("../assets/aboutbg.png") no-repeat center center;
+  background-size: cover;
+  opacity: 0.35;
+  filter: brightness(0.8) contrast(1.1);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Box style for Mission, Vision, Story */
+.about-card {
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 7px;
+  padding: 20px 24px 33px 20px;
+  background: linear-gradient(139.47deg,
+      rgba(57, 64, 73) -45.69%,
+      rgba(16, 24, 32) 54.7%);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.about-card-title {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Title & Paragraph consistency */
+.about-part-title {
+  font-family: "Garota Sans", sans-serif;
+  font-weight: 600;
+}
+
+.about-part1-desc {
+  font-family: "Garota Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+@media (min-width: 400px) and (max-width: 700px) {
+  #layout::before {
+    content: "";
+    position: absolute;
+    width: 90vw;
+    height: 49vh;
+    background: url("../assets/aboutbg.png") no-repeat;
+    background-size: cover;
+    opacity: 0.35;
+    filter: brightness(0.8) contrast(1.1);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .about-card {
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 7px;
+    padding: 20px 10px 33px 10px;
+    background: linear-gradient(139.47deg,
+        rgba(57, 64, 73) -45.69%,
+        rgba(16, 24, 32) 54.7%);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  /* padding: 20px 10px 33px 10px; */
+}
+
+@media (min-width: 701px) and (max-width: 1200px) {
+  #layout::before {
+    content: "";
+    position: absolute;
+    width: 90vw;
+    height: 65vh;
+    background: url("../assets/aboutbg.png") no-repeat;
+    background-size: cover;
+    opacity: 0.35;
+    filter: brightness(0.8) contrast(1.1);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .about-card {
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 7px;
+    padding: 20px 10px 33px 10px;
+    background: linear-gradient(139.47deg,
+        rgba(57, 64, 73) -45.69%,
+        rgba(16, 24, 32) 54.7%);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  /* padding: 20px 10px 33px 10px; */
+}
+
+@media (min-width: 301px) and (max-width: 399px) {
+    #layout::before {
+    content: "";
+    position: absolute;
+    width: 90vw;
+    height: 41vh;
+    background: url("../assets/aboutbg.png") no-repeat;
+    background-size: cover;
+    opacity: 0.35;
+    filter: brightness(0.8) contrast(1.1);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+   .about-card {
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 7px;
+    padding: 5px 10px 7px 7px;
+    background: linear-gradient(139.47deg,
+        rgba(57, 64, 73) -45.69%,
+        rgba(16, 24, 32) 54.7%);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+}
+
+
+@media (min-width: 1201px)  {
+  #layout::before {
+    content: "";
+    position: absolute;
+    width: 81vw;
+    height: 122vh;
+    /* scale: 0.9; */
+    background: url("../assets/aboutbg.png") no-repeat center center;
+    background-size: contain;
+    opacity: 0.35;
+    filter: brightness(0.8) contrast(1.1);
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
+/* =====================
+   RESPONSIVE FIXES
+   ===================== */
+
+/* 📱 Mobile */
+@media (max-width: 640px) {
+
+
+
+}
+
+@media (min-width: 2000px) {
+  #layout::before {
+    content: "";
+    position: absolute;
+    width: 63vw;
+    height: 110vh;
+    background: url("../assets/aboutbg.png") no-repeat center center;
+    background-size: cover;
+    opacity: 0.35;
+    filter: brightness(0.8) contrast(1.1);
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
+/* 📱 Tablet */
+/* @media (min-width: 641px) and (max-width: 1023px) {
+  #layout::before {
+    width: 80vw;
+    height: 130vh;
+    background-position: center top;
+    background-size: cover;
+    opacity: 0.3;
+  }
+
+  .about-card {
+    width: 80% !important;
+    height: auto;
+  }
+
+  .about-part-title {
+    font-size: 1.6rem !important;
+  }
+
+  .about-part1-desc {
+    font-size: 1.2rem !important;
+  }
+} */
+
+
+
+/* 💻 Desktop (original preserved) */
+/* @media (min-width: 1024px) {
+  #layout::before {
+    width: 65vw;
+    height: 130vh;
+    background-size: cover;
+    opacity: 0.35;
+  }
+} */
+

@@ -1,0 +1,139 @@
+.company-name {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+.body-nav {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.body-nav::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #BBABEB, #6A6185);
+  transition: width 0.3s ease-in-out;
+  border-radius: 2px;
+}
+
+.body-nav:hover::after {
+  width: 100%;
+}
+
+
+.manuBar {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.nav-links {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+
+.menu-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(15, 15, 20, 0.3);
+  /* stabilizes blur */
+  will-change: transform, opacity;
+  /* forces GPU acceleration */
+  transform: translateZ(0);
+  /* isolates layer */
+  backface-visibility: hidden;
+}
+
+
+/* 🟣 Contact Button — same design, responsive size */
+.contact-button {
+  background: linear-gradient(to right, #bbabeb, #6a6185);
+  border: none;
+  color: #1a1c22;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.25s ease-in-out;
+}
+
+.contact-button:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 15px rgba(187, 171, 235, 0.4);
+}
+
+/* ✅ Small devices (400px–600px): Keep flex, just scale down */
+/* @media (max-width: 600px) {
+  .menu-sticky {
+    mx: 1rem !important;
+    padding-top: 20px;
+  }
+
+  .company-name {
+    font-size: 0.9rem !important;
+  }
+
+  .nav-links {
+    gap: 12px !important;
+  }
+
+  .contact-button {
+    font-size: 0.75rem !important;
+  }
+} */
+
+/* ✅ Tablets (601px–1024px): balanced look */
+/* @media (min-width: 601px) and (max-width: 1024px) {
+  .menu-sticky {
+    mx: 2rem !important;
+  }
+
+  .company-name {
+    font-size: 1.2rem !important;
+  }
+
+  .contact-button {
+    font-size: 0.95rem !important;
+  }
+} */
+
+/* ✅ Large screens (1025px–2560px): breathing space */
+/* @media (min-width: 1025px) {
+  .nav-links {
+    gap: 2.5rem;
+  }
+
+  .company-name {
+    font-size: 1.5rem;
+  }
+
+  .contact-button {
+    font-size: 1.1rem;
+  }
+} */
+
+/* ✅ Ultra-wide (2560px–4K): proportional expansion */
+/* @media (min-width: 2560px) {
+  .menu-sticky {
+    margin-inline: 10vw;
+  }
+
+  .company-name {
+    font-size: 2.2rem;
+  }
+
+  .nav-links {
+    gap: 4rem;
+  }
+
+  .contact-button {
+    font-size: 1.5rem;
+
+  }
+} */

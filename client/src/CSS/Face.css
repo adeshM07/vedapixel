@@ -1,0 +1,130 @@
+/* Update your ../CSS/Face.css */
+
+/* Custom Font Styles */
+.faceCSS-head {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.faceCSS-tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  /* Default spacing for desktop */
+  transition: letter-spacing 0.3s ease, font-size 0.3s ease;
+}
+
+/* ✅ Mobile (Small screens up to 767px) */
+@media screen and (max-width: 767px) {
+  .faceCSS-tagline {
+    font-size: 0.85rem;
+    font-weight: 300;
+    letter-spacing: 0.27em;
+    /* tighter for readability */
+    line-height: 4.3rem;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width:400px) and (max-width: 480px) {
+  .faceCSS-tagline {
+    font-size: 0.64rem !important;
+    letter-spacing: 0.2em !important;
+    text-align: center !important;
+    line-height: 1.50rem;
+  }
+}
+
+/* ✅ Tablets (768px - 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .faceCSS-tagline {
+    font-size: 1rem;
+    font-weight: 200;
+    letter-spacing: 0.4em;
+    /* balanced look */
+    line-height: 1.5rem;
+  }
+}
+
+/* ✅ Desktop (1024px and above) */
+@media screen and (min-width: 1024px) {
+  .faceCSS-tagline {
+    font-size: 1.4rem;
+    letter-spacing: 0.6em;
+    line-height: 2rem;
+  }
+}
+
+
+/* 🔆 Make only the selected white grid lines more visible on tablet */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+  /* Only the selected (white) grid lines */
+  .absolute.bg-white {
+    background-color: #ffffff !important;
+    opacity: 1 !important;
+    /* Full visibility */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    /* Subtle glow */
+  }
+
+  /* Make the white dots match brightness */
+  .absolute.bg-white.rounded-full {
+    background-color: #ffffff !important;
+    opacity: 1 !important;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+  }
+}
+
+
+
+
+/* .bg-face::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("../assets/bg-face.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+} */
+
+/* --- Gradient Glow Overlay (::after) - The "Sunlight" Effect --- */
+
+/* Ensure the main container has relative positioning for the glow */
+.h-screen.w-screen.flex.place-items-center.px-20.relative {
+  position: relative;
+}
+
+/* Gradient Glow Pseudo-element */
+.h-screen.w-screen.flex.place-items-center.px-20.relative::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60vh;
+  height: 60vh;
+
+  /* Yellowish-Green/Gold Gradient for the corner */
+  background: radial-gradient(circle at 90% 10%,
+      rgba(255, 230, 100, 0.30),
+      /* Brightest Yellow/Gold */
+      rgba(150, 150, 100, 0.20),
+      /* Fades into Olive/Gray */
+      rgba(26, 28, 34, 0) 70%
+      /* Fades to transparent background color */
+    );
+
+  filter: blur(80px);
+  /* Base opacity for the glow. The parent motion.div animates this entire element's opacity from 0 to 0.8. */
+  opacity: 0.8;
+  z-index: 0;
+  pointer-events: none;
+}

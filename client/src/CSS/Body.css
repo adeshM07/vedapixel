@@ -1,0 +1,291 @@
+@font-face {
+  font-family: 'Garota Sans';
+  src: url('../fonts/garota_sans/GarotaSans-Regular-FFP.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.body-nav {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-style: normal;
+}
+
+.process-nosize {
+  font-family: 'Garota Sans';
+  font-weight: 400;
+  font-style: normal;
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* ✅ Rotating Border Effect */
+.rotating-btn {
+  position: relative;
+  border: 3px solid transparent;
+  border-radius: 12px;
+  background:
+    linear-gradient(#101820, #101820) padding-box,
+    conic-gradient(from var(--border-angle),
+      #101820,
+      #9c88ff,
+      #b19cd9,
+      #d1c4e9,
+      #b19cd9) border-box;
+  animation: border-rotate 3s linear infinite;
+  transition: color 0.3s smooth;
+}
+
+@keyframes border-rotate {
+  from {
+    --border-angle: 0deg;
+  }
+
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+/* ✅ Optional Hover Glow */
+
+.process-step {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+.about-card {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.about-card-title {
+  font-family: 'Garota Sans';
+  font-weight: 400;
+  font-style: normal;
+}
+
+.about-card-desc {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-style: normal;
+}
+
+.service-card {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.team-card {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.infinite-scroll-node {
+  font-family: 'Garota Sans', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.begin-title {
+  font-family: 'Garota Sans';
+  font-weight: 700;
+  font-style: bold;
+}
+
+.begin-card-title {
+  font-family: 'Garota Sans';
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* .begin-card-desc {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-style: normal;
+} */
+
+.begin-card-button {
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  background:
+    linear-gradient(#192029) padding-box,
+    /* inner background */
+    linear-gradient(90deg, #BBABEB, #6A6185) border-box;
+  /* gradient border */
+  color: white;
+  transition: all 0.3s ease;
+}
+
+/* .begin-card-desc:hover {
+  box-shadow: 0 0 10px rgba(187, 171, 235, 0.4);
+} */
+
+.begin-card-button:hover {
+  box-shadow: 0 0 10px rgba(187, 171, 235, 0.6);
+  transform: translateY(-2px);
+}
+
+.popup-teamCard-title {
+  font-family: 'Garota Sans', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* Hide scrollbar but keep scroll functionality */
+.no-scrollbar {
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE 10+ */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Edge */
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 0;
+}
+
+/* ✅ Continuous, seamless infinite scroll with no jump */
+
+.scroll-track {
+  display: flex;
+  width: max-content;
+}
+
+.scroll-left {
+  animation: scroll-left linear infinite;
+}
+
+.scroll-right {
+  animation: scroll-right linear infinite;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-40%);
+  }
+}
+
+@keyframes scroll-right {
+  from {
+    transform: translateX(-40%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* ✅ Prevents any pause or blank gap */
+.scroll-left,
+.scroll-right {
+  animation-timing-function: linear;
+  will-change: transform;
+}
+
+
+/* ✅ Apply continuous linear motion with no visible jump */
+/* .animate-scroll-left {
+  animation: scroll-left linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right linear infinite;
+} */
+
+#tag {
+  display: inline-block;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+
+
+
+
+/* Slide + fade animation */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveGrid {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+
+  100% {
+    background-position: 40px 40px, 40px 40px;
+  }
+}
+
+.service-card::before {
+  animation: moveGrid 10s linear infinite;
+}
+
+
+
+
+.animate-fadeSlideIn {
+  animation: fadeSlideIn 0.8s ease-out forwards;
+}
+
+
+@media (min-width: 301px) and (max-width: 780px){
+  .rotating-btn {
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background:
+    linear-gradient(#101820, #101820) padding-box,
+    conic-gradient(from var(--border-angle),
+      #101820,
+      #9c88ff,
+      #b19cd9,
+      #d1c4e9,
+      #b19cd9) border-box;
+  animation: border-rotate 3s linear infinite;
+  transition: color 0.3s smooth;
+}
+
+@keyframes border-rotate {
+  from {
+    --border-angle: 0deg;
+  }
+
+  to {
+    --border-angle: 360deg;
+  }
+}
+}

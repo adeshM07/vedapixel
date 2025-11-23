@@ -1,0 +1,43 @@
+// pages/LandingPage.jsx
+
+import React from "react";
+import Menu from "./Menu";
+import Body from "./Body";
+import Contact from "./Contact";
+import Footer from "./Footer";
+import ContactPage from "./ContactPage";
+import MainSection from "./MainSection";
+import AboutPage from "./AboutPage";
+import ScrollToTop from "./ScrollToTop";
+import Services from "./Services";
+import ServiceInfoPage from "./ServiceInfoPage";
+import Faq from "./Faq";
+import { Routes, Route } from "react-router-dom";
+
+const LandingPage = () => {
+  return (
+    <>
+      <div>
+        {/* <Menu /> */}
+
+        {/* ✅ Scroll reset only for internal pages */}
+        <ScrollToTop />
+
+        <div className="w-screen pt-[32px] h-fit">
+          <Routes>
+            <Route path="/" element={<MainSection />} />
+            <Route path="/contactus" element={<ContactPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/serviceInfo" element={<ServiceInfoPage />} />
+            <Route path="/faqs" element={<Faq />} />
+          </Routes>
+        </div>
+
+        <Footer />
+      </div>
+    </>
+  );
+};
+
+export default LandingPage;
