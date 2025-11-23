@@ -470,7 +470,7 @@ const Body = () => {
                 Meet Our Team
               </p>
 
-              <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-16 sm:gap-8 lg:gap-24 px-2 sm:px-4 pb-10">
+              <div className="flex flex-col  sm:flex-row sm:flex-wrap justify-center gap-16 sm:gap-8 lg:gap-24 px-2 sm:px-4 pb-10">
                 {[
                   { name: "Sunil MB", role: "Co-Founder - MD / CEO" },
                   { name: "Nithin MB", role: "Co-Founder - MD" },
@@ -491,7 +491,7 @@ const Body = () => {
                     <img
                       src={profileImg}
                       alt="Profile"
-                      className="absolute bottom-0 left-0 object-cover h-[150px] md:h-[200px] -translate-y-[10px]"
+                      className="absolute bottom-0 left-0 object-cover h-[120px] md:h-[200px] -translate-y-[10px]"
                     />
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[60%] flex flex-col justify-center items-start pl-3">
                       <p className="text-white font-bold text-[1rem] lg:text-[22px]">
@@ -769,8 +769,7 @@ const Body = () => {
                     y: 0,
                     scale: 1,
                   }}
-                  initial={{ opacity: 0, y: 25, scale: 0.97 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
+                
                   className="relative my-[60px] text-center text-[clamp(1.3rem,4vw,2rem)] font-semibold
       bg-gradient-to-r from-[#C7B9F6] via-[#A699D9] to-[#6A6185]
       bg-clip-text text-transparent inline-block"
@@ -789,10 +788,7 @@ const Body = () => {
                   <motion.div
                     key={step.id}
                     className={`process-step flex flex-col gap-2 border border-[#2b2b2b] p-4 rounded-xl bg-[#101820]/40 backdrop-blur-md transition-all duration-500 `}
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.3 }}
+                   
                   >
                     <p
                       className={`process-title text-[1.4rem] font-semibold transition-all duration-500 ${
