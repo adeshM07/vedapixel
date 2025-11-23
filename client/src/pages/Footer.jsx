@@ -4,7 +4,7 @@ import "../CSS/Footer.css";
 import icon from "../assets/send.png";
 import linkedin from "../assets/linkedin.png";
 import Instagram from "../assets/instagram.png";
-import email from "../assets/email.png";
+import emaill from "../assets/email.png";
 import phone from "../assets/phone.png";
 import whatsapp from "../assets/whatsapp.png";
 import { motion } from "framer-motion";
@@ -78,7 +78,7 @@ const Footer = () => {
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                 <div className="flex items-center gap-2 cursor-pointer">
                   <img
-                    src={email}
+                    src={emaill}
                     alt="email"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
                   />
