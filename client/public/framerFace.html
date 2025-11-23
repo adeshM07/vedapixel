@@ -3128,7 +3128,6 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        object-fit: cover;
         z-index: 9999;
         pointer-events: none;
       "
@@ -3146,6 +3145,11 @@
       @media (min-width: 601px) and (max-width: 1024px) {
         #bgGif {
           object-fit: contain;
+        }
+      }
+      @media (min-width: 1025px) {
+        #bgGif {
+          object-fit: cover;
         }
       }
     </style>
