@@ -170,7 +170,7 @@ const Contact = () => {
                       windowWidth <= 410
                         ? "5.6vh"
                         : windowWidth < 640
-                        ? "4vh"
+                        ? "4.2vh"
                         : windowWidth <= 1024
                         ? "3vh"
                         : "6vh",
