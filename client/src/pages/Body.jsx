@@ -493,7 +493,7 @@ const Body = () => {
                       alt="Profile"
                       className="absolute bottom-0 left-0 object-cover h-[150px] md:h-[200px] -translate-y-[10px]"
                     />
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[60%] flex flex-col justify-center items-start pl-3">
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[60%] flex flex-col justify-center items-start pl-5 md:pl-3">
                       <p className="text-white font-bold text-[1rem] lg:text-[22px]">
                         {member.name}
                       </p>
