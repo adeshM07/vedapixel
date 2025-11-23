@@ -167,10 +167,10 @@ const Contact = () => {
                     color: "#818181",
                     fontSize: "clamp(0.8rem, 1vw, 1rem)",
                     height:
-                      windowWidth <= 410
+                      windowWidth <= 400
                         ? "5.6vh"
                         : windowWidth < 640
-                        ? "4.2vh"
+                        ? "5vh"
                         : windowWidth <= 1024
                         ? "3vh"
                         : "6vh",
