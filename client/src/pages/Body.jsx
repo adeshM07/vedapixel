@@ -448,7 +448,7 @@ const Body = () => {
             style={{ zIndex: 9999 }}
           >
             <motion.div
-              className="relative w-full max-w-[95vw] md:w-[700px] lg:w-[80vw]  md:h-[85vh]
+              className="relative  w-full max-w-[95vw] md:w-[700px] h-[75vh] lg:w-[80vw]  md:h-[85vh]
                    flex flex-col gap-6 sm:gap-8 md:gap-10
                    rounded-[30px] sm:rounded-[40px]
                    border border-white/20 bg-white/10 backdrop-blur-[20px]
