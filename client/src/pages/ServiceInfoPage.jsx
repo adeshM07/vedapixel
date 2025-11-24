@@ -1442,7 +1442,7 @@ const ServiceInfoPage = () => {
                   }
                   className="w-full flex justify-between items-center px-6 py-5 text-left text-[#F8F9FA] hover:text-[#BBABEB] transition-all duration-200"
                 >
-                  <span className="text-[1.3rem] md:text-[1.5rem] service-desc ">
+                  <span className="text-[1.3rem] w-[90%] md:text-[1.5rem] service-desc ">
                     {faq.question}
                   </span>
                   <span className="text-[#BBABEB] text-[1rem] md:text-2xl">

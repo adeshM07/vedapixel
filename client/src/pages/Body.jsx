@@ -8,7 +8,7 @@ import InfiniteScrollNodes3 from "./InfiniteScrollNodes3";
 import profileImg from "../assets/profileImg.png";
 import { Link } from "react-router-dom";
 
-const Body = () => {
+const Body = ({setStatus}) => {
   const [showBody, setShowBody] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
   const [navOpacity, setNavOpacity] = useState(1);
