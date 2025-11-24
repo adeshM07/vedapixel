@@ -671,7 +671,7 @@ const ContactPage = () => {
                         />
                         <label
                           htmlFor="resume"
-                          className="flex items-center gap-2 border border-[#989BA1] text-[#818181] bg-transparent 
+                          className="flex items-center gap-2 border border-[#989BA1]  bg-transparent 
              p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)] w-full 
              md:w-[100%] lg:w-[21vw] 2xl:w-[21vw]
              md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]
@@ -682,11 +682,12 @@ const ContactPage = () => {
                         >
                           {/* ✅ Text container that won't collapse */}
                           <span
-                            className="truncate text-[clamp(0.8rem,2.5vw,1rem)] flex-1 min-w-0 block"
+                            className="truncate !text-[#818181] text-[clamp(0.8rem,2.5vw,1rem)] flex-1 min-w-0 block"
                             style={{
                               whiteSpace: "nowrap",
                               overflow: "hidden",
                               textOverflow: "ellipsis",
+                              color:'#818181'
                             }}
                           >
                             {careerForm.resume

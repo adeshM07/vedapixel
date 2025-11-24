@@ -448,7 +448,7 @@ const Body = () => {
             style={{ zIndex: 9999 }}
           >
             <motion.div
-              className="relative  w-full max-w-[95vw] md:w-[700px] overflow-y-scroll h-[85vh] lg:w-[80vw]  md:h-[85vh]
+              className="relative  w-full max-w-[95vw] md:w-[700px] overflow-y-scroll md:overflow-x-scroll no-scrollbar h-[85vh] lg:w-[80vw]  md:h-[85vh]
                    flex flex-col gap-6 sm:gap-8 md:gap-10
                    rounded-[30px] sm:rounded-[40px]
                    border border-white/20 bg-white/10 backdrop-blur-[20px]
@@ -480,7 +480,7 @@ const Body = () => {
                   <div
                     key={i}
                     className="relative flex justify-start w-full sm:w-[45%] md:w-[46%] lg:w-[32vw]
-                h-[100px] sm:h-[130px] md:h-[150px] lg:h-[20vh]
+                h-[100px] sm:h-[130px] md:h-[150px]  lg:h-[20vh]
                 rounded-t-[50px] rounded-br-[50px]
                 bg-[#9C90BD]/90 border border-white/20 
                 shadow-[0_8px_25px_rgba(156,144,189,0.4)]
@@ -493,7 +493,7 @@ const Body = () => {
                       alt="Profile"
                       className="absolute bottom-0 left-0 object-cover h-[150px] md:h-[200px] -translate-y-[10px]"
                     />
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[60%] flex flex-col justify-center items-start pl-5 md:pl-3">
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[60%] flex flex-col justify-center items-start pl-5 md:pl-5">
                       <p className="text-white font-bold text-[1rem] lg:text-[22px]">
                         {member.name}
                       </p>
