@@ -81,17 +81,17 @@ const Faq = () => {
           <p className="text-[3rem] service-title text-[#F8F9FA]">FAQs</p>
           <div className="bg-[#0e141d]/50 backdrop-blur-lg border rounded-lg border-[#F8F9FA]">
             {faqJSON.map((faq, index) => (
-              <div key={index} className="border-b border-[#2a2f37]">
+              <div key={index} className="border-b  border-[#2a2f37]">
                 <button
                   onClick={() =>
                     setOpenIndex(openIndex === index ? null : index)
                   }
                   className="w-full flex justify-between items-center px-6 py-5 text-left text-[#F8F9FA] hover:text-[#BBABEB] transition-all duration-200"
                 >
-                  <span className="text-[1.2rem]  w-[90%] md:text-[1.8rem] service-title ">
-                    {faq.question}
+                  <span className="text-[1.2rem] cursor-pointer  w-[90%] md:text-[1.8rem] service-title ">
+                    {faq.question} 
                   </span>
-                  <span className="text-[#BBABEB] text-[0.8rem] md:text-2xl">
+                  <span className="text-[#BBABEB] cursor-pointer text-[0.8rem] md:text-2xl">
                     {openIndex === index ? <img src={up} className=" h-[2vh] w-[5vw] md:h-[25px] md:w-[25px]"></img>  : <img className="h-[2vh] w-[5vw] md:h-[25px] md:w-[25px]" src={down}></img> }
                   </span>
                 </button>

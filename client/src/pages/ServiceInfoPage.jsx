@@ -1433,7 +1433,7 @@ const ServiceInfoPage = () => {
           <p className="text-[2.3rem] md:text-[3rem] service-title text-[#F8F9FA]">
             FAQs
           </p>
-          <div className="bg-[#0e141d]/50 backdrop-blur-lg border rounded-lg border-[#F8F9FA]">
+          <div className="bg-[#0e141d]/50 backdrop-blur-lg  border rounded-lg border-[#F8F9FA]">
             {serviceInfo[service]?.faq.map((faq, index) => (
               <div key={index} className="border-b border-[#2a2f37]">
                 <button
@@ -1442,10 +1442,10 @@ const ServiceInfoPage = () => {
                   }
                   className="w-full flex justify-between items-center px-6 py-5 text-left text-[#F8F9FA] hover:text-[#BBABEB] transition-all duration-200"
                 >
-                  <span className="text-[1.3rem] w-[90%] md:text-[1.5rem] service-desc ">
+                  <span className="text-[1.3rem] cursor-pointer w-[90%] md:text-[1.5rem] service-desc ">
                     {faq.question}
                   </span>
-                  <span className="text-[#BBABEB] text-[1rem] md:text-2xl">
+                  <span className="text-[#BBABEB] cursor-pointer text-[1rem] md:text-2xl">
                     {openIndex === index ? <img src={up} className="h-[25px] w-[25px]"></img> : <img className="h-[25px] w-[25px]" src={down}></img>}
                   </span>
                 </button>
