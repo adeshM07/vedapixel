@@ -184,3 +184,10 @@
 .react-tel-input .country-list .country:hover {
   background: rgba(177, 162, 223, 0.25) !important;
 }
+
+
+.phone-error .react-tel-input .form-control {
+  border: 1px solid red !important;
+  border-radius: 8px !important;
+}
+

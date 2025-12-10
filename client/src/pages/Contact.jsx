@@ -25,9 +25,26 @@ const Contact = () => {
 
   const [isFilled, setIsFilled] = useState(false);
 
+  const [errors, setErrors] = useState({});
+
   // 🧩 Update on change
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    setFormData({ ...formData, [name]: value });
+
+    // ✅ remove red border as soon as the field has value
+    setErrors((prev) => ({ ...prev, [name]: false }));
+  };
+
+  const validateFields = () => {
+    const e = {};
+    if (!formData.name.trim()) e.name = true;
+    if (!formData.email.trim()) e.email = true;
+    if (!formData.contact.trim()) e.contact = true;
+    if (!formData.idea.trim()) e.idea = true;
+    // company is optional → no check
+    setErrors(e);
   };
 
   // ✅ Check if all are filled
@@ -113,7 +130,8 @@ const Contact = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="
+                className={`
+                  ${errors.name ? "border-red-500" : "border-[#989BA1]"}
                   border border-[#989BA1]
                   text-[#818181]
                   bg-transparent
@@ -124,7 +142,7 @@ const Contact = () => {
                   lg:w-[32vw]
                   lg:h-[clamp(35px,7vh,55px)]
                   2xl:h-[clamp(35px,6vh,55px)]
-                "
+                `}
               />
               <input
                 type="text"
@@ -146,14 +164,22 @@ const Contact = () => {
                   2xl:h-[clamp(35px,6vh,55px)]
                 "
               />
-              <div className="w-[46%] md:w-[47%] lg:w-[32vw] 2xl:w-[32vw] relative">
+              <div
+                className={`w-[46%] md:w-[47%] lg:w-[32vw] 2xl:w-[32vw] relative
+    ${errors.contact ? "border border-red-500 rounded-[10px]" : ""}
+  `}
+              >
                 <PhoneInput
                   country={"in"} // 🇮🇳 default India
                   value={formData.contact}
                   onChange={(value, country) => {
                     const dialCode = `+${country.dialCode}`;
                     if (!value.startsWith(dialCode)) value = dialCode;
+
                     setFormData({ ...formData, contact: value });
+
+                    // ✅ remove red border instantly when user enters something
+                    setErrors((prev) => ({ ...prev, contact: false }));
                   }}
                   enableSearch={false}
                   countryCodeEditable={false}
@@ -165,7 +191,10 @@ const Contact = () => {
                   inputStyle={{
                     width: "100%",
                     background: "transparent",
-                    border: "1px solid #989BA1",
+                    border: errors.contact
+                      ? "1px solid red"
+                      : "1px solid #989BA1",
+
                     borderRadius:
                       windowWidth < 640
                         ? "5px"
@@ -197,7 +226,8 @@ const Contact = () => {
                 placeholder="Email Id *"
                 value={formData.email}
                 onChange={handleChange}
-                className="
+                className={`
+                  ${errors.email ? "border-red-500" : "border-[#989BA1]"}
                   border border-[#989BA1]
                   text-[#818181]
                   bg-transparent
@@ -208,13 +238,14 @@ const Contact = () => {
                   lg:h-[clamp(35px,7vh,55px)]
                   md:h-[clamp(35px,4vh,55px)]
                   2xl:h-[clamp(35px,6vh,55px)]
-                "
+                `}
               />
             </div>
 
             {/* ✅ Textarea (auto responsive) */}
             <textarea
-              className="
+              className={`
+                  ${errors.idea ? "border-red-500" : "border-[#989BA1]"}
                 w-full 
                 rounded-[clamp(6px,1vw,10px)] 
                 bg-transparent 
@@ -223,7 +254,7 @@ const Contact = () => {
                 text-[#818181] 
                 h-[clamp(100px,5vh,160px)]
                 resize-none
-              "
+              `}
               placeholder="Project Idea *"
               name="idea"
               value={formData.idea}
@@ -235,6 +266,7 @@ const Contact = () => {
           {/* this too  */}
           <div className="relative flex justify-center">
             <button
+              onClick={validateFields}
               className={`${
                 isFilled ? "active-btn" : "rotating-btn"
               } w-[clamp(200px,60vw,300px)] h-[clamp(40px,5vh,60px)]

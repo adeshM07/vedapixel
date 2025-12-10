@@ -29,7 +29,7 @@ const Industries = () => {
   ];
 
   return (
-    <div className="mt-45">
+    <div className="md:mt-45">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

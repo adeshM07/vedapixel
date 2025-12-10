@@ -540,7 +540,7 @@ const Body = () => {
         </AnimatePresence>
 
         {/* ✅ Content */}
-        <div className="flex px-[2vw]   flex-col gap-[10rem] w-full md:pl-[30vw] lg:pl-[30vw]">
+        <div className="flex px-[2vw]   flex-col gap-[3rem] w-full md:pl-[30vw] lg:pl-[30vw]">
           {/* --- Our Aim --- */}
           <section
             id="about"
