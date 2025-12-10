@@ -1247,7 +1247,7 @@ const ServiceInfoPage = () => {
   return (
     <>
       {/* {service && ( */}
-      <div className=" w-screen pt-[80px] flex flex-col place-items-center">
+      <div className=" w-screen pt-[20px] flex flex-col place-items-center">
         <div className="w-[90vw] text-start md:w-[73vw]  mt-[100px] flex flex-col gap-[1.2rem]">
           <p className="text-[2rem] md:text-[3rem] text-[#F8F9FA] service-title">
             {serviceInfo[service]?.title}
@@ -1302,7 +1302,7 @@ const ServiceInfoPage = () => {
           </button> */}
         <Link to='/contactus'>
           <button
-            className="rotating-btn relative font-garota text-[0.7rem] md:text-[1.5rem] text-[#C8C1C1]
+            className="rotating-btn relative font-garota text-[1rem] md:text-[1.5rem] text-[#C8C1C1]
              w-[90vw] md:w-[73vw] mt-[60px] md:mt-[40px] rounded-md px-3 
              [@media(min-width:300px)]:py-3 py-2 md:px-6 md:py-3 overflow-hidden
              bg-gradient-to-r from-[#1b1b2f] to-[#101820] border border-[#6A6185]
