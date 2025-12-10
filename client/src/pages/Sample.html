@@ -2647,7 +2647,7 @@
         position: relative;
         overflow: hidden;
       }
-     
+
       .framer-TP6jE .framer-13tws1g {
         height: 99vh;
         overflow: var(--overflow-clip-fallback, clip);
@@ -3040,12 +3040,11 @@
         top: 2px;
         left: 984px;
       }
-      
     </style>
   </head>
   <body>
-    <video
-      id="introVideo"
+    <!-- <video
+      id="bgVideo"
       src="/bgVideoWebM.webm"
       autoplay
       muted
@@ -3059,8 +3058,124 @@
         object-fit: cover;
         z-index: 9999;
       "
-    ></video>
-  
+    ></video> -->
+    <!-- <video id="bgVideo" autoplay muted playsinline>
+      <source src="/bgVideoWebM.webm" type="video/webm" />
+    </video>
+
+    <style>
+      /* Desktop default */
+      #bgVideo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: 9999;
+      }
+
+      /* Mobile */
+      @media (max-width: 600px) {
+        #bgVideo {
+          object-fit:contain;
+          z-index: 9999;
+          position: fixed;
+          
+        }
+      }
+
+      /* Tablet */
+      @media (min-width: 601px) and (max-width: 1024px) {
+        #bgVideo {
+          object-fit: contain;
+        }
+      }
+    </style>
+
+    <script>
+      const video = document.getElementById("bgVideo");
+
+      function changeVideoByDevice() {
+        let src = "/bgVideoWebM.webm";
+
+        if (window.innerWidth <= 600) {
+          src = "/bgVideoWebM.webm";
+        } else if (window.innerWidth <= 1024) {
+          src = "/bgVideoWebMPortrait.webm";
+        }
+
+        if (!video.src.includes(src)) {
+          video.src = src;
+          video.load(); // important
+          video.play(); // important
+        }
+      }
+
+      // Run once on load
+      changeVideoByDevice();
+
+      // Run again on resize
+      window.addEventListener("resize", changeVideoByDevice);
+    </script> -->
+    <img
+      id="bgGif"
+      src="/bgVideoGif2.gif"
+      alt="background gif"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9999;
+        pointer-events: none;
+      "
+    />
+
+    <style>
+      /* Mobile */
+      @media (max-width: 600px) {
+        #bgGif {
+          object-fit: contain;
+        }
+      }
+
+      /* Tablet */
+      @media (min-width: 601px) and (max-width: 1024px) {
+        #bgGif {
+          object-fit: contain;
+        }
+      }
+      @media (min-width: 1025px) {
+        #bgGif {
+          object-fit: cover;
+        }
+      }
+    </style>
+
+    <script>
+      const gif = document.getElementById("bgGif");
+
+      function changeGifByDevice() {
+        let src = "/bgVideoGif2.gif";
+
+        if (window.innerWidth <= 600) {
+          src = "/bgVideoGif2.gif";
+        } else if (window.innerWidth <= 1024) {
+          src = "/bgVideoGif2.gif"; // if you have this
+        } else {
+          src = "/bgVideoGif2.gif";
+        }
+
+        if (!gif.src.includes(src)) {
+          gif.src = src;
+        }
+      }
+
+      changeGifByDevice();
+      window.addEventListener("resize", changeGifByDevice);
+    </script>
 
     <script
       async
@@ -4933,10 +5048,10 @@
       "
       aria-hidden="true"
     ></div>
-    // <script>
-    //   document.getElementById("introVideo").addEventListener("ended", () => {
-    //     document.getElementById("framerContent").style.opacity = "1";
-    //   });
-    // </script>
+    <script>
+      document.getElementById("introVideo").addEventListener("ended", () => {
+        document.getElementById("framerContent").style.opacity = "1";
+      });
+    </script>
   </body>
 </html>

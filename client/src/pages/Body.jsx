@@ -6,9 +6,12 @@ import InfiniteScrollNodes from "./InfiniteScrollNodes";
 import InfiniteScrollNodes2 from "./InfiniteScrollNodes2";
 import InfiniteScrollNodes3 from "./InfiniteScrollNodes3";
 import profileImg from "../assets/profileImg.png";
+import adesh from '../assets/adesh.png'
+import susmita from '../assets/adesh.png'
+import shruti from '../assets/adesh.png'
 import { Link } from "react-router-dom";
 
-const Body = ({setStatus}) => {
+const Body = () => {
   const [showBody, setShowBody] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
   const [navOpacity, setNavOpacity] = useState(1);
@@ -472,7 +475,7 @@ const Body = ({setStatus}) => {
 
               <div className="flex flex-col  sm:flex-row sm:flex-wrap justify-center gap-16 sm:gap-8 lg:gap-24 px-2 sm:px-4 pb-10">
                 {[
-                  { name: "Sunil MB", role: "Co-Founder - MD / CEO" },
+                  { name: "Sunil MB", role: "Co-Founder - MD / CEO",img:"adesh" },
                   { name: "Nithin MB", role: "Co-Founder - MD" },
                   { name: "Nisarga M", role: "Head of Operations" },
                   { name: "Abhishek", role: "HR" },

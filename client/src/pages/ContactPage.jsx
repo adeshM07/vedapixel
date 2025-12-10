@@ -56,8 +56,14 @@ const ContactPage = () => {
   };
 
   // ✅ Check if all fields are filled (Collaborate)
+  // ✅ Check if required fields are filled (Company optional)
   useEffect(() => {
-    const allFilled = Object.values(collabForm).every((v) => v.trim() !== "");
+    const { name, email, contact, idea } = collabForm; // company excluded
+    const allFilled =
+      name.trim() !== "" &&
+      email.trim() !== "" &&
+      contact.trim() !== "" &&
+      idea.trim() !== "";
     setCollabFilled(allFilled);
   }, [collabForm]);
 
@@ -687,7 +693,7 @@ const ContactPage = () => {
                               whiteSpace: "nowrap",
                               overflow: "hidden",
                               textOverflow: "ellipsis",
-                              color:'#818181'
+                              color: "#818181",
                             }}
                           >
                             {careerForm.resume

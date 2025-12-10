@@ -31,10 +31,18 @@ const Contact = () => {
   };
 
   // ✅ Check if all are filled
+  // ✅ Company is optional — validate only required fields
   useEffect(() => {
-    const allFilled = Object.values(formData).every((val) => val.trim() !== "");
+    const { name, email, contact, idea } = formData; // company NOT included
+    const allFilled =
+      name.trim() !== "" &&
+      email.trim() !== "" &&
+      contact.trim() !== "" &&
+      idea.trim() !== "";
+
     setIsFilled(allFilled);
   }, [formData]);
+
   return (
     <>
       <div

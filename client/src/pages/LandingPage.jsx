@@ -1,6 +1,6 @@
 // pages/LandingPage.jsx
 
-import React, { useState } from "react";
+import React from "react";
 import Menu from "./Menu";
 import Body from "./Body";
 import Contact from "./Contact";
@@ -15,11 +15,7 @@ import Faq from "./Faq";
 import { Routes, Route } from "react-router-dom";
 
 const LandingPage = () => {
-  const [getStatus,setGetStatus] = useState();
-
-  let setStatus = (value) =>{
-    setGetStatus(value)
-  }
+  
   return (
     <>
       <div>
@@ -30,7 +26,7 @@ const LandingPage = () => {
 
         <div className="w-screen pt-[32px] h-fit">
           <Routes>
-            <Route path="/" element={<MainSection  setStatus={setStatus}/>} />
+            <Route path="/" element={<MainSection />} />
             <Route path="/contactus" element={<ContactPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/services" element={<Services />} />
