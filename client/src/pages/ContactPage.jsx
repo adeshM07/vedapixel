@@ -10,6 +10,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const ContactPage = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [collabErrors, setCollabErrors] = useState({});
+  const [careerErrors, setCareerErrors] = useState({});
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -45,15 +47,21 @@ const ContactPage = () => {
   // ✅ Handle input changes
   const handleCollabChange = (e) => {
     setCollabForm({ ...collabForm, [e.target.name]: e.target.value });
+    setCollabErrors((prev) => ({ ...prev, [e.target.name]: false }));
   };
 
   const handleCareerChange = (e) => {
     setCareerForm({ ...careerForm, [e.target.name]: e.target.value });
+    setCareerErrors((prev) => ({ ...prev, [e.target.name]: false }));
+
   };
-  const handleCareerFile = (e) => {
-    const file = e.target.files[0];
-    setCareerForm({ ...careerForm, resume: file });
-  };
+ const handleCareerFile = (e) => {
+  const file = e.target.files[0];
+  setCareerForm({ ...careerForm, resume: file });
+
+  // ✅ remove red border instantly after selecting file
+  setCareerErrors((prev) => ({ ...prev, resume: false }));
+};
 
   // ✅ Check if all fields are filled (Collaborate)
   // ✅ Check if required fields are filled (Company optional)
@@ -280,6 +288,29 @@ const ContactPage = () => {
     );
   };
 
+  const validateCollab = () => {
+    const e = {};
+    if (!collabForm.name.trim()) e.name = true;
+    if (!collabForm.email.trim()) e.email = true;
+    if (!collabForm.contact.trim()) e.contact = true;
+    if (!collabForm.idea.trim()) e.idea = true;
+
+    setCollabErrors(e);
+    return Object.keys(e).length === 0;
+  };
+
+  const validateCareer = () => {
+    const e = {};
+    if (!careerForm.name.trim()) e.name = true;
+    if (!careerForm.email.trim()) e.email = true;
+    if (!careerForm.contact.trim()) e.contact = true;
+    if (!careerForm.message.trim()) e.message = true;
+    if (!careerForm.resume) e.resume = true;
+
+    setCareerErrors(e);
+    return Object.keys(e).length === 0;
+  };
+
   return (
     <>
       <div
@@ -406,9 +437,12 @@ const ContactPage = () => {
                         value={collabForm.name}
                         onChange={handleCollabChange}
                         placeholder="Name *"
-                        className="border border-[#989BA1] text-[#818181] bg-transparent 
-                                   p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
-                                   w-[46%] md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
+                        className={`border ${
+                          collabErrors.name
+                            ? "border-red-500"
+                            : "border-[#989BA1]"
+                        } text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
+  rounded-[clamp(4px,1vw,10px)] w-[46%] md:w-[47%] 2xl:w-[21vw]`}
                       />
                       <input
                         type="text"
@@ -487,9 +521,12 @@ const ContactPage = () => {
                         value={collabForm.email}
                         onChange={handleCollabChange}
                         placeholder="Email Id *"
-                        className="border border-[#989BA1] text-[#818181] bg-transparent 
-                                   p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
-                                   w-[46%] md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
+                        className={`border ${
+                          collabErrors.name
+                            ? "border-red-500"
+                            : "border-[#989BA1]"
+                        } text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
+  rounded-[clamp(4px,1vw,10px)] w-[46%] md:w-[47%] 2xl:w-[21vw]`}
                       />
                     </div>
 
@@ -497,20 +534,28 @@ const ContactPage = () => {
                       name="idea"
                       value={collabForm.idea}
                       onChange={handleCollabChange}
-                      className="w-full rounded-[clamp(6px,1vw,10px)] bg-transparent 
-                                 border border-[#989BA1] p-[clamp(8px,1vw,12px)] 
-                                 text-[#818181] h-[clamp(100px,5vh,160px)] resize-none"
+                      className={`border ${
+                        collabErrors.idea
+                          ? "border-red-500"
+                          : "border-[#989BA1]"
+                      } text-[#818181] bg-transparent 
+  p-[clamp(8px,1vw,12px)] rounded-[clamp(6px,1vw,10px)]
+  w-full h-[clamp(100px,5vh,160px)] resize-none`}
                       placeholder="Project Idea *"
                     ></textarea>
                   </form>
 
                   <button
-                    className={` ${
+                    onClick={validateCollab}
+                    className={`${
                       collabFilled ? "active-btn" : "rotating-btn"
-                    } border  border-[#B1A2DF] rounded-[8px] text-white font-medium 
-                                     w-[clamp(200px,60vw,300px)] h-[clamp(40px,5vh,60px)] md:h-[clamp(40px,3vh,60px)] 2xlh-[clamp(40px,5vh,60px)] 
-                                     md:w-[clamp(200px,30vw,300px)] 2xl:w-[clamp(500px,60vw,300px)] mx-auto mt-[clamp(10px,2vw,20px)] 
-                                     hover:bg-[#B1A2DF]/10 transition text-[clamp(0.9rem,1.5vw,1.3rem)]`}
+                    } border border-[#B1A2DF] rounded-[8px] text-white font-medium 
+  w-[clamp(200px,60vw,300px)] h-[clamp(40px,5vh,60px)] 
+  md:h-[clamp(40px,3vh,60px)] 2xl:h-[clamp(40px,5vh,60px)] 
+  md:w-[clamp(200px,30vw,300px)] 2xl:w-[clamp(500px,60vw,300px)]
+  mx-auto mt-[clamp(10px,2vw,20px)] 
+  hover:bg-[#B1A2DF]/10 transition 
+  text-[clamp(0.9rem,1.5vw,1.3rem)]`}
                   >
                     Submit
                   </button>
@@ -587,9 +632,12 @@ const ContactPage = () => {
                         name="name"
                         value={careerForm.name}
                         onChange={handleCareerChange}
-                        className="border border-[#989BA1] text-[#818181] bg-transparent 
-                                   p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
-                                  w-[46%] md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
+                        className={`border ${
+                          careerErrors.name
+                            ? "border-red-500"
+                            : "border-[#989BA1]"
+                        } text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
+  rounded-[clamp(4px,1vw,10px)] w-[46%] md:w-[47%] 2xl:w-[21vw]`}
                       />
                       <input
                         type="email"
@@ -597,9 +645,12 @@ const ContactPage = () => {
                         value={careerForm.email}
                         onChange={handleCareerChange}
                         placeholder="Email Id *"
-                        className="border border-[#989BA1] text-[#818181] bg-transparent 
-                                   p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
-                                   w-[46%] md:w-[47%] 2xl:w-[21vw] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
+                        className={`border ${
+                          careerErrors.email
+                            ? "border-red-500"
+                            : "border-[#989BA1]"
+                        } text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
+  rounded-[clamp(4px,1vw,10px)] w-[46%] md:w-[47%] 2xl:w-[21vw]`}
                       />
                       <div className="w-[46%] md:w-[47%] 2xl:w-[21vw]">
                         <PhoneInput
@@ -677,11 +728,10 @@ const ContactPage = () => {
                         />
                         <label
                           htmlFor="resume"
-                          className="flex items-center gap-2 border border-[#989BA1]  bg-transparent 
-             p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)] w-full 
-             md:w-[100%] lg:w-[21vw] 2xl:w-[21vw]
-             md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]
-             overflow-hidden"
+                          className={`flex items-center gap-2 border 
+    ${careerErrors.resume ? "border-red-500" : "border-[#989BA1]"} 
+    bg-transparent p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
+    w-full md:w-[100%] lg:w-[21vw] 2xl:w-[21vw]`}
                           style={{
                             minWidth: 0, // ✅ ensures flex text can shrink properly
                           }}
@@ -718,19 +768,27 @@ const ContactPage = () => {
                       value={careerForm.message}
                       onChange={handleCareerChange}
                       placeholder="Any Message *"
-                      className="w-full rounded-[clamp(6px,1vw,10px)] bg-transparent 
-                                 border border-[#989BA1] p-[clamp(8px,1vw,12px)] 
-                                 text-[#818181] h-[clamp(100px,5vh,160px)] resize-none"
+                      className={`border ${
+                        careerErrors.message
+                          ? "border-red-500"
+                          : "border-[#989BA1]"
+                      } text-[#818181] bg-transparent 
+  p-[clamp(8px,1vw,12px)] rounded-[clamp(6px,1vw,10px)]
+  w-full h-[clamp(100px,5vh,160px)] resize-none`}
                     ></textarea>
                   </form>
 
                   <button
-                    className={` ${
+                    onClick={validateCareer}
+                    className={`${
                       careerFilled ? "active-btn" : "rotating-btn"
-                    } border rotating-btn border-[#B1A2DF] rounded-[8px] text-white font-medium 
-                                     w-[clamp(200px,60vw,300px)] h-[clamp(40px,5vh,60px)] md:h-[clamp(40px,3vh,60px)] 2xlh-[clamp(40px,5vh,60px)] 
-                                     md:w-[clamp(200px,30vw,300px)] 2xl:w-[clamp(500px,60vw,300px)] mx-auto mt-[clamp(10px,2vw,20px)] 
-                                     hover:bg-[#B1A2DF]/10 transition text-[clamp(0.9rem,1.5vw,1.3rem)]`}
+                    } border border-[#B1A2DF] rounded-[8px] text-white font-medium 
+  w-[clamp(200px,60vw,300px)] h-[clamp(40px,5vh,60px)] 
+  md:h-[clamp(40px,3vh,60px)] 2xl:h-[clamp(40px,5vh,60px)] 
+  md:w-[clamp(200px,30vw,300px)] 2xl:w-[clamp(500px,60vw,300px)]
+  mx-auto mt-[clamp(10px,2vw,20px)] 
+  hover:bg-[#B1A2DF]/10 transition 
+  text-[clamp(0.9rem,1.5vw,1.3rem)]`}
                   >
                     Submit
                   </button>
