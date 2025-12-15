@@ -15,17 +15,17 @@
       } catch (e) {}
     </script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=1440" />
     <meta name="generator" content="Framer 569b461" />
     <title>My Framer Site</title>
     <meta name="description" content="Made with Framer" />
     <meta
       name="framer-search-index"
-      content="https://framerusercontent.com/sites/6mHodwZBehmPXgmQIF8MBR/searchIndex-RIqR8gQLdVho.json"
+      content="https://framerusercontent.com/sites/6mHodwZBehmPXgmQIF8MBR/searchIndex-VUfrZrkbCX2Z.json"
     />
     <meta
       name="framer-search-index-fallback"
-      content="https://framerusercontent.com/sites/6mHodwZBehmPXgmQIF8MBR/searchIndex-MfoxdnkJ82No.json"
+      content="https://framerusercontent.com/sites/6mHodwZBehmPXgmQIF8MBR/searchIndex-Ef8xExxPq6ia.json"
     />
     <link
       href="https://framerusercontent.com/sites/icons/default-favicon-light.v1.png"
@@ -188,7 +188,6 @@
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        height: 100vh;
       }
       :root {
         -webkit-font-smoothing: antialiased;
@@ -365,14 +364,8 @@
             --framer-link-text-decoration-thickness,
             var(--framer-text-decoration-thickness, auto)
           );
-        --text-decoration-skip-ink: var(
-          --framer-link-text-decoration-skip-ink,
-          var(--framer-text-decoration-skip-ink)
-        );
-        --text-underline-offset: var(
-          --framer-link-text-decoration-offset,
-          var(--framer-text-decoration-offset)
-        );
+        --text-decoration-skip-ink: var(--framer-text-decoration-skip-ink);
+        --text-underline-offset: var(--framer-text-decoration-offset);
       }
       [data-framer-component-type="Text"] a:hover,
       [data-framer-component-type="Text"] a div span:hover,
@@ -2640,25 +2633,23 @@
         place-content: center flex-start;
         align-items: center;
         gap: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         padding: 0;
         display: flex;
         position: relative;
         overflow: hidden;
       }
-
       .framer-TP6jE .framer-13tws1g {
-        height: 99vh;
+        height: 100vh;
         overflow: var(--overflow-clip-fallback, clip);
         z-index: 1;
-
         flex-flow: column;
         flex: none;
         place-content: center;
         align-items: center;
         gap: 10px;
-        width: 100%;
+        width: 100vw;
         padding: 0;
         display: flex;
         position: absolute;
@@ -2667,7 +2658,7 @@
       }
       .framer-TP6jE .framer-ajczkm {
         filter: blur(60px);
-        height: 905px;
+        height: 100vh;
         overflow: var(--overflow-clip-fallback, clip);
         z-index: 0;
         flex: none;
@@ -2682,7 +2673,7 @@
         inset: 0;
       }
       .framer-TP6jE .framer-10nfp7t {
-        height: 915px;
+        height: 100vh;
         overflow: var(--overflow-clip-fallback, clip);
         flex-flow: row;
         flex: none;
@@ -2696,8 +2687,8 @@
       }
       .framer-TP6jE .framer-492m7n-container {
         flex: none;
-        width: 1440px;
-        height: 940px;
+        width: 100vw;
+        height: 100vh;
         position: relative;
       }
       @supports (aspect-ratio: 1) {
@@ -2710,13 +2701,13 @@
         display: block;
       }
       .framer-VjT8c.framer-1bpzkoq {
-        height: 1024px;
+        height: 100vh;
         overflow: var(--overflow-clip-fallback, clip);
         flex-flow: column;
         place-content: center;
         align-items: center;
         gap: 10px;
-        width: 1440px;
+        width: 100vw;
         padding: 0;
         display: flex;
         position: relative;
@@ -2724,7 +2715,7 @@
       .framer-VjT8c .framer-1hlh7qr {
         z-index: 1;
         flex: none;
-        width: 1243px;
+        width: 100vw;
         height: 420px;
         position: absolute;
         top: calc(49.707% - 210px);
@@ -2737,8 +2728,8 @@
         place-content: center;
         align-items: center;
         gap: 80px;
-        width: 1440px;
-        height: 1024px;
+        width: 100vw;
+        height: 100vh;
         padding: 0;
         display: flex;
         position: relative;
@@ -3041,140 +3032,70 @@
         left: 984px;
       }
     </style>
-  </head>
-  <body>
-    <!-- <video
-      id="bgVideo"
-      src="/bgVideoWebM.webm"
-      autoplay
-      muted
-      playsinline
-      style="
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        z-index: 9999;
-      "
-    ></video> -->
-    <!-- <video id="bgVideo" autoplay muted playsinline>
-      <source src="/bgVideoWebM.webm" type="video/webm" />
-    </video>
-
     <style>
-      /* Desktop default */
-      #bgVideo {
+      #intro-video-wrapper {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
+        inset: 0;
+        z-index: 9999999;
+        background: transparent;
+        pointer-events: none;
+      }
+
+      #intro-video {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        z-index: 9999;
       }
 
-      /* Mobile */
-      @media (max-width: 600px) {
-        #bgVideo {
-          object-fit:contain;
-          z-index: 9999;
-          position: fixed;
-          
-        }
+      /* hidden state */
+      #intro-video-wrapper.hidden {
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        pointer-events: none;
       }
-
-      /* Tablet */
-      @media (min-width: 601px) and (max-width: 1024px) {
-        #bgVideo {
-          object-fit: contain;
-        }
-      }
-    </style>
-
-    <script>
-      const video = document.getElementById("bgVideo");
-
-      function changeVideoByDevice() {
-        let src = "/bgVideoWebM.webm";
-
-        if (window.innerWidth <= 600) {
-          src = "/bgVideoWebM.webm";
-        } else if (window.innerWidth <= 1024) {
-          src = "/bgVideoWebMPortrait.webm";
-        }
-
-        if (!video.src.includes(src)) {
-          video.src = src;
-          video.load(); // important
-          video.play(); // important
-        }
-      }
-
-      // Run once on load
-      changeVideoByDevice();
-
-      // Run again on resize
-      window.addEventListener("resize", changeVideoByDevice);
-    </script> -->
-    <img
-      id="bgGif"
-      src="/bgVideoGif2.gif"
-      alt="background gif"
-      style="
+      .landingLandscapeVideo {
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
-        height: 100vh;
+        margin-top: -200px;
         z-index: 9999;
         pointer-events: none;
-      "
-    />
-
-    <style>
-      /* Mobile */
-      @media (max-width: 600px) {
-        #bgGif {
-          object-fit: contain;
-        }
       }
 
-      /* Tablet */
-      @media (min-width: 601px) and (max-width: 1024px) {
-        #bgGif {
-          object-fit: contain;
-        }
-      }
-      @media (min-width: 1025px) {
-        #bgGif {
-          object-fit: cover;
-        }
+      .landingPortrateVideo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        pointer-events: none;
       }
     </style>
+  </head>
+  <body>
+    <div id="intro-video-wrapper">
+      <video
+        class="landingVideo"
+        src="./landscape.webm"
+        type="video"
+        autoplay
+        muted
+        playsinline
+      ></video>
+    </div>
 
     <script>
-      const gif = document.getElementById("bgGif");
+      const video = document.querySelector("video");
+      const desktopVideo = "/landscape.webm";
+      const mobileVideo = "/portrate.webm";
 
-      function changeGifByDevice() {
-        let src = "/bgVideoGif2.gif";
-
-        if (window.innerWidth <= 600) {
-          src = "/bgVideoGif2.gif";
-        } else if (window.innerWidth <= 1024) {
-          src = "/bgVideoGif2.gif"; // if you have this
-        } else {
-          src = "/bgVideoGif2.gif";
-        }
-
-        if (!gif.src.includes(src)) {
-          gif.src = src;
-        }
-      }
-
-      changeGifByDevice();
-      window.addEventListener("resize", changeGifByDevice);
+      const isMobile = window.innerWidth <= 1290;
+      video.src = isMobile ? mobileVideo : desktopVideo;
+      video.classList.toggle("landingPortrateVideo", isMobile);
+      video.classList.toggle("landingLandscapeVideo", !isMobile);
+      video.load();
     </script>
 
     <script
@@ -3187,8 +3108,8 @@
     <div
       id="main"
       data-framer-hydrate-v2='{"routeId":"pilSR3AIh","localeId":"default","breakpoints":[{"hash":"zxss79"}]}'
-      data-framer-ssr-released-at="2025-11-20T12:20:25.003Z"
-      data-framer-page-optimized-at="2025-11-20T16:21:18.688Z"
+      data-framer-ssr-released-at="2025-11-20T12:26:41.363Z"
+      data-framer-page-optimized-at="2025-11-22T08:28:18.375Z"
       data-framer-generated-page
     >
       <style data-framer-html-style>
@@ -4140,7 +4061,7 @@
           </div>
         </div>
       </div>
-      <div id="overlay" style="border: 2px solid red"></div>
+      <div id="overlay"></div>
     </div>
     <script>
       (() => {
@@ -5031,7 +4952,7 @@
       type="module"
       async
       data-framer-bundle="main"
-      fetchPriority="low"
+      fetchpriority="low"
       src="https://framerusercontent.com/sites/6mHodwZBehmPXgmQIF8MBR/script_main.DjdcKq1f.mjs"
     ></script>
     <div
@@ -5049,9 +4970,26 @@
       aria-hidden="true"
     ></div>
     <script>
-      document.getElementById("introVideo").addEventListener("ended", () => {
-        document.getElementById("framerContent").style.opacity = "1";
+      const introVideo = document.getElementById("intro-video");
+      const introWrapper = document.getElementById("intro-video-wrapper");
+
+      introVideo.addEventListener("ended", () => {
+        introWrapper.classList.add("hidden");
+
+        // fully remove after fade
+        setTimeout(() => {
+          introWrapper.remove();
+        }, 700);
       });
+    </script>
+    <script>
+      const video = document.querySelector("video");
+
+      if (video) {
+        video.addEventListener("ended", () => {
+          window.parent.postMessage({ type: "INTRO_VIDEO_ENDED" }, "*");
+        });
+      }
     </script>
   </body>
 </html>
