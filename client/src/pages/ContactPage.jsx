@@ -53,15 +53,14 @@ const ContactPage = () => {
   const handleCareerChange = (e) => {
     setCareerForm({ ...careerForm, [e.target.name]: e.target.value });
     setCareerErrors((prev) => ({ ...prev, [e.target.name]: false }));
-
   };
- const handleCareerFile = (e) => {
-  const file = e.target.files[0];
-  setCareerForm({ ...careerForm, resume: file });
+  const handleCareerFile = (e) => {
+    const file = e.target.files[0];
+    setCareerForm({ ...careerForm, resume: file });
 
-  // ✅ remove red border instantly after selecting file
-  setCareerErrors((prev) => ({ ...prev, resume: false }));
-};
+    // ✅ remove red border instantly after selecting file
+    setCareerErrors((prev) => ({ ...prev, resume: false }));
+  };
 
   // ✅ Check if all fields are filled (Collaborate)
   // ✅ Check if required fields are filled (Company optional)
@@ -311,6 +310,66 @@ const ContactPage = () => {
     return Object.keys(e).length === 0;
   };
 
+  // ===== SEND COLLABORATE FORM =====
+  const submitCollabForm = async () => {
+    if (!validateCollab()) return;
+
+    const formData = new FormData();
+    formData.append("formType", "collaborate");
+    formData.append("name", collabForm.name);
+    formData.append("company", collabForm.company);
+    formData.append("email", collabForm.email);
+    formData.append("contact", collabForm.contact);
+    formData.append("idea", collabForm.idea);
+
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbyOcZfiswsBY-1fVd-tTSWIQrvJDJRwhunuPwK2ARxeM9rY-V-wHwqfhsx1KDR-bifq/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          body: formData,
+        }
+      );
+
+      alert("Collaborate form submitted successfully!");
+    } catch (error) {
+      alert("Error submitting collaborate form!");
+      console.log(error);
+    }
+  };
+
+  const submitCareerForm = async () => {
+    if (!validateCareer()) return;
+
+    const formData = new FormData();
+    formData.append("formType", "career");
+    formData.append("name", careerForm.name);
+    formData.append("email", careerForm.email);
+    formData.append("contact", careerForm.contact);
+    formData.append("message", careerForm.message);
+
+    if (careerForm.resume) {
+      formData.append("resume", careerForm.resume);
+    }
+
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbyOcZfiswsBY-1fVd-tTSWIQrvJDJRwhunuPwK2ARxeM9rY-V-wHwqfhsx1KDR-bifq/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          body: formData,
+        }
+      );
+
+      alert("Career form submitted successfully!");
+    } catch (error) {
+      alert("Error submitting career form!");
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div
@@ -546,7 +605,7 @@ const ContactPage = () => {
                   </form>
 
                   <button
-                    onClick={validateCollab}
+                    onClick={submitCollabForm}
                     className={`${
                       collabFilled ? "active-btn" : "rotating-btn"
                     } border border-[#B1A2DF] rounded-[8px] text-white font-medium 
@@ -779,7 +838,7 @@ const ContactPage = () => {
                   </form>
 
                   <button
-                    onClick={validateCareer}
+                    onClick={submitCareerForm}
                     className={`${
                       careerFilled ? "active-btn" : "rotating-btn"
                     } border border-[#B1A2DF] rounded-[8px] text-white font-medium 

@@ -571,7 +571,7 @@ const Body = () => {
                 />
               </motion.p>
             )}
-            <p className="text-white   [@media(min-width:300px)_and_(max-width:410px)]:text-[18px]  text-[20px]   md:text-[28px] lg:text-[2.2rem] 2xl:text-[3rem] leading-[1.3]">
+            <p className="text-white   [@media(min-width:300px)_and_(max-width:410px)]:text-[19px]  text-[20px]   md:text-[28px] lg:text-[2.2rem] 2xl:text-[3rem] leading-[1.3]">
               We bridge innovation and execution with <br /> user-centric,
               future-ready systems that <br />
               <span

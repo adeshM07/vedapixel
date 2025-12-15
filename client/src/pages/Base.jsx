@@ -5,37 +5,52 @@ import LandingPage from "./LandingPage";
 import { useScroll, motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import Menu from "./Menu";
+import { useRef } from "react";
+import { animate } from "framer-motion";
 import ServiceInfoPage from "./ServiceInfoPage";
 
 const Base = () => {
   const { scrollY, scrollYProgress } = useScroll();
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
+  const landingRef = useRef(null);
 
-  // ✅ Menu visibility logic
   useEffect(() => {
-    // If we’re on homepage, show only after scroll.
     if (location.pathname === "/") {
       const unsubscribe = scrollY.on("change", (latest) => {
         setShowMenu(latest > 350);
       });
       return () => unsubscribe();
     } else {
-      // On all other routes, show Menu by default.
       setShowMenu(true);
     }
   }, [scrollY, location.pathname]);
 
+  useEffect(() => {
+    const handleMessage = (event) => {
+      if (event.data?.type === "INTRO_VIDEO_ENDED") {
+        const targetY = landingRef.current.offsetTop;
+
+        animate(window.scrollY, targetY, {
+          duration: 1.9,
+          ease: [0.22, 1, 0.36, 1], // cinematic easing
+          onUpdate: (v) => window.scrollTo(0, v),
+        });
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, []);
+
   return (
     <div className="bg-[#101820]  lg:w-screen h-fit relative">
-      {/* ✅ Show Face only on homepage */}
       {location.pathname === "/" && (
         <div className="sticky top-0 z-10 ">
-          <Face scrollProgress={scrollYProgress}   />
+          <Face scrollProgress={scrollYProgress} />
         </div>
       )}
 
-      {/* ✅ Animated Menu — shows everywhere */}
       <AnimatePresence>
         {showMenu && (
           <motion.div
@@ -51,8 +66,7 @@ const Base = () => {
         )}
       </AnimatePresence>
 
-      {/* ✅ Always show LandingPage */}
-      <div className="relative z-20">
+      <div ref={landingRef} className="relative z-20">
         <LandingPage />
         {/* <ServiceInfoPage></ServiceInfoPage> */}
       </div>
