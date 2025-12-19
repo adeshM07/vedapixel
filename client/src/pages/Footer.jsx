@@ -248,14 +248,14 @@ const Footer = () => {
                       whileHover={{ scale: 1.2, y: -3 }}
                     />
                   </a>
-                  <a target="_blank" href="https://wa.me/919036354263">
+                  {/* <a target="_blank" href="https://wa.me/919036354263">
                     <motion.img
                       src={whatsapp}
                       alt="whatsapp"
                       className="w-[25px] sm:w-[30px] md:w-[22px]  2xl:w-[2vw] cursor-pointer"
                       whileHover={{ scale: 1.2, y: -3 }}
                     />
-                  </a>
+                  </a> */}
 
                   {/* <i class="fa-brands fa-whatsapp fa-lg"></i> */}
                 </div>
