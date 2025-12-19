@@ -371,6 +371,13 @@ const ContactPage = () => {
       );
 
       alert("Career form submitted successfully!");
+      setCareerForm({
+        name: "",
+        email: "",
+        contact: "+91",
+        message: "",
+        resume: null,
+      });
     } catch (error) {
       alert("Error submitting career form!");
       console.log(error);
@@ -517,7 +524,7 @@ const ContactPage = () => {
                         onChange={handleCollabChange}
                         className="border border-[#989BA1] text-[#818181] bg-transparent 
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
-                                   w-[100%] md:w-[47%]  md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
+                                   w-[100%] md:w-[47%]  md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6.5vh,55px)] "
                       />
                       <div className="w-[100%] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]   md:w-[47%] 2xl:w-[21vw]">
                         <PhoneInput
