@@ -13,6 +13,7 @@ const Base = () => {
   const { scrollY, scrollYProgress } = useScroll();
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
+  const [hideMenu, setHideMenu] = useState(false);
   const landingRef = useRef(null);
 
   useEffect(() => {
@@ -25,6 +26,27 @@ const Base = () => {
       setShowMenu(true);
     }
   }, [scrollY, location.pathname]);
+
+useEffect(() => {
+  if (window.innerWidth >= 768) return; // ✅ mobile only
+
+  const footer = document.querySelector("footer");
+  if (!footer) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      setHideMenu(entry.isIntersecting);
+    },
+    {
+      threshold: 0.15, // hide when ~15% footer visible
+    }
+  );
+
+  observer.observe(footer);
+
+  return () => observer.disconnect();
+}, []);
+
 
   useEffect(() => {
     const handleMessage = (event) => {
@@ -52,7 +74,7 @@ const Base = () => {
       )}
 
       <AnimatePresence>
-        {showMenu && (
+        {showMenu && !hideMenu && (
           <motion.div
             key="menu"
             className="fixed top-0 left-0 w-full z-[100]"

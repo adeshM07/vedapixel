@@ -14,6 +14,9 @@ import { useState } from "react";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
+  const [isMobile, setIsMobile] = useState(() =>
+      typeof window !== "undefined" ? window.innerWidth < 768 : false
+    );
   // Animation variants
   const container = {
     hidden: { opacity: 0, y: 30 },
@@ -71,6 +74,7 @@ const Footer = () => {
                 Innovation in every Pixel
               </p>
             </div>
+            {isMobile?false:
             <div className="mt-4 flex flex-col gap-3">
               <p className="text-[#F8F9FA] text-[clamp(0.6rem,2vw,0.9rem)] md:text-[clamp(0.6rem,1.2vw,0.9rem)] 2xl:text-[clamp(0.6rem,2vw,0.9rem)]">
                 &copy; 2025 VedaPixel Tech Solution Pvt. Ltd. All Rights
@@ -106,7 +110,7 @@ const Footer = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </div>}
           </motion.div>
 
           {/* ✅ Middle + Right Sections */}
@@ -154,7 +158,40 @@ const Footer = () => {
               className="h-fit w-full sm:w-1/2 2xl:w-fit flex flex-col gap-5"
               variants={item}
             >
-              {/* Contact */}
+              {isMobile?<div className=" flex flex-col gap-3">
+             
+
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+                <div className="flex items-center gap-2 cursor-pointer">
+                  <img
+                    src={emaill}
+                    alt="email"
+                    className="h-[16px] md:h-[14px] sm:h-[20px]"
+                  />
+                  <a
+                    href="mailto:info@vedapixel.com"
+                    className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
+                  >
+                    info@vedapixel.com
+                  </a>
+                </div>
+                <div className="hidden sm:block text-white">|</div>
+                <div className="flex items-center gap-2 cursor-pointer">
+                  <img
+                    src={phone}
+                    alt="phone"
+                    className="h-[16px] md:h-[14px] sm:h-[20px]"
+                  />
+                  <a
+                    href="tel:+919036354261"
+                    className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] no-underline md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
+                  >
+                    +91 9036354261
+                  </a>
+                </div>
+              </div>
+            </div>:false}
+            
               <div>
                 <p className="text-[#C8C1C1] text-[clamp(1rem,2vw,1.2rem)] mb-2 font-medium">
                   Let's Get in Touch
@@ -178,6 +215,10 @@ const Footer = () => {
                   />
                 </div>
               </div>
+              {isMobile? <p className="text-[#F8F9FA] text-[clamp(0.6rem,2vw,0.9rem)] md:text-[clamp(0.6rem,1.2vw,0.9rem)] 2xl:text-[clamp(0.6rem,2vw,0.9rem)]">
+                &copy; 2025 VedaPixel Tech Solution Pvt. Ltd. All Rights
+                Reserved.
+              </p>:false}
 
               {/* Social Links */}
               <div className="flex flex-col sm:flex-row sm:items-center gap-3">
