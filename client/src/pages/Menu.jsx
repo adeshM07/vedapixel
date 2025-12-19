@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import logo from "../assets/vedaPixelLogo.png";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import "../CSS/Menu.css";
 import email from "../assets/email.png";
 import phone from "../assets/phone.png";
 
 const Menu = () => {
+  const popupRef = useRef(null);
+
   const controls = useAnimation();
   const [navPopup, setNavPopup] = useState(false);
   const [isMobile, setIsMobile] = useState(
@@ -35,6 +38,26 @@ const Menu = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [controls]);
 
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        navPopup &&
+        popupRef.current &&
+        !popupRef.current.contains(e.target)
+      ) {
+        setNavPopup(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [navPopup]);
+
   // ✅ Optional: auto-close navPopup when resizing above mobile width
   useEffect(() => {
     const handleResize = () => {
@@ -55,7 +78,7 @@ const Menu = () => {
         w-screen backdrop-blur-[6px]"
       >
         {/* --- Logo + Company Name --- */}
-        <Link to='/'>
+        <Link to="/">
           <div className="flex mt-5 md:mt-0 place-items-end">
             <img
               src={logo}
@@ -144,6 +167,7 @@ const Menu = () => {
         <AnimatePresence>
           {navPopup && (
             <motion.div
+              ref={popupRef}
               key="menu-popup"
               initial={{ opacity: 0, scale: 0.9, y: -10 }}
               animate={{

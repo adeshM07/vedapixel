@@ -92,7 +92,7 @@ const AboutPage = () => {
     <>
       <div
         id="about"
-        className=" flex mt-[192px] flex-col gap-40 relative overflow-hidden"
+        className=" flex mt-[100px] flex-col gap-20 relative overflow-hidden"
       >
         {/* --- Top Text Section --- */}
         <div className="w-[85%] h-[auto] md:h-[40vh] p-[10px]  mx-auto">
@@ -113,11 +113,13 @@ const AboutPage = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.4 }}
           >
-            Vedapixel Tech Solutions Pvt. Ltd. builds intelligent, scalable
-            digital platforms that solve real-world business challenges. With
-            over a decade of experience, we focus on creating solutions that
-            streamline operations, enhance accessibility, and enable sustainable
-            growth across industries. We don't just deliver technology.
+            Vedapixel Tech Solutions Pvt. Ltd. is a professional IT services
+            company specializing in the development of reliable and scalable
+            digital solutions. Supported by a skilled in-house team, we deliver
+            web and mobile applications with a strong focus on quality and
+            on-time delivery. We follow clear processes, communicate
+            transparently, and ensure every project is delivered smoothly,
+            helping businesses achieve real and measurable results.
           </motion.p>
 
           <motion.p
@@ -161,8 +163,9 @@ const AboutPage = () => {
                 Our Mission
               </p>
               <p className="mt-1 sm:mt-2 md:mt-3 [@media(min-width:300px)_and_(max-width:410px)]:text-[7px] text-[7px] md:text-[1.1rem] lg:text-[1.25rem] 2xl:text-[1.35rem] [@media(min-width:2000px)]:text-[2.4rem] text-[#C8C1C1] leading-relaxed sm:leading-normal md:leading-relaxed">
-                Vedapixel uses tech to bring clarity, speed, and reliability to outdated
-                sectors, building ecosystems where innovation can thrive.
+                Vedapixel uses tech to bring clarity, speed, and reliability to
+                outdated sectors, building ecosystems where innovation can
+                thrive.
               </p>
             </div>
           </div>
@@ -183,8 +186,8 @@ const AboutPage = () => {
                 Our Vision
               </p>
               <p className="mt-1 sm:mt-2 md:mt-3 [@media(min-width:300px)_and_(max-width:410px)]:text-[7px text-[7px] md:text-[1.1rem] lg:text-[1.25rem] 2xl:text-[1.35rem] [@media(min-width:2000px)]:text-[2.4rem] text-[#C8C1C1] leading-relaxed sm:leading-normal md:leading-relaxed">
-                We redefine how businesses use tech by creating integrated platforms
-                that simplify workflows and unlock new growth.
+                We redefine how businesses use tech by creating integrated
+                platforms that simplify workflows and unlock new growth.
               </p>
             </div>
           </div>
@@ -205,14 +208,12 @@ const AboutPage = () => {
                 Our Story
               </p>
               <p className="mt-1 sm:mt-2 md:mt-3 [@media(min-width:300px)_and_(max-width:410px)]:text-[7px text-[7px] md:text-[1.1rem] lg:text-[1.25rem] 2xl:text-[1.35rem] [@media(min-width:2000px)]:text-[2.4rem] text-[#C8C1C1] leading-relaxed sm:leading-normal md:leading-relaxed">
-                Vedapixel Tech Solutions Pvt. Ltd. builds intelligent, scalable digital
-                platforms that solve real-world business challenges.
+                Vedapixel Tech Solutions Pvt. Ltd. builds intelligent, scalable
+                digital platforms that solve real-world business challenges.
               </p>
             </div>
           </div>
         </motion.div>
-
-
       </div>
     </>
   );
