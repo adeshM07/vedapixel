@@ -495,7 +495,7 @@ const ContactPage = () => {
                   </p>
 
                   <form className="w-full flex flex-col gap-[clamp(18px,3vw,28px)] h-auto">
-                    <div className="flex flex-wrap justify-between gap-[clamp(15px,2vw,26px)]">
+                    <div className="flex flex-col md:flex-row flex-wrap justify-between gap-[clamp(15px,2vw,26px)]">
                       <input
                         type="text"
                         name="name"
@@ -507,7 +507,7 @@ const ContactPage = () => {
                             ? "border-red-500"
                             : "border-[#989BA1]"
                         } text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
-  rounded-[clamp(4px,1vw,10px)] w-[46%] md:w-[47%] 2xl:w-[21vw]`}
+  rounded-[clamp(4px,1vw,10px)] w-[100%] md:w-[47%] 2xl:w-[21vw]`}
                       />
                       <input
                         type="text"
@@ -517,9 +517,9 @@ const ContactPage = () => {
                         onChange={handleCollabChange}
                         className="border border-[#989BA1] text-[#818181] bg-transparent 
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
-                                   w-[46%] md:w-[47%]  md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
+                                   w-[100%] md:w-[47%]  md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)] "
                       />
-                      <div className="w-[46%] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]   md:w-[47%] 2xl:w-[21vw]">
+                      <div className="w-[100%] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]   md:w-[47%] 2xl:w-[21vw]">
                         <PhoneInput
                           country={"in"} // 🇮🇳 Default country
                           value={collabForm.contact}
@@ -591,7 +591,7 @@ const ContactPage = () => {
                             ? "border-red-500"
                             : "border-[#989BA1]"
                         } text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
-  rounded-[clamp(4px,1vw,10px)] w-[46%] md:w-[47%] 2xl:w-[21vw]`}
+  rounded-[clamp(4px,1vw,10px)] w-[100%] md:w-[47%] 2xl:w-[21vw]`}
                       />
                     </div>
 
@@ -690,7 +690,7 @@ const ContactPage = () => {
                   </p>
 
                   <form className="w-full flex flex-col gap-[clamp(18px,3vw,28px)] h-auto">
-                    <div className="flex flex-wrap justify-between gap-[clamp(15px,2vw,26px)]">
+                    <div className="flex flex-col md:flex-row flex-wrap justify-between gap-[clamp(15px,2vw,26px)]">
                       <input
                         type="text"
                         placeholder="Name *"
@@ -702,7 +702,7 @@ const ContactPage = () => {
                             ? "border-red-500"
                             : "border-[#989BA1]"
                         } text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
-  rounded-[clamp(4px,1vw,10px)] w-[46%] md:w-[47%] 2xl:w-[21vw]`}
+  rounded-[clamp(4px,1vw,10px)] w-[100%] md:w-[47%] 2xl:w-[21vw]`}
                       />
                       <input
                         type="email"
@@ -715,9 +715,9 @@ const ContactPage = () => {
                             ? "border-red-500"
                             : "border-[#989BA1]"
                         } text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
-  rounded-[clamp(4px,1vw,10px)] w-[46%] md:w-[47%] 2xl:w-[21vw]`}
+  rounded-[clamp(4px,1vw,10px)] w-[100%] md:w-[47%] 2xl:w-[21vw]`}
                       />
-                      <div className="w-[46%] md:w-[47%] 2xl:w-[21vw]">
+                      <div className="w-[100%] md:w-[47%] 2xl:w-[21vw]">
                         <PhoneInput
                           country={"in"} // 🇮🇳 Default to India
                           value={careerForm.contact}
@@ -781,7 +781,7 @@ const ContactPage = () => {
                         />
                       </div>
 
-                      <div className="relative w-[46%]  md:w-[47%] 2xl:w-[21vw]">
+                      <div className="relative w-[100%]  md:w-[47%] 2xl:w-[21vw]">
                         <input
                           type="file"
                           onChange={handleCareerFile}
