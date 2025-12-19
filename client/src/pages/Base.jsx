@@ -8,6 +8,7 @@ import Menu from "./Menu";
 import { useRef } from "react";
 import { animate } from "framer-motion";
 import ServiceInfoPage from "./ServiceInfoPage";
+import WhatsAppFloat from "./WhatsAppFloat";
 
 const Base = () => {
   const { scrollY, scrollYProgress } = useScroll();
@@ -92,6 +93,7 @@ useEffect(() => {
         <LandingPage />
         {/* <ServiceInfoPage></ServiceInfoPage> */}
       </div>
+      <WhatsAppFloat></WhatsAppFloat>
     </div>
   );
 };
