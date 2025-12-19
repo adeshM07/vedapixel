@@ -159,7 +159,7 @@ const Menu = () => {
                 transition: { duration: 0.35, ease: "easeInOut" },
               }}
               className="menuBar absolute right-4 w-[65%] top-24 h-[35vh] 
-                         flex flex-col text-[20px] 
+                         flex flex-col text-[24px] 
                          px-6 py-5 text-white gap-5 rounded-xl
                          border border-white/20 shadow-lg
                          backdrop-blur-[20px] bg-[rgba(30,30,40,0.45)]
