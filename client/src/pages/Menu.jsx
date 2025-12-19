@@ -104,10 +104,29 @@ const Menu = () => {
                 onClick={() => setNavPopup(!navPopup)}
               ></i>
             ) : (
-              <i
-                className="fa-solid fa-bars text-2xl mt-5 text-white cursor-pointer"
-                onClick={() => setNavPopup(!navPopup)}
-              ></i>
+              <div className="flex gap-4 mt-5 place-items-center">
+                <Link to="/contactus">
+                  <motion.p
+                    className="contact-button 
+                  text-[clamp(10px,2.5vw,14px)] 
+                  px-[clamp(6px,2vw,10px)] 
+                  py-[clamp(4px,1.5vw,6px)]
+                  sm:text-[clamp(11px,2vw,15px)] sm:px-[clamp(8px,2vw,12px)] sm:py-[clamp(5px,1.5vw,7px)]
+                  md:text-[clamp(13px,1.3vw,20px)] md:px-[clamp(10px,2vw,18px)] md:py-[clamp(6px,1vw,10px)]
+                  lg:text-[clamp(14px,1.2vw,22px)] lg:px-[clamp(12px,2vw,20px)] lg:py-[clamp(6px,1vw,10px)]
+                  rounded-md cursor-pointer 
+                  font-semibold tracking-wide 
+                  text-[#1a1c22]
+                  flex items-center justify-center"
+                  >
+                    Contact&nbsp;Us
+                  </motion.p>
+                </Link>
+                <i
+                  className="fa-solid fa-bars text-2xl  text-white cursor-pointer"
+                  onClick={() => setNavPopup(!navPopup)}
+                ></i>
+              </div>
             )}
           </div>
         ) : (
