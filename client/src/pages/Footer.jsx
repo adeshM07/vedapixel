@@ -76,10 +76,7 @@ const Footer = () => {
             </div>
             {isMobile?false:
             <div className="mt-4 flex flex-col gap-3">
-              <p className="text-[#F8F9FA] text-[clamp(0.6rem,2vw,0.9rem)] md:text-[clamp(0.6rem,1.2vw,0.9rem)] 2xl:text-[clamp(0.6rem,2vw,0.9rem)]">
-                &copy; 2025 VedaPixel Tech Solution Pvt. Ltd. All Rights
-                Reserved.
-              </p>
+             
 
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                 <div className="flex items-center gap-2 cursor-pointer">
@@ -110,6 +107,10 @@ const Footer = () => {
                   </a>
                 </div>
               </div>
+               <p className="text-[#F8F9FA] text-[clamp(0.6rem,2vw,0.9rem)] md:text-[clamp(0.6rem,1.2vw,0.9rem)] 2xl:text-[clamp(0.6rem,2vw,0.9rem)]">
+                &copy; 2025 VedaPixel Tech Solution Pvt. Ltd. All Rights
+                Reserved.
+              </p>
             </div>}
           </motion.div>
 

@@ -28,26 +28,33 @@ const Base = () => {
     }
   }, [scrollY, location.pathname]);
 
-useEffect(() => {
-  if (window.innerWidth >= 768) return; // ✅ mobile only
+  useEffect(() => {
+    if (window.innerWidth >= 768) return; // mobile only
 
-  const footer = document.querySelector("footer");
-  if (!footer) return;
+    let observer;
 
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      setHideMenu(entry.isIntersecting);
-    },
-    {
-      threshold: 0.15, // hide when ~15% footer visible
-    }
-  );
+    const attachObserver = () => {
+      const footer = document.querySelector("footer");
+      if (!footer) {
+        // retry until footer mounts
+        requestAnimationFrame(attachObserver);
+        return;
+      }
 
-  observer.observe(footer);
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          setHideMenu(entry.isIntersecting);
+        },
+        { threshold: 0.15 }
+      );
 
-  return () => observer.disconnect();
-}, []);
+      observer.observe(footer);
+    };
 
+    attachObserver();
+
+    return () => observer?.disconnect();
+  }, []);
 
   useEffect(() => {
     const handleMessage = (event) => {
