@@ -133,7 +133,7 @@ const InfiniteScrollNodes2 = ({ direction = "left", baseSpeed = 35 }) => {
   const loopItems = [...items, ...items];
 
   return (
-    <div className="relative w-full h-[70px] overflow-hidden flex items-center justify-center">
+    <div className="relative [@media(min-width:300px)_and_(max-width:410px)]:h-[50px] w-full h-[70px] overflow-hidden flex items-center justify-center">
       <div
         className={`scroll-track flex gap-[14px] whitespace-nowrap ${direction === "left" ? "scroll-left" : "scroll-right"
           }`}
@@ -157,6 +157,7 @@ const InfiniteScrollNodes2 = ({ direction = "left", baseSpeed = 35 }) => {
               text-white font-medium select-none
               border border-white rounded-md
               px-2 sm:px-3 md:px-4
+              [@media(min-width:300px)_and_(max-width:410px)]:w-[42vw]
               h-[6vh] sm:h-[6vh] md:h-[40px] lg:h-[68px]
               w-[40vw] sm:w-[60vw] md:w-[220px] lg:w-[287px]
               text-[14px] sm:text-[16px] md:text-[18px] lg:text-[24px]

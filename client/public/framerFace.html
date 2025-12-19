@@ -5044,7 +5044,7 @@
         width: 0;
         height: 0;
         z-index: 0;
-        contain: strict;
+        contain: strict;  
       "
       aria-hidden="true"
     ></div>
@@ -5053,5 +5053,23 @@
         document.getElementById("framerContent").style.opacity = "1";
       });
     </script>
+    <script>
+  const video = document.querySelector("video");
+
+  if (video) {
+    video.addEventListener("ended", () => {
+      console.log("VIDEO ENDED");
+
+      // ⏸️ pause 1 second AFTER video fully ends
+      setTimeout(() => {
+        window.parent.postMessage(
+          { type: "INTRO_VIDEO_ENDED" },
+          "*"
+        );
+      }, 1000);
+    });
+  }
+</script>
+
   </body>
 </html>

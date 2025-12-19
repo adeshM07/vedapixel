@@ -324,7 +324,7 @@ const ContactPage = () => {
 
     try {
       await fetch(
-        "https://script.google.com/macros/s/AKfycbyOcZfiswsBY-1fVd-tTSWIQrvJDJRwhunuPwK2ARxeM9rY-V-wHwqfhsx1KDR-bifq/exec",
+        "https://script.google.com/macros/s/AKfycbz3tUTCcuf5qTDG6aY3R064C_KhcSSJ-gRcwuU-DT94eG3o42uel64EZF7hsknE_-9j/exec",
         {
           method: "POST",
           mode: "no-cors",
@@ -333,6 +333,13 @@ const ContactPage = () => {
       );
 
       alert("Collaborate form submitted successfully!");
+      setCollabForm({
+        name: "",
+        company: "",
+        email: "",
+        contact: "+91",
+        idea: "",
+      });
     } catch (error) {
       alert("Error submitting collaborate form!");
       console.log(error);
@@ -376,7 +383,6 @@ const ContactPage = () => {
         ref={pageRef}
         className="contact-page-content  relative h-fit w-[99vw] pb-[40px] flex"
       >
-        {/* ===== NAV (non-mobile only) ===== */}
         <AnimatePresence>
           {showNav && !isMobile && (
             <motion.nav

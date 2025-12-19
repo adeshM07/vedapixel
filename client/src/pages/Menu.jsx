@@ -55,20 +55,22 @@ const Menu = () => {
         w-screen backdrop-blur-[6px]"
       >
         {/* --- Logo + Company Name --- */}
-        <div className="flex mt-5 md:mt-0 place-items-end">
-          <img
-            src={logo}
-            alt="VedaPixel Logo"
-            className="w-[10vw] md:w-[clamp(40px,5vw,65px)] md:h-[clamp(40px,5vw,65px)] object-contain"
-          />
-          <p
-            className="company-name text-white 
+        <Link to='/'>
+          <div className="flex mt-5 md:mt-0 place-items-end">
+            <img
+              src={logo}
+              alt="VedaPixel Logo"
+              className="w-[10vw] md:w-[clamp(40px,5vw,65px)] md:h-[clamp(40px,5vw,65px)] object-contain"
+            />
+            <p
+              className="company-name text-white 
               text-[clamp(16px,2vw,26px)] 
               tracking-tight"
-          >
-            VedaPixel
-          </p>
-        </div>
+            >
+              VedaPixel
+            </p>
+          </div>
+        </Link>
 
         {/* --- Navigation Links --- */}
         {isMobile ? (
@@ -156,7 +158,7 @@ const Menu = () => {
                 y: -10,
                 transition: { duration: 0.35, ease: "easeInOut" },
               }}
-              className="menuBar absolute right-4 w-[65%] top-24 h-[45vh] 
+              className="menuBar absolute right-4 w-[65%] top-24 h-[35vh] 
                          flex flex-col text-[20px] 
                          px-6 py-5 text-white gap-5 rounded-xl
                          border border-white/20 shadow-lg
@@ -185,7 +187,7 @@ const Menu = () => {
                 </p>
               </Link>
 
-              <div className="flex items-center gap-2 mt-3">
+              {/* <div className="flex items-center gap-2 mt-3">
                 <img src={email} alt="email" className="h-[16px] sm:h-[20px]" />
                 <span className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)]">
                   info@vedapixel.com
@@ -201,7 +203,7 @@ const Menu = () => {
               <p className="text-[#F8F9FA]/80 text-[12px] mt-auto">
                 &copy; 2025 VedaPixel Tech Solution Pvt. Ltd. All Rights
                 Reserved.
-              </p>
+              </p> */}
             </motion.div>
           )}
         </AnimatePresence>

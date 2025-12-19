@@ -15,6 +15,39 @@ const Contact = () => {
     idea: "",
   });
 
+  const handleSubmit = async () => {
+    validateFields();
+    if (!isFilled) return;
+
+    const formBody = new FormData();
+    formBody.append("name", formData.name);
+    formBody.append("company", formData.company);
+    formBody.append("email", formData.email);
+    formBody.append("contact", formData.contact);
+    formBody.append("idea", formData.idea);
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbz3tUTCcuf5qTDG6aY3R064C_KhcSSJ-gRcwuU-DT94eG3o42uel64EZF7hsknE_-9j/exec", {
+        method: "POST",
+        mode: "no-cors",
+        body: formBody,
+      });
+
+      alert("Form submitted successfully!");
+
+      setFormData({
+        name: "",
+        company: "",
+        email: "",
+        contact: "+91",
+        idea: "",
+      });
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong!");
+    }
+  };
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -47,10 +80,9 @@ const Contact = () => {
     setErrors(e);
   };
 
-  // ✅ Check if all are filled
-  // ✅ Company is optional — validate only required fields
+
   useEffect(() => {
-    const { name, email, contact, idea } = formData; // company NOT included
+    const { name, email, contact, idea } = formData;
     const allFilled =
       name.trim() !== "" &&
       email.trim() !== "" &&
@@ -73,7 +105,6 @@ const Contact = () => {
           px-[4vw]
         "
       >
-        {/* ✅ Contact Form Section */}
         <div
           className="
             w-full border-2 border-white sm:w-[90%] md:w-[80%] 2xl:w-[72vw]
@@ -261,12 +292,9 @@ const Contact = () => {
               onChange={handleChange}
             ></textarea>
           </form>
-
-          {/* ✅ Button */}
-          {/* this too  */}
           <div className="relative flex justify-center">
             <button
-              onClick={validateFields}
+              onClick={handleSubmit}
               className={`${
                 isFilled ? "active-btn" : "rotating-btn"
               } w-[clamp(200px,60vw,300px)] h-[clamp(40px,5vh,60px)]

@@ -18,7 +18,7 @@ const MainSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="mx-[40px]  md:w-[72%] md:mx-auto flex flex-col gap-7"
+            className="mx-[40px]  md:w-[72%] md:mx-auto flex flex-col [@media(min-width:300px)_and_(max-width:410px)]:gap-0 gap-7"
           >
             <p
               className=" md:pl-0 text-[2.4rem] leading-12 md:text-[3.5rem]  font-bold industry-title text-transparent bg-gradient-to-b from-[#BBABEB] md:leading-16 to-[#6A6185] bg-clip-text inline-block"

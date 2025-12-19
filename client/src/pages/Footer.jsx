@@ -9,7 +9,7 @@ import phone from "../assets/phone.png";
 import whatsapp from "../assets/whatsapp.png";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import sent from "../assets/sent.png"
+import sent from "../assets/sent.png";
 import { useState } from "react";
 
 const Footer = () => {
@@ -55,11 +55,13 @@ const Footer = () => {
             variants={item}
           >
             {/* go throw this at last */}
-            <img
-              src={logo}
-              alt="VedaPixel Logo"
-              className="w-[60px] md:w-[50px] sm:w-[80px] 2xl:w-[5vw]"
-            />
+            <Link to='/'>
+              <img
+                src={logo}
+                alt="VedaPixel Logo"
+                className="w-[60px] md:w-[50px] sm:w-[80px] 2xl:w-[5vw]"
+              />
+            </Link>
             {/* this too  */}
             <div>
               <p className="footer-company-name text-white text-[clamp(1.4rem,4vw,2.3rem)] md:text-[clamp(1.4rem,2vw,2.3rem)] 2xl:text-[clamp(1.4rem,4vw,2.3rem)] font-semibold leading-tight 2xl:leading-10">
@@ -82,7 +84,10 @@ const Footer = () => {
                     alt="email"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
                   />
-                  <a href="mailto:info@vedapixel.com" className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]">
+                  <a
+                    href="mailto:info@vedapixel.com"
+                    className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
+                  >
                     info@vedapixel.com
                   </a>
                 </div>
@@ -93,7 +98,10 @@ const Footer = () => {
                     alt="phone"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
                   />
-                  <a href="tel:+919036354261" className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] no-underline md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]">
+                  <a
+                    href="tel:+919036354261"
+                    className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] no-underline md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
+                  >
                     +91 9036354261
                   </a>
                 </div>
@@ -129,9 +137,12 @@ const Footer = () => {
               <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
                 Our Team
               </p>
-              <Link to="/contactus" state={{
-                status: true,
-              }}>
+              <Link
+                to="/contactus"
+                state={{
+                  status: true,
+                }}
+              >
                 <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
                   Career
                 </p>
@@ -159,7 +170,7 @@ const Footer = () => {
                                rounded-[10px] border border-[#F2F2F7] px-3 focus:outline-none"
                   />
                   <motion.img
-                     src={email.trim() ? sent : icon}
+                    src={email.trim() ? sent : icon}
                     alt="send"
                     className="w-[30px] sm:w-[35px] md:w-[3vw] lg:w-[2vw] 2xl:w-[2vw] rotate-45 cursor-pointer"
                     whileHover={{ scale: 1.2, rotate: 0 }}
