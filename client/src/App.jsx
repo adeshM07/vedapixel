@@ -4,7 +4,7 @@ import Base from "./pages/Base";
 const App = () => {
   return (
     <>
-      <div>
+      <div className="w-full">
         <Base></Base>
       </div>
     </>

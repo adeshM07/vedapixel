@@ -75,7 +75,7 @@ const Menu = () => {
         className="menu-sticky  py-10 place-items-center sticky top-0 z-10 
         flex justify-between items-center 
         px-[7%] h-[9vh]
-        w-screen backdrop-blur-[6px]"
+        w-full backdrop-blur-[6px]"
       >
         {/* --- Logo + Company Name --- */}
         <Link to="/">

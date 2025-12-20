@@ -25,7 +25,7 @@ const Face = ({ scrollProgress }) => {
 
   return (
     <motion.div
-      className="relative   w-screen h-screen overflow-hidden bg-[#101820] flex justify-center items-center"
+      className="relative   w-full h-screen overflow-hidden bg-[#101820] flex justify-center items-center"
       style={{ opacity }}
     >
       {/* ✅ Responsive Framer design embed */}

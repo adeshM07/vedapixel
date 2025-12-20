@@ -9,10 +9,10 @@ import ScrollNodes from "./ScrollNodes";
 const MainSection = () => {
   return (
     <>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 w-full">
         <Body></Body>
         <Industries></Industries>
-        <div className="w-screen  mt-[70px]    md:mt-[70px] lg:mt-[100px] 2xl:mt-[140px] [@media(min-width:2000px)]:mt-[150px]">
+        <div className="w-full  mt-[70px]    md:mt-[70px] lg:mt-[100px] 2xl:mt-[140px] [@media(min-width:2000px)]:mt-[150px]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

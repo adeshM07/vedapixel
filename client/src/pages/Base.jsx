@@ -74,7 +74,7 @@ const Base = () => {
   }, []);
 
   return (
-    <div className="bg-[#101820]  lg:w-screen h-fit relative">
+    <div className="bg-[#101820]  lg:w-full h-fit relative">
       {location.pathname === "/" && (
         <div className="sticky top-0 z-10 ">
           <Face scrollProgress={scrollYProgress} />
@@ -96,7 +96,7 @@ const Base = () => {
         )}
       </AnimatePresence>
 
-      <div ref={landingRef} className="relative z-20">
+      <div ref={landingRef} className="relative z-20 w-full">
         <LandingPage />
         {/* <ServiceInfoPage></ServiceInfoPage> */}
       </div>

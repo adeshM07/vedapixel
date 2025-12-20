@@ -188,7 +188,6 @@ const Contact = () => {
                   p-[clamp(6px,1vw,10px)]
                   rounded-[clamp(4px,1vw,10px)]
                   w-[100%] sm:w-[44%] md:w-[47%] 2xl:w-[33vw]
-
                   lg:w-[32vw]
                   lg:h-[clamp(35px,7vh,55px)]
                   md:h-[clamp(35px,4vh,55px)]
