@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import "../CSS/Body.css"
-import up from "../assets/upwards.png"
-import down from "../assets/downwards.png"
+import "../CSS/Body.css";
+import up from "../assets/upwards.png";
+import down from "../assets/downwards.png";
 
 const ServiceInfoPage = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -241,7 +241,8 @@ const ServiceInfoPage = () => {
         },
         {
           question: "What technologies do you use for web development?",
-          answer: "Our team works with React.js, Angular, Vue.js, Node.js, Python (Django), PHP (Laravel), and .NET Core — along with MySQL, MongoDB, and Firebase for databases.",
+          answer:
+            "Our team works with React.js, Angular, Vue.js, Node.js, Python (Django), PHP (Laravel), and .NET Core — along with MySQL, MongoDB, and Firebase for databases.",
         },
         {
           question: " Can you redesign or upgrade an existing website?",
@@ -255,7 +256,8 @@ const ServiceInfoPage = () => {
         },
         {
           question: "Will my website be mobile-friendly and SEO-optimized?",
-          answer: "Absolutely. We design responsive, mobile-first, and SEO-ready websites to ensure high performance across devices and better visibility on search engines.",
+          answer:
+            "Absolutely. We design responsive, mobile-first, and SEO-ready websites to ensure high performance across devices and better visibility on search engines.",
         },
         {
           question: "Do you provide hosting and domain services?",
@@ -264,10 +266,12 @@ const ServiceInfoPage = () => {
         },
         {
           question: "Can you integrate third-party APIs or systems?",
-          answer: "Yes, we can integrate CRMs, ERPs, payment systems, analytics tools, AI models, or any thirdparty APIs required for your business operations.",
+          answer:
+            "Yes, we can integrate CRMs, ERPs, payment systems, analytics tools, AI models, or any thirdparty APIs required for your business operations.",
         },
         {
-          question: "Do you offer post-launch support for websites and web apps?",
+          question:
+            "Do you offer post-launch support for websites and web apps?",
           answer:
             "Yes. We provide long-term maintenance, updates, monitoring, and technical support to ensure consistent uptime, security, and scalability.",
         },
@@ -348,7 +352,8 @@ const ServiceInfoPage = () => {
       faq: [
         {
           question: "Do you develop games for all platforms?",
-          answer: "Yes, we create games for Android, iOS, PC, web, and consoles.",
+          answer:
+            "Yes, we create games for Android, iOS, PC, web, and consoles.",
         },
         {
           question: "What game engines do you use?",
@@ -362,7 +367,8 @@ const ServiceInfoPage = () => {
         },
         {
           question: "Do you provide game art and animation?",
-          answer: "Yes, we offer full in-house design — from concept art to 3D modeling and animation.",
+          answer:
+            "Yes, we offer full in-house design — from concept art to 3D modeling and animation.",
         },
         {
           question: "How long does it take to develop a game?",
@@ -485,7 +491,6 @@ const ServiceInfoPage = () => {
             "Yes, we handle performance monitoring, version upgrades, and feature expansions.",
         },
       ],
-
     },
     erp: {
       title: "ERP Solutions",
@@ -561,7 +566,8 @@ const ServiceInfoPage = () => {
       ],
       faq: [
         {
-          question: "Do you provide both on-premise and cloud-based ERP solutions?",
+          question:
+            "Do you provide both on-premise and cloud-based ERP solutions?",
           answer:
             "Yes, we develop ERP systems deployable on local servers or secure cloud environments.",
         },
@@ -591,7 +597,6 @@ const ServiceInfoPage = () => {
             "Yes. We ensure secure data migration from legacy or third-party software.",
         },
       ],
-
     },
 
     chatbot: {
@@ -685,7 +690,6 @@ const ServiceInfoPage = () => {
             "Typically 3–5 weeks for basic bots, and up to 8–10 weeks for advanced conversational systems.",
         },
       ],
-
     },
 
     ai: {
@@ -772,7 +776,6 @@ const ServiceInfoPage = () => {
             "We comply with GDPR and best practices for secure data handling and anonymization.",
         },
       ],
-
     },
 
     crm: {
@@ -866,7 +869,6 @@ const ServiceInfoPage = () => {
             "Yes, we provide continuous maintenance, optimization, and new feature rollout.",
         },
       ],
-
     },
 
     cloud: {
@@ -953,7 +955,6 @@ const ServiceInfoPage = () => {
             "Definitely. Automation and scalability help businesses of any size improve productivity.",
         },
       ],
-
     },
 
     maintenance: {
@@ -1049,7 +1050,6 @@ const ServiceInfoPage = () => {
             "Yes, we specialize in performance tuning and scalability optimization.",
         },
       ],
-
     },
 
     blockchain: {
@@ -1115,7 +1115,8 @@ const ServiceInfoPage = () => {
       ],
       faq: [
         {
-          question: "Do you build both public and private blockchain solutions?",
+          question:
+            "Do you build both public and private blockchain solutions?",
           answer:
             "Yes, we design both based on business needs and security preferences.",
         },
@@ -1140,7 +1141,6 @@ const ServiceInfoPage = () => {
             "Finance, logistics, supply chain, healthcare, and real estate are among the most common.",
         },
       ],
-
     },
 
     iot: {
@@ -1228,13 +1228,8 @@ const ServiceInfoPage = () => {
             "Yes, our IoT solutions are adaptable for manufacturing, logistics, healthcare, agriculture, and more.",
         },
       ],
-
     },
   };
-
-
-
-
 
   if (!service || !serviceInfo[service]) {
     return (
@@ -1300,7 +1295,7 @@ const ServiceInfoPage = () => {
           >
             {serviceInfo[service]?.buttonText}
           </button> */}
-        <Link to='/contactus'>
+        <Link to="/contactus">
           <button
             className="rotating-btn relative font-garota text-[1rem] md:text-[1.5rem] text-[#C8C1C1]
              w-[90vw] md:w-[73vw] mt-[60px] md:mt-[40px] rounded-md px-3 
@@ -1313,7 +1308,6 @@ const ServiceInfoPage = () => {
           >
             {serviceInfo[service]?.buttonText}
           </button>
-
         </Link>
 
         {/* </div> */}
@@ -1332,7 +1326,7 @@ const ServiceInfoPage = () => {
         h-auto min-h-[20vh]  
         flex flex-col justify-center gap-[0.8rem] 
         border border-white rounded-md 
-        px-5 py-4 
+        px-5 py-4  
         transition-all duration-300 
       "
                   style={{
@@ -1340,9 +1334,11 @@ const ServiceInfoPage = () => {
                     background:
                       "linear-gradient(139.47deg, rgba(16, 24, 32, 0.85) -45.69%, rgba(16, 24, 32, 0.95) 54.7%)",
                   }}
-
                 >
-                  <p className="text-[1.8rem] md:text-[1.5rem] service-desc text-[#F8F9FA]">
+                  <p
+                    
+                    className="text-[1.8rem]  md:text-[1.5rem] service-desc text-[#F8F9FA] "
+                  >
                     {item.title}
                   </p>
                   <p className="text-[#C8C1C1] service-desc text-[1rem] md:text-[1rem] leading-relaxed">
@@ -1352,7 +1348,6 @@ const ServiceInfoPage = () => {
               ))}
             </div>
           </div>
-
         </div>
         <div className="relative mt-[150px] md:mt-[100px]">
           <p className="text-[2rem] md:text-[4rem] service-title-noweight bg-gradient-to-b font-bold  from-[#C7B9F6] to-[#6A6185] bg-clip-text text-transparent leading-[1] absolute -top-5 md:-top-11 left-0 z-20 ">
@@ -1411,12 +1406,13 @@ const ServiceInfoPage = () => {
                   <div
                     className={`
               text-[0.8rem] md:text-[1.2rem] transition-all duration-500 ease-in-out overflow-hidden
-              ${isMobile
-                        ? activeIndex === index
-                          ? "max-h-[500px] opacity-100 mt-2"
-                          : "max-h-0 opacity-0 mt-0"
-                        : "opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-[500px] group-hover:mt-2"
-                      }
+              ${
+                isMobile
+                  ? activeIndex === index
+                    ? "max-h-[500px] opacity-100 mt-2"
+                    : "max-h-0 opacity-0 mt-0"
+                  : "opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-[500px] group-hover:mt-2"
+              }
             `}
                   >
                     {item.desc}
@@ -1426,8 +1422,6 @@ const ServiceInfoPage = () => {
             ))}
           </div>
         </div>
-
-
 
         <div className="w-[90vw] md:w-[73vw] flex mt-[100px] flex-col gap-[1.3rem]">
           <p className="text-[2.3rem] md:text-[3rem] service-title text-[#F8F9FA]">
@@ -1446,13 +1440,18 @@ const ServiceInfoPage = () => {
                     {faq.question}
                   </span>
                   <span className="text-[#BBABEB] cursor-pointer text-[1rem] md:text-2xl">
-                    {openIndex === index ? <img src={up} className="h-[25px] w-[25px]"></img> : <img className="h-[25px] w-[25px]" src={down}></img>}
+                    {openIndex === index ? (
+                      <img src={up} className="h-[25px] w-[25px]"></img>
+                    ) : (
+                      <img className="h-[25px] w-[25px]" src={down}></img>
+                    )}
                   </span>
                 </button>
 
                 <div
-                  className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? "max-h-40 py-3" : "max-h-0"
-                    }`}
+                  className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${
+                    openIndex === index ? "max-h-40 py-3" : "max-h-0"
+                  }`}
                 >
                   <p className="text-[#C8C1C1] service-desc text-[1rem] leading-relaxed">
                     {faq.answer}

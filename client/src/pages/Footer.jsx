@@ -70,7 +70,7 @@ const Footer = () => {
               <p className="footer-company-name text-white text-[clamp(1.4rem,4vw,2.3rem)] md:text-[clamp(1.4rem,2vw,2.3rem)] 2xl:text-[clamp(1.4rem,4vw,2.3rem)] font-semibold leading-tight 2xl:leading-10">
                 VedaPixel
               </p>
-              <p className="footer-company-desc text-white text-[clamp(0.7rem,2vw,1rem)] md:text-[clamp(0.7rem,1.2vw,1rem)] 2xl:text-[50%]">
+              <p className="footer-company-desc text-white text-[clamp(0.6rem,2vw,1rem)] md:text-[clamp(0.7rem,1.2vw,1rem)] 2xl:text-[50%]">
                 Innovation in every Pixel
               </p>
             </div>
