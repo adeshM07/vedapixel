@@ -1432,7 +1432,7 @@ const ServiceInfoPage = () => {
           </p>
           <div className="bg-[#0e141d]/50 backdrop-blur-lg  border rounded-lg border-[#F8F9FA]">
             {serviceInfo[service]?.faq.map((faq, index) => (
-              <div key={index} className="border-b border-[#2a2f37]">
+              <div key={index} className="border-b border-[#2a2f37] ">
                 <button
                   onClick={() =>
                     setOpenIndex(openIndex === index ? null : index)
@@ -1459,7 +1459,7 @@ const ServiceInfoPage = () => {
 
                 <div
                   className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${
-                    openIndex === index ? "max-h-40 py-3" : "max-h-0"
+                    openIndex === index ? "max-h-40 py-0" : "max-h-0"
                   }`}
                 >
                   <p className="text-[#C8C1C1] service-desc text-[0.8rem] md:text-[1rem] leading-relaxed">
