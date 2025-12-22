@@ -88,7 +88,7 @@ const Faq = () => {
                   }
                   className="w-full flex justify-between items-center px-6 py-5 text-left text-[#F8F9FA] hover:text-[#BBABEB] transition-all duration-200"
                 >
-                  <span className="text-[1.2rem] cursor-pointer  w-[90%] md:text-[1.8rem] service-title ">
+                  <span className="text-[1.2rem] cursor-pointer  w-[90%] md:text-[1.2rem] service-title ">
                     {faq.question} 
                   </span>
                   <span className="text-[#BBABEB] cursor-pointer text-[0.8rem] md:text-2xl">

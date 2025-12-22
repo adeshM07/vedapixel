@@ -12,6 +12,7 @@ import WhatsAppFloat from "./WhatsAppFloat";
 
 const Base = () => {
   const { scrollY, scrollYProgress } = useScroll();
+  const [showWhatsapp, setShowWhatsapp] = useState(false);
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
   const [hideMenu, setHideMenu] = useState(false);
@@ -57,15 +58,25 @@ const Base = () => {
   }, []);
 
   useEffect(() => {
+    if (location.pathname !== "/") {
+      setShowWhatsapp(true);
+    }
+  }, [location.pathname]);
+
+
+  useEffect(() => {
     const handleMessage = (event) => {
       if (event.data?.type === "INTRO_VIDEO_ENDED") {
         const targetY = landingRef.current.offsetTop;
 
         animate(window.scrollY, targetY, {
           duration: 1.9,
-          ease: [0.22, 1, 0.36, 1], // cinematic easing
+          ease: [0.22, 1, 0.36, 1],
           onUpdate: (v) => window.scrollTo(0, v),
         });
+
+        // ✅ show WhatsApp AFTER intro
+        setShowWhatsapp(true);
       }
     };
 
@@ -100,7 +111,8 @@ const Base = () => {
         <LandingPage />
         {/* <ServiceInfoPage></ServiceInfoPage> */}
       </div>
-      <WhatsAppFloat></WhatsAppFloat>
+      {showWhatsapp && <WhatsAppFloat></WhatsAppFloat> }
+      
     </div>
   );
 };

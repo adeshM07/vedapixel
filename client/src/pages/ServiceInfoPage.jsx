@@ -1242,7 +1242,7 @@ const ServiceInfoPage = () => {
   return (
     <>
       {/* {service && ( */}
-      <div className=" w-screen pt-[20px] flex flex-col place-items-center">
+      <div className=" w-full pt-[20px] flex flex-col place-items-center">
         <div className="w-[90vw] text-start md:w-[73vw]  mt-[100px] flex flex-col gap-[1.2rem]">
           <p className="text-[2rem] md:text-[3rem] text-[#F8F9FA] service-title">
             {serviceInfo[service]?.title}
@@ -1335,10 +1335,7 @@ const ServiceInfoPage = () => {
                       "linear-gradient(139.47deg, rgba(16, 24, 32, 0.85) -45.69%, rgba(16, 24, 32, 0.95) 54.7%)",
                   }}
                 >
-                  <p
-                    
-                    className="text-[1.8rem]  md:text-[1.5rem] service-desc text-[#F8F9FA] "
-                  >
+                  <p className="text-[1.8rem]  md:text-[1.5rem] service-desc text-[#F8F9FA] ">
                     {item.title}
                   </p>
                   <p className="text-[#C8C1C1] service-desc text-[1rem] md:text-[1rem] leading-relaxed">
@@ -1388,14 +1385,14 @@ const ServiceInfoPage = () => {
                 className="flex flex-row items-start md:items-center gap-3 md:gap-7"
               >
                 {/* Step number */}
-                <p className="text-[#C8C1C1] w-[8vw] sm:w-[6vw] md:w-[3vw] text-[1rem] md:text-[2rem]">
+                <p className="text-[#C8C1C1] w-[8vw] sm:w-[6vw] md:w-[3vw] text-[1rem] md:text-[1.4rem]">
                   {index + 1}.
                 </p>
 
                 {/* Step content */}
                 <div
                   onClick={() => handleToggle(index)}
-                  className="group relative flex flex-col border border-gray-800 border-l-white rounded-lg pl-4 md:pl-4 cursor-pointer text-[#F8F9FA] text-[1rem] md:text-[2rem] w-full md:w-[68vw] gap-1 py-2 md:py-3 transition-all duration-300 ease-in-out hover:border-[#BBABEB]/40"
+                  className="group relative flex flex-col border border-gray-800 border-l-white rounded-lg pl-4 md:pl-4 cursor-pointer text-[#F8F9FA] text-[1rem] md:text-[1.4rem] w-full md:w-[68vw] gap-1 py-2 md:py-3 transition-all duration-300 ease-in-out hover:border-[#BBABEB]/40"
                 >
                   {/* Title */}
                   <p className="font-semibold text-left service-title hover:text-[#BBABEB] z-10">
@@ -1424,7 +1421,7 @@ const ServiceInfoPage = () => {
         </div>
 
         <div className="w-[90vw] md:w-[73vw] flex mt-[100px] flex-col gap-[1.3rem]">
-          <p className="text-[2.3rem] md:text-[3rem] service-title text-[#F8F9FA]">
+          <p className="text-[2.3rem] md:text-[2.7rem] service-title text-[#F8F9FA]">
             FAQs
           </p>
           <div className="bg-[#0e141d]/50 backdrop-blur-lg  border rounded-lg border-[#F8F9FA]">
@@ -1436,7 +1433,13 @@ const ServiceInfoPage = () => {
                   }
                   className="w-full flex justify-between items-center px-6 py-5 text-left text-[#F8F9FA] hover:text-[#BBABEB] transition-all duration-200"
                 >
-                  <span className="text-[1.3rem] cursor-pointer w-[90%] md:text-[1.5rem] service-desc ">
+                  <span
+                    className={`  ${
+                      openIndex === index
+                        ? "text-[#BBABEB]"
+                        : "text-[#F8F9FA] hover:text-[#BBABEB]"
+                    } text-[1.3rem] cursor-pointer w-[90%] md:text-[1.2rem] service-desc `}
+                  >
                     {faq.question}
                   </span>
                   <span className="text-[#BBABEB] cursor-pointer text-[1rem] md:text-2xl">
