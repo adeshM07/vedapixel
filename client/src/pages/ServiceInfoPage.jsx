@@ -1395,7 +1395,13 @@ const ServiceInfoPage = () => {
                   className="group relative flex flex-col border border-gray-800 border-l-white rounded-lg pl-4 md:pl-4 cursor-pointer text-[#F8F9FA] text-[1rem] md:text-[1.4rem] w-full md:w-[68vw] gap-1 py-2 md:py-3 transition-all duration-300 ease-in-out hover:border-[#BBABEB]/40"
                 >
                   {/* Title */}
-                  <p className="font-semibold text-left service-title hover:text-[#BBABEB] z-10">
+                  <p
+                    className={`font-semibold  ${
+                      activeIndex === index
+                        ? "border-[#BBABEB]/40 text-[#BBABEB]"
+                        : "text-[#F8F9FA] hover:border-[#BBABEB]/40"
+                    } text-left service-title hover:text-[#BBABEB] z-10`}
+                  >
                     {item.title}
                   </p>
 
