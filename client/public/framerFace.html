@@ -3043,9 +3043,9 @@
     </style>
   </head>
   <body>
-    <!-- <video
+    <video
       id="bgVideo"
-      src="/bgVideoWebM.webm"
+      src="/landscape.webm"
       autoplay
       muted
       playsinline
@@ -3058,7 +3058,8 @@
         object-fit: cover;
         z-index: 9999;
       "
-    ></video> -->
+    ></video>
+
     <!-- <video id="bgVideo" autoplay muted playsinline>
       <source src="/bgVideoWebM.webm" type="video/webm" />
     </video>
@@ -3135,9 +3136,16 @@
 
     <style>
       /* Mobile */
+      @media (min-width: 1200px) {
+        #bgGif {
+          object-fit: contain;
+          display: none;
+        }
+      }
       @media (max-width: 600px) {
         #bgGif {
           object-fit: contain;
+          display: block;
         }
       }
 
@@ -3152,6 +3160,23 @@
           object-fit: cover;
         }
       }
+
+      /* jhwvdewjbdjw  */
+
+      @media (min-width: 1200px) {
+        #bgVideo {
+          object-fit: contain;
+          display: block;
+        }
+      }
+      @media (max-width: 800px) {
+        #bgVideo {
+          display: none;
+        }
+      }
+
+      /* Tablet */
+     
     </style>
 
     <script>
@@ -5044,7 +5069,7 @@
         width: 0;
         height: 0;
         z-index: 0;
-        contain: strict;  
+        contain: strict;
       "
       aria-hidden="true"
     ></div>
@@ -5054,22 +5079,18 @@
       });
     </script>
     <script>
-  const video = document.querySelector("video");
+      const video = document.querySelector("video");
 
-  if (video) {
-    video.addEventListener("ended", () => {
-      console.log("VIDEO ENDED");
+      if (video) {
+        video.addEventListener("ended", () => {
+          console.log("VIDEO ENDED");
 
-      // ⏸️ pause 1 second AFTER video fully ends
-      setTimeout(() => {
-        window.parent.postMessage(
-          { type: "INTRO_VIDEO_ENDED" },
-          "*"
-        );
-      }, 1000);
-    });
-  }
-</script>
-
+          // ⏸️ pause 1 second AFTER video fully ends
+          setTimeout(() => {
+            window.parent.postMessage({ type: "INTRO_VIDEO_ENDED" }, "*");
+          }, 1000);
+        });
+      }
+    </script>
   </body>
 </html>

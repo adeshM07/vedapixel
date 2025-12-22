@@ -12,6 +12,8 @@ const ContactPage = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [collabErrors, setCollabErrors] = useState({});
   const [careerErrors, setCareerErrors] = useState({});
+  const careerFormRef = useRef(null);
+  const careerFileRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -346,43 +348,26 @@ const ContactPage = () => {
     }
   };
 
-  const submitCareerForm = async () => {
-    if (!validateCareer()) return;
+const submitCareerForm = () => {
+  if (!validateCareer()) return;
 
-    const formData = new FormData();
-    formData.append("formType", "career");
-    formData.append("name", careerForm.name);
-    formData.append("email", careerForm.email);
-    formData.append("contact", careerForm.contact);
-    formData.append("message", careerForm.message);
+  // copy selected file into hidden form
+  careerFileRef.current.files =
+    document.getElementById("resume").files;
 
-    if (careerForm.resume) {
-      formData.append("resume", careerForm.resume);
-    }
+  careerFormRef.current.submit();
 
-    try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbyOcZfiswsBY-1fVd-tTSWIQrvJDJRwhunuPwK2ARxeM9rY-V-wHwqfhsx1KDR-bifq/exec",
-        {
-          method: "POST",
-          mode: "no-cors",
-          body: formData,
-        }
-      );
+  alert("Career form submitted successfully!");
 
-      alert("Career form submitted successfully!");
-      setCareerForm({
-        name: "",
-        email: "",
-        contact: "+91",
-        message: "",
-        resume: null,
-      });
-    } catch (error) {
-      alert("Error submitting career form!");
-      console.log(error);
-    }
-  };
+  setCareerForm({
+    name: "",
+    email: "",
+    contact: "+91",
+    message: "",
+    resume: null,
+  });
+};
+
 
   return (
     <>
@@ -793,6 +778,7 @@ const ContactPage = () => {
                           type="file"
                           onChange={handleCareerFile}
                           id="resume"
+                          name="resume"
                           // onChange={(e) =>
                           //   setFileName(e.target.files[0] ? e.target.files[0].name : "Upload Resume *")
                           // }
@@ -870,6 +856,27 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
+      {/* ===== HIDDEN CAREER FORM FOR FILE UPLOAD (DO NOT TOUCH UI) ===== */}
+<form
+  ref={careerFormRef}
+  action="https://script.google.com/macros/s/AKfycbyeOBESF9Tx0zFpZz_8OSUW0xpjgF_W6VS_IUHjZlr6489JHFxjQTdFRWqNXWkWdopwiQ/exec"
+  method="POST"
+  encType="multipart/form-data"
+  target="hidden_iframe"
+  style={{ display: "none" }}
+>
+  <input name="formType" value="career" readOnly />
+  <input name="name" value={careerForm.name} readOnly />
+  <input name="email" value={careerForm.email} readOnly />
+  <input name="contact" value={careerForm.contact} readOnly />
+  <input name="message" value={careerForm.message} readOnly />
+
+  {/* IMPORTANT: file input for GAS */}
+  <input type="file" name="resume" ref={careerFileRef} />
+</form>
+
+<iframe name="hidden_iframe" style={{ display: "none" }} />
+
     </>
   );
 };
