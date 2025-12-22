@@ -1462,7 +1462,7 @@ const ServiceInfoPage = () => {
                     openIndex === index ? "max-h-40 py-3" : "max-h-0"
                   }`}
                 >
-                  <p className="text-[#C8C1C1] service-desc text-[1rem] leading-relaxed">
+                  <p className="text-[#C8C1C1] service-desc text-[0.8rem] md:text-[1rem] leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>
