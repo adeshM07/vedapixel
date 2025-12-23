@@ -88,11 +88,25 @@ const Faq = () => {
                   }
                   className="w-full flex justify-between items-center px-6 py-5 text-left text-[#F8F9FA] hover:text-[#BBABEB] transition-all duration-200"
                 >
-                  <span className="text-[1.2rem] cursor-pointer  w-[90%] md:text-[1.2rem] service-title ">
-                    {faq.question} 
+                  <span
+                    className={`${
+                      openIndex === index ? "text-[#BBABEB]" : "text-[#F8F9FA]"
+                    } text-[1.2rem] cursor-pointer  w-[90%] md:text-[1.2rem] service-title `}
+                  >
+                    {faq.question}
                   </span>
                   <span className="text-[#BBABEB] cursor-pointer text-[0.8rem] md:text-2xl">
-                    {openIndex === index ? <img src={up} className=" h-[2vh] w-[5vw] md:h-[25px] md:w-[25px]"></img>  : <img className="h-[2vh] w-[5vw] md:h-[25px] md:w-[25px]" src={down}></img> }
+                    {openIndex === index ? (
+                      <img
+                        src={up}
+                        className=" h-[2vh] w-[5vw] md:h-[25px] md:w-[25px]"
+                      ></img>
+                    ) : (
+                      <img
+                        className="h-[2vh] w-[5vw] md:h-[25px] md:w-[25px]"
+                        src={down}
+                      ></img>
+                    )}
                   </span>
                 </button>
 

@@ -937,14 +937,6 @@ const Body = () => {
                     Driving enterprise & consumer innovation
                   </p>
 
-                  {/* <div className="relative inline-block">
-                    <button
-                      className="rotating-btn-teams  begin-card-button  text-white text-[12px] md:text-[16px] py-2 rounded-[8px] mt-[clamp(15px,2vw,25px)] w-[25vw] md:h-[clamp(50px,6vh,55px)] md:w-[clamp(110px,10vw,160px)] transition-all duration-300 hover:scale-105 hover:bg-[#B1A2DF]/20"
-                      onClick={() => setShowTeamPopup(true)}
-                    >
-                      Our Team
-                    </button>
-                  </div> */}
                   <div className="relative inline-block">
                     <button
                       onClick={() => setShowTeamPopup(true)}
