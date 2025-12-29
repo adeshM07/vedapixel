@@ -1313,7 +1313,7 @@ const ServiceInfoPage = () => {
 
         {/* </div> */}
         <div className="lg:w-[73vw] mt-[100px]   flex flex-col gap-[0.8rem]">
-          <p className="service-title text-start text-[2.5rem] md:text-[3rem] w-[90vw] sm:w-[42vw] md:w-[30vw] lg:w-[22vw]  text-white">
+          <p className="service-title px-5 md:px-0 text-start text-[2.5rem] md:text-[3rem] w-[90vw] sm:w-[42vw] md:w-[30vw] lg:w-[22vw]  text-white">
             Our Expertise
           </p>
           <div className="">
