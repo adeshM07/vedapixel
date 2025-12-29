@@ -433,25 +433,25 @@ const ServiceInfoPage = () => {
       ],
       process: [
         {
-          title: "Conceptualization",
-          desc: "Define vision, user goals, and interactivity.",
+          title: "Concept & Research",
+          desc: "Understand business goals and user interaction needs",
         },
         {
-          title: "3D Modeling",
-          desc: "Create realistic environments and objects.",
+          title: "3D Design & Modeling",
+          desc: " Build realistic environments and interactive assets.",
         },
         {
-          title: "Development",
-          desc: "Code immersive interactions with Unity or Unreal.",
+          title: "Development & Integration ",
+          desc: " Implement core functionality and hardware compatibility",
         },
-        { title: "Testing", desc: "Ensure smooth rendering and usability." },
+        { title: "Testing & Optimization", desc: "Optimize for performance, frame rate, and responsiveness." },
         {
-          title: "Deployment",
-          desc: "Publish to mobile or headset platforms.",
+          title: "Deployment & Training",
+          desc: " Deploy to target platforms and train clients for usage.",
         },
         {
-          title: "Support",
-          desc: "Maintain and optimize post-launch performance.",
+          title: "Support & Updates ",
+          desc: "Provide technical support and ongoing optimization.",
         },
       ],
       faq: [
@@ -492,6 +492,7 @@ const ServiceInfoPage = () => {
         },
       ],
     },
+
     erp: {
       title: "ERP Solutions",
       intro:
