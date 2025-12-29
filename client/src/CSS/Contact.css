@@ -114,8 +114,8 @@
   background: rgba(16, 24, 32, 0.25) !important; /* light transparent base */
   backdrop-filter: blur(6px) saturate(160%) !important;
   -webkit-backdrop-filter: blur(6px) saturate(160%) !important;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1); */
 }
 
 .react-tel-input .country-list .country {
@@ -133,8 +133,8 @@
 /* === Default state (simple & transparent) === */
 .react-tel-input .flag-dropdown {
   background: transparent !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  border-radius: 10px 0 0 10px !important;
+  /* border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 10px 0 0 10px !important; */
   transition: all 0.35s ease-in-out;
 }
 
@@ -145,7 +145,7 @@
   background: rgba(255, 255, 255, 0.08) !important;
   backdrop-filter: blur(10px) saturate(160%) !important;
   -webkit-backdrop-filter: blur(10px) saturate(160%) !important;
-  border-color: rgba(177, 162, 223, 0.4) !important;
+  /* border-color: rgba(177, 162, 223, 0.4) !important; */
   box-shadow: 0 0 8px rgba(177, 162, 223, 0.25);
 }
 
@@ -157,7 +157,7 @@
 
 /* === Arrow inside flag area (purple accent) === */
 .react-tel-input .selected-flag .arrow {
-  border-top: 4px solid #B1A2DF !important;
+  /* border-top: 4px solid #B1A2DF !important; */
   opacity: 0.85;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -170,7 +170,7 @@
 /* === Dropdown list stays clean (no glassy change) === */
 .react-tel-input .country-list {
   background: rgba(16, 24, 32, 0.9) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  /* border: 1px solid rgba(255, 255, 255, 0.1) !important; */
   color: #fff !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
@@ -187,7 +187,7 @@
 
 
 .phone-error .react-tel-input .form-control {
-  border: 1px solid red !important;
+  /* border: 1px solid red !important; */
   border-radius: 8px !important;
 }
 

@@ -444,7 +444,10 @@ const ServiceInfoPage = () => {
           title: "Development & Integration ",
           desc: " Implement core functionality and hardware compatibility",
         },
-        { title: "Testing & Optimization", desc: "Optimize for performance, frame rate, and responsiveness." },
+        {
+          title: "Testing & Optimization",
+          desc: "Optimize for performance, frame rate, and responsiveness.",
+        },
         {
           title: "Deployment & Training",
           desc: " Deploy to target platforms and train clients for usage.",
@@ -1298,14 +1301,20 @@ const ServiceInfoPage = () => {
           </button> */}
         <Link to="/contactus">
           <button
-            className="rotating-btn relative font-garota text-[1rem] md:text-[1.5rem] text-[#C8C1C1]
-             w-[90vw] md:w-[73vw] mt-[60px] md:mt-[40px] rounded-md px-3 
-             [@media(min-width:300px)]:py-3 py-2 md:px-6 md:py-3 overflow-hidden
-             bg-gradient-to-r from-[#1b1b2f] to-[#101820] border border-[#6A6185]
-             transition-all duration-500 ease-in-out
-             hover:from-[#6A6185] hover:to-[#B19CD9]
-             hover:text-white hover:shadow-[0_0_15px_rgba(177,156,217,0.4)]
-             hover:-translate-y-1"
+            className=" 
+     relative font-garota text-[1rem] md:text-[1.5rem] text-[#C8C1C1]
+    w-[90vw] md:w-[73vw] mt-[60px] md:mt-[40px]
+    rounded-xl px-3 py-2 md:px-6 md:py-3
+    overflow-hidden
+
+     border border-[#6A6185]
+
+    transition-all duration-500 ease-in-out
+    hover:bg-[linear-gradient(90deg,#bbabeb,#6a6185)]
+    hover:text-white
+    hover:shadow-[0_0_15px_rgba(177,156,217,0.4)]
+    hover:-translate-y-1
+  "
           >
             {serviceInfo[service]?.buttonText}
           </button>

@@ -195,7 +195,7 @@ const Contact = () => {
                 "
               />
               <div
-                className={`w-[100%] md:w-[47%] lg:w-[32vw] 2xl:w-[32vw] relative
+                className={`w-[100%] md:w-[47%] lg:w-[32vw] border-none 2xl:w-[32vw] relative
     ${errors.contact ? "border border-red-500 rounded-[10px]" : ""}
   `}
               >
