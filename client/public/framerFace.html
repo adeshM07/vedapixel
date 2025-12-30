@@ -3134,14 +3134,15 @@
       "
     />
 
-    <style>
+    <!-- <style>
       /* Mobile */
       @media (min-width: 1200px) {
-        #bgGif {
+         #bgGif {
           object-fit: contain;
-          display: none;
         }
       }
+
+      
       @media (max-width: 600px) {
         #bgGif {
           object-fit: contain;
@@ -3157,7 +3158,7 @@
       }
       @media (min-width: 1025px) {
         #bgGif {
-          object-fit: cover;
+          display: none;
         }
       }
 
@@ -3176,6 +3177,25 @@
       }
 
       /* Tablet */
+    </style> -->
+
+    <style>
+       @media (max-width: 1023px) {
+        #bgGif {
+          object-fit: contain;
+        }
+        #bgVideo{
+          display:none
+        }
+      }
+       @media (min-width: 1024px) {
+        #bgGif {
+          display:none
+        }
+        #bgVideo{
+          display:block
+        }
+      }
     </style>
 
     <script>
@@ -5091,7 +5111,9 @@
         });
       }
       const GIF_DURATION = 9000; // ms (your gif length)
-
+      window.addEventListener("resize", () => {
+        console.log("Width:", window.innerWidth);
+      });
       setTimeout(() => {
         console.log("GIF finished (assumed)");
         window.parent.postMessage({ type: "INTRO_VIDEO_ENDED" }, "*");
