@@ -3043,9 +3043,9 @@
     </style>
   </head>
   <body>
-    <video
+    <!-- <video
       id="bgVideo"
-      src="/landscape.webm"
+      src="/bgVideoWebM.webm"
       autoplay
       muted
       playsinline
@@ -3053,13 +3053,12 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 100vw;
         height: 100vh;
         object-fit: cover;
         z-index: 9999;
       "
-    ></video>
-
+    ></video> -->
     <!-- <video id="bgVideo" autoplay muted playsinline>
       <source src="/bgVideoWebM.webm" type="video/webm" />
     </video>
@@ -3070,7 +3069,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 100vw;
         height: 100vh;
         object-fit: cover;
         z-index: 9999;
@@ -3121,13 +3120,13 @@
     </script> -->
     <img
       id="bgGif"
-      src="/portrate.gif"
+      src="/bgVideoGif2.gif"
       alt="background gif"
       style="
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 100vw;
         height: 100vh;
         z-index: 9999;
         pointer-events: none;
@@ -3136,16 +3135,9 @@
 
     <style>
       /* Mobile */
-      @media (min-width: 1200px) {
-        #bgGif {
-          object-fit: contain;
-          display: none;
-        }
-      }
       @media (max-width: 600px) {
         #bgGif {
           object-fit: contain;
-          display: block;
         }
       }
 
@@ -3160,37 +3152,20 @@
           object-fit: cover;
         }
       }
-
-      /* jhwvdewjbdjw  */
-
-      @media (min-width: 1200px) {
-        #bgVideo {
-          object-fit: contain;
-          display: block;
-        }
-      }
-      @media (max-width: 800px) {
-        #bgVideo {
-          display: none;
-        }
-      }
-
-      /* Tablet */
-     
     </style>
 
- <script>
+    <script>
       const gif = document.getElementById("bgGif");
 
       function changeGifByDevice() {
-        let src = "/portrate.gif";
+        let src = "/bgVideoGif2.gif";
 
         if (window.innerWidth <= 600) {
-          src = "/portrate.gif";
+          src = "/bgVideoGif2.gif";
         } else if (window.innerWidth <= 1024) {
-          src = "/portrate.gif"; // if you have this
+          src = "/bgVideoGif2.gif"; // if you have this
         } else {
-          src = "/portrate.gif";
+          src = "/bgVideoGif2.gif";
         }
 
         if (!gif.src.includes(src)) {
@@ -3200,7 +3175,7 @@
 
       changeGifByDevice();
       window.addEventListener("resize", changeGifByDevice);
-    </script> 
+    </script>
 
     <script
       async
@@ -5077,20 +5052,6 @@
       document.getElementById("introVideo").addEventListener("ended", () => {
         document.getElementById("framerContent").style.opacity = "1";
       });
-    </script>
-    <script>
-      const video = document.querySelector("video");
-
-      if (video) {
-        video.addEventListener("ended", () => {
-          console.log("VIDEO ENDED");
-
-          // ⏸️ pause 1 second AFTER video fully ends
-          setTimeout(() => {
-            window.parent.postMessage({ type: "INTRO_VIDEO_ENDED" }, "*");
-          }, 1000);
-        });
-      }
     </script>
   </body>
 </html>

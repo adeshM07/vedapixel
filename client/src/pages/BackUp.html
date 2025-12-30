@@ -3121,7 +3121,7 @@
     </script> -->
     <img
       id="bgGif"
-      src="/gifMobile.gif"
+      src="/portrate.gif"
       alt="background gif"
       style="
         position: fixed;
@@ -3176,20 +3176,21 @@
       }
 
       /* Tablet */
+     
     </style>
 
-    <script>
+ <script>
       const gif = document.getElementById("bgGif");
 
       function changeGifByDevice() {
-        let src = "/gifMobile.gif";
+        let src = "/portrate.gif";
 
         if (window.innerWidth <= 600) {
-          src = "/gifMobile.gif";
+          src = "/portrate.gif";
         } else if (window.innerWidth <= 1024) {
-          src = "/gifMobile.gif"; // if you have this
+          src = "/portrate.gif"; // if you have this
         } else {
-          src = "/gifMobile.gif";
+          src = "/portrate.gif";
         }
 
         if (!gif.src.includes(src)) {
@@ -3199,7 +3200,7 @@
 
       changeGifByDevice();
       window.addEventListener("resize", changeGifByDevice);
-    </script>
+    </script> 
 
     <script
       async
@@ -5090,12 +5091,6 @@
           }, 1000);
         });
       }
-      const GIF_DURATION = 9000; // ms (your gif length)
-
-      setTimeout(() => {
-        console.log("GIF finished (assumed)");
-        window.parent.postMessage({ type: "INTRO_VIDEO_ENDED" }, "*");
-      }, GIF_DURATION);
     </script>
   </body>
 </html>
