@@ -20,6 +20,7 @@ const Body = () => {
     typeof window !== "undefined" ? window.innerWidth < 768 : false
   );
   const [currentWord, setCurrentWord] = useState("streamline operations");
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const aboutRef = useRef(null);
   const servicesRef = useRef(null);
@@ -650,7 +651,7 @@ const Body = () => {
                 />
               </motion.p>
             )}
-            <div className="flex flex-col  lg:w-[60vw]  lg:gap-4">
+            <div className="flex flex-col  lg:w-[60vw] gap-3  lg:gap-4">
               <InfiniteScrollNodes direction="left" baseSpeed={85} />
               <InfiniteScrollNodes direction="right" baseSpeed={95} />
               <InfiniteScrollNodes2 direction="left" baseSpeed={85} />
@@ -938,14 +939,24 @@ const Body = () => {
                   </p>
 
                   <div className="relative inline-block">
-                    <button
-                      onClick={() => setShowTeamPopup(true)}
-                      className="rotating-btn relative  text-[#b19cd9] font-garota text-[12px] md:text-[16px] rounded-md w-[25vw] [@media(min-width:300px)_and_(max-width:410px)]:h-[4vh] h-[4vh] md:h-[clamp(50px,6vh,55px)] md:w-[clamp(110px,10vw,160px)]  overflow-hidden hover:from-[#6A6185] hover:to-[#B19CD9]
-             hover:text-white hover:shadow-[0_0_15px_rgba(177,156,217,0.4)]
-             hover:-translate-y-1"
-                    >
-                      Our Team
-                    </button>
+                   <button
+  disabled={isDisabled}
+  onClick={isDisabled ? () => setShowTeamPopup(true) : undefined}
+  className={`
+    rotating-btn relative font-garota
+    text-[12px] md:text-[16px]
+    rounded-md w-[25vw] h-[4vh]
+    md:h-[clamp(50px,6vh,55px)]
+    md:w-[clamp(110px,10vw,160px)]
+    overflow-hidden transition-all
+
+    ${isDisabled
+      ? "bg-gray-400 text-gray-600 cursor-not-allowed opacity-60"
+      : "text-[#b19cd9] cursor-pointer hover:from-[#6A6185] hover:to-[#B19CD9] hover:text-white hover:shadow-[0_0_15px_rgba(177,156,217,0.4)] hover:-translate-y-1"}
+  `}
+>
+  Our Team
+</button>
                   </div>
                 </div>
               </div>

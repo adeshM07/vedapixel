@@ -1,5 +1,5 @@
 import React from "react";
-import "../CSS/Contact.css";
+// import "../CSS/Contact.css";
 import "../CSS/Body.css";
 import { motion } from "framer-motion";
 import PhoneInput from "react-phone-input-2";
@@ -27,11 +27,14 @@ const Contact = () => {
     formBody.append("idea", formData.idea);
 
     try {
-      await fetch("https://script.google.com/macros/s/AKfycbz3tUTCcuf5qTDG6aY3R064C_KhcSSJ-gRcwuU-DT94eG3o42uel64EZF7hsknE_-9j/exec", {
-        method: "POST",
-        mode: "no-cors",
-        body: formBody,
-      });
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbz3tUTCcuf5qTDG6aY3R064C_KhcSSJ-gRcwuU-DT94eG3o42uel64EZF7hsknE_-9j/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          body: formBody,
+        }
+      );
 
       alert("Form submitted successfully!");
 
@@ -79,7 +82,6 @@ const Contact = () => {
     // company is optional → no check
     setErrors(e);
   };
-
 
   useEffect(() => {
     const { name, email, contact, idea } = formData;
@@ -194,13 +196,15 @@ const Contact = () => {
                   2xl:h-[clamp(35px,6vh,55px)]
                 "
               />
-              <div
-                className={`w-[100%] md:w-[47%] lg:w-[32vw] border-none 2xl:w-[32vw] relative
-    ${errors.contact ? "border border-red-500 rounded-[10px]" : ""}
-  `}
+              <div 
+                className={`
+                  w-full md:w-[47%] lg:w-[32vw] 2xl:w-[32vw]
+                  rounded-[10px]
+                  ${errors.contact ? "border-2 border-red-500" : "border border-[#989BA1]"}
+                `}
               >
                 <PhoneInput
-                  country={"in"} // 🇮🇳 default India
+                  country={"in"}
                   value={formData.contact}
                   onChange={(value, country) => {
                     const dialCode = `+${country.dialCode}`;
@@ -208,31 +212,23 @@ const Contact = () => {
 
                     setFormData({ ...formData, contact: value });
 
-                    // ✅ remove red border instantly when user enters something
+                    // remove error when user types
                     setErrors((prev) => ({ ...prev, contact: false }));
                   }}
-                  enableSearch={false}
                   countryCodeEditable={false}
+                  enableSearch={false}
                   inputProps={{
                     name: "contact",
-                    required: true,
                   }}
-                  placeholder="Contact no. *"
+                  containerStyle={{
+                    width: "100%",
+                  }}
                   inputStyle={{
                     width: "100%",
                     background: "transparent",
-                    border: errors.contact
-                      ? "1px solid red"
-                      : "1px solid #989BA1",
-
-                    borderRadius:
-                      windowWidth < 640
-                        ? "5px"
-                        : windowWidth <= 1024
-                        ? "10px"
-                        : "10px",
+                    border: "none",
+                    borderRadius: windowWidth<=500 ?"0px": "10px",
                     color: "#818181",
-                    fontSize: "clamp(0.8rem, 1vw, 1rem)",
                     height:
                       windowWidth <= 400
                         ? "5.6vh"
@@ -250,6 +246,7 @@ const Contact = () => {
                   }}
                 />
               </div>
+
               <input
                 type="email"
                 name="email"

@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import sent from "../assets/sent.png";
 import { useState } from "react";
+import { Phone,Mail  } from "lucide-react";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -85,6 +86,7 @@ const Footer = () => {
                     alt="email"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
                   />
+                  {/* <Mail size={18} className="text-[#BBABEB]" /> */}
                   <a
                     href="mailto:info@vedapixel.com"
                     className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
@@ -99,6 +101,7 @@ const Footer = () => {
                     alt="phone"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
                   />
+                  {/* <Phone size={18} className="text-[#BBABEB]" /> */}
                   <a
                     href="tel:+919036354261"
                     className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] no-underline md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
@@ -169,6 +172,8 @@ const Footer = () => {
                     alt="email"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
                   />
+                  {/* <Mail size={18} className="text-[#BBABEB]" /> */}
+                 
                   <a
                     href="mailto:info@vedapixel.com"
                     className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
@@ -183,6 +188,7 @@ const Footer = () => {
                     alt="phone"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
                   />
+                  {/* <Phone size={18} className="text-[#BBABEB]" /> */}
                   <a
                     href="tel:+919036354261"
                     className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] no-underline md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
@@ -193,7 +199,7 @@ const Footer = () => {
               </div>
             </div>:false}
             
-              <div>
+              <div className="">
                 <p className="text-[#C8C1C1] text-[clamp(1rem,2vw,1.2rem)] mb-2 font-medium">
                   Let's Get in Touch
                 </p>
@@ -203,8 +209,8 @@ const Footer = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Your Email Id"
-                    className="text-[#818181] w-[70vw] sm:w-[250px] md:w-[140px] 2xl:w-[18vw]
-                               h-[36px] sm:h-[38px] md:h-[30px] 2xl:h-[42px] text-[clamp(0.8rem,2vw,1rem)]
+                    className="text-[#818181] w-[70vw] sm:w-[250px] md:w-[140px] lg:w-[170px] xl:w-[18vw]
+                               h-[36px] sm:h-[38px] md:h-[30px] lg:h-[35px] xl:h-[42px] text-[clamp(0.8rem,2vw,1rem)]
                                rounded-[10px] border border-[#F2F2F7] px-3 focus:outline-none"
                   />
                   <motion.img
@@ -237,6 +243,7 @@ const Footer = () => {
                       className="w-[25px] sm:w-[30px] md:w-[22px]  2xl:w-[2vw] cursor-pointer"
                       whileHover={{ scale: 1.2, y: -3 }}
                     />
+                    {/* <Linkedin size={30} className="text-[#BBABEB]"/> */}
                   </a>
                   <a
                     target="_blank"
@@ -248,6 +255,7 @@ const Footer = () => {
                       className="w-[25px] sm:w-[30px] md:w-[22px] ] 2xl:w-[2vw] cursor-pointer"
                       whileHover={{ scale: 1.2, y: -3 }}
                     />
+                    {/* <Instagram size={30} className="text-[#BBABEB]"/> */}
                   </a>
                   {/* <a target="_blank" href="https://wa.me/919036354263">
                     <motion.img

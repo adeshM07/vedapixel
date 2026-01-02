@@ -133,7 +133,7 @@ const InfiniteScrollNodes3 = ({ direction = "left", baseSpeed = 35 }) => {
   const loopItems = [...items, ...items];
 
   return (
-    <div className="relative [@media(min-width:300px)_and_(max-width:410px)]:h-[50px] w-full h-[70px] overflow-hidden flex items-center justify-center">
+    <div className="relative [@media(min-width:300px)_and_(max-width:430px)]:h-fit w-full h-[70px] overflow-hidden flex items-center justify-center">
       <div
         className={`scroll-track flex gap-[14px] whitespace-nowrap ${direction === "left" ? "scroll-left" : "scroll-right"
           }`}

@@ -57,7 +57,7 @@
 .contact-button {
   background: linear-gradient(to right, #bbabeb, #6a6185);
   border: none;
-  color: #1a1c22;
+  color: white;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
   transition: all 0.25s ease-in-out;
@@ -67,6 +67,24 @@
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 4px 15px rgba(187, 171, 235, 0.4);
 }
+
+.body-nav::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #bbabeb, #6a6185);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.body-nav:hover::after {
+  transform: scaleX(1);
+}
+
 
 /* ✅ Small devices (400px–600px): Keep flex, just scale down */
 /* @media (max-width: 600px) {

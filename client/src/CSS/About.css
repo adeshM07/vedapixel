@@ -11,8 +11,8 @@
   height: 120vh;
   background: url("../assets/aboutbg.png") no-repeat center center;
   background-size: cover;
-  opacity: 0.35;
-  filter: brightness(0.8) contrast(1.1);
+  /* opacity: 0.35; */
+  /* filter: brightness() ; */
   z-index: 0;
   pointer-events: none;
 }
@@ -52,12 +52,12 @@
   #layout::before {
     content: "";
     position: absolute;
-    width: 90vw;
-    height: 49vh;
+    width: 95vw;
+    height: 45vh;
     background: url("../assets/aboutbg.png") no-repeat;
     background-size: cover;
-    opacity: 0.35;
-    filter: brightness(0.8) contrast(1.1);
+    /* opacity: 0.35; */
+    /* filter: brightness(0.8) contrast(1.1); */
     z-index: 0;
     pointer-events: none;
   }
@@ -85,8 +85,8 @@
     height: 65vh;
     background: url("../assets/aboutbg.png") no-repeat;
     background-size: cover;
-    opacity: 0.35;
-    filter: brightness(0.8) contrast(1.1);
+    /* opacity: 0.35; */
+    /* filter: brightness(0.8) contrast(1.1); */
     z-index: 0;
     pointer-events: none;
   }
@@ -114,8 +114,8 @@
     height: 41vh;
     background: url("../assets/aboutbg.png") no-repeat;
     background-size: cover;
-    opacity: 0.35;
-    filter: brightness(0.8) contrast(1.1);
+    /* opacity: 0.35; */
+    /* filter: brightness(0.8) contrast(1.1); */
     z-index: 0;
     pointer-events: none;
   }
@@ -143,8 +143,8 @@
     /* scale: 0.9; */
     background: url("../assets/aboutbg.png") no-repeat center center;
     background-size: contain;
-    opacity: 0.35;
-    filter: brightness(0.8) contrast(1.1);
+    /* opacity: 0.35; */
+    /* filter: brightness(0.8) contrast(1.1); */
     z-index: 0;
     pointer-events: none;
   }
@@ -155,11 +155,8 @@
    ===================== */
 
 /* 📱 Mobile */
-@media (max-width: 640px) {
 
 
-
-}
 
 @media (min-width: 2000px) {
   #layout::before {
@@ -169,8 +166,8 @@
     height: 110vh;
     background: url("../assets/aboutbg.png") no-repeat center center;
     background-size: cover;
-    opacity: 0.35;
-    filter: brightness(0.8) contrast(1.1);
+    /* opacity: 0.35; */
+    /* filter: brightness(0.8) contrast(1.1); */
     z-index: 0;
     pointer-events: none;
   }

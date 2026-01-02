@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "../assets/vedaPixelLogo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useRef } from "react";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import "../CSS/Menu.css";
@@ -15,6 +15,13 @@ const Menu = () => {
   const [isMobile, setIsMobile] = useState(
     typeof window !== "undefined" ? window.innerWidth < 768 : false
   );
+
+  const location = useLocation();
+
+  const isServicesActive = location.pathname.startsWith("/service");
+  const isAboutActive = location.pathname.startsWith("/about");
+  const isContactActive = location.pathname.startsWith("/contact");
+  const isHomeActive = location.pathname === "/";
 
   useEffect(() => {
     let lastVisible = null;
@@ -79,15 +86,15 @@ const Menu = () => {
       >
         {/* --- Logo + Company Name --- */}
         <Link to="/">
-          <div className="flex mt-5 md:mt-0 place-items-end">
+          <div className="flex gap-0.5 mt-5 md:mt-0 place-items-end">
             <img
               src={logo}
               alt="VedaPixel Logo"
               className="w-[10vw] md:w-[clamp(40px,5vw,65px)] md:h-[clamp(40px,5vw,65px)] object-contain"
             />
             <p
-              className="company-name text-white 
-              text-[clamp(16px,2vw,26px)] 
+              className="company-name text-white text-xl 
+              md:text-[clamp(16px,2vw,26px)] lg:text-[25px] xl:text-[clamp(16px,2vw,26px)]
               tracking-tight"
             >
               VedaPixel
@@ -108,15 +115,15 @@ const Menu = () => {
                 <Link to="/contactus">
                   <motion.p
                     className="contact-button 
-                  text-[clamp(10px,2.5vw,14px)] 
-                  px-[clamp(6px,2vw,10px)] 
-                  py-[clamp(4px,1.5vw,6px)]
+                    text-[15px]
+                  px-[clamp(6px,3vw,10px)] 
+                  py-[clamp(4px,2vw,6px)]
                   sm:text-[clamp(11px,2vw,15px)] sm:px-[clamp(8px,2vw,12px)] sm:py-[clamp(5px,1.5vw,7px)]
                   md:text-[clamp(13px,1.3vw,20px)] md:px-[clamp(10px,2vw,18px)] md:py-[clamp(6px,1vw,10px)]
                   lg:text-[clamp(14px,1.2vw,22px)] lg:px-[clamp(12px,2vw,20px)] lg:py-[clamp(6px,1vw,10px)]
                   rounded-md cursor-pointer 
                   font-semibold tracking-wide 
-                  text-[#1a1c22]
+                  
                   flex items-center justify-center"
                   >
                     Contact&nbsp;Us
@@ -134,30 +141,30 @@ const Menu = () => {
             className="nav-links 
             flex flex-wrap place-items-end justify-end 
             gap-[clamp(10px,3vw,3rem)] 
-            text-white"
+            "
           >
             <Link to="/">
               <p
-                className="body-nav md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
-              md:text-[clamp(14px,1.4vw,22px)] cursor-pointer"
-              >
+                className={`${isHomeActive ? "text-purple-300" : "text-white"} body-nav md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
+              md:text-[clamp(14px,1.4vw,22px)] lg:text-[22px] xl:text-[clamp(14px,1.4vw,22px)] cursor-pointer
+              `}>
                 Home
               </p>
             </Link>
 
             <Link to="/about">
               <p
-                className="body-nav text-[12px] md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] 
-              md:text-[clamp(14px,1.4vw,22px)] cursor-pointer"
-              >
+                className={`${isAboutActive ? "text-purple-300" : "text-white"} body-nav md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
+              md:text-[clamp(14px,1.4vw,22px)] lg:text-[22px] xl:text-[clamp(14px,1.4vw,22px)] cursor-pointer
+              `}>
                 About Us
               </p>
             </Link>
             <Link to="/services">
               <p
-                className="body-nav text-[12px] md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] 
-              md:text-[clamp(14px,1.4vw,22px)] cursor-pointer"
-              >
+                className={`${isServicesActive ? "text-purple-300" : "text-white"} body-nav md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
+              md:text-[clamp(14px,1.4vw,22px)] lg:text-[22px] xl:text-[clamp(14px,1.4vw,22px)] cursor-pointer
+              `}>
                 Services
               </p>
             </Link>
@@ -170,7 +177,7 @@ const Menu = () => {
                   py-[clamp(4px,1.5vw,6px)]
                   sm:text-[clamp(11px,2vw,15px)] sm:px-[clamp(8px,2vw,12px)] sm:py-[clamp(5px,1.5vw,7px)]
                   md:text-[clamp(13px,1.3vw,20px)] md:px-[clamp(10px,2vw,18px)] md:py-[clamp(6px,1vw,10px)]
-                  lg:text-[clamp(14px,1.2vw,22px)] lg:px-[clamp(12px,2vw,20px)] lg:py-[clamp(6px,1vw,10px)]
+                  lg:text-[24px] xl:text-[clamp(14px,1.4vw,22px)]
                   rounded-md cursor-pointer 
                   font-semibold tracking-wide 
                   text-[#1a1c22]

@@ -16,7 +16,19 @@ const Base = () => {
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
   const [hideMenu, setHideMenu] = useState(false);
+  const [userScrolled, setUserScrolled] = useState(false);
   const landingRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setUserScrolled(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -63,26 +75,27 @@ const Base = () => {
     }
   }, [location.pathname]);
 
-
   useEffect(() => {
     const handleMessage = (event) => {
       if (event.data?.type === "INTRO_VIDEO_ENDED") {
+        // ❌ If user already scrolled → DO NOTHING
+        if (userScrolled) return;
+
         const targetY = landingRef.current.offsetTop;
 
         animate(window.scrollY, targetY, {
-          duration: 1.9,
+          duration: 2.3,
           ease: [0.22, 1, 0.36, 1],
           onUpdate: (v) => window.scrollTo(0, v),
         });
 
-        // ✅ show WhatsApp AFTER intro
         setShowWhatsapp(true);
       }
     };
 
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
-  }, []);
+  }, [userScrolled]);
 
   return (
     <div className="bg-[#101820]  lg:w-full h-fit relative">
@@ -111,8 +124,7 @@ const Base = () => {
         <LandingPage />
         {/* <ServiceInfoPage></ServiceInfoPage> */}
       </div>
-      {showWhatsapp && <WhatsAppFloat></WhatsAppFloat> }
-      
+      {showWhatsapp && <WhatsAppFloat></WhatsAppFloat>}
     </div>
   );
 };

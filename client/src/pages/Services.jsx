@@ -170,6 +170,7 @@ const Services = () => {
         </p>
 
         <motion.div
+          layout
           className="services-box w-[73vw] md:w-full 2xl:w-[73vw] pt-[20px] md:mt-0 flex flex-wrap mx-auto gap-[30px]"
           variants={container}
           initial="hidden"
@@ -177,51 +178,55 @@ const Services = () => {
           style={{ willChange: "transform, opacity" }}
         >
           {services.map((service, index) => (
-            <Link
-              to="/serviceInfo"
-              state={{
-                askedService: service.link,
-              }}
+            <motion.div
+              layout
+              key={index}
+              className="w-full sm:w-[80%] md:w-[40vw] lg:w-[27vw] 2xl:w-[23vw]"
             >
-              <motion.div
-                key={index}
-                className="w-full  sm:w-[80%] md:w-[40vw] lg:w-[27vw]   2xl:w-[23vw] h-auto border border-[#F2F2F2] flex flex-col gap-3 rounded-xl p-6 hover:bg-[#141414] transition-all duration-300"
-                variants={card}
-                custom={index}
-                // use transform for subpixel/GPU rendering
-                style={{
-                  transform: "translateZ(0)",
-                }}
-                whileHover={{
-                  scale: 1.03,
-                  background:
-                    "linear-gradient(139.47deg, rgba(50, 58, 68, 0.8) -45.69%, rgba(16, 24, 32, 0.9) 54.7%)",
-                  border: "2px solid rgba(255, 255, 255, 0.15)",
-                  boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
-                  backdropFilter: "blur(10px) saturate(180%)",
-                  WebkitBackdropFilter: "blur(10px) saturate(180%)",
-                  transition: { duration: 0.1, ease: "easeOut" },
-                }}
+              <Link
+                to="/serviceInfo"
+                state={{ askedService: service.link }}
+                className="block h-full"
               >
-                <motion.img
-                  src={service.img}
-                  alt={service.title}
-                  className="w-[60px] h-[60px] md:w-[70px] md:h-[70px] lg:w-[50px] lg:h-[50px] object-contain"
-                  variants={img}
+                <motion.div
+                  layout
+                  className="
+            h-full
+            border border-[#F2F2F2]
+            flex flex-col gap-3
+            rounded-xl p-6
+            transition-all duration-300
+          "
+                  variants={card}
                   custom={index}
-                  // small accessibility improvement: avoid layout shifts
-                  loading="lazy"
-                />
+                  whileHover={{
+                    scale: 1.03,
+                    background:
+                      "linear-gradient(139.47deg, rgba(50, 58, 68, 0.8) -45.69%, rgba(16, 24, 32, 0.9) 54.7%)",
+                    border: "2px solid rgba(255, 255, 255, 0.15)",
+                    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.35)",
+                  }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                >
+                  <motion.img
+                    src={service.img}
+                    alt={service.title}
+                    className="w-[60px] h-[60px] md:w-[70px] md:h-[70px] lg:w-[50px] lg:h-[50px] object-contain"
+                    variants={img}
+                    custom={index}
+                    loading="lazy"
+                  />
 
-                <p className="service-title text-xl md:text-[1.75rem] lg:text-[1.7rem] text-white font-semibold">
-                  {service.title}
-                </p>
+                  <p className="service-title text-xl md:text-[1.75rem] lg:text-[1.7rem] text-white font-semibold">
+                    {service.title}
+                  </p>
 
-                <p className="service-desc text-sm md:text-[1rem] lg:text-[0.8rem]  text-[#C8C1C1] leading-relaxed">
-                  {service.desc}
-                </p>
-              </motion.div>
-            </Link>
+                  <p className="service-desc text-sm md:text-[1rem] lg:text-[0.8rem] text-[#C8C1C1] leading-relaxed">
+                    {service.desc}
+                  </p>
+                </motion.div>
+              </Link>
+            </motion.div>
           ))}
         </motion.div>
 
@@ -235,7 +240,6 @@ const Services = () => {
             </Link>
           </p>
         </div>
-
       </div>
     </>
   );
