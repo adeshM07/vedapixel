@@ -12,6 +12,7 @@ import pic8 from "../assets/logistics.png";
 import pic9 from "../assets/sports.png";
 import pic10 from "../assets/media.png";
 import pic11 from "../assets/onDemandServices.png";
+import SectionWrapper from "../components/common/SectionWrapper";
 
 const Industries = () => {
   const industries = [
@@ -29,7 +30,7 @@ const Industries = () => {
   ];
 
   return (
-    <div className="md:mt-45">
+    <div className="md:mt-45  w-full">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -64,7 +65,7 @@ const Industries = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             viewport={{ once: true, amount: 0.15 }}
-            className="w-[80vw] [@media(min-width:300px)]:h-[24vh] h-[20vh] md:w-[35vw] md:h-[22vh] lg:w-[27vw] lg:h-[24vh] xl:w-[27vw] xl:h-[28vh] 2xl:w-[23vw] 2xl:h-[22vh] [@media(min-width:2000px)]:h-[19vh] border border-white rounded-[10px] flex flex-col gap-[20px] md:gap-[12px] justify-evenly py-4 [@media(min-width:300px)_and_(max-width:410px)]:px-3 px-5 md:px-5 transition-all duration-500"
+            className="w-[80vw] [@media(min-width:300px)]:h-[24vh] h-[20vh] md:w-[35vw] md:h-[22vh] lg:w-[27vw] lg:h-[17vh] xl:w-[27vw] xl:h-[28vh] 2xl:w-[23vw] 2xl:h-[22vh] [@media(min-width:2000px)]:h-[19vh] border border-white rounded-[10px] flex flex-col gap-[20px] md:gap-[12px] justify-evenly py-4 [@media(min-width:300px)_and_(max-width:410px)]:px-3 px-5 md:px-5 transition-all duration-500"
           >
             <img
               src={item.img}

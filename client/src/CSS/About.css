@@ -52,7 +52,7 @@
   #layout::before {
     content: "";
     position: absolute;
-    width: 95vw;
+    width: 100vw;
     height: 45vh;
     background: url("../assets/aboutbg.png") no-repeat;
     background-size: cover;
@@ -110,8 +110,8 @@
     #layout::before {
     content: "";
     position: absolute;
-    width: 90vw;
-    height: 41vh;
+    width: 91vw;
+    height: 46vh;
     background: url("../assets/aboutbg.png") no-repeat;
     background-size: cover;
     /* opacity: 0.35; */

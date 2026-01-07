@@ -10,6 +10,7 @@ import adesh from '../assets/adesh.png'
 import susmita from '../assets/adesh.png'
 import shruti from '../assets/adesh.png'
 import { Link } from "react-router-dom";
+import SectionWrapper from "../components/common/SectionWrapper";
 
 const Body = () => {
   const [showBody, setShowBody] = useState(false);
@@ -514,7 +515,7 @@ const Body = () => {
       </AnimatePresence>
 
       {/* ✅ Main Body */}
-      <div className="body-content  px-[2%] relative min-h-screen flex flex-col  transition-all duration-700 ease-out w-full pt-[6vw]">
+      <div className="body-content   px-[2%] relative min-h-screen flex flex-col  transition-all duration-700 ease-out w-full pt-[6vw]">
         {/* Sidebar Nav */}
 
         <AnimatePresence>
@@ -603,9 +604,9 @@ const Body = () => {
             </p>
             <p className="about-card-desc [@media(min-width:300px)_and_(max-width:410px)]:text-[10px] text-[#C8C1C1] text-[12px] md:text-[16px] lg:text-[0.9rem]  2xl:text-[1.5rem]">
               We offer future-ready solutions to streamline your business, drive
-              <br />
+              <br className="hidden sm:block" />
               growth, and put your processes in place. Explore our range of
-              <br />
+              <br className="hidden sm:block" />
               solutions below.
             </p>
             <div className="relative inline-block">

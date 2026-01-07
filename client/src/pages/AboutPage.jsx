@@ -139,7 +139,7 @@ const AboutPage = () => {
         {/* --- Background + Boxes Section --- */}
         <motion.div
           id="layout"
-          className="w-[90%]  lg:w-[90%] 2xl:w-[66%] [@media(min-width:2000px)]:w-[73%] mx-auto flex flex-col items-center  "
+          className=" w-[90%]  lg:w-[90%] 2xl:w-[66%] [@media(min-width:2000px)]:w-[73%] mx-auto flex flex-col items-center  "
           variants={layoutVariant}
           initial="hidden"
           whileInView="visible"

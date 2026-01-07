@@ -2,8 +2,8 @@ import React from "react";
 import logo from "../assets/vedaPixelLogo.png";
 import "../CSS/Footer.css";
 import icon from "../assets/send.png";
-import linkedin from "../assets/linkedin.png";
-import Instagram from "../assets/instagram.png";
+// import linkedin from "../assets/linkedin.png";
+// import Instagram from "../assets/instagram.png";
 import emaill from "../assets/email.png";
 import phone from "../assets/phone.png";
 import whatsapp from "../assets/whatsapp.png";
@@ -11,7 +11,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import sent from "../assets/sent.png";
 import { useState } from "react";
-import { Phone,Mail  } from "lucide-react";
+import { Phone,Mail,MapPin,Copyright,Instagram,Linkedin  } from "lucide-react";
+
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -81,12 +82,12 @@ const Footer = () => {
 
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                 <div className="flex items-center gap-2 cursor-pointer">
-                  <img
+                  {/* <img
                     src={emaill}
                     alt="email"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
-                  />
-                  {/* <Mail size={18} className="text-[#BBABEB]" /> */}
+                  /> */}
+                  <Mail size={18} className="text-[#BBABEB]" />
                   <a
                     href="mailto:info@vedapixel.com"
                     className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
@@ -96,12 +97,12 @@ const Footer = () => {
                 </div>
                 <div className="hidden sm:block text-white">|</div>
                 <div className="flex items-center gap-2 cursor-pointer">
-                  <img
+                  {/* <img
                     src={phone}
                     alt="phone"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
-                  />
-                  {/* <Phone size={18} className="text-[#BBABEB]" /> */}
+                  /> */}
+                  <Phone size={18} className="text-[#BBABEB]" />
                   <a
                     href="tel:+919036354261"
                     className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] no-underline md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
@@ -110,8 +111,9 @@ const Footer = () => {
                   </a>
                 </div>
               </div>
-               <p className="text-[#F8F9FA] text-[clamp(0.6rem,2vw,0.9rem)] md:text-[clamp(0.6rem,1.2vw,0.9rem)] 2xl:text-[clamp(0.6rem,2vw,0.9rem)]">
-                &copy; 2025 VedaPixel Tech Solution Pvt. Ltd. All Rights
+               <p className="text-[#F8F9FA] flex gap-3 place-items-center text-[clamp(0.6rem,2vw,0.9rem)] md:text-[clamp(0.6rem,1.2vw,0.9rem)] 2xl:text-[clamp(0.6rem,2vw,0.9rem)]">
+                <Copyright size={12} className="text-[#BBABEB]" />
+                 2025 VedaPixel Tech Solution Pvt. Ltd. All Rights
                 Reserved.
               </p>
             </div>}
@@ -167,12 +169,12 @@ const Footer = () => {
 
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                 <div className="flex items-center gap-2 cursor-pointer">
-                  <img
+                  {/* <img
                     src={emaill}
                     alt="email"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
-                  />
-                  {/* <Mail size={18} className="text-[#BBABEB]" /> */}
+                  /> */}
+                  <Mail size={18} className="text-[#BBABEB]" />
                  
                   <a
                     href="mailto:info@vedapixel.com"
@@ -183,12 +185,12 @@ const Footer = () => {
                 </div>
                 <div className="hidden sm:block text-white">|</div>
                 <div className="flex items-center gap-2 cursor-pointer">
-                  <img
+                  {/* <img
                     src={phone}
                     alt="phone"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
-                  />
-                  {/* <Phone size={18} className="text-[#BBABEB]" /> */}
+                  /> */}
+                  <Phone size={18} className="text-[#BBABEB]" />
                   <a
                     href="tel:+919036354261"
                     className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] no-underline md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
@@ -222,8 +224,9 @@ const Footer = () => {
                   />
                 </div>
               </div>
-              {isMobile? <p className="text-[#F8F9FA] text-[clamp(0.6rem,2vw,0.9rem)] md:text-[clamp(0.6rem,1.2vw,0.9rem)] 2xl:text-[clamp(0.6rem,2vw,0.9rem)]">
-                &copy; 2025 VedaPixel Tech Solution Pvt. Ltd. All Rights
+              {isMobile? <p className="flex gap-2 place-items-center text-[#F8F9FA] text-[clamp(0.6rem,2vw,0.9rem)] md:text-[clamp(0.6rem,1.2vw,0.9rem)] 2xl:text-[clamp(0.6rem,2vw,0.9rem)]">
+                <Copyright size={14} className="text-[#BBABEB]" />
+                  2025 VedaPixel Tech Solution Pvt. Ltd. All Rights
                 Reserved.
               </p>:false}
 
@@ -237,25 +240,25 @@ const Footer = () => {
                     target="_blank"
                     href="https://www.linkedin.com/company/vedapixel-tech-solutions-private-limited/"
                   >
-                    <motion.img
+                    {/* <motion.img
                       src={linkedin}
                       alt="LinkedIn"
                       className="w-[25px] sm:w-[30px] md:w-[22px]  2xl:w-[2vw] cursor-pointer"
                       whileHover={{ scale: 1.2, y: -3 }}
-                    />
-                    {/* <Linkedin size={30} className="text-[#BBABEB]"/> */}
+                    /> */}
+                    <Linkedin size={30} className="text-[#BBABEB]"/>
                   </a>
                   <a
                     target="_blank"
                     href="https://www.instagram.com/vedapixel/?igsh=MTBxbHdra2FzbWFzbg%3D%3D&utm_source=qr#"
                   >
-                    <motion.img
+                    {/* <motion.img
                       src={Instagram}
                       alt="Instagram"
                       className="w-[25px] sm:w-[30px] md:w-[22px] ] 2xl:w-[2vw] cursor-pointer"
                       whileHover={{ scale: 1.2, y: -3 }}
-                    />
-                    {/* <Instagram size={30} className="text-[#BBABEB]"/> */}
+                    /> */}
+                    <Instagram size={30} className="text-[#BBABEB]"/>
                   </a>
                   {/* <a target="_blank" href="https://wa.me/919036354263">
                     <motion.img
