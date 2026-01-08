@@ -65,7 +65,7 @@ const Industries = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             viewport={{ once: true, amount: 0.15 }}
-            className="w-[80vw] border-2 border-white [@media(min-width:300px)]:h-[24vh] h-[20vh] md:w-[35vw]  md:h-[22vh] lg:w-[27vw] lg:h-[17vh] xl:w-[27vw] xl:h-[28vh] 2xl:w-[23vw] 2xl:h-[22vh] [@media(min-width:2000px)]:h-[19vh]  rounded-[10px] flex flex-col gap-[20px] md:gap-[12px] justify-evenly py-4 [@media(min-width:300px)_and_(max-width:410px)]:px-3 px-5 md:px-5 transition-all duration-500"
+            className="w-[80vw] border-2 border-white xl:border-red-500 2xl:border-white [@media(min-width:300px)]:h-[24vh] h-[20vh] md:w-[35vw]  md:h-[22vh] lg:w-[27vw] lg:h-[17vh] xl:w-[27vw] xl:h-[28vh] 2xl:w-[23vw] 2xl:h-[22vh] [@media(min-width:2000px)]:h-[19vh]  rounded-[10px] flex flex-col gap-[20px] md:gap-[12px] justify-evenly py-4 [@media(min-width:300px)_and_(max-width:410px)]:px-3 px-5 md:px-5 transition-all duration-500"
           >
             <img
               src={item.img}

@@ -16,12 +16,16 @@ const Contact = () => {
   });
 
   const handleSubmit = async () => {
-    validateFields();
-    if (!isFilled) return;
+    const { isValid, missingFields } = validateFields();
+
+    if (!isValid) {
+      
+      return;
+    }
 
     const formBody = new FormData();
     formBody.append("name", formData.name);
-    formBody.append("company", formData.company);
+    formBody.append("company", formData.company); // optional
     formBody.append("email", formData.email);
     formBody.append("contact", formData.contact);
     formBody.append("idea", formData.idea);
@@ -72,15 +76,37 @@ const Contact = () => {
     // ✅ remove red border as soon as the field has value
     setErrors((prev) => ({ ...prev, [name]: false }));
   };
-
   const validateFields = () => {
     const e = {};
-    if (!formData.name.trim()) e.name = true;
-    if (!formData.email.trim()) e.email = true;
-    if (!formData.contact.trim()) e.contact = true;
-    if (!formData.idea.trim()) e.idea = true;
-    // company is optional → no check
+    const missing = [];
+
+    if (!formData.name.trim()) {
+      e.name = true;
+      missing.push("Name");
+    }
+
+    if (!formData.email.trim()) {
+      e.email = true;
+      missing.push("Email");
+    }
+
+    // PhoneInput always has +91 → check length
+    if (formData.contact.length <= 3) {
+      e.contact = true;
+      missing.push("Contact Number");
+    }
+
+    if (!formData.idea.trim()) {
+      e.idea = true;
+      missing.push("Project Idea");
+    }
+
     setErrors(e);
+
+    return {
+      isValid: missing.length === 0,
+      missingFields: missing,
+    };
   };
 
   useEffect(() => {
@@ -196,11 +222,15 @@ const Contact = () => {
                   2xl:h-[clamp(35px,6vh,55px)]
                 "
               />
-              <div 
+              <div
                 className={`
                   w-full md:w-[47%] lg:w-[32vw] 2xl:w-[32vw]
                   rounded-[10px]
-                  ${errors.contact ? "border-2 border-red-500" : "border border-[#989BA1]"}
+                  ${
+                    errors.contact
+                      ? "border-2 border-red-500"
+                      : "border border-[#989BA1]"
+                  }
                 `}
               >
                 <PhoneInput
@@ -227,7 +257,7 @@ const Contact = () => {
                     width: "100%",
                     background: "transparent",
                     border: "none",
-                    borderRadius: windowWidth<=500 ?"0px": "10px",
+                    borderRadius: windowWidth <= 500 ? "0px" : "10px",
                     color: "#818181",
                     height:
                       windowWidth <= 400
@@ -290,6 +320,7 @@ const Contact = () => {
           </form>
           <div className="relative flex justify-center">
             <button
+              type="button"
               onClick={handleSubmit}
               className={`${
                 isFilled ? "active-btn" : "rotating-btn"

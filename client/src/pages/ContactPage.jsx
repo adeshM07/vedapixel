@@ -116,6 +116,7 @@ const ContactPage = () => {
   // Refs for mobile headings
   const collabTitleRef = useRef(null);
   const careerTitleRef = useRef(null);
+  const [errors, setErrors] = useState({});
   const [collabTitleVisible, setCollabTitleVisible] = useState(false);
   const [careerTitleVisible, setCareerTitleVisible] = useState(false);
 
@@ -291,13 +292,35 @@ const ContactPage = () => {
 
   const validateCollab = () => {
     const e = {};
-    if (!collabForm.name.trim()) e.name = true;
-    if (!collabForm.email.trim()) e.email = true;
-    if (!collabForm.contact.trim()) e.contact = true;
-    if (!collabForm.idea.trim()) e.idea = true;
+    const missing = [];
 
+    if (!collabForm.name.trim()) {
+      e.name = true;
+      missing.push("Name");
+    }
+
+    if (!collabForm.email.trim()) {
+      e.email = true;
+      missing.push("Email");
+    }
+
+    // PhoneInput always has +91 → real number check
+    if (collabForm.contact.length <= 3) {
+      e.contact = true;
+      missing.push("Contact Number");
+    }
+
+    if (!collabForm.idea.trim()) {
+      e.idea = true;
+      missing.push("Project Idea");
+    }
+    setErrors(e);
     setCollabErrors(e);
-    return Object.keys(e).length === 0;
+
+    return {
+      isValid: missing.length === 0,
+      missingFields: missing,
+    };
   };
 
   const validateCareer = () => {
@@ -314,12 +337,19 @@ const ContactPage = () => {
 
   // ===== SEND COLLABORATE FORM =====
   const submitCollabForm = async () => {
-    if (!validateCollab()) return;
+    const { isValid, missingFields } = validateCollab();
+
+    if (!isValid) {
+      // alert(
+      //   `Please fill the following fields:\n\n• ${missingFields.join("\n• ")}`
+      // );
+      return;
+    }
 
     const formData = new FormData();
     formData.append("formType", "collaborate");
     formData.append("name", collabForm.name);
-    formData.append("company", collabForm.company);
+    formData.append("company", collabForm.company); // optional
     formData.append("email", collabForm.email);
     formData.append("contact", collabForm.contact);
     formData.append("idea", collabForm.idea);
@@ -329,12 +359,12 @@ const ContactPage = () => {
         "https://script.google.com/macros/s/AKfycbz3tUTCcuf5qTDG6aY3R064C_KhcSSJ-gRcwuU-DT94eG3o42uel64EZF7hsknE_-9j/exec",
         {
           method: "POST",
-          mode: "no-cors",
           body: formData,
         }
       );
 
       alert("Collaborate form submitted successfully!");
+
       setCollabForm({
         name: "",
         company: "",
@@ -343,28 +373,21 @@ const ContactPage = () => {
         idea: "",
       });
     } catch (error) {
+      console.error(error);
       alert("Error submitting collaborate form!");
-      console.log(error);
     }
   };
 
+  const url =
+    "https://script.google.com/macros/s/AKfycbzulucg71YRIFDoSx9itCqAUrNAocjdP9gCL1afynij84Kf17HtnjpDAW4EQkv7aioWHg/exec";
+
   const submitCareerForm = () => {
-    // 1️⃣ Validate fields
     if (!validateCareer()) return;
 
-    // 2️⃣ Safety check (prevents null ref crash)
-    if (!careerFormRef.current) {
-      console.error("Career form ref not found");
-      return;
-    }
-
-    // 3️⃣ Submit the actual form (with file)
     careerFormRef.current.submit();
 
-    // 4️⃣ Optional success message
     alert("Career form submitted successfully!");
 
-    // 5️⃣ Reset local state (does NOT affect submitted form)
     setCareerForm({
       name: "",
       email: "",
@@ -516,7 +539,13 @@ const ContactPage = () => {
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
                                    w-[100%] md:w-[47%]  md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6.5vh,55px)] "
                       />
-                      <div className="w-[100%] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]   md:w-[47%] 2xl:w-[21vw]">
+                      <div
+                        className={`w-[100%] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]   md:w-[47%] 2xl:w-[21vw]  ${
+                          errors.contact
+                            ? "border-2 border-red-500 md:rounded-[10px]"
+                            : "border border-[#989BA1] md:rounded-[10px]"
+                        }`}
+                      >
                         <PhoneInput
                           country={"in"} // 🇮🇳 Default country
                           value={collabForm.contact}
@@ -529,6 +558,7 @@ const ContactPage = () => {
                               countryCode: dialCode,
                             });
                           }}
+                          
                           inputProps={{
                             name: "contact",
                             required: true,
@@ -539,23 +569,19 @@ const ContactPage = () => {
                           inputStyle={{
                             width: "100%",
                             background: "transparent",
-                            border: "1px solid #989BA1",
-                            borderRadius:
-                              windowWidth < 640
-                                ? "5px"
-                                : windowWidth <= 1024
-                                ? "10px"
-                                : "10px",
+                            border: "none",
+                             borderRadius: windowWidth <= 500 ? "0px" : "10px",
+                   
                             color: "#818181",
                             fontSize: "clamp(0.8rem, 1vw, 1rem)",
                             height:
                               windowWidth <= 410
-                                ? "5vh"
+                                ? "5.6vh"
                                 : windowWidth < 640
-                                ? "4vh"
+                                ? "5vh"
                                 : windowWidth <= 1024
                                 ? "3vh"
-                                : "6vh",
+                                : "5.9vh",
                             paddingLeft: "50px",
                           }}
                           buttonStyle={{
@@ -608,6 +634,7 @@ const ContactPage = () => {
                   </form>
 
                   <button
+                    type="button"
                     onClick={submitCollabForm}
                     className={`${
                       collabFilled ? "active-btn" : "rotating-btn"
@@ -686,14 +713,7 @@ const ContactPage = () => {
                     Tell us about yourself
                   </p>
 
-                  <form
-                    ref={careerFormRef}
-                    action="https://script.google.com/macros/s/AKfycbywMcn96lRy_SzIztM_2sGCEmnfA6XF7pSjDUfwhVXZ9TDCgzGgQ5fRYA_Rt7_wOYBHzg/exec"
-                    method="POST"
-                    encType="multipart/form-data"
-                    target="hidden_iframe"
-                    className="w-full flex flex-col gap-[clamp(18px,3vw,28px)] h-auto"
-                  >
+                  <form className="w-full flex flex-col gap-[clamp(18px,3vw,28px)] h-auto">
                     <div className="flex flex-col md:flex-row flex-wrap justify-between gap-[clamp(15px,2vw,26px)]">
                       <input
                         type="text"
@@ -868,6 +888,25 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
+      <form
+        ref={careerFormRef}
+        action="https://script.google.com/macros/s/AKfycbywMcn96lRy_SzIztM_2sGCEmnfA6XF7pSjDUfwhVXZ9TDCgzGgQ5fRYA_Rt7_wOYBHzg/exec"
+        method="POST"
+        encType="multipart/form-data"
+        target="hidden_iframe"
+        style={{ display: "none" }}
+      >
+        <input name="formType" value="career" readOnly />
+        <input name="name" value={careerForm.name} readOnly />
+        <input name="email" value={careerForm.email} readOnly />
+        <input name="contact" value={careerForm.contact} readOnly />
+        <input name="message" value={careerForm.message} readOnly />
+
+        {/* IMPORTANT: file input for GAS */}
+        <input type="file" id="resume" name="resume" ref={careerFileRef} />
+      </form>
+
+      <iframe name="hidden_iframe" style={{ display: "none" }} />
     </>
   );
 };
