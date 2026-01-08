@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+/* Remove mobile focus glow / border */
+input,
+textarea,
+select {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* iOS Safari focus */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Android tap highlight */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* New browsers (accessibility-safe) */
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
