@@ -80,9 +80,9 @@ const Menu = () => {
 
   return (
     <>
-      <SectionWrapper>
+      {/* <SectionWrapper> */}
         <div
-          className="menu-sticky  py-10 place-items-center sticky top-0 z-10 
+          className="px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-30 menu-sticky  py-10  place-items-center sticky top-0 z-10 
         flex justify-between items-center 
          h-[9vh]
         w-full backdrop-blur-[6px]"
@@ -270,7 +270,7 @@ const Menu = () => {
             )}
           </AnimatePresence>
         </div>
-      </SectionWrapper>
+      {/* </SectionWrapper> */}
     </>
   );
 };

@@ -66,7 +66,6 @@ const Body = () => {
     },
   ];
 
-  // ✅ Smooth visibility hook (scroll range + buffer)
   const useSmoothVisibility = (min = 100, max = 500, buffer = 60) => {
     const ref = useRef(null);
     const [visible, setVisible] = useState(false);
@@ -107,14 +106,10 @@ const Body = () => {
     return [ref, visible];
   };
 
-  // Attach hooks for each section title
   const [aimTitleRef, aimVisible] = useSmoothVisibility(120, 600);
   const [servicesTitleRef, servicesVisible] = useSmoothVisibility(120, 600);
   const [teamTitleRef, teamVisible] = useSmoothVisibility(120, 600);
-  // const [teamTitleRef, teamVisible] = useSmoothVisibility(120, 600);
-
-  // ✅ Nav highlight detection
-  // ✅ Final stable Nav Highlight Detection (fixes Aim ↔ Services inversion)
+ 
   useEffect(() => {
     const sections = [
       { id: "about", ref: aboutRef },
@@ -127,7 +122,6 @@ const Body = () => {
       const scrollY = window.scrollY;
       const viewportHeight = window.innerHeight;
 
-      // Track which section occupies most of the viewport
       let maxVisibleHeight = 0;
       let currentSection = "about";
 
@@ -136,12 +130,10 @@ const Body = () => {
         if (!element) return;
         const rect = element.getBoundingClientRect();
 
-        // How much of the section is visible in the viewport
-        const visibleHeight =
+       const visibleHeight =
           Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
 
-        // Only count if at least 10–15% of it is visible
-        if (
+      if (
           visibleHeight > maxVisibleHeight &&
           visibleHeight > viewportHeight * 0.15
         ) {
@@ -573,7 +565,7 @@ const Body = () => {
                 />
               </motion.p>
             )}
-            <p className="text-white   [@media(min-width:300px)_and_(max-width:410px)]:text-[19px]  text-[20px]   md:text-[28px] lg:text-[2.2rem] 2xl:text-[3rem] leading-[1.3]">
+            <p className="text-white   [@media(min-width:300px)_and_(max-width:410px)]:text-[19px]  text-[20px]   md:text-[28px] lg:text-[2.2rem] xl:text-[2.7rem] 2xl:text-[3rem] leading-[1.3]">
               We bridge innovation and execution with <br /> user-centric,
               future-ready systems that <br />
               <span

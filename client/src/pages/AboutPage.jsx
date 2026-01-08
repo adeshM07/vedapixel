@@ -2,6 +2,8 @@ import React from "react";
 import "../CSS/About.css";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import aboutImg from "../assets/aboutEntireSectionImg.png";
+import SectionWrapper from "../components/common/SectionWrapper";
 
 const AboutPage = () => {
   // useEffect(() => {
@@ -90,54 +92,57 @@ const AboutPage = () => {
 
   return (
     <>
-      <div
-        id="about"
-        className=" flex mt-[100px] flex-col gap-20 relative overflow-hidden"
-      >
-        {/* --- Top Text Section --- */}
-        <div className="w-[85%] h-[auto] md:h-[40vh] p-[10px]  mx-auto">
-          <motion.p
-            className="about-part-title  text-[2rem] md:text-[3rem] text-white "
-            variants={headingVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.4 }}
-          >
-            Our Company
-          </motion.p>
+      <SectionWrapper>
+        <div
+          id="about"
+          className=" flex mt-[100px] flex-col gap-20 relative overflow-hidden"
+        >
+          {/* --- Top Text Section --- */}
+          <div className="w-full  h-[auto] md:h-[40vh] lg:h-fit p-[10px]  mx-auto">
+            <motion.p
+              className="about-part-title  text-[2rem] md:text-[3rem] text-white "
+              variants={headingVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.4 }}
+            >
+              Our Company
+            </motion.p>
 
-          <motion.p
-            className="about-part1-desc text-[1rem] md:text-[1.5rem] text-[#C8C1C1] text-left"
-            variants={paragraphVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.4 }}
-          >
-            Vedapixel Tech Solutions Pvt. Ltd. is a professional IT services
-            company specializing in the development of reliable and scalable
-            digital solutions. Supported by a skilled in-house team, we deliver
-            web and mobile applications with a strong focus on quality and
-            on-time delivery. We follow clear processes, communicate
-            transparently, and ensure every project is delivered smoothly,
-            helping businesses achieve real and measurable results.
-          </motion.p>
+            <motion.p
+              className="about-part1-desc text-[1rem] md:text-[1.5rem] text-[#C8C1C1] text-left"
+              variants={paragraphVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.4 }}
+            >
+              Vedapixel Tech Solutions Pvt. Ltd. is a professional IT services
+              company specializing in the development of reliable and scalable
+              digital solutions. Supported by a skilled in-house team, we
+              deliver web and mobile applications with a strong focus on quality
+              and on-time delivery. We follow clear processes, communicate
+              transparently, and ensure every project is delivered smoothly,
+              helping businesses achieve real and measurable results.
+            </motion.p>
 
-          <motion.p
-            className="about-part-title mt-4 md:mt-1  text-[1.4rem] md:text-[3rem] text-[#BBABEB] text-end"
-            variants={glowTextVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            style={{
-              textShadow: "0px 0px 15px rgba(187,171,235,0.8)",
-            }}
-          >
-            We deliver Impact
-          </motion.p>
-        </div>
+            <motion.p
+              className="about-part-title mt-4 md:mt-1  text-[1.4rem] md:text-[3rem] text-[#BBABEB] text-end"
+              variants={glowTextVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              style={{
+                textShadow: "0px 0px 15px rgba(187,171,235,0.8)",
+              }}
+            >
+              We deliver Impact
+            </motion.p>
+          </div>
 
-        {/* --- Background + Boxes Section --- */}
-        <motion.div
+          <img src={aboutImg} alt="" />
+
+          {/* --- Background + Boxes Section --- */}
+          {/* <motion.div
           id="layout"
           className=" w-[90%]  lg:w-[90%] 2xl:w-[66%] [@media(min-width:2000px)]:w-[73%] mx-auto flex flex-col items-center  "
           variants={layoutVariant}
@@ -145,9 +150,7 @@ const AboutPage = () => {
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
         >
-          {/* --- Info Cards --- */}
-
-          {/* Our Mission */}
+        
           <div className="w-full flex    justify-end">
             <div
               className="
@@ -169,8 +172,6 @@ const AboutPage = () => {
               </p>
             </div>
           </div>
-
-          {/* Our Vision */}
           <div className="w-full flex justify-center">
             <div
               className="
@@ -191,8 +192,6 @@ const AboutPage = () => {
               </p>
             </div>
           </div>
-
-          {/* Our Story */}
           <div className="w-full flex justify-start">
             <div
               className="
@@ -213,8 +212,9 @@ const AboutPage = () => {
               </p>
             </div>
           </div>
-        </motion.div>
-      </div>
+        </motion.div> */}
+        </div>
+      </SectionWrapper>
     </>
   );
 };
