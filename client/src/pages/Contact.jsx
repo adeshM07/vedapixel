@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,13 +20,15 @@ const Contact = () => {
     const { isValid, missingFields } = validateFields();
 
     if (!isValid) {
-      
+      toast.error(`Please fill: ${missingFields.join(", ")}`, {
+        duration: 3000,
+      });
       return;
     }
 
     const formBody = new FormData();
     formBody.append("name", formData.name);
-    formBody.append("company", formData.company); // optional
+    formBody.append("company", formData.company);
     formBody.append("email", formData.email);
     formBody.append("contact", formData.contact);
     formBody.append("idea", formData.idea);
@@ -190,7 +193,6 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 className={`
-                  ${errors.name ? "border-red-500" : "border-[#989BA1]"}
                   border border-[#989BA1]
                   text-[#818181]
                   bg-transparent
@@ -225,12 +227,8 @@ const Contact = () => {
               <div
                 className={`
                   w-full md:w-[47%] lg:w-[32vw] 2xl:w-[32vw]
-                  rounded-[10px]
-                  ${
-                    errors.contact
-                      ? "border-2 border-red-500"
-                      : "border border-[#989BA1]"
-                  }
+                  rounded-sm md:rounded-[10px] border border-[#989BA1]
+                 
                 `}
               >
                 <PhoneInput
@@ -263,7 +261,7 @@ const Contact = () => {
                       windowWidth <= 400
                         ? "5.6vh"
                         : windowWidth < 640
-                        ? "5vh"
+                        ? "4.5vh"
                         : windowWidth <= 1024
                         ? "3vh"
                         : "6vh",
@@ -284,7 +282,6 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 className={`
-                  ${errors.email ? "border-red-500" : "border-[#989BA1]"}
                   border border-[#989BA1]
                   text-[#818181]
                   bg-transparent
@@ -302,8 +299,7 @@ const Contact = () => {
             {/* ✅ Textarea (auto responsive) */}
             <textarea
               className={`
-                  ${errors.idea ? "border-red-500" : "border-[#989BA1]"}
-                w-full 
+                  w-full 
                 rounded-[clamp(6px,1vw,10px)] 
                 bg-transparent 
                 border border-[#989BA1] 

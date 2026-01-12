@@ -40,6 +40,17 @@
   transition: color 0.3s smooth;
 }
 
+/* ❌ Disable rotating border completely on hover */
+.rotating-btn:hover {
+  animation: none;
+  --border-angle: 0deg;
+
+  background:
+    linear-gradient(90deg, #bbabeb, #6a6185) padding-box,
+    linear-gradient(90deg, #bbabeb, #6a6185) border-box;
+}
+
+
 @keyframes border-rotate {
   from {
     --border-angle: 0deg;

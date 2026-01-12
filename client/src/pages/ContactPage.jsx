@@ -6,6 +6,7 @@ import upIcon from "../assets/up-loading.png";
 import { useLocation } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import toast from "react-hot-toast";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ContactPage = () => {
@@ -325,14 +326,40 @@ const ContactPage = () => {
 
   const validateCareer = () => {
     const e = {};
-    if (!careerForm.name.trim()) e.name = true;
-    if (!careerForm.email.trim()) e.email = true;
-    if (!careerForm.contact.trim()) e.contact = true;
-    if (!careerForm.message.trim()) e.message = true;
-    if (!careerForm.resume) e.resume = true;
+    const missing = [];
+
+    if (!careerForm.name.trim()) {
+      e.name = true;
+      missing.push("Name");
+    }
+
+    if (!careerForm.email.trim()) {
+      e.email = true;
+      missing.push("Email");
+    }
+
+    // PhoneInput always has +91
+    if (careerForm.contact.length <= 3) {
+      e.contact = true;
+      missing.push("Contact Number");
+    }
+
+    if (!careerForm.message.trim()) {
+      e.message = true;
+      missing.push("Message");
+    }
+
+    if (!careerForm.resume) {
+      e.resume = true;
+      missing.push("Resume");
+    }
 
     setCareerErrors(e);
-    return Object.keys(e).length === 0;
+
+    return {
+      isValid: missing.length === 0,
+      missingFields: missing,
+    };
   };
 
   // ===== SEND COLLABORATE FORM =====
@@ -340,9 +367,9 @@ const ContactPage = () => {
     const { isValid, missingFields } = validateCollab();
 
     if (!isValid) {
-      // alert(
-      //   `Please fill the following fields:\n\n• ${missingFields.join("\n• ")}`
-      // );
+      toast.error(`Please fill: ${missingFields.join(", ")}`, {
+        duration: 3000,
+      });
       return;
     }
 
@@ -382,11 +409,20 @@ const ContactPage = () => {
     "https://script.google.com/macros/s/AKfycbzulucg71YRIFDoSx9itCqAUrNAocjdP9gCL1afynij84Kf17HtnjpDAW4EQkv7aioWHg/exec";
 
   const submitCareerForm = () => {
-    if (!validateCareer()) return;
+    const { isValid, missingFields } = validateCareer();
+
+    if (!isValid) {
+      toast.error(`Please fill: ${missingFields.join(", ")}`, {
+        duration: 3000,
+      });
+      return;
+    }
 
     careerFormRef.current.submit();
 
-    alert("Career form submitted successfully!");
+    toast.success("Career form submitted successfully!", {
+      duration: 3000,
+    });
 
     setCareerForm({
       name: "",
@@ -522,11 +558,7 @@ const ContactPage = () => {
                         value={collabForm.name}
                         onChange={handleCollabChange}
                         placeholder="Name *"
-                        className={`border ${
-                          collabErrors.name
-                            ? "border-red-500"
-                            : "border-[#989BA1]"
-                        } text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
+                        className={`border  text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
   rounded-[clamp(4px,1vw,10px)] w-[100%] md:w-[47%] 2xl:w-[21vw]`}
                       />
                       <input
@@ -540,11 +572,9 @@ const ContactPage = () => {
                                    w-[100%] md:w-[47%]  md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6.5vh,55px)] "
                       />
                       <div
-                        className={`w-[100%] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]   md:w-[47%] 2xl:w-[21vw]  ${
-                          errors.contact
-                            ? "border-2 border-red-500 md:rounded-[10px]"
-                            : "border border-[#989BA1] md:rounded-[10px]"
-                        }`}
+                        className={`w-[100%] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]   md:w-[47%] 2xl:w-[21vw]  
+                         border border-[#989BA1] rounded-md md:rounded-[10px]
+                        `}
                       >
                         <PhoneInput
                           country={"in"} // 🇮🇳 Default country
@@ -558,7 +588,6 @@ const ContactPage = () => {
                               countryCode: dialCode,
                             });
                           }}
-                          
                           inputProps={{
                             name: "contact",
                             required: true,
@@ -570,15 +599,15 @@ const ContactPage = () => {
                             width: "100%",
                             background: "transparent",
                             border: "none",
-                             borderRadius: windowWidth <= 500 ? "0px" : "10px",
-                   
+                            borderRadius: windowWidth <= 500 ? "0px" : "10px",
+
                             color: "#818181",
                             fontSize: "clamp(0.8rem, 1vw, 1rem)",
                             height:
                               windowWidth <= 410
                                 ? "5.6vh"
                                 : windowWidth < 640
-                                ? "5vh"
+                                ? "4.55vh"
                                 : windowWidth <= 1024
                                 ? "3vh"
                                 : "5.9vh",
@@ -609,11 +638,8 @@ const ContactPage = () => {
                         value={collabForm.email}
                         onChange={handleCollabChange}
                         placeholder="Email Id *"
-                        className={`border ${
-                          collabErrors.name
-                            ? "border-red-500"
-                            : "border-[#989BA1]"
-                        } text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
+                        className={`border 
+                            border-[#989BA1] text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
   rounded-[clamp(4px,1vw,10px)] w-[100%] md:w-[47%] 2xl:w-[21vw]`}
                       />
                     </div>
@@ -622,11 +648,7 @@ const ContactPage = () => {
                       name="idea"
                       value={collabForm.idea}
                       onChange={handleCollabChange}
-                      className={`border ${
-                        collabErrors.idea
-                          ? "border-red-500"
-                          : "border-[#989BA1]"
-                      } text-[#818181] bg-transparent 
+                      className={`border border-[#989BA1] text-[#818181] bg-transparent 
   p-[clamp(8px,1vw,12px)] rounded-[clamp(6px,1vw,10px)]
   w-full h-[clamp(100px,5vh,160px)] resize-none`}
                       placeholder="Project Idea *"
@@ -721,11 +743,8 @@ const ContactPage = () => {
                         name="name"
                         value={careerForm.name}
                         onChange={handleCareerChange}
-                        className={`border ${
-                          careerErrors.name
-                            ? "border-red-500"
-                            : "border-[#989BA1]"
-                        } text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
+                        className={`border 
+                            border-[#989BA1] text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
   rounded-[clamp(4px,1vw,10px)] w-[100%] md:w-[47%] 2xl:w-[21vw]`}
                       />
                       <input
@@ -734,12 +753,9 @@ const ContactPage = () => {
                         value={careerForm.email}
                         onChange={handleCareerChange}
                         placeholder="Email Id *"
-                        className={`border ${
-                          careerErrors.email
-                            ? "border-red-500"
-                            : "border-[#989BA1]"
-                        } text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
-  rounded-[clamp(4px,1vw,10px)] w-[100%] md:w-[47%] 2xl:w-[21vw]`}
+                        className={`border 
+                            border-[#989BA1] text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
+  rounded-md md:rounded-[10px] w-[100%] md:w-[47%] 2xl:w-[21vw]`}
                       />
                       <div className="w-[100%] md:w-[47%] 2xl:w-[21vw]">
                         <PhoneInput
@@ -766,19 +782,14 @@ const ContactPage = () => {
                             width: "100%",
                             background: "transparent",
                             border: "1px solid #989BA1",
-                            borderRadius:
-                              windowWidth < 640
-                                ? "5px"
-                                : windowWidth <= 1024
-                                ? "10px"
-                                : "10px",
+                           borderRadius: windowWidth <= 500 ? "0px" : "10px",
                             color: "#818181",
                             fontSize: "clamp(0.8rem, 1vw, 1rem)",
                             height:
                               windowWidth <= 410
                                 ? "5vh"
                                 : windowWidth < 640
-                                ? "4vh"
+                                ? "4.5vh"
                                 : windowWidth <= 1024
                                 ? "3vh"
                                 : "6vh",
@@ -819,7 +830,7 @@ const ContactPage = () => {
                         <label
                           htmlFor="resume"
                           className={`flex items-center gap-2 border 
-    ${careerErrors.resume ? "border-red-500" : "border-[#989BA1]"} 
+ border-[#989BA1]
     bg-transparent p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
     w-full md:w-[100%] lg:w-[21vw] 2xl:w-[21vw]`}
                           style={{
@@ -858,11 +869,9 @@ const ContactPage = () => {
                       value={careerForm.message}
                       onChange={handleCareerChange}
                       placeholder="Any Message *"
-                      className={`border ${
-                        careerErrors.message
-                          ? "border-red-500"
-                          : "border-[#989BA1]"
-                      } text-[#818181] bg-transparent 
+                      className={`border 
+                          border-[#989BA1]
+                     text-[#818181] bg-transparent 
   p-[clamp(8px,1vw,12px)] rounded-[clamp(6px,1vw,10px)]
   w-full h-[clamp(100px,5vh,160px)] resize-none`}
                     ></textarea>

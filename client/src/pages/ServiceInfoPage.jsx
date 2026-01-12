@@ -1301,7 +1301,7 @@ const ServiceInfoPage = () => {
           </button> */}
         <Link to="/contactus">
           <button
-            className=" 
+            className=" rotating-btn
      relative font-garota text-[1rem] md:text-[1.5rem] text-[#C8C1C1]
     w-[90vw] md:w-[73vw] mt-[60px] md:mt-[40px]
     rounded-xl px-3 py-2 md:px-6 md:py-3
@@ -1322,7 +1322,7 @@ const ServiceInfoPage = () => {
 
         {/* </div> */}
         <div className=" lg:w-[73vw] mt-[100px]   flex flex-col gap-[0.8rem]">
-          <p className="service-title px-5 md:px-0 text-start text-[2.5rem] md:text-[3rem] lg:text-[3rem] xl:text-[3rem] w-[90vw] sm:w-[42vw] md:w-[30vw] lg:w-full xl:w-full  text-white">
+          <p className="service-title px-5 md:px-2 text-nowrap text-start text-[2.5rem] md:text-[3rem] lg:text-[3rem] xl:text-[3rem] w-[90vw] sm:w-[42vw] md:w-[30vw] lg:w-full xl:w-full  text-white">
             Our Expertise
           </p>
           <div className="">
@@ -1361,7 +1361,7 @@ const ServiceInfoPage = () => {
             Why VedaPixel ?
           </p>
           <div
-            className="w-[90vw] [@media(min-width:300px)_and_(max-width:450px)]:min-h-[20vh] min-h-[23.5vh] md:w-[72vw] flex place-items-center px-7 md:px-14 md:min-h-[42vh] lg:min-h-[21vh] xl:min-h-[40vh] [@media(min-width:2550px)]:min-h-[20vh] border-2 rounded-b-[80px] rounded-tr-[80px]"
+            className="w-[90vw] [@media(min-width:300px)_and_(max-width:450px)]:min-h-[20vh] min-h-[23.5vh] md:w-[72vw] flex place-items-center px-7 md:px-14 md:max-h-[42vh] lg:min-h-[21vh] xl:min-h-[40vh] [@media(min-width:2550px)]:min-h-[20vh] border-2 rounded-b-[80px] rounded-tr-[80px]"
             style={{
               background:
                 "linear-gradient(139.47deg, rgba(47, 54, 64, 0.8) -45.69%, rgba(16, 24, 32, 0.8) 54.7%)",
@@ -1375,7 +1375,7 @@ const ServiceInfoPage = () => {
               {serviceInfo[service]?.whyUs.map((value, index) => (
                 <li
                   key={index}
-                  className=" service-desc [@media(min-width:300px)_and_(max-width:450px)]:text-[0.5rem] text-[0.6rem] md:text-[1.5rem] lg:text-[1.2rem] xl:text-[1.5rem] text-[#C8C1C1] "
+                  className=" service-desc [@media(min-width:300px)_and_(max-width:450px)]:text-[0.5rem] text-[0.6rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.5rem] text-[#C8C1C1] "
                 >
                   {value}
                 </li>
