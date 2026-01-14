@@ -28,3 +28,21 @@ input:focus-visible,
 textarea:focus-visible {
   outline: none;
 }
+
+
+@font-face {
+  font-family: 'Garota Sans';
+  src: url('../fonts/garota_sans/GarotaSans-Regular-FFP.ttf') format('truetype');
+  
+  font-style: normal;
+}
+
+.font-garotaSans{
+  font-family: 'Garota Sans';
+  font-style: normal;
+}
+
+.font-poppins{
+  font-family: "Poppins";
+  font-style: normal;
+}

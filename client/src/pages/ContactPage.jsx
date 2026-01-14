@@ -437,15 +437,15 @@ const ContactPage = () => {
     <>
       <div
         ref={pageRef}
-        className="contact-page-content  relative h-fit w-[99vw] pb-[40px] flex"
+        className="contact-page-content  relative h-fit w-full pb-[40px] flex px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40"
       >
         <AnimatePresence>
           {showNav && !isMobile && (
             <motion.nav
-              className="text-white w-[15vw] flex flex-col gap-[10px]"
+              className="text-white w-[15vw]  flex flex-col gap-[10px]"
               style={{
                 position: "fixed",
-                left: "132px",
+                // left: "132px",
                 top: "180px",
                 zIndex: 50,
               }}
@@ -461,11 +461,11 @@ const ContactPage = () => {
         </AnimatePresence>
 
         {/* ===== MAIN CONTENT ===== */}
-        <div className="flex flex-col  pt-[54px] w-full">
+        <div className="flex flex-col   pt-[54px] w-full">
           {/* Banner */}
           <div
             ref={bannerRef}
-            className="self-center px-[4vw] w-full flex justify-center"
+            className="   w-full  flex justify-end"
           >
             <AnimatePresence>
               {bannerVisible && (
@@ -474,8 +474,8 @@ const ContactPage = () => {
                   src={banner}
                   alt="Banner"
                   id="banner"
-                  className="w-[85vw] sm:w-[70vw] md:w-[55vw] lg:w-[45vw] xl:w-[40vw]
-                             h-[22vh] sm:h-[25vh] md:h-[28vh] lg:h-[32vh] xl:h-[36vh]
+                  className="w-full 
+                             h-[22vh]  sm:h-[25vh] md:h-[28vh] lg:h-[32vh] xl:h-[239px]
                              mb-10 object-contain"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -522,7 +522,7 @@ const ContactPage = () => {
               {/* Prevent layout shift */}
               <div className="relative flex justify-center items-start w-full">
                 <motion.div
-                  className="w-[90vw] sm:w-[80%] md:w-[70%] 2xl:w-[50vw]
+                  className="w-full
                              border-2 border-white
                              p-[clamp(20px,3vw,40px)]
                              rounded-xl
@@ -559,7 +559,7 @@ const ContactPage = () => {
                         onChange={handleCollabChange}
                         placeholder="Name *"
                         className={`border  text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
-  rounded-[clamp(4px,1vw,10px)] w-[100%] md:w-[47%] 2xl:w-[21vw]`}
+  rounded-[clamp(4px,1vw,10px)] w-[100%] md:w-[47%]`}
                       />
                       <input
                         type="text"
@@ -569,10 +569,10 @@ const ContactPage = () => {
                         onChange={handleCollabChange}
                         className="border border-[#989BA1] text-[#818181] bg-transparent 
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
-                                   w-[100%] md:w-[47%]  md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6.5vh,55px)] "
+                                    md:w-[47%]  md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6.5vh,55px)] "
                       />
                       <div
-                        className={`w-[100%] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]   md:w-[47%] 2xl:w-[21vw]  
+                        className={`w-[100%] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]   md:w-[47%]   
                          border border-[#989BA1] rounded-md md:rounded-[10px]
                         `}
                       >
@@ -580,8 +580,6 @@ const ContactPage = () => {
                           country={"in"} // 🇮🇳 Default country
                           value={collabForm.contact}
                           onChange={(value, country) => {
-                            const dialCode = `+${country.dialCode}`;
-                            if (!value.startsWith(dialCode)) value = dialCode;
                             setCollabForm({
                               ...collabForm,
                               contact: value,
@@ -640,7 +638,7 @@ const ContactPage = () => {
                         placeholder="Email Id *"
                         className={`border 
                             border-[#989BA1] text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
-  rounded-[clamp(4px,1vw,10px)] w-[100%] md:w-[47%] 2xl:w-[21vw]`}
+  rounded-[clamp(4px,1vw,10px)] w-[100%] md:w-[47%]`}
                       />
                     </div>
 
@@ -650,7 +648,7 @@ const ContactPage = () => {
                       onChange={handleCollabChange}
                       className={`border border-[#989BA1] text-[#818181] bg-transparent 
   p-[clamp(8px,1vw,12px)] rounded-[clamp(6px,1vw,10px)]
-  w-full h-[clamp(100px,5vh,160px)] resize-none`}
+  w-[full] h-[clamp(100px,5vh,160px)] resize-none`}
                       placeholder="Project Idea *"
                     ></textarea>
                   </form>
@@ -762,9 +760,7 @@ const ContactPage = () => {
                           country={"in"} // 🇮🇳 Default to India
                           value={careerForm.contact}
                           onChange={(value, country) => {
-                            const dialCode = `+${country.dialCode}`;
-                            if (!value.startsWith(dialCode)) value = dialCode;
-
+                            
                             setCareerForm({
                               ...careerForm,
                               contact: value,

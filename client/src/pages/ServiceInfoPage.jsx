@@ -1246,21 +1246,21 @@ const ServiceInfoPage = () => {
   return (
     <>
       {/* {service && ( */}
-      <div className=" w-full pt-[20px] flex flex-col place-items-center">
-        <div className="w-[90vw] text-start md:w-[73vw]  mt-[100px] flex flex-col gap-[1.2rem]">
-          <p className="text-[2rem] md:text-[3rem] text-[#F8F9FA] service-title">
+      <div className=" w-full pt-[20px] flex flex-col place-items-center px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40">
+        <div className="w-full text-start   mt-[100px] flex flex-col gap-[1.2rem]">
+          <p className="text-[2rem] md:text-[2.5rem] lg:text-[3rem]  text-[#F8F9FA] font-garotaSans font-normal ">
             {serviceInfo[service]?.title}
           </p>
-          <p className="text-[1rem] md:text-[1.5rem] text-[#C8C1C1] service-desc">
+          <p className="text-[1rem] md:text-[1.5rem] text-[#C8C1C1] font-poppins font-normal">
             {serviceInfo[service]?.intro}
           </p>
         </div>
-        <div className="lg:w-[73vw]  mt-[80px] md:mt-[40px] overflow-hidden">
-          <p className="service-desc  text-[1.5rem] md:text-[1.8rem] text-start  text-[#C8C1C1] mb-4">
+        <div className="w-full  mt-[80px] md:mt-[40px] overflow-hidden">
+          <p className="  text-[1.5rem] md:text-[1.8rem] text-start  text-[#C8C1C1] mb-4 font-poppins font-normal">
             Technologies We Use
           </p>
 
-          <div className="relative w-[90vw] flex overflow-hidden">
+          <div className="relative w-full flex overflow-hidden">
             <motion.div
               className="flex  gap-[20px]"
               animate={{ x: ["0%", "-50%"] }}
@@ -1277,7 +1277,7 @@ const ServiceInfoPage = () => {
                 <div
                   key={index}
                   className="py-3 px-4 h-fit w-fit rounded-md border border-[#C8C1C1]
-                       service-desc text-[1rem] md:text-[1.5rem] text-[#C8C1C1]
+                       font-poppins font-normal text-[1rem] md:text-[1.5rem] text-[#C8C1C1]
                        whitespace-nowrap"
                 >
                   {value}
@@ -1299,12 +1299,12 @@ const ServiceInfoPage = () => {
           >
             {serviceInfo[service]?.buttonText}
           </button> */}
-        <Link to="/contactus">
+        <Link to="/contactus" className="w-full">
           <button
             className=" rotating-btn
-     relative font-garota text-[1rem] md:text-[1.5rem] text-[#C8C1C1]
-    w-[90vw] md:w-[73vw] mt-[60px] md:mt-[40px]
-    rounded-xl px-3 py-2 md:px-6 md:py-3
+     relative font-poppins font-normal text-[1rem] md:text-[1.5rem] text-[#C8C1C1]
+    w-full mt-[60px] md:mt-[40px]
+    rounded-xl px-3  md:px-6 
     overflow-hidden
 
      border border-[#6A6185]
@@ -1313,7 +1313,7 @@ const ServiceInfoPage = () => {
     hover:bg-[linear-gradient(90deg,#bbabeb,#6a6185)]
     hover:text-white
     hover:shadow-[0_0_15px_rgba(177,156,217,0.4)]
-    hover:-translate-y-1
+    hover:-translate-y-1 h-[55px] md:h-[60px] lg:h-[70px] xl:h-[88px]
   "
           >
             {serviceInfo[service]?.buttonText}
@@ -1321,8 +1321,8 @@ const ServiceInfoPage = () => {
         </Link>
 
         {/* </div> */}
-        <div className=" lg:w-[73vw] mt-[100px]   flex flex-col gap-[0.8rem]">
-          <p className="service-title px-5 md:px-2 text-nowrap text-start text-[2.5rem] md:text-[3rem] lg:text-[3rem] xl:text-[3rem] w-[90vw] sm:w-[42vw] md:w-[30vw] lg:w-full xl:w-full  text-white">
+        <div className=" w-full mt-[100px]   flex flex-col gap-[0.8rem]">
+          <p className="font-garotaSans font-normal  text-nowrap text-start text-[2.5rem] md:text-[3rem] lg:text-[3rem] xl:text-[3rem] w-full lg:w-full xl:w-full  text-white">
             Our Expertise
           </p>
           <div className="">
@@ -1345,7 +1345,7 @@ const ServiceInfoPage = () => {
                       "linear-gradient(139.47deg, rgba(16, 24, 32, 0.85) -45.69%, rgba(16, 24, 32, 0.95) 54.7%)",
                   }}
                 >
-                  <p className="text-[1.8rem]  md:text-[1.5rem]  xl:text-[1.5rem] service-desc text-[#F8F9FA] ">
+                  <p className="text-[1.5rem]  md:text-[1.5rem]  xl:text-[1.5rem] service-desc text-[#F8F9FA] ">
                     {item.title}
                   </p>
                   <p className="text-[#C8C1C1] service-desc text-[1rem] md:text-[1rem] leading-relaxed">
@@ -1356,12 +1356,12 @@ const ServiceInfoPage = () => {
             </div>
           </div>
         </div>
-        <div className="relative mt-[150px] md:mt-[100px]">
-          <p className="text-[2rem] md:text-[4rem] service-title-noweight bg-gradient-to-b font-bold  from-[#C7B9F6] to-[#6A6185] bg-clip-text text-transparent leading-[1] absolute -top-5 md:-top-11 left-0 z-20 ">
+        <div className="relative mt-[150px] md:mt-[100px] w-full">
+          <p className="text-[2rem] md:text-[4rem] font-garotaSans  bg-gradient-to-b font-bold  from-[#C7B9F6] to-[#6A6185] bg-clip-text text-transparent leading-[1] absolute -top-5 md:-top-11 left-0 z-20 ">
             Why VedaPixel ?
           </p>
           <div
-            className="w-[90vw] [@media(min-width:300px)_and_(max-width:450px)]:min-h-[20vh] min-h-[23.5vh] md:w-[72vw] flex place-items-center px-7 md:px-14 md:max-h-[42vh] lg:min-h-[21vh] xl:min-h-[40vh] [@media(min-width:2550px)]:min-h-[20vh] border-2 rounded-b-[80px] rounded-tr-[80px]"
+            className=" [@media(min-width:300px)_and_(max-width:450px)]:min-h-[20vh] min-h-[23.5vh]  flex place-items-center px-7 md:px-14 md:max-h-[42vh] lg:min-h-[21vh] xl:min-h-[40vh] [@media(min-width:2550px)]:min-h-[20vh] border-2 rounded-b-[80px] rounded-tr-[80px]"
             style={{
               background:
                 "linear-gradient(139.47deg, rgba(47, 54, 64, 0.8) -45.69%, rgba(16, 24, 32, 0.8) 54.7%)",
@@ -1375,7 +1375,7 @@ const ServiceInfoPage = () => {
               {serviceInfo[service]?.whyUs.map((value, index) => (
                 <li
                   key={index}
-                  className=" service-desc [@media(min-width:300px)_and_(max-width:450px)]:text-[0.5rem] text-[0.6rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.5rem] text-[#C8C1C1] "
+                  className=" font-poppins font-normal [@media(min-width:300px)_and_(max-width:450px)]:text-[0.5rem] text-[0.6rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.5rem] text-[#C8C1C1] "
                 >
                   {value}
                 </li>
@@ -1383,8 +1383,8 @@ const ServiceInfoPage = () => {
             </ul>
           </div>
         </div>
-        <div className="flex flex-col mt-[100px] w-[95vw] md:w-[73vw] gap-[0.8rem]">
-          <p className="text-[2rem] md:text-[3rem] text-[#F8F9FA] service-title">
+        <div className="flex flex-col mt-[100px] w-full gap-[0.8rem]">
+          <p className="text-[2rem] md:text-[3rem] text-[#F8F9FA] font-garotaSans font-normal">
             Our Process
           </p>
 
@@ -1392,25 +1392,25 @@ const ServiceInfoPage = () => {
             {serviceInfo[service]?.process.map((item, index) => (
               <div
                 key={index}
-                className="flex flex-row items-start md:items-center gap-3 md:gap-7"
+                className="flex flex-row items-center md:items-center gap-3 md:gap-7"
               >
                 {/* Step number */}
-                <p className="text-[#C8C1C1] w-[8vw] sm:w-[6vw] md:w-[3vw] text-[1rem] md:text-[1.4rem]">
+                <p className="text-[#C8C1C1] w-[8vw] sm:w-[6vw] md:w-[3vw]  text-[20px] md:text-[30px] lg:text-[40px] xl:text-[48px]">
                   {index + 1}.
                 </p>
 
                 {/* Step content */}
                 <div
                   onClick={() => handleToggle(index)}
-                  className="group relative flex flex-col border border-gray-800 border-l-white rounded-lg pl-4 md:pl-4 cursor-pointer text-[#F8F9FA] text-[1rem] md:text-[1.4rem] w-full md:w-[68vw] gap-1 py-2 md:py-3 transition-all duration-300 ease-in-out hover:border-[#BBABEB]/40"
+                  className="group relative flex flex-col border border-gray-800 border-l-white rounded-lg pl-4 md:pl-4 cursor-pointer text-[#F8F9FA] text-[1rem] md:text-[1.4rem] w-full  gap-1 py-2 md:py-3 transition-all duration-300 ease-in-out hover:border-[#BBABEB]/40"
                 >
                   {/* Title */}
                   <p
-                    className={`font-semibold  ${
+                    className={`  ${
                       activeIndex === index
                         ? "border-[#BBABEB]/40 text-[#BBABEB]"
                         : "text-[#F8F9FA] hover:border-[#BBABEB]/40"
-                    } text-left service-title hover:text-[#BBABEB] z-10`}
+                    } text-left font-garotaSans font-normal text-[20px] md:text-[30px] lg:text-[40px] xl:text-[40px] 2xl:text-[48px] hover:text-[#BBABEB] z-10`}
                   >
                     {item.title}
                   </p>
@@ -1436,7 +1436,7 @@ const ServiceInfoPage = () => {
           </div>
         </div>
 
-        <div className="w-[90vw] md:w-[73vw] flex mt-[100px] flex-col gap-[1.3rem]">
+        <div className="w-full flex mt-[100px] flex-col gap-[1.3rem]">
           <p className="text-[2.3rem] md:text-[2.7rem] service-title text-[#F8F9FA]">
             FAQs
           </p>
@@ -1454,7 +1454,7 @@ const ServiceInfoPage = () => {
                       openIndex === index
                         ? "text-[#BBABEB]"
                         : "text-[#F8F9FA] hover:text-[#BBABEB]"
-                    } text-[1.3rem] cursor-pointer w-[90%] md:text-[1.2rem] service-desc `}
+                    } text-[1rem] cursor-pointer w-[90%] md:text-[1.2rem] lg:text-[1.5rem] xl:text-[24px] font-poppins font-normal `}
                   >
                     {faq.question}
                   </span>

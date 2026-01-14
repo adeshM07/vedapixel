@@ -164,14 +164,16 @@ const Services = () => {
   ];
   return (
     <>
-      <div className=" flex flex-col gap-10 mt-20 md:mt-45 lg:mt-40 px-6 sm:px-10  md:px-16 2xl:px-28">
-        <p className="service-title  mx-auto w-[73vw] md:w-full 2xl:w-[73vw] text-4xl md:text-[4rem] lg:text-[4.5rem] font-semibold text-white">
+      <div className=" flex flex-col gap-10 mt-20 md:mt-45 lg:mt-40 px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40">
+        <p className="font-garotaSans font-normal   w-full  text-4xl md:text-[3rem] lg:text-[3rem]  text-white">
           Our Services
         </p>
+        <p className="text-[24px] font-poppins font-normal text-[#C8C1C1]">Vedapixel Tech Solutions Pvt. Ltd. builds intelligent, scalable digital platforms that solve  real-world business challenges. With over a decade of experience, we focus on creating solutions that streamline operations, enhance accessibility, and enable sustainable growth across industries. We don’t just deliver technology.</p>
+        
 
         <motion.div
           layout
-          className="services-box w-[73vw] md:w-full 2xl:w-[73vw] pt-[20px] md:mt-0 flex flex-wrap mx-auto gap-[30px]"
+          className="services-box w-full  pt-[20px] md:mt-0 flex flex-wrap justify-between gap-y-10"
           variants={container}
           initial="hidden"
           animate="visible"
@@ -181,7 +183,7 @@ const Services = () => {
             <motion.div
               layout
               key={index}
-              className="w-full sm:w-[80%] md:w-[40vw] lg:w-[27vw] 2xl:w-[23vw]"
+              className="w-full sm:w-[80%]  md:w-[40vw] xl:lg:w-[25vw] xl:h-[230px] 2xl:w-[360px] 2xl:h-[222px]"
             >
               <Link
                 to="/serviceInfo"
@@ -192,7 +194,7 @@ const Services = () => {
                   layout
                   className="
             h-full
-            border border-[#F2F2F2]
+            border border-white
             flex flex-col gap-3
             rounded-xl p-6
             transition-all duration-300
@@ -217,11 +219,11 @@ const Services = () => {
                     loading="lazy"
                   />
 
-                  <p className="service-title text-xl md:text-[1.75rem] lg:text-[1.7rem] text-white font-semibold">
+                  <p className="font-garotaSans font-normal text-xl md:text-[1.75rem] lg:text-[1.5rem] 2xl:text-[1.7rem] text-white ">
                     {service.title}
                   </p>
 
-                  <p className="service-desc text-sm md:text-[1rem] lg:text-[0.8rem] text-[#C8C1C1] leading-relaxed">
+                  <p className="font-poppins font-normal text-sm md:text-[1rem] lg:text-[1rem] text-[#C8C1C1] leading-relaxed">
                     {service.desc}
                   </p>
                 </motion.div>
@@ -230,11 +232,11 @@ const Services = () => {
           ))}
         </motion.div>
 
-        <div className="mt-[80px]  mx-auto flex [@media(min-width:300px)_and_(max-width:448px)]:w-[70vw]    w-[90vw] sm:w-[85vw] md:w-[80vw] lg:w-full 2xl:w-[73vw]">
-          <p className="text-[#F8F9FA] text-[1.2rem] sm:text-[1.4rem] md:text-[1.6rem] lg:text-[2.2rem] xl:text-[2.6rem] 2xl:text-[3rem]  service-title">
+        <div className="mt-[80px]  mx-auto flex w-full">
+          <p className="text-[#F8F9FA]  w-full text-[1.2rem] sm:text-[1.4rem] md:text-[1.6rem] lg:text-[2.2rem] xl:text-[2.6rem] 2xl:text-[3rem]  font-garotaSans font-normal">
             Have any questions?
             <Link to="/faqs">
-              <span className=" mx-3 underline decoration-[#BBABEB] text-[#BBABEB] text-[1rem] sm:text-[1.2rem] md:text-[1.4rem] lg:text-[1.6rem] xl:text-[1.8rem] service-title">
+              <span className=" mx-3 underline decoration-[#BBABEB] text-[#BBABEB] text-[1rem] sm:text-[1.2rem] md:text-[1.4rem] lg:text-[1.6rem] xl:text-[1.8rem] font-garotaSans font-normal">
                 FAQs
               </span>
             </Link>

@@ -95,12 +95,12 @@ const AboutPage = () => {
       <SectionWrapper>
         <div
           id="about"
-          className=" flex mt-[100px] flex-col gap-20 relative overflow-hidden"
+          className="  flex mt-[100px] flex-col gap-20 relative overflow-hidden"
         >
           {/* --- Top Text Section --- */}
-          <div className="w-full  h-[auto] md:h-[40vh] lg:h-fit p-[10px]  mx-auto">
+          <div className="w-full  h-[auto] md:h-[40vh] lg:h-fit   ">
             <motion.p
-              className="about-part-title  text-[2rem] md:text-[3rem] text-white "
+              className="font-garotaSans font-normal  text-[2rem] md:text-[3rem] text-white "
               variants={headingVariant}
               initial="hidden"
               whileInView="visible"
@@ -110,7 +110,7 @@ const AboutPage = () => {
             </motion.p>
 
             <motion.p
-              className="about-part1-desc text-[1rem] md:text-[1.5rem] text-[#C8C1C1] text-left"
+              className="font-poppins font-normal text-[1rem] md:text-[1.5rem] text-[#C8C1C1] text-left"
               variants={paragraphVariant}
               initial="hidden"
               whileInView="visible"
@@ -126,20 +126,20 @@ const AboutPage = () => {
             </motion.p>
 
             <motion.p
-              className="about-part-title mt-4 md:mt-1  text-[1.4rem] md:text-[3rem] text-[#BBABEB] text-end"
+              className="font-garotaSans font-normal  mt-4 md:mt-1  text-[1.4rem] md:text-[3rem] text-[#BBABEB] text-end"
               variants={glowTextVariant}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
-              style={{
-                textShadow: "0px 0px 15px rgba(187,171,235,0.8)",
-              }}
+              // style={{
+              //   textShadow: "0px 0px 15px rgba(187,171,235,0.8)",
+              // }}
             >
               We deliver Impact
             </motion.p>
           </div>
 
-          <img src={aboutImg} alt="" />
+          <img src={aboutImg} alt="" className="" />
 
           {/* --- Background + Boxes Section --- */}
           {/* <motion.div

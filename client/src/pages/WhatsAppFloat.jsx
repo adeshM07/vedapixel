@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 const WhatsAppFloat = () => {
   return (
     <a
-      href="https://wa.me/919900641808" // replace with your number
+      href="https://wa.me/919036354263" // replace with your number
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-10 right-5 z-[9999]"

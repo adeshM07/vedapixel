@@ -76,7 +76,7 @@ const Faq = () => {
 
   return (
     <>
-      <div className="flex justify-center mt-[70px] w-full h-fit">
+      <div className="flex  justify-center mt-[70px] w-full h-fit px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40">
         <div className="w-[90vw] md:w-[90vw] lg::w-[73vw] flex mt-[60px] flex-col gap-[1.3rem]">
           <p className="text-[3rem] service-title text-[#F8F9FA]">FAQs</p>
           <div className="bg-[#0e141d]/50 backdrop-blur-lg border rounded-lg border-[#F8F9FA]">
@@ -91,7 +91,7 @@ const Faq = () => {
                   <span
                     className={`${
                       openIndex === index ? "text-[#BBABEB]" : "text-[#F8F9FA]"
-                    } text-[1.2rem] cursor-pointer  w-[90%] md:text-[1.2rem] service-title `}
+                    } text-[1.2rem] cursor-pointer  w-[90%] md:text-[1.5rem] font-poppins font-normal `}
                   >
                     {faq.question}
                   </span>
@@ -115,7 +115,7 @@ const Faq = () => {
                     openIndex === index ? "max-h-40 py-3" : "max-h-0"
                   }`}
                 >
-                  <p className="text-[#C8C1C1] service-desc text-[1rem] leading-relaxed">
+                  <p className="text-[#C8C1C1] font-poppins font-normal text-[1rem] leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>

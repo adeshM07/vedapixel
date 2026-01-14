@@ -263,7 +263,7 @@ const Body = () => {
             .getElementById(id)
             ?.scrollIntoView({ behavior: "smooth", block: "start" })
         }
-        className="body-nav   relative cursor-pointer pl-3 lg:pl-1 md:text-[18px] lg:text-[24px] 2xl:text-[28px] flex items-center transition-all duration-300"
+        className="font-poppins   relative cursor-pointer pl-3 lg:pl-1 md:text-[18px] lg:text-[24px] 2xl:text-[28px] flex items-center transition-all duration-300"
         animate={{
           color: isActive ? "#b19cd9" : "#d1d5db",
           x: isActive ? 4 : 0,
@@ -507,16 +507,16 @@ const Body = () => {
       </AnimatePresence>
 
       {/* ✅ Main Body */}
-      <div className="body-content   px-[2%] relative min-h-screen flex flex-col  transition-all duration-700 ease-out w-full pt-[6vw]">
+      <div className="body-content px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40 relative min-h-screen flex flex-col  transition-all duration-700 ease-out w-full pt-[6vw]">
         {/* Sidebar Nav */}
 
         <AnimatePresence>
           {!isMobile && showBody && (
             <motion.nav
-              className="text-white flex flex-col  gap-[15px] [@media(min-width:2000px)]:gap-[32px] 2xl:gap-[15px]"
+              className="text-white flex     flex-col  gap-[15px] [@media(min-width:2000px)]:gap-[32px] 2xl:gap-[15px]"
               style={{
                 position: "fixed",
-                left: navPosition.left,
+                // left: navPosition.left,
                 top: navPosition.top,
                 zIndex: 50,
               }}
@@ -534,12 +534,12 @@ const Body = () => {
         </AnimatePresence>
 
         {/* ✅ Content */}
-        <div className="flex px-[2vw]   flex-col gap-[3rem] w-full md:pl-[30vw] lg:pl-[30vw]">
+        <div className="flex   flex-col gap-[3rem] w-full place-items-end">
           {/* --- Our Aim --- */}
           <section
             id="about"
             ref={aboutRef}
-            className="flex flex-col gap-[12px] mt-[7vw]"
+            className="flex flex-col  gap-[16px] mt-[7vw]"
           >
             {isMobile && (
               <motion.p
@@ -565,7 +565,7 @@ const Body = () => {
                 />
               </motion.p>
             )}
-            <p className="text-white   [@media(min-width:300px)_and_(max-width:410px)]:text-[19px]  text-[20px]   md:text-[28px] lg:text-[2.2rem] xl:text-[2.7rem] 2xl:text-[3rem] leading-[1.3]">
+            <p className="text-white process-nosize   [@media(min-width:300px)_and_(max-width:410px)]:text-[19px]  text-[20px]   md:text-[28px] lg:text-[2.2rem] xl:text-[2.7rem] 2xl:text-[3rem] leading-tight">
               We bridge innovation and execution with <br /> user-centric,
               future-ready systems that <br />
               <span
@@ -618,7 +618,7 @@ const Body = () => {
           <section
             id="services"
             ref={servicesRef}
-            className="flex flex-col gap-[12px] mt-[7vw]"
+            className="flex flex-col gap-[12px] mt-[7vw] [@media(min-width:300px)_and_(max-width:767px)]:w-full "
           >
             {isMobile && (
               <motion.p
@@ -644,7 +644,7 @@ const Body = () => {
                 />
               </motion.p>
             )}
-            <div className="flex flex-col  lg:w-[60vw] gap-3  lg:gap-4">
+            <div className="flex flex-col md:w-[60vw]  lg:w-[60vw]  gap-3  lg:gap-4">
               <InfiniteScrollNodes direction="left" baseSpeed={85} />
               <InfiniteScrollNodes direction="right" baseSpeed={95} />
               <InfiniteScrollNodes2 direction="left" baseSpeed={85} />
@@ -807,9 +807,9 @@ const Body = () => {
             <section
               id="process"
               ref={processRef}
-              className="w-full text-white py-10 sm:py-16 px-3 sm:px-6 flex flex-col items-center lg:mt-[7vw] overflow-hidden"
+              className="w-full    text-white py-10 sm:py-16  flex flex-col items-end lg:mt-[7vw] overflow-hidden"
             >
-              <div className="relative w-full  max-w-5xl">
+              <div className="relative   w-2/3">
                 {/* center vertical line */}
                 <div className="absolute left-1/2  transform -translate-x-1/2 bg-[#6A6185] w-[1.5px] sm:w-[2px] h-full"></div>
 
@@ -833,7 +833,7 @@ const Body = () => {
                     >
                       <div className=" rounded-2xl p-3 sm:p-4 md:p-6 w-full md:w-[100%] transition-all duration-500">
                         <motion.h3
-                          className="process-title [@media(min-width:2000px)]:text-[3rem]  process-title-css text-[#C8C1C1] text-[1.1rem] sm:text-[1.3rem] md:text-[1.5rem] lg:text-[1.7rem] font-semibold mb-2"
+                          className="process-title font-garotaSans [@media(min-width:2000px)]:text-[3rem]   text-[#C8C1C1] text-[1.1rem] sm:text-[1.3rem] md:text-[1.5rem] lg:text-[1.7rem] xl:text-[2rem] font-normal mb-2"
                           initial={{ opacity: 0, y: 20 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -844,8 +844,8 @@ const Body = () => {
 
                         {/* Description hidden on mobile */}
                         <motion.p
-                          className="hidden [@media(min-width:2000px)]:text-[1.8rem] process-des-css md:block text-gray-200 text-[1rem] md:text-[1.1rem] lg:text-[1.3rem]
-                           leading-relaxed transition-colors duration-300"
+                          className="hidden [@media(min-width:2000px)]:text-[1.8rem] font-garotaSans font-normal md:block text-gray-200 text-[1rem] md:text-[1.1rem] lg:text-[1.3rem]
+                           leading-tight transition-colors duration-300"
                           initial={{ opacity: 0, y: 10 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{
@@ -879,7 +879,7 @@ const Body = () => {
           <section
             id="team"
             ref={teamRef}
-            className="flex  flex-col gap-[12px] mt-[2vw]"
+            className="flex  flex-col gap-[12px] mt-[2vw] [@media(min-width:300px)_and_(max-width:470px)]:w-full"
           >
             {isMobile && (
               <motion.p
@@ -906,7 +906,7 @@ const Body = () => {
               </motion.p>
             )}
 
-            <div className="relative mb-[30px]  md:w-[50vw]  mx-auto">
+            <div className="relative mb-[30px] w-full  md:w-[50vw]  mx-auto">
               <p className="begin-title text-[9vw] md:text-[clamp(1.8rem,4vw,4rem)] font-extrabold bg-gradient-to-b from-[#C7B9F6] to-[#6A6185] bg-clip-text text-transparent leading-[1] absolute top-0 left-0 z-20">
                 Hello!
               </p>

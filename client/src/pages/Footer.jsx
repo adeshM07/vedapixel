@@ -45,7 +45,7 @@ const Footer = () => {
   return (
     <>
       <motion.footer
-        className="w-full  px-6 sm:px-10 md:px-9 lg:px-20 2xl:px-[13rem] py-10 mt-20 sm:mt-32 bg-transparent"
+        className="w-full px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40 py-10 mt-20 sm:mt-32 bg-transparent"
         variants={container}
         initial="hidden"
         whileInView="show"
@@ -68,7 +68,7 @@ const Footer = () => {
               />
             </Link>
             {/* this too  */}
-            <div>
+            <div className="">
               <p className="footer-company-name text-white text-[clamp(1.4rem,4vw,2.3rem)] md:text-[clamp(1.4rem,2vw,2.3rem)] 2xl:text-[clamp(1.4rem,4vw,2.3rem)] font-semibold leading-tight 2xl:leading-10">
                 VedaPixel
               </p>
@@ -144,9 +144,9 @@ const Footer = () => {
                   FAQs
                 </p>
               </Link>
-              <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
+              {/* <p className="footer-nav-links text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.1rem)] md:text-[14px] 2xl:text-[clamp(0.9rem,2vw,1.1rem)] hover:text-[#b19cd9] transition">
                 Our Team
-              </p>
+              </p> */}
               <Link
                 to="/contactus"
                 state={{

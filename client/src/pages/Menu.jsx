@@ -82,14 +82,14 @@ const Menu = () => {
     <>
       {/* <SectionWrapper> */}
         <div
-          className="px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-30 menu-sticky  py-10  place-items-center sticky top-0 z-10 
+          className="px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40 menu-sticky  py-10  place-items-center sticky top-0 z-10 
         flex justify-between items-center 
          h-[9vh]
         w-full backdrop-blur-[6px]"
         >
           {/* --- Logo + Company Name --- */}
           <Link to="/">
-            <div className="flex gap-0.5 mt-5 md:mt-0 place-items-end">
+            <div className="flex gap-0.5 md:gap-1 mt-5 md:mt-0 place-items-end">
               <img
                 src={logo}
                 alt="VedaPixel Logo"
@@ -150,8 +150,8 @@ const Menu = () => {
                 <p
                   className={`${
                     isHomeActive ? "text-purple-300" : "text-white"
-                  } body-nav md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
-              md:text-[clamp(14px,1.4vw,22px)] lg:text-[22px] xl:text-[clamp(14px,1.4vw,22px)] cursor-pointer
+                  } font-poppins font-normal md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
+              md:text-[clamp(14px,1.4vw,22px)] lg:text-[22px] xl:text-[24px] cursor-pointer
               `}
                 >
                   Home
@@ -162,8 +162,8 @@ const Menu = () => {
                 <p
                   className={`${
                     isAboutActive ? "text-purple-300" : "text-white"
-                  } body-nav md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
-              md:text-[clamp(14px,1.4vw,22px)] lg:text-[22px] xl:text-[clamp(14px,1.4vw,22px)] cursor-pointer
+                  }  font-poppins font-normal md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
+              md:text-[clamp(14px,1.4vw,22px)] lg:text-[22px] xl:text-[24px] cursor-pointer
               `}
                 >
                   About Us
@@ -173,8 +173,8 @@ const Menu = () => {
                 <p
                   className={`${
                     isServicesActive ? "text-purple-300" : "text-white"
-                  } body-nav md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
-              md:text-[clamp(14px,1.4vw,22px)] lg:text-[22px] xl:text-[clamp(14px,1.4vw,22px)] cursor-pointer
+                  } font-poppins font-normal md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
+              md:text-[clamp(14px,1.4vw,22px)] lg:text-[22px] xl:text-[24px] cursor-pointer
               `}
                 >
                   Services
@@ -191,8 +191,8 @@ const Menu = () => {
                   md:text-[clamp(13px,1.3vw,20px)] md:px-[clamp(10px,2vw,18px)] md:py-[clamp(6px,1vw,10px)]
                   lg:text-[24px] xl:text-[clamp(14px,1.4vw,22px)]
                   rounded-md cursor-pointer 
-                  font-semibold tracking-wide 
-                  text-[#1a1c22]
+                  font-normal tracking-wide 
+                  text-[#1a1c22] font-poppins
                   flex items-center justify-center"
                 >
                   Contact&nbsp;Us

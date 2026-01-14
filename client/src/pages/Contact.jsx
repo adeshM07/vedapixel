@@ -94,6 +94,7 @@ const Contact = () => {
     }
 
     // PhoneInput always has +91 → check length
+    console.log(formData.contact, "number");
     if (formData.contact.length <= 3) {
       e.contact = true;
       missing.push("Contact Number");
@@ -133,12 +134,12 @@ const Contact = () => {
           mt-[10vh] md:mt-[11vh]
           [@media(min-width:2000px)]:mt-[100px]
           gap-[5vw] md:gap-0
-          px-[4vw]
+          px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40
         "
       >
         <div
           className="
-            w-full border-2 border-white sm:w-[90%] md:w-[80%] 2xl:w-[72vw]
+            w-full border-2 border-white 
             p-[clamp(20px,3vw,40px)]
             2xl:px-[36px] 2xl:py-[43px]
             rounded-[1.3rem]
@@ -180,9 +181,10 @@ const Contact = () => {
             {/* ✅ Flex-wrap inputs (same layout) */}
             <div
               className="
-                flex flex-col md:flex-row flex-wrap 
+                flex flex-col sm:flex-row flex-wrap 
                 justify-between  
-                gap-x-[1.4rem]
+                2xl:gap-x-[1.4rem]
+                xl:gap-x-[1.2rem]
                 gap-y-[1rem]
               "
             >
@@ -198,11 +200,14 @@ const Contact = () => {
                   bg-transparent
                   p-[clamp(6px,1vw,10px)]
                   rounded-[clamp(4px,1vw,10px)]
-                  w-[100%]  md:w-[47%] 2xl:w-[32vw]
-                  md:h-[clamp(35px,4vh,55px)]
-                  lg:w-[32vw]
-                  lg:h-[clamp(35px,7vh,55px)]
-                  2xl:h-[clamp(35px,6vh,55px)]
+                  [@media(min-width:1280px)_and_(max-width:1281px)]:w-[48%]
+                  [@media(min-width:1280px)_and_(max-width:1281px)]:h-[50px]
+                  w-[100%] sm:w-[49%]  md:w-[49%] lg:w-[49%] xl:w-[49%] 2xl:w-[49%]
+                  h-[40px]
+                  md:h-[45px]
+                  lg:h-[47px]
+                  xl:h-[50px]
+                  2xl:h-[42px]
                 `}
               />
               <input
@@ -217,16 +222,20 @@ const Contact = () => {
                   bg-transparent
                   p-[clamp(6px,1vw,10px)]
                   rounded-[clamp(4px,1vw,10px)]
-                  w-[100%] sm:w-[44%] md:w-[47%] 2xl:w-[33vw]
-                  lg:w-[32vw]
-                  lg:h-[clamp(35px,7vh,55px)]
-                  md:h-[clamp(35px,4vh,55px)]
-                  2xl:h-[clamp(35px,6vh,55px)]
+                   [@media(min-width:1280px)_and_(max-width:1281px)]:w-[48%]
+                  [@media(min-width:1280px)_and_(max-width:1281px)]:h-[50px]
+                  w-[100%] sm:w-[49%] md:w-[49%] xl:w-[49%] 2xl:w-[49%]
+                  h-[40px]
+                  md:h-[45px]
+                  lg:h-[47px]
+                  xl:h-[50px]
+                 2xl:h-[42px]
                 "
               />
               <div
                 className={`
-                  w-full md:w-[47%] lg:w-[32vw] 2xl:w-[32vw]
+                  w-full sm:w-[49%] md:w-[49%] lg:w-[49%] xl:w-[49%] 2xl:w-[49%]   [@media(min-width:1280px)_and_(max-width:1281px)]:w-[48%]
+                  [@media(min-width:1280px)_and_(max-width:1281px)]:h-[50px] h-[40px] md:h-[45px] lg:h-[47px] xl:h-[50px] 2xl:h-[42px]
                   rounded-sm md:rounded-[10px] border border-[#989BA1]
                  
                 `}
@@ -235,10 +244,10 @@ const Contact = () => {
                   country={"in"}
                   value={formData.contact}
                   onChange={(value, country) => {
-                    const dialCode = `+${country.dialCode}`;
-                    if (!value.startsWith(dialCode)) value = dialCode;
-
-                    setFormData({ ...formData, contact: value });
+                    setFormData((prev) => ({
+                      ...prev,
+                      contact: value,
+                    }));
 
                     // remove error when user types
                     setErrors((prev) => ({ ...prev, contact: false }));
@@ -259,12 +268,16 @@ const Contact = () => {
                     color: "#818181",
                     height:
                       windowWidth <= 400
-                        ? "5.6vh"
+                        ? "39px"
                         : windowWidth < 640
-                        ? "4.5vh"
+                        ? "39px"
                         : windowWidth <= 1024
-                        ? "3vh"
-                        : "6vh",
+                        ? "39px"
+                        : windowWidth <= 1280
+                        ? "47px"
+                        : windowWidth <= 1560
+                        ? "41px"
+                        : "42px",
                     paddingLeft: "50px",
                   }}
                   buttonStyle={{
@@ -287,11 +300,14 @@ const Contact = () => {
                   bg-transparent
                   p-[clamp(6px,1vw,10px)]
                   rounded-[clamp(4px,1vw,10px)]
-                  w-[100%] sm:w-[44%] md:w-[47%]  2xl:w-[33vw]
-                  lg:w-[32vw]
-                  lg:h-[clamp(35px,7vh,55px)]
-                  md:h-[clamp(35px,4vh,55px)]
-                  2xl:h-[clamp(35px,6vh,55px)]
+                     [@media(min-width:1280px)_and_(max-width:1281px)]:w-[48%]
+                  [@media(min-width:1280px)_and_(max-width:1281px)]:h-[50px]
+                  w-[100%] sm:w-[49%] md:w-[49%] xl:w-[49%]  2xl:w-[49%]
+                  h-[40px]
+                  md:h-[45px]
+                  lg:h-[47px]
+                  xl:h-[50px]
+                  2xl:h-[42px]
                 `}
               />
             </div>
@@ -325,7 +341,7 @@ const Contact = () => {
      lg:h-[clamp(50px,5vh,60px)] 2xl:h-[clamp(40px,8vh,60px)]
      mx-auto mt-[clamp(10px,2vw,20px)]
      text-[clamp(0.9rem,1.5vw,1.3rem)] md:text-[clamp(0.9rem,2.8vw,1.3rem)] 
-     2xl:text-[1.4rem] popins font-medium rounded-[8px]`}
+     2xl:text-[1.5rem] popins rounded-[8px] font-poppins font-normal`}
             >
               Get in Touch
             </button>

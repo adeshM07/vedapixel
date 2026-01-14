@@ -30,13 +30,13 @@ const Industries = () => {
   ];
 
   return (
-    <div className="md:mt-45  w-full">
+    <div className="md:mt-45  w-full px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
         viewport={{ once: true, amount: 0.2 }}
-        className="w-fit mt-[20vh] md:mt-0 md:w-[80vw] lg:w-[85vw] 2xl:w-[72vw] flex flex-col md:flex-row flex-wrap 2xl:h-[96vh] gap-x-[20px] gap-y-[20px] [@media(min-width:2000px)]:gap-[30px] mx-auto"
+        className="w-full  mt-[20vh] md:mt-0  flex flex-col md:flex-row flex-wrap    gap-y-20 justify-between [@media(min-width:2000px)]:gap-[30px] "
       >
         {/* Heading with smooth upward animation */}
         <motion.div
@@ -44,10 +44,10 @@ const Industries = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="2xl:w-[23vw] [@media(min-width:2000px)]:h-[19vh] md:w-[35vw] md:h-[22vh] lg:w-[27vw] lg:h-[24vh] 2xl:h-[22vh] flex md:place-items-center"
+          className="[@media(min-width:300px)]:h-[24vh] h-[20vh] md:w-[200px]  md:h-[100px] lg:w-[280px] lg:h-[100px] xl:w-[330px] xl:h-[163px] 2xl:w-[370px] 2xl:h-[163px]  flex md:place-items-center"
         >
           <p
-            className="md:pl-0 text-[2.4rem]  mb-5 md:mb-0 md:text-[3.5rem] [@media(min-width:900px)_and_(max-width:1100px)]:text-[3rem] font-bold industry-title text-transparent bg-gradient-to-b from-[#BBABEB] to-[#6A6185] bg-clip-text inline-block leading-tight"
+            className="md:pl-0 text-[2.4rem] sm:text-[3rem]  mb-5 md:mb-0 md:text-[3.5rem] [@media(min-width:900px)_and_(max-width:1100px)]:text-[3rem] font-bold industry-title text-transparent bg-gradient-to-b from-[#BBABEB] to-[#6A6185] bg-clip-text inline-block leading-tight"
             style={{
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -65,14 +65,14 @@ const Industries = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             viewport={{ once: true, amount: 0.15 }}
-            className="w-[80vw] border-2 border-white [@media(min-width:300px)]:h-[24vh] h-[20vh] md:w-[35vw]  md:h-[22vh] lg:w-[27vw] lg:h-[17vh] xl:w-[27vw] xl:h-[28vh] 2xl:w-[23vw] 2xl:h-[22vh] [@media(min-width:2000px)]:h-[19vh]  rounded-[10px] flex flex-col gap-[20px] md:gap-[12px] justify-evenly py-4 [@media(min-width:300px)_and_(max-width:410px)]:px-3 px-5 md:px-5 transition-all duration-500"
+            className="w-full border-2 border-white [@media(min-width:300px)]:h-[24vh] h-[20vh] md:w-[200px]  md:h-[100px] lg:w-[280px] lg:h-[100px] xl:w-[330px] xl:h-[163px] 2xl:w-[370px] 2xl:h-[163px]  [@media(min-width:2000px)]:h-[19vh]  rounded-[10px] flex flex-col gap-[20px] md:gap-[12px] justify-evenly py-4 [@media(min-width:300px)_and_(max-width:410px)]:px-3 px-5 md:px-5 transition-all duration-500"
           >
             <img
               src={item.img}
               alt={item.name}
-              className="w-[13vw] h-[40%] md:w-[10vw] [@media(min-width:900px)_and_(max-width:1000px)]:w-[7vw] md:h-[7vh] lg:w-[7vw] lg:h-[8vh] xl:h-[45%] 2xl:w-[5vw] 2xl:h-[10vh] [@media(min-width:2000px)]:h-[7vh] [@media(min-width:2000px)]:w-[7vh]"
+              className="w-[30%] sm:w-[18%] h-[50%] md:w-[40%] lg:w-[30%] md:h-[45%] [@media(min-width:2000px)]:h-[7vh] [@media(min-width:2000px)]:w-[7vh]"
             />
-            <p className="[@media(min-width:300px)_and_(max-width:410px)]:text-[1.7rem] text-[1.8rem] md:text-[2rem] [@media(min-width:900px)_and_(max-width:1000px)]:text-[1rem] 2xl:text-[1.75rem] [@media(min-width:2000px)]:text-[2.7rem] lg:leading-9 industry-title">
+            <p className="[@media(min-width:300px)_and_(max-width:410px)]:text-[1.7rem] text-[1.8rem] md:text-[1.5rem] [@media(min-width:900px)_and_(max-width:1000px)]:text-[1rem]  xl:text-[1.75rem] [@media(min-width:2000px)]:text-[2.7rem] lg:leading-leading font-garotaSans font-normal text-[#F8F9FA]">
               {item.name}   
             </p>
           </motion.div>

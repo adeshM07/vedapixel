@@ -2,7 +2,7 @@ import React from 'react'
 
 const SectionWrapper = ({children}) => {
   return (
-   <section className='px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-30'>
+   <section className='px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40'>
         {children}
    </section>
   )
