@@ -101,7 +101,7 @@ const AboutPage = () => {
           name="description"
           content=""
         />
-        <link rel="canonical" href="https://vedapixel.com/about" />
+        <link rel="canonical" href="https://vedapixel-topaz.vercel.app/about" />
       </Helmet>
       <SectionWrapper>
         <div
