@@ -8,6 +8,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import toast from "react-hot-toast";
 import { motion, AnimatePresence } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 const ContactPage = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -435,6 +436,12 @@ const ContactPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Contact US | Vedapixel</title>
+
+        <meta name="description" content="" />
+        <link rel="canonical" href="https://vedapixel.com/contactus" />
+      </Helmet>
       <div
         ref={pageRef}
         className="contact-page-content  relative h-fit w-full pb-[40px] flex px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40"
@@ -461,12 +468,9 @@ const ContactPage = () => {
         </AnimatePresence>
 
         {/* ===== MAIN CONTENT ===== */}
-        <div className="flex flex-col   pt-[54px] w-full">
+        <div className="flex flex-col   pt-[119px] w-full">
           {/* Banner */}
-          <div
-            ref={bannerRef}
-            className="   w-full  flex justify-end"
-          >
+          <div ref={bannerRef} className="   w-full  flex justify-end">
             <AnimatePresence>
               {bannerVisible && (
                 <motion.img
@@ -487,7 +491,7 @@ const ContactPage = () => {
           </div>
 
           {/* Sections */}
-          <div className="flex flex-col gap-20 pl-0 sm:pl-[25vw] lg:pl-[30vw] 2xl:gap-[200px]  items-center sm:items-start">
+          <div className="flex flex-col gap-50 pl-0 sm:pl-[25vw] lg:pl-[30vw] 2xl:gap-[200px]  items-center sm:items-start">
             {/* === COLLABORATE SECTION === */}
             <section
               id="collaborate"
@@ -546,12 +550,16 @@ const ContactPage = () => {
                     ease: [0.25, 0.1, 0.25, 1],
                   }}
                 >
-                  <p className="contact-box-title text-[#C8C1C1] text-[clamp(0.9rem,2vw,1.5rem)] md:text-[clamp(0.9rem,1vw,1.5rem)] lg:text-[clamp(0.9rem,2vw,1.5rem)] text-center lg:text-left">
+                  <p className="contact-box-title text-[#BBABEB] text-[clamp(0.9rem,2vw,1.5rem)] md:text-[clamp(0.9rem,1vw,1.5rem)] lg:text-[clamp(0.9rem,2vw,1.5rem)] text-center lg:text-left">
                     Find Your Way Forward, we're here to support.
                   </p>
 
                   <form className="w-full flex flex-col gap-[clamp(18px,3vw,28px)] h-auto">
-                    <div className="flex flex-col md:flex-row flex-wrap justify-between gap-[clamp(15px,2vw,26px)]">
+                    <div
+                      className="flex flex-col md:flex-row flex-wrap justify-between  2xl:gap-x-[1.4rem]
+                xl:gap-x-[1.2rem]
+                gap-y-[1rem]"
+                    >
                       <input
                         type="text"
                         name="name"
@@ -559,7 +567,14 @@ const ContactPage = () => {
                         onChange={handleCollabChange}
                         placeholder="Name *"
                         className={`border  text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
-  rounded-[clamp(4px,1vw,10px)] w-[100%] md:w-[47%]`}
+  rounded-[clamp(4px,1vw,10px)] [@media(min-width:1280px)_and_(max-width:1281px)]:w-[48%]
+                  [@media(min-width:1280px)_and_(max-width:1281px)]:h-[50px]
+                  w-[100%] sm:w-[47%]  md:w-[48%] 
+                  h-[40px]
+                  md:h-[45px]
+                  lg:h-[47px]
+                  xl:h-[50px]
+                  2xl:h-[42px]`}
                       />
                       <input
                         type="text"
@@ -569,10 +584,24 @@ const ContactPage = () => {
                         onChange={handleCollabChange}
                         className="border border-[#989BA1] text-[#818181] bg-transparent 
                                    p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
-                                    md:w-[47%]  md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6.5vh,55px)] "
+                                    [@media(min-width:1280px)_and_(max-width:1281px)]:w-[48%]
+                  [@media(min-width:1280px)_and_(max-width:1281px)]:h-[50px]
+                  w-[100%] sm:w-[47%]  md:w-[48%] 
+                  h-[40px]
+                  md:h-[45px]
+                  lg:h-[47px]
+                  xl:h-[50px]
+                  2xl:h-[42px]"
                       />
                       <div
-                        className={`w-[100%] md:h-[clamp(35px,3vh,55px)] 2xl:h-[clamp(35px,6vh,55px)]   md:w-[47%]   
+                        className={`[@media(min-width:1280px)_and_(max-width:1281px)]:w-[48%]
+                  [@media(min-width:1280px)_and_(max-width:1281px)]:h-[50px]
+                  w-[100%] sm:w-[47%]  md:w-[48%] 
+                  h-[40px]
+                  md:h-[45px]
+                  lg:h-[47px]
+                  xl:h-[50px]
+                  2xl:h-[42px]  
                          border border-[#989BA1] rounded-md md:rounded-[10px]
                         `}
                       >
@@ -583,7 +612,6 @@ const ContactPage = () => {
                             setCollabForm({
                               ...collabForm,
                               contact: value,
-                              countryCode: dialCode,
                             });
                           }}
                           inputProps={{
@@ -602,13 +630,17 @@ const ContactPage = () => {
                             color: "#818181",
                             fontSize: "clamp(0.8rem, 1vw, 1rem)",
                             height:
-                              windowWidth <= 410
-                                ? "5.6vh"
+                              windowWidth <= 400
+                                ? "39px"
                                 : windowWidth < 640
-                                ? "4.55vh"
+                                ? "39px"
                                 : windowWidth <= 1024
-                                ? "3vh"
-                                : "5.9vh",
+                                ? "39px"
+                                : windowWidth <= 1280
+                                ? "47px"
+                                : windowWidth <= 1560
+                                ? "41px"
+                                : "42px",
                             paddingLeft: "50px",
                           }}
                           buttonStyle={{
@@ -638,7 +670,14 @@ const ContactPage = () => {
                         placeholder="Email Id *"
                         className={`border 
                             border-[#989BA1] text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
-  rounded-[clamp(4px,1vw,10px)] w-[100%] md:w-[47%]`}
+  rounded-[clamp(4px,1vw,10px)] [@media(min-width:1280px)_and_(max-width:1281px)]:w-[48%]
+                  [@media(min-width:1280px)_and_(max-width:1281px)]:h-[50px]
+                  w-[100%] sm:w-[47%]  md:w-[48%] 
+                  h-[40px]
+                  md:h-[45px]
+                  lg:h-[47px]
+                  xl:h-[50px]
+                  2xl:h-[42px]`}
                       />
                     </div>
 
@@ -705,7 +744,7 @@ const ContactPage = () => {
 
               <div className="relative flex justify-center items-start w-full">
                 <motion.div
-                  className="w-[90vw] sm:w-[80%] md:w-[70%] 2xl:w-[50vw]
+                  className="w-full
                              border-2 border-white
                              p-[clamp(20px,3vw,40px)]
                              rounded-xl
@@ -729,7 +768,7 @@ const ContactPage = () => {
                     ease: [0.25, 0.1, 0.25, 1],
                   }}
                 >
-                  <p className="contact-box-title text-[#C8C1C1] md:text-[clamp(0.9rem,1vw,1.5rem)] lg:text-[clamp(0.9rem,2vw,1.5rem)] text-center lg:text-left">
+                  <p className="contact-box-title text-[#BBABEB] md:text-[clamp(0.9rem,1vw,1.5rem)] lg:text-[clamp(0.9rem,2vw,1.5rem)] text-center lg:text-left">
                     Tell us about yourself
                   </p>
 
@@ -743,7 +782,7 @@ const ContactPage = () => {
                         onChange={handleCareerChange}
                         className={`border 
                             border-[#989BA1] text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
-  rounded-[clamp(4px,1vw,10px)] w-[100%] md:w-[47%] 2xl:w-[21vw]`}
+  rounded-[clamp(4px,1vw,10px)] w-[100%] md:w-[47%] `}
                       />
                       <input
                         type="email"
@@ -753,18 +792,28 @@ const ContactPage = () => {
                         placeholder="Email Id *"
                         className={`border 
                             border-[#989BA1] text-[#818181] bg-transparent p-[clamp(6px,1vw,10px)]
-  rounded-md md:rounded-[10px] w-[100%] md:w-[47%] 2xl:w-[21vw]`}
+  rounded-md md:rounded-[10px] w-[100%] sm:w-[47%]  md:w-[47%] 
+                  h-[40px]
+                  md:h-[45px]
+                  lg:h-[47px]
+                  xl:h-[50px]
+                  2xl:h-[42px]`}
                       />
-                      <div className="w-[100%] md:w-[47%] 2xl:w-[21vw]">
+                      <div
+                        className="w-[100%] sm:w-[47%]  md:w-[47%]
+                  h-[40px]
+                  md:h-[45px]
+                  lg:h-[47px]
+                  xl:h-[50px]
+                  2xl:h-[42px]"
+                      >
                         <PhoneInput
                           country={"in"} // 🇮🇳 Default to India
                           value={careerForm.contact}
                           onChange={(value, country) => {
-                            
                             setCareerForm({
                               ...careerForm,
                               contact: value,
-                              countryCode: dialCode,
                             });
                           }}
                           enableSearch={false}
@@ -778,17 +827,21 @@ const ContactPage = () => {
                             width: "100%",
                             background: "transparent",
                             border: "1px solid #989BA1",
-                           borderRadius: windowWidth <= 500 ? "0px" : "10px",
+                            borderRadius: windowWidth <= 500 ? "0px" : "10px",
                             color: "#818181",
                             fontSize: "clamp(0.8rem, 1vw, 1rem)",
                             height:
-                              windowWidth <= 410
-                                ? "5vh"
+                              windowWidth <= 400
+                                ? "39px"
                                 : windowWidth < 640
-                                ? "4.5vh"
+                                ? "39px"
                                 : windowWidth <= 1024
-                                ? "3vh"
-                                : "6vh",
+                                ? "39px"
+                                : windowWidth <= 1280
+                                ? "47px"
+                                : windowWidth <= 1560
+                                ? "44px"
+                                : "42px",
 
                             paddingLeft: "50px",
                           }}
@@ -812,7 +865,14 @@ const ContactPage = () => {
                         />
                       </div>
 
-                      <div className="relative w-[100%]  md:w-[47%] 2xl:w-[21vw]">
+                      <div
+                        className="relative w-[100%] sm:w-[47%]  md:w-[47%]
+                  h-[40px]
+                  md:h-[45px]
+                  lg:h-[47px]
+                  xl:h-[50px]
+                  2xl:h-[42px]"
+                      >
                         <input
                           type="file"
                           onChange={handleCareerFile}
@@ -828,7 +888,8 @@ const ContactPage = () => {
                           className={`flex items-center gap-2 border 
  border-[#989BA1]
     bg-transparent p-[clamp(6px,1vw,10px)] rounded-[clamp(4px,1vw,10px)]
-    w-full md:w-[100%] lg:w-[21vw] 2xl:w-[21vw]`}
+    w-[100%] 
+                  `}
                           style={{
                             minWidth: 0, // ✅ ensures flex text can shrink properly
                           }}

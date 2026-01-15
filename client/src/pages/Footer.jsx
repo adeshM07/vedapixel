@@ -69,10 +69,10 @@ const Footer = () => {
             </Link>
             {/* this too  */}
             <div className="">
-              <p className="footer-company-name text-white text-[clamp(1.4rem,4vw,2.3rem)] md:text-[clamp(1.4rem,2vw,2.3rem)] 2xl:text-[clamp(1.4rem,4vw,2.3rem)] font-semibold leading-tight 2xl:leading-10">
+              <p className="footer-company-name text-white text-[clamp(1.4rem,4vw,2.3rem)] md:text-[clamp(1.4rem,2vw,2.3rem)] 2xl:text-[clamp(1.4rem,4vw,2.3rem)] font-semibold leading-tight ">
                 VedaPixel
               </p>
-              <p className="footer-company-desc text-white text-[clamp(0.6rem,2vw,1rem)] md:text-[clamp(0.7rem,1.2vw,1rem)] 2xl:text-[50%]">
+              <p className="font-poppins text-white text-[clamp(0.6rem,2vw,1rem)] md:text-[clamp(0.7rem,1.2vw,1rem)] xl:text-[0.8rem]">
                 Innovation in every Pixel
               </p>
             </div>
@@ -113,7 +113,7 @@ const Footer = () => {
               </div>
                <p className="text-[#F8F9FA] flex gap-3 place-items-center text-[clamp(0.6rem,2vw,0.9rem)] md:text-[clamp(0.6rem,1.2vw,0.9rem)] 2xl:text-[clamp(0.6rem,2vw,0.9rem)]">
                 <Copyright size={12} className="text-[#BBABEB]" />
-                 2025 VedaPixel Tech Solution Pvt. Ltd. All Rights
+                 2026 VedaPixel Tech Solution Pvt. Ltd. All Rights
                 Reserved.
               </p>
             </div>}
@@ -226,7 +226,7 @@ const Footer = () => {
               </div>
               {isMobile? <p className="flex gap-2 place-items-center text-[#F8F9FA] text-[clamp(0.6rem,2vw,0.9rem)] md:text-[clamp(0.6rem,1.2vw,0.9rem)] 2xl:text-[clamp(0.6rem,2vw,0.9rem)]">
                 <Copyright size={14} className="text-[#BBABEB]" />
-                  2025 VedaPixel Tech Solution Pvt. Ltd. All Rights
+                  2026 VedaPixel Tech Solution Pvt. Ltd. All Rights
                 Reserved.
               </p>:false}
 

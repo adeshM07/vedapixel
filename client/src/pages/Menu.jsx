@@ -150,7 +150,7 @@ const Menu = () => {
                 <p
                   className={`${
                     isHomeActive ? "text-purple-300" : "text-white"
-                  } font-poppins font-normal md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
+                  } font-poppins  md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
               md:text-[clamp(14px,1.4vw,22px)] lg:text-[22px] xl:text-[24px] cursor-pointer
               `}
                 >
@@ -162,7 +162,7 @@ const Menu = () => {
                 <p
                   className={`${
                     isAboutActive ? "text-purple-300" : "text-white"
-                  }  font-poppins font-normal md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
+                  }  font-poppins  md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
               md:text-[clamp(14px,1.4vw,22px)] lg:text-[22px] xl:text-[24px] cursor-pointer
               `}
                 >
@@ -173,7 +173,7 @@ const Menu = () => {
                 <p
                   className={`${
                     isServicesActive ? "text-purple-300" : "text-white"
-                  } font-poppins font-normal md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
+                  } font-poppins  md:px-[clamp(4px,0.6vw,8px)] md:py-[6px] text-[12px]
               md:text-[clamp(14px,1.4vw,22px)] lg:text-[22px] xl:text-[24px] cursor-pointer
               `}
                 >

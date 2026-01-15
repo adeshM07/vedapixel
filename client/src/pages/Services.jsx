@@ -15,6 +15,7 @@ import pic9 from "../assets/cloud.png";
 import pic10 from "../assets/maintenance.png";
 import pic11 from "../assets/blockchain.png";
 import pic12 from "../assets/iot.png";
+import { Helmet } from "react-helmet";
 
 const Services = () => {
   const controls = useAnimation();
@@ -90,7 +91,7 @@ const Services = () => {
   };
   const services = [
     {
-      title: "Mobile Applications",
+      title: "Mobile Application Development",
       desc: "Crafting seamless iOS and Android apps that engage users.",
       img: pic1,
       link: "mobile",
@@ -164,7 +165,17 @@ const Services = () => {
   ];
   return (
     <>
-      <div className=" flex flex-col gap-10 mt-20 md:mt-45 lg:mt-40 px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40">
+    <Helmet>
+            <title>Services | Vedapixel
+            </title>
+    
+            <meta
+              name="description"
+              content=""
+            />
+            <link rel="canonical" href="https://vedapixel.com/services" />
+    </Helmet>
+      <div className=" flex flex-col gap-5 mt-30 md:mt-45 lg:mt-[192px] px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40">
         <p className="font-garotaSans font-normal   w-full  text-4xl md:text-[3rem] lg:text-[3rem]  text-white">
           Our Services
         </p>
@@ -210,6 +221,7 @@ const Services = () => {
                   }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
                 >
+                  
                   <motion.img
                     src={service.img}
                     alt={service.title}
@@ -232,7 +244,7 @@ const Services = () => {
           ))}
         </motion.div>
 
-        <div className="mt-[80px]  mx-auto flex w-full">
+        <div className="mt-[40px]  mx-auto flex w-full">
           <p className="text-[#F8F9FA]  w-full text-[1.2rem] sm:text-[1.4rem] md:text-[1.6rem] lg:text-[2.2rem] xl:text-[2.6rem] 2xl:text-[3rem]  font-garotaSans font-normal">
             Have any questions?
             <Link to="/faqs">

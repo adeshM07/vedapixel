@@ -4,11 +4,12 @@ import "../CSS/Body.css";
 import { motion, AnimatePresence } from "framer-motion";
 import InfiniteScrollNodes from "./InfiniteScrollNodes";
 import InfiniteScrollNodes2 from "./InfiniteScrollNodes2";
+import { Helmet } from "react-helmet";
 import InfiniteScrollNodes3 from "./InfiniteScrollNodes3";
 import profileImg from "../assets/profileImg.png";
-import adesh from '../assets/adesh.png'
-import susmita from '../assets/adesh.png'
-import shruti from '../assets/adesh.png'
+import adesh from "../assets/adesh.png";
+import susmita from "../assets/adesh.png";
+import shruti from "../assets/adesh.png";
 import { Link } from "react-router-dom";
 import SectionWrapper from "../components/common/SectionWrapper";
 
@@ -109,7 +110,7 @@ const Body = () => {
   const [aimTitleRef, aimVisible] = useSmoothVisibility(120, 600);
   const [servicesTitleRef, servicesVisible] = useSmoothVisibility(120, 600);
   const [teamTitleRef, teamVisible] = useSmoothVisibility(120, 600);
- 
+
   useEffect(() => {
     const sections = [
       { id: "about", ref: aboutRef },
@@ -130,10 +131,10 @@ const Body = () => {
         if (!element) return;
         const rect = element.getBoundingClientRect();
 
-       const visibleHeight =
+        const visibleHeight =
           Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
 
-      if (
+        if (
           visibleHeight > maxVisibleHeight &&
           visibleHeight > viewportHeight * 0.15
         ) {
@@ -263,7 +264,7 @@ const Body = () => {
             .getElementById(id)
             ?.scrollIntoView({ behavior: "smooth", block: "start" })
         }
-        className="font-poppins   relative cursor-pointer pl-3 lg:pl-1 md:text-[18px] lg:text-[24px] 2xl:text-[28px] flex items-center transition-all duration-300"
+        className="font-poppins   relative cursor-pointer pl-3 lg:pl-1 md:text-[18px] lg:text-[24px] 2xl:text-[24px] flex items-center transition-all duration-300"
         animate={{
           color: isActive ? "#b19cd9" : "#d1d5db",
           x: isActive ? 4 : 0,
@@ -434,6 +435,17 @@ const Body = () => {
   return (
     <>
       {/* ✅ Team Popup */}
+       <Helmet>
+        <title>Home|Vedapixel
+        </title>
+
+        <meta
+          name="description"
+          content=""
+        />
+        <link rel="canonical" href="https://vedapixel.com" />
+      </Helmet>
+      <SectionWrapper></SectionWrapper>
       <AnimatePresence>
         {showTeamPopup && (
           <motion.div
@@ -469,7 +481,11 @@ const Body = () => {
 
               <div className="flex flex-col  sm:flex-row sm:flex-wrap justify-center gap-16 sm:gap-8 lg:gap-24 px-2 sm:px-4 pb-10">
                 {[
-                  { name: "Sunil MB", role: "Co-Founder - MD / CEO",img:"adesh" },
+                  {
+                    name: "Sunil MB",
+                    role: "Co-Founder - MD / CEO",
+                    img: "adesh",
+                  },
                   { name: "Nithin MB", role: "Co-Founder - MD" },
                   { name: "Nisarga M", role: "Head of Operations" },
                   { name: "Abhishek", role: "HR" },
@@ -565,9 +581,9 @@ const Body = () => {
                 />
               </motion.p>
             )}
-            <p className="text-white process-nosize   [@media(min-width:300px)_and_(max-width:410px)]:text-[19px]  text-[20px]   md:text-[28px] lg:text-[2.2rem] xl:text-[2.7rem] 2xl:text-[3rem] leading-tight">
-              We bridge innovation and execution with <br /> user-centric,
-              future-ready systems that <br />
+            <p className="text-white font-garotaSans font-normal   [@media(min-width:300px)_and_(max-width:410px)]:text-[19px]  text-[24px]   md:text-[28px] lg:text-[2.2rem] xl:text-[2.7rem] 2xl:text-[3rem] leading-tight">
+              We bridge innovation and execution with <br className="hidden sm:block" /> user-centric,
+              future-ready systems that <br className="hidden sm:block" />
               <span
                 id="tag"
                 className=" relative  inline-block align-baseline text-[#b19cd9]  overflow-hidden"
@@ -594,7 +610,7 @@ const Body = () => {
                 </AnimatePresence>
               </span>
             </p>
-            <p className="about-card-desc [@media(min-width:300px)_and_(max-width:410px)]:text-[10px] text-[#C8C1C1] text-[12px] md:text-[16px] lg:text-[0.9rem]  2xl:text-[1.5rem]">
+            <p className="about-card-desc [@media(min-width:300px)_and_(max-width:410px)]:text-[10px] text-[#C8C1C1] text-[15px] md:text-[16px] lg:text-[0.9rem]  2xl:text-[1.5rem]">
               We offer future-ready solutions to streamline your business, drive
               <br className="hidden sm:block" />
               growth, and put your processes in place. Explore our range of
@@ -766,7 +782,6 @@ const Body = () => {
                     y: 0,
                     scale: 1,
                   }}
-                
                   className="relative my-[60px] text-center text-[clamp(1.3rem,4vw,2rem)] font-semibold
       bg-gradient-to-r from-[#C7B9F6] via-[#A699D9] to-[#6A6185]
       bg-clip-text text-transparent inline-block"
@@ -785,7 +800,6 @@ const Body = () => {
                   <motion.div
                     key={step.id}
                     className={`process-step flex flex-col gap-2 border border-[#2b2b2b] p-4 rounded-xl bg-[#101820]/40 backdrop-blur-md transition-all duration-500 `}
-                   
                   >
                     <p
                       className={`process-title text-[1.4rem] font-semibold transition-all duration-500 ${
@@ -833,7 +847,7 @@ const Body = () => {
                     >
                       <div className=" rounded-2xl p-3 sm:p-4 md:p-6 w-full md:w-[100%] transition-all duration-500">
                         <motion.h3
-                          className="process-title font-garotaSans [@media(min-width:2000px)]:text-[3rem]   text-[#C8C1C1] text-[1.1rem] sm:text-[1.3rem] md:text-[1.5rem] lg:text-[1.7rem] xl:text-[2rem] font-normal mb-2"
+                          className="process-title tracking-[1px] text-nowrap font-garotaSans [@media(min-width:2000px)]:text-[3rem]   text-[#C8C1C1] text-[1.1rem] sm:text-[1.3rem] md:text-[1.5rem] lg:text-[1.7rem] xl:text-[2rem] font-normal mb-2"
                           initial={{ opacity: 0, y: 20 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -894,9 +908,9 @@ const Body = () => {
                   bg-gradient-to-r from-[#C7B9F6] via-[#A699D9] to-[#6A6185]
                   bg-clip-text text-transparent inline-block"
               >
-                Our Team
+                Ready to Begin
                 <motion.span
-                  className="absolute left-1/2 -translate-x-1/2 bottom-[-5px] h-[2px] w-[25%]
+                  className="absolute left-1/2 -translate-x-1/2 bottom-[-5px] h-[2px] w-[35%]
                  bg-gradient-to-r from-[#C7B9F6] via-[#A699D9] to-[#6A6185] rounded-full"
                   initial={{ scaleX: 0, opacity: 0 }}
                   whileInView={{ scaleX: 1, opacity: 1 }}
@@ -906,12 +920,13 @@ const Body = () => {
               </motion.p>
             )}
 
-            <div className="relative mb-[30px] w-full  md:w-[50vw]  mx-auto">
+            {/* <div className="relative mb-[30px] w-full  md:w-[50vw]  mx-auto">
               <p className="begin-title text-[9vw] md:text-[clamp(1.8rem,4vw,4rem)] font-extrabold bg-gradient-to-b from-[#C7B9F6] to-[#6A6185] bg-clip-text text-transparent leading-[1] absolute top-0 left-0 z-20">
                 Hello!
               </p>
               <div
-                className="relative border border-white p-[clamp(1.5rem,3vw,2.3rem)] mt-[clamp(20px,3vw,30px)] rounded-tr-[60px] rounded-b-[60px] sm:rounded-tr-[70px] sm:rounded-b-[70px] md:rounded-tr-[80px] md:rounded-b-[80px] shadow-xl transition-all duration-300"
+              id="helloSection"
+                className=" relative  p-[clamp(1.5rem,3vw,2.3rem)] mt-[clamp(20px,3vw,30px)] rounded-tr-[60px] rounded-b-[60px] sm:rounded-tr-[70px] sm:rounded-b-[70px] md:rounded-tr-[80px] md:rounded-b-[80px] shadow-xl transition-all duration-300"
                 style={{
                   background:
                     "linear-gradient(139.47deg, rgba(47, 54, 64, 0.8) -45.69%, rgba(16, 24, 32, 0.8) 54.7%)",
@@ -923,8 +938,7 @@ const Body = () => {
               >
                 <div className="flex flex-col justify-center items-start h-full space-y-3">
                   <p className="begin-card-title text-[clamp(1.3rem,2.5vw,3rem)] text-white font-semibold leading-tight">
-                    we are experienced innovators <br /> building scalable
-                    digital platforms
+                    we are experienced innovators building scalable digital platforms
                   </p>
 
                   <p className="begin-card-desc text-[#C8C1C1] text-[clamp(0.9rem,1.8vw,1.5rem)]">
@@ -952,6 +966,50 @@ const Body = () => {
 </button>
                   </div>
                 </div>
+              </div>
+            </div> */}
+
+            <div id="helloSections" className="relative pt-5 w-[95%] [@media(min-width:300px)_and_(max-width:410px)]:h-[155px] h-[180px] md:w-[490px] md:-[200px] lg:w-[620px] lg:h-[300px] xl:w-[763px] xl:h-[347px]">
+              <div
+                className=" [@media(min-width:300px)_and_(max-width:400px)]:py-2 py-4 px-[clamp(1.5rem,3vw,2.3rem)]  sm:p-[clamp(1.5rem,3vw,2.3rem)] sm:mt-[clamp(20px,3vw,30px)]   transition-all duration-300"
+                
+              >
+              <div className=" flex flex-col justify-center sm:pl-5  h-full space-y-[10px] sm:space-y-3 ">
+                <p className="font-garotaSans sm:text-[clamp(1.3rem,2.5vw,3rem)] xl:text-[48px] text-white font-normal leading-tight">
+                  we are experienced innovators building scalable digital
+                  platforms
+                </p>
+
+                <p className="begin-card-desc text-[#C8C1C1] text-[0.7rem] sm:text-[clamp(0.9rem,1.8vw,1.5rem)]">
+                  Driving enterprise & consumer innovation
+                </p>
+
+                <div className="relative inline-block">
+                  <button
+                    disabled={isDisabled}
+                    onClick={
+                      isDisabled ? () => setShowTeamPopup(true) : undefined
+                    }
+                    className={`
+    rotating-btn relative font-garota
+    text-[12px] md:text-[16px]
+    rounded-md w-[25vw] h-[4.5vh]
+    md:w-[14vw] md:h-[4vh]
+    lg:h-[clamp(50px,6vh,55px)]
+    lg:w-[clamp(110px,10vw,160px)]
+    overflow-hidden transition-all
+
+    ${
+      isDisabled
+        ? "bg-gray-400 text-gray-600 cursor-not-allowed opacity-60"
+        : "text-[#b19cd9] cursor-pointer hover:from-[#6A6185] hover:to-[#B19CD9] hover:text-white hover:shadow-[0_0_15px_rgba(177,156,217,0.4)] hover:-translate-y-1"
+    }
+  `}
+                  >
+                    Our Team
+                  </button>
+                </div>
+              </div>
               </div>
             </div>
           </section>

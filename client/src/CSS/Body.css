@@ -5,6 +5,30 @@
   font-style: normal;
 }
 
+#helloSection::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* top:0 right:0 bottom:0 left:0 */
+  
+  background-image: url('../assets/helloBG.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: -1; /* put behind content */
+  opacity: 0.15; /* optional */
+  border-radius: inherit; /* match rounded corners */
+}
+
+#helloSections::before{
+content: "";
+  position: absolute;
+  inset: 0; /* top:0 right:0 bottom:0 left:0 */
+  
+  background-image: url('../assets/helloBG.png');
+  background-size: cover;
+}
+
 .body-nav {
   font-family: "Poppins";
   font-weight: 400;

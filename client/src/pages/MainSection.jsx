@@ -21,7 +21,7 @@ const MainSection = () => {
             className="   flex flex-col [@media(min-width:300px)_and_(max-width:410px)]:gap-0 gap-7"
           >
             <p
-              className=" md:pl-0 text-[2.4rem] leading-12 md:text-[3.5rem]  font-bold industry-title text-transparent bg-gradient-to-b from-[#BBABEB] md:leading-16 to-[#6A6185] bg-clip-text inline-block"
+              className=" md:pl-0 text-[2.4rem] leading-12 md:text-[4rem]  font-bold font-garotaSans text-transparent bg-gradient-to-b from-[#BBABEB] md:leading-16 to-[#6A6185] bg-clip-text inline-block"
               style={{
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",

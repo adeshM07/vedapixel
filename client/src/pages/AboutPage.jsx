@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import aboutImg from "../assets/aboutEntireSectionImg.png";
 import SectionWrapper from "../components/common/SectionWrapper";
+import { Helmet } from "react-helmet";
 
 const AboutPage = () => {
   // useEffect(() => {
@@ -92,13 +93,23 @@ const AboutPage = () => {
 
   return (
     <>
+     <Helmet>
+        <title>About | Vedapixel
+        </title>
+
+        <meta
+          name="description"
+          content=""
+        />
+        <link rel="canonical" href="https://vedapixel.com/about" />
+      </Helmet>
       <SectionWrapper>
         <div
           id="about"
-          className="  flex mt-[100px] flex-col gap-20 relative overflow-hidden"
+          className="  flex mt-[192px] flex-col gap-20 relative overflow-hidden"
         >
           {/* --- Top Text Section --- */}
-          <div className="w-full  h-[auto] md:h-[40vh] lg:h-fit   ">
+          <div className="w-full  h-[auto] md:h-[40vh] lg:h-auto flex flex-col   gap-[20px] ">
             <motion.p
               className="font-garotaSans font-normal  text-[2rem] md:text-[3rem] text-white "
               variants={headingVariant}

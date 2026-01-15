@@ -1,16 +1,30 @@
 import React, { useEffect } from "react";
 import "../CSS/ServiceInfoPage.css";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "../CSS/Body.css";
 import up from "../assets/upwards.png";
 import down from "../assets/downwards.png";
+import { ChevronUp, ChevronDown } from "lucide-react";
 
 const ServiceInfoPage = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [showFAQ, setShowFAQ] = useState(false);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start({
+      x: ["0%", "-50%"],
+      transition: {
+        ease: "linear",
+        duration: 20,
+        repeat: Infinity,
+      },
+    });
+  }, []);
 
   useEffect(() => {
     const checkScreenSize = () => setIsMobile(window.innerWidth < 1024);
@@ -39,9 +53,9 @@ const ServiceInfoPage = () => {
   const [openIndex, setOpenIndex] = useState(null);
   let serviceInfo = {
     mobile: {
-      title: "Mobile Application",
+      title: "Mobile Application Development",
       intro:
-        "At Vedapixel Tech Solution Pvt. Ltd., we design and develop high-performance mobile applications that help businesses connect, engage, and grow. Whether you need a customer-facing app, enterprise mobility solution, or innovative startup product — we deliver seamless mobile experiences across iOS, Android, and cross-platform environments. Our goal is simple — to craft apps that blend functionality, performance, and stunning design to give your users a reason to keep coming back.",
+        "We design and develop scalable mobile applications that combine performance, usability, and reliability to support long-term business growth across Android, iOS, and cross-platform environments.",
       technologies: [
         "Swift",
         "Kotlin",
@@ -64,24 +78,24 @@ const ServiceInfoPage = () => {
       buttonText: "Hire App Developers",
       expertise: [
         {
-          title: "Native Mobile Apps",
-          desc: "Built for performance, security, and native features using Swift, Kotlin, and Java.",
+          title: "Native Mobile Applications",
+          desc: "High-performance Android and iOS apps built for platform stability.",
         },
         {
-          title: "Cross-Platform Apps",
-          desc: "Unified codebase for Android & iOS using Flutter and React Native.",
+          title: "Cross-Platform Mobile Apps",
+          desc: "Single-codebase apps ensuring consistent experience across devices.",
         },
         {
           title: "Enterprise Mobility Solutions",
-          desc: "Secure apps for internal operations, analytics, and team collaboration.",
+          desc: "Secure mobile systems supporting internal business workflows.",
         },
         {
-          title: "On-Demand Apps",
-          desc: "Real-time service platforms for food delivery, logistics, ridesharing, and more.",
+          title: "On-Demand Applications",
+          desc: "Real-time apps built for services, bookings, and marketplaces.",
         },
         {
-          title: "UI/UX-Centric Design",
-          desc: "Smooth interfaces and intuitive workflows built for user engagement.",
+          title: "UI/UX-Focused App Design",
+          desc: "User-centric designs that improve engagement and usability.",
         },
       ],
       whyUs: [
@@ -93,73 +107,66 @@ const ServiceInfoPage = () => {
       ],
       process: [
         {
-          title: "Discovery & Planning",
-          desc: "Analyze goals, user needs, and project requirements.",
+          title: "Discovery & Research",
+          desc: "Understanding business goals, users, and technical feasibility.",
         },
         {
           title: "UI/UX Design",
-          desc: "Build interactive, user-friendly, and visually consistent designs.",
+          desc: "Designing intuitive and consistent mobile interfaces.",
         },
         {
-          title: "Prototyping & Validation",
-          desc: "Create app prototypes to validate flow and experience.",
+          title: "Architecture Planning",
+          desc: "Defining scalable and secure application structure.",
         },
         {
-          title: "Agile Development",
-          desc: "Develop in iterative sprints for flexibility and transparency.",
+          title: "Development & Integration",
+          desc: "Building features and integrating third-party services.",
         },
         {
-          title: "Testing & QA",
-          desc: "Perform functional, performance, and security testing.",
+          title: "Testing & Optimization",
+          desc: "Ensuring performance across devices and OS versions.",
         },
         {
           title: "Deployment & Support",
-          desc: "Launch, monitor, and maintain for long-term success.",
+          desc: "Launching the app with continuous updates and monitoring.",
         },
       ],
       faq: [
         {
-          question: "Do you develop both Android and iOS apps?",
+          question: "What type of mobile apps do you build?",
           answer:
-            "Yes. We build native apps for both platforms and also cross-platform apps using Flutter or React Native.",
+            "We build consumer apps, enterprise apps, and on-demand platforms.",
         },
         {
-          question: "Can you upgrade or maintain our existing app?",
+          question: "How do you ensure app scalability?",
           answer:
-            "Absolutely. We handle app modernization, UI redesign, and feature updates for legacy apps.",
+            "We design architecture that supports future growth and features.",
         },
         {
-          question: "How long does mobile app development take?",
+          question: "Can you integrate payment gateways and APIs?",
           answer:
-            "A standard app can take 6–10 weeks; complex solutions may require 3–6 months, depending on features.",
+            "Yes, we integrate payments, maps, analytics, and cloud services.",
         },
         {
-          question: "Will my app support the latest OS updates?",
-          answer:
-            "Yes, we ensure full compatibility with the latest Android and iOS versions during every release.",
+          question: "Do you manage app store submissions?",
+          answer: "We handle publishing, compliance, and updates.",
         },
         {
-          question: "Do you help with app store deployment?",
+          question: "What support is provided after launch?",
           answer:
-            "Yes, we manage complete app store submission, compliance, and optimization processes.",
+            "Ongoing maintenance, performance monitoring, and enhancements.",
         },
         {
-          question: "Can you integrate third-party APIs or payment gateways?",
-          answer:
-            "Yes, we integrate APIs for payments, analytics, maps, and social logins seamlessly.",
-        },
-        {
-          question: "Do you provide post-launch maintenance?",
-          answer:
-            "Definitely. We offer continuous monitoring, updates, and scalability improvements.",
+          question: "Can you improve an existing app?",
+          answer: "We audit, optimize, and extend existing applications.",
         },
       ],
     },
 
     web: {
-      title: "Web Application",
+      title: "Web Development",
       intro:
-        "We develop dynamic, responsive, and scalable web applications tailored to your business objectives. From e-commerce to complex SaaS platforms, we ensure seamless experiences across browsers and devices.",
+        "We build secure and scalable web applications that support digital operations, automation, and customer engagement.",
       technologies: [
         "React.js",
         "Next.js",
@@ -180,24 +187,24 @@ const ServiceInfoPage = () => {
       buttonText: "Hire Web Developers",
       expertise: [
         {
-          title: "Custom Web Apps",
-          desc: "Built for flexibility, scalability, and performance.",
+          title: "Custom Web Applications",
+          desc: "Tailored web solutions aligned with business needs.",
         },
         {
-          title: "E-Commerce Platforms",
-          desc: "Feature-rich online stores with secure payment gateways.",
+          title: "Responsive Interface Design",
+          desc: "Optimized layouts for all screen sizes.",
         },
         {
-          title: "SaaS Development",
-          desc: "Subscription-based web applications with modular architectures.",
+          title: "Backend & API Systems",
+          desc: "Robust backend services enabling secure data flow.",
         },
         {
-          title: "Enterprise Portals",
-          desc: "Centralized platforms for business workflows and analytics.",
+          title: "Enterprise Web Platforms",
+          desc: "Web systems designed for high-usage environments.",
         },
         {
-          title: "PWA Development",
-          desc: "Fast, installable Progressive Web Apps for modern experiences.",
+          title: "Performance Optimization",
+          desc: "Improving speed, stability, and efficiency.",
         },
       ],
       whyUs: [
@@ -210,78 +217,62 @@ const ServiceInfoPage = () => {
       process: [
         {
           title: "Requirement Analysis",
-          desc: "Identify business needs and project goals.",
+          desc: "Understanding functional and technical requirements.",
         },
         {
           title: "UI/UX Design",
-          desc: "Create interactive prototypes and wireframes.",
+          desc: "Creating responsive and user-friendly layouts.",
+        },
+        {
+          title: "Architecture Planning",
+          desc: "Structuring backend systems and integrations.",
         },
         {
           title: "Development",
-          desc: "Implement front-end and back-end architecture.",
+          desc: "Implementing frontend and backend components.",
         },
         {
-          title: "Testing",
-          desc: "Functional, usability, and security checks.",
+          title: "Testing & Validation",
+          desc: "Verifying security, performance, and compatibility.",
         },
         {
-          title: "Deployment",
-          desc: "Launch on preferred hosting environment.",
-        },
-        {
-          title: "Maintenance",
-          desc: "Support, updates, and feature enhancements.",
+          title: "Deployment & Support",
+          desc: "Launching and maintaining the web application.",
         },
       ],
       faq: [
         {
-          question: " What types of web solutions does Vedapixel offer?",
-          answer:
-            "We develop a wide range of web solutions — from corporate websites and web applications to enterprise systems, dashboards, and industry-specific platforms across all sectors.",
+          question: "Do you build dynamic web applications?",
+          answer: "Yes, we specialize in full-featured web applications.",
         },
         {
-          question: "What technologies do you use for web development?",
-          answer:
-            "Our team works with React.js, Angular, Vue.js, Node.js, Python (Django), PHP (Laravel), and .NET Core — along with MySQL, MongoDB, and Firebase for databases.",
+          question: "Can web apps integrate with existing systems?",
+          answer: "We support CRM, ERP, and third-party integrations.",
         },
         {
-          question: " Can you redesign or upgrade an existing website?",
-          answer:
-            "Yes, we specialize in website redesigns, performance optimization, and technology migration to modern frameworks without disrupting your existing operations.",
+          question: "How is security handled?",
+          answer: "Security is implemented at code and infrastructure levels.",
         },
         {
-          question: "How long does it take to build a website or web app?",
+          question: "Are web apps SEO-friendly?",
           answer:
-            "It depends on complexity — a basic website may take 3–5 weeks, while advanced web apps or portals may take 2–4 months. We provide clear timelines before development starts.",
+            "Technical SEO best practices are followed during development.",
         },
         {
-          question: "Will my website be mobile-friendly and SEO-optimized?",
-          answer:
-            "Absolutely. We design responsive, mobile-first, and SEO-ready websites to ensure high performance across devices and better visibility on search engines.",
+          question: "Can the application handle high traffic?",
+          answer: "Our systems are designed to scale with demand.",
         },
         {
-          question: "Do you provide hosting and domain services?",
-          answer:
-            "While we primarily focus on development, we can assist with hosting setup, server deployment, and domain configuration through trusted cloud providers.",
-        },
-        {
-          question: "Can you integrate third-party APIs or systems?",
-          answer:
-            "Yes, we can integrate CRMs, ERPs, payment systems, analytics tools, AI models, or any thirdparty APIs required for your business operations.",
-        },
-        {
-          question:
-            "Do you offer post-launch support for websites and web apps?",
-          answer:
-            "Yes. We provide long-term maintenance, updates, monitoring, and technical support to ensure consistent uptime, security, and scalability.",
+          question: "Do you offer post-launch enhancements?",
+          answer: "Yes, continuous improvements and updates are available.",
         },
       ],
     },
 
     game: {
-      title: "Game Development",
+      title: "Gaming App Development",
       intro:
-        "We build immersive and interactive gaming experiences for mobile, desktop, and web platforms. From concept to deployment, our team designs games that captivate and engage users.",
+        "We develop engaging gaming applications focused on performance, gameplay mechanics, and long-term user retention.",
       technologies: [
         "Unity",
         "Unreal Engine",
@@ -296,24 +287,24 @@ const ServiceInfoPage = () => {
       buttonText: "Hire Game Developers",
       expertise: [
         {
-          title: "2D & 3D Games",
-          desc: "Visually rich games with smooth physics and mechanics.",
-        },
-        {
           title: "Mobile Game Development",
-          desc: "Optimized for Android and iOS platforms.",
+          desc: "Games designed for Android and iOS platforms.",
         },
         {
-          title: "Multiplayer Games",
-          desc: "Seamless real-time gaming experiences with network synchronization.",
+          title: "Cross-Platform Games",
+          desc: "Games optimized to run across multiple devices.",
         },
         {
-          title: "AR/VR Gaming",
-          desc: "Immersive gameplay using next-gen AR/VR technology.",
+          title: "Gameplay Mechanics & Logic",
+          desc: "Core systems designed for engagement.",
         },
         {
-          title: "Game Design & Animation",
-          desc: "Engaging characters, environments, and interactions.",
+          title: "Multiplayer & Real-Time Games",
+          desc: "Real-time interactions and network-based gameplay.",
+        },
+        {
+          title: "Game Performance Optimization",
+          desc: "Smooth gameplay through optimized rendering.",
         },
       ],
       whyUs: [
@@ -325,73 +316,62 @@ const ServiceInfoPage = () => {
       ],
       process: [
         {
-          title: "Concept & Design",
-          desc: "Ideation, storyboarding, and gameplay planning.",
+          title: "Concept Planning",
+          desc: "Defining game idea, audience, and platform.",
         },
         {
-          title: "Prototyping",
-          desc: "Testing game mechanics and playability.",
+          title: "Game Design",
+          desc: "Designing gameplay flow and user interface.",
         },
         {
           title: "Development",
-          desc: "Programming gameplay, physics, and AI logic.",
+          desc: "Implementing game logic and assets.",
         },
         {
-          title: "Testing",
-          desc: "Debugging, performance optimization, and QA.",
+          title: "Testing & Optimization",
+          desc: "Ensuring smooth and stable gameplay.",
         },
         {
-          title: "Launch",
-          desc: "Publish on App Store, Play Store, or Steam.",
+          title: "Deployment",
+          desc: "Publishing games to target platforms.",
         },
         {
-          title: "Support",
-          desc: "Post-release updates and player feedback integration.",
+          title: "Updates & Support",
+          desc: "Providing fixes, updates, and new features.",
         },
       ],
       faq: [
         {
-          question: "Do you develop games for all platforms?",
-          answer:
-            "Yes, we create games for Android, iOS, PC, web, and consoles.",
+          question: "What game genres do you support?",
+          answer: "We build casual, strategy, simulation, and real-time games.",
         },
         {
-          question: "What game engines do you use?",
-          answer:
-            "We primarily use Unity and Unreal Engine, depending on the project’s complexity.",
+          question: "Can monetization be integrated?",
+          answer: "Ads, subscriptions, and in-app purchases are supported.",
         },
         {
-          question: "Can you assist with game publishing?",
-          answer:
-            "Yes, we support deployment, publishing, and marketing strategy for app stores and Steam.",
+          question: "Do you optimize for low-end devices?",
+          answer: "Yes, performance optimization is a key focus.",
         },
         {
-          question: "Do you provide game art and animation?",
-          answer:
-            "Yes, we offer full in-house design — from concept art to 3D modeling and animation.",
+          question: "Can existing games be upgraded?",
+          answer: "We enhance features, graphics, and performance.",
         },
         {
-          question: "How long does it take to develop a game?",
-          answer:
-            "It varies based on scope — casual games may take 2–3 months; advanced ones up to 6–8 months.",
+          question: "Do you support live updates?",
+          answer: "Yes, continuous updates and patches are provided.",
         },
         {
-          question: "Can you integrate multiplayer features?",
-          answer:
-            "Absolutely. We implement real-time multiplayer, chat, and leaderboard systems.",
-        },
-        {
-          question: "Do you handle post-launch updates?",
-          answer:
-            "Yes, we provide continuous support, new level additions, and performance enhancements.",
+          question: "Is multiplayer supported?",
+          answer: "Real-time and multiplayer functionality is available.",
         },
       ],
     },
 
     arvr: {
-      title: "AR/VR Development",
+      title: "AR / VR Development",
       intro:
-        "We create immersive AR/VR experiences for education, retail, real estate, gaming, and more. Our solutions enhance engagement through interactive simulations and virtual environments.",
+        "We create immersive AR and VR solutions that enhance visualization, training, and interactive experiences.",
       technologies: [
         "Unity",
         "Unreal Engine",
@@ -404,24 +384,24 @@ const ServiceInfoPage = () => {
       buttonText: "Hire AR/VR Developers",
       expertise: [
         {
-          title: "Augmented Reality Apps",
-          desc: "Enhance real-world experiences using ARKit and ARCore.",
+          title: "Augmented Reality Applications",
+          desc: "AR experiences blending digital content with the real world.",
         },
         {
           title: "Virtual Reality Simulations",
-          desc: "Fully immersive 3D environments for training and gaming.",
+          desc: "Immersive VR environments for realistic interaction.",
         },
         {
           title: "3D Visualization",
-          desc: "Architectural and industrial visualization for clients.",
+          desc: "High-quality 3D assets for digital environments.",
         },
         {
-          title: "Product Demos",
-          desc: "Interactive AR-based product presentations.",
+          title: "Product Demonstrations",
+          desc: "Interactive AR-based product showcases.",
         },
         {
           title: "Training Solutions",
-          desc: "Safe, engaging learning environments using VR.",
+          desc: "VR environments designed for learning and safety.",
         },
       ],
       whyUs: [
@@ -434,72 +414,64 @@ const ServiceInfoPage = () => {
       process: [
         {
           title: "Concept & Research",
-          desc: "Understand business goals and user interaction needs",
+          desc: "Understanding objectives and user scenarios.",
         },
         {
-          title: "3D Design & Modeling",
-          desc: " Build realistic environments and interactive assets.",
+          title: "3D Design & Modelling",
+          desc: "Creating optimized 3D assets and environments.",
         },
         {
-          title: "Development & Integration ",
-          desc: " Implement core functionality and hardware compatibility",
+          title: "Development & Integration",
+          desc: "Implementing interactions and device support.",
         },
         {
           title: "Testing & Optimization",
-          desc: "Optimize for performance, frame rate, and responsiveness.",
+          desc: "Ensuring performance and user comfort.",
         },
         {
           title: "Deployment & Training",
-          desc: " Deploy to target platforms and train clients for usage.",
+          desc: "Launching solutions and onboarding users.",
         },
         {
-          title: "Support & Updates ",
-          desc: "Provide technical support and ongoing optimization.",
+          title: "Support & Updates",
+          desc: "Maintaining and enhancing experiences.",
         },
       ],
       faq: [
         {
-          question: "What types of AR/VR solutions do you provide?",
+          question: "Which industries use AR/VR solutions?",
           answer:
-            "We develop AR/VR apps for product visualization, training, gaming, and virtual collaboration.",
+            "Used across training, real estate, manufacturing, and marketing.",
         },
         {
-          question: "Do your AR/VR apps support multiple devices?",
+          question: "Do AR/VR apps support multiple devices?",
           answer:
-            "Yes, we build for Oculus, HTC Vive, Meta Quest, mobile AR, and mixed-reality headsets.",
+            "Solutions are built for supported mobile and headset devices.",
         },
         {
-          question: "Can AR/VR help in business operations?",
+          question: "Can AR/VR improve operational efficiency?",
           answer:
-            "Absolutely. Businesses use AR/VR for virtual training, marketing, design visualization, and remote collaboration.",
+            "It reduces training time and improves visualization accuracy.",
         },
         {
-          question: "How long does AR/VR app development take?",
-          answer:
-            "Typically 8–16 weeks, depending on complexity and hardware integrations.",
+          question: "Do you create custom 3D models?",
+          answer: "Yes, all 3D content is custom-designed.",
         },
         {
-          question: "Do you offer content creation and 3D modeling?",
-          answer:
-            "Yes, our in-house design team creates all required 3D assets and animations.",
+          question: "Is post-launch support available?",
+          answer: "Continuous updates and maintenance are provided.",
         },
         {
-          question: "Can you integrate AR/VR with existing software?",
-          answer:
-            "Yes, we can integrate with CRMs, ERPs, or learning platforms through APIs.",
-        },
-        {
-          question: "Do you provide post-deployment support?",
-          answer:
-            "Yes, we handle performance monitoring, version upgrades, and feature expansions.",
+          question: "Can AR/VR integrate with existing systems?",
+          answer: "Yes, system integrations are supported.",
         },
       ],
     },
 
     erp: {
-      title: "ERP Solutions",
+      title: "ERP Development",
       intro:
-        "We build robust ERP systems that centralize business operations — from finance and HR to supply chain and analytics. Our ERP solutions help enterprises automate workflows, enhance productivity, and make data-driven decisions.",
+        "We develop ERP systems that centralize data, automate workflows, and improve operational efficiency.",
       technologies: [
         "Odoo",
         "SAP",
@@ -515,24 +487,24 @@ const ServiceInfoPage = () => {
       buttonText: "Hire ERP Experts",
       expertise: [
         {
-          title: "Custom ERP Development",
-          desc: "Tailor-made ERP modules that fit unique business needs.",
+          title: "Custom ERP Systems",
+          desc: "ERP solutions tailored to business workflows.",
         },
         {
-          title: "Inventory & Supply Chain",
-          desc: "Optimize logistics and material management with real-time insights.",
+          title: "Modular ERP Architecture",
+          desc: "Scalable modules that grow with operations.",
         },
         {
-          title: "Finance & Accounting",
-          desc: "Automate billing, payroll, and reporting processes.",
+          title: "Workflow Automation",
+          desc: "Automation of repetitive business processes.",
         },
         {
-          title: "HR Management",
-          desc: "Streamline employee onboarding, tracking, and analytics.",
+          title: "Reporting & Analytics",
+          desc: "Centralized insights for decision-making.",
         },
         {
-          title: "Integration Services",
-          desc: "Seamless connectivity with CRM, POS, or legacy systems.",
+          title: "System Integrations",
+          desc: "Connecting ERP with existing platforms.",
         },
       ],
       whyUs: [
@@ -544,61 +516,54 @@ const ServiceInfoPage = () => {
       ],
       process: [
         {
-          title: "Requirement Gathering",
-          desc: "Analyze workflows and define ERP objectives.",
+          title: "Business Analysis",
+          desc: "Studying workflows and operational challenges.",
         },
         {
-          title: "Module Design",
-          desc: "Design each ERP module for optimized functionality.",
+          title: "System Design",
+          desc: "Planning ERP structure and modules.",
         },
         {
           title: "Development",
-          desc: "Implement scalable back-end and user dashboards.",
+          desc: "Building ERP features and integrations.",
         },
         {
-          title: "Integration",
-          desc: "Connect ERP with other business systems.",
+          title: "Testing & Validation",
+          desc: "Ensuring data accuracy and stability.",
         },
         {
-          title: "Testing",
-          desc: "Conduct end-to-end QA and performance validation.",
+          title: "Deployment",
+          desc: "Rolling out ERP systems smoothly.",
         },
         {
-          title: "Deployment & Support",
-          desc: "Deploy with training and continuous maintenance.",
+          title: "Maintenance & Support",
+          desc: "Providing updates and ongoing support.",
         },
       ],
       faq: [
         {
-          question:
-            "Do you provide both on-premise and cloud-based ERP solutions?",
-          answer:
-            "Yes, we develop ERP systems deployable on local servers or secure cloud environments.",
+          question: "Can ERP be customized per department?",
+          answer: "Yes, ERP modules are built per department needs.",
         },
         {
-          question: "Can you integrate ERP with third-party tools?",
-          answer:
-            "Absolutely. We integrate with CRMs, accounting software, APIs, and other enterprise platforms.",
+          question: "Is ERP suitable for small businesses?",
+          answer: "ERP systems scale for SMEs and enterprises.",
         },
         {
-          question: "Is ERP development suitable for small businesses?",
-          answer:
-            "Yes. We create modular ERP solutions that scale as your business grows.",
+          question: "Can ERP integrate with accounting tools?",
+          answer: "Integration with financial software is supported.",
         },
         {
-          question: "How long does ERP implementation take?",
-          answer:
-            "Typically 3–6 months, depending on features, modules, and complexity.",
+          question: "How is data security handled?",
+          answer: "Role-based access and encryption are implemented.",
         },
         {
-          question: "Do you offer ERP maintenance and upgrades?",
-          answer:
-            "Yes, we provide end-to-end support, performance tuning, and version updates.",
+          question: "Do you provide ERP training?",
+          answer: "User training and documentation are included.",
         },
         {
-          question: "Can you migrate data from existing systems?",
-          answer:
-            "Yes. We ensure secure data migration from legacy or third-party software.",
+          question: "Is long-term support available?",
+          answer: "Yes, continuous ERP support is offered.",
         },
       ],
     },
@@ -606,7 +571,7 @@ const ServiceInfoPage = () => {
     chatbot: {
       title: "Chatbot Development",
       intro:
-        "We design intelligent chatbots powered by AI and NLP to automate customer interactions and streamline support. From lead generation to real-time assistance, our bots enhance engagement across platforms.",
+        "We build intelligent chatbots that automate communication and enhance customer engagement.",
       technologies: [
         "Dialogflow",
         "Microsoft Bot Framework",
@@ -620,24 +585,24 @@ const ServiceInfoPage = () => {
       buttonText: "Hire Chatbot Developers",
       expertise: [
         {
+          title: "AI-Powered Chatbots",
+          desc: "Automated conversational solutions for businesses.",
+        },
+        {
           title: "Customer Support Bots",
-          desc: "Automate FAQs and resolve queries instantly.",
+          desc: "Reducing response time and support workload.",
         },
         {
-          title: "Lead Generation Bots",
-          desc: "Engage visitors and capture leads efficiently.",
+          title: "Multi-Channel Bots",
+          desc: "Deployment across web and messaging platforms.",
         },
         {
-          title: "Voice Assistants",
-          desc: "AI-powered assistants for web and mobile platforms.",
+          title: "Backend Integrations",
+          desc: "Connecting chatbots with business systems.",
         },
         {
-          title: "E-commerce Bots",
-          desc: "Personalized product recommendations and support.",
-        },
-        {
-          title: "Multi-Channel Integration",
-          desc: "Deploy across WhatsApp, Messenger, and websites.",
+          title: "Conversation Optimization",
+          desc: "Improving response accuracy and flow.",
         },
       ],
       whyUs: [
@@ -649,57 +614,56 @@ const ServiceInfoPage = () => {
       ],
       process: [
         {
-          title: "Discovery",
-          desc: "Define use case, tone, and automation goals.",
+          title: "Requirement Discovery",
+          desc: "Identifying chatbot goals and use cases.",
         },
         {
-          title: "Flow Design",
-          desc: "Map conversation flows and user journeys.",
+          title: "Conversation Design",
+          desc: "Structuring conversational flows.",
         },
         {
           title: "Development",
-          desc: "Build using NLP engines and integrations.",
+          desc: "Building chatbot logic and integrations.",
         },
-        { title: "Testing", desc: "Ensure contextual accuracy and usability." },
-        { title: "Deployment", desc: "Integrate into chosen platforms." },
+        { title: "Testing", desc: "Validating responses and edge cases." },
+        { title: "Deployment", desc: "Launching bots across channels." },
         {
-          title: "Monitoring",
-          desc: "Track performance and retrain as needed.",
+          title: "Optimization & Support",
+          desc: "Continuous improvement over time.",
         },
       ],
       faq: [
         {
-          question: "Can chatbots handle multiple languages?",
-          answer:
-            "Yes, our chatbots can be trained to understand and respond in multiple languages.",
+          question: "What tasks can chatbots automate?",
+          answer: "Handling inquiries, bookings, and support requests.",
         },
         {
-          question: "Can you integrate the chatbot with CRM or ERP systems?",
-          answer:
-            "Absolutely. We integrate bots with CRM, ERP, and third-party APIs for seamless workflows.",
+          question: "Can chatbots understand user intent?",
+          answer: "They are trained to recognize intent and context.",
         },
         {
-          question: "Do you build both text and voice-based bots?",
-          answer:
-            "Yes, we develop chatbots and voice assistants for a wide range of platforms.",
+          question: "Do chatbots integrate with CRMs?",
+          answer: "Yes, CRM and backend integrations are supported.",
         },
         {
-          question: "Can your bots work on social media apps?",
-          answer:
-            "Yes, we create chatbots for WhatsApp, Instagram, Facebook, and Telegram.",
+          question: "Can existing bots be improved?",
+          answer: "Accuracy and features can be enhanced.",
         },
         {
-          question: "How long does it take to build a chatbot?",
-          answer:
-            "Typically 3–5 weeks for basic bots, and up to 8–10 weeks for advanced conversational systems.",
+          question: "Is ongoing optimization available?",
+          answer: "Yes, continuous training and updates are provided.",
+        },
+        {
+          question: "Are chatbots scalable?",
+          answer: "They are designed to handle growing usage.",
         },
       ],
     },
 
     ai: {
-      title: "Artificial Intelligence",
+      title: "AI / ML Development",
       intro:
-        "We help businesses harness AI to automate processes, analyze data, and enhance decision-making. From machine learning to computer vision, we deliver intelligent, data-driven solutions.",
+        "We develop AI and ML solutions that enable automation and data-driven decision-making.",
       technologies: [
         "Python",
         "TensorFlow",
@@ -714,23 +678,23 @@ const ServiceInfoPage = () => {
       expertise: [
         {
           title: "Machine Learning Models",
-          desc: "Predictive analytics and automation through trained models.",
-        },
-        {
-          title: "Computer Vision",
-          desc: "Image and video recognition systems using AI.",
-        },
-        {
-          title: "Natural Language Processing",
-          desc: "Advanced NLP for chatbots and data extraction.",
+          desc: "Custom models built for business use cases.",
         },
         {
           title: "Predictive Analytics",
-          desc: "Business insights through AI-based forecasting.",
+          desc: "Forecasting trends using historical data.",
         },
         {
-          title: "Recommendation Engines",
-          desc: "AI-driven product and content personalization.",
+          title: "Intelligent Automation",
+          desc: "Reducing manual processes with AI.",
+        },
+        {
+          title: "Data Processing Systems",
+          desc: "Handling large datasets efficiently.",
+        },
+        {
+          title: "AI System Integration",
+          desc: "Embedding AI into existing platforms.",
         },
       ],
       whyUs: [
@@ -742,42 +706,46 @@ const ServiceInfoPage = () => {
       ],
       process: [
         {
-          title: "Data Collection",
-          desc: "Gather and clean data for model training.",
+          title: "Data Assessment",
+          desc: "Evaluating data quality and scope.",
         },
-        { title: "Model Design", desc: "Select and train suitable ML models." },
-        { title: "Testing", desc: "Validate accuracy and performance." },
+        { title: "Model Design", desc: "Selecting appropriate algorithms." },
+        { title: "Model Development", desc: "Training and validating models." },
+        {
+          title: "Testing & Evaluation",
+          desc: "Measuring accuracy and reliability.",
+        },
         {
           title: "Deployment",
-          desc: "Deploy models using scalable APIs or cloud.",
+          desc: "Integrating models into production systems.",
         },
-        { title: "Monitoring", desc: "Track accuracy and retrain as needed." },
+        { title: "Continuous Improvement", desc: "Refining models over time." },
       ],
       faq: [
         {
-          question: "What industries do you serve with AI/ML?",
+          question: "What industries benefit from AI solutions?",
           answer:
-            "We provide AI/ML solutions for healthcare, retail, manufacturing, finance, and logistics.",
+            "AI is used across finance, healthcare, retail, and operations.",
         },
         {
-          question: "Do you offer custom AI model development?",
-          answer:
-            "Yes, we build models tailored to your business objectives and data patterns.",
+          question: "Can AI work with limited data?",
+          answer: "Models are designed based on available data.",
         },
         {
-          question: "Can AI be integrated into existing systems?",
-          answer:
-            "Absolutely. We integrate AI modules into CRMs, ERPs, and analytics platforms.",
+          question: "How is AI accuracy measured?",
+          answer: "Using validation metrics and performance benchmarks.",
         },
         {
-          question: "Do you provide data analysis and visualization?",
-          answer:
-            "Yes, we offer dashboards, visual analytics, and reporting for AI insights.",
+          question: "Can AI integrate with existing software?",
+          answer: "Yes, APIs enable seamless integration.",
         },
         {
-          question: "How do you ensure data privacy in AI solutions?",
-          answer:
-            "We comply with GDPR and best practices for secure data handling and anonymization.",
+          question: "Is AI scalable?",
+          answer: "Solutions are designed for growth.",
+        },
+        {
+          question: "Do you provide ongoing model tuning?",
+          answer: "Continuous optimization is included.",
         },
       ],
     },
@@ -785,7 +753,7 @@ const ServiceInfoPage = () => {
     crm: {
       title: "CRM Development",
       intro:
-        "We build powerful CRM systems that help businesses manage customer relationships efficiently — boosting retention, sales, and satisfaction.",
+        "We design CRM systems that help businesses manage customers, sales, and relationships efficiently.",
       technologies: [
         "Salesforce",
         "Zoho CRM",
@@ -800,23 +768,23 @@ const ServiceInfoPage = () => {
       expertise: [
         {
           title: "Custom CRM Systems",
-          desc: "Tailored solutions for sales, marketing, and service teams.",
+          desc: "CRM platforms tailored to workflows.",
         },
         {
-          title: "Lead Management",
-          desc: "Track and convert leads effectively with analytics.",
+          title: "Sales & Lead Management",
+          desc: "Tracking customer journeys effectively.",
         },
         {
           title: "Workflow Automation",
-          desc: "Automate repetitive CRM tasks and follow-ups.",
+          desc: "Automating customer-related processes.",
         },
         {
-          title: "CRM Integration",
-          desc: "Sync CRM with ERP, email, and other platforms.",
+          title: "Reporting & Insights",
+          desc: "Monitoring performance and engagement.",
         },
         {
-          title: "Analytics Dashboards",
-          desc: "Real-time reporting and performance tracking.",
+          title: "Third-Party Integrations",
+          desc: "Connecting CRM with external tools.",
         },
       ],
       whyUs: [
@@ -828,57 +796,59 @@ const ServiceInfoPage = () => {
       ],
       process: [
         {
-          title: "Requirement Gathering",
-          desc: "Understand CRM workflow needs.",
+          title: "Requirement Analysis",
+          desc: "Understanding CRM objectives.",
         },
         {
-          title: "Design & Prototyping",
-          desc: "Create an intuitive CRM UI/UX.",
+          title: "CRM Design",
+          desc: "Planning workflows and dashboards.",
         },
         {
           title: "Development",
-          desc: "Implement CRM backend and integrations.",
+          desc: "Implementing CRM features.",
         },
         {
           title: "Testing",
-          desc: "Ensure accuracy, scalability, and performance.",
+          desc: "Validating data flow and logic.",
         },
-        { title: "Deployment", desc: "Launch and configure user roles." },
-        { title: "Support", desc: "Ongoing maintenance and feature updates." },
+        { title: "Deployment", desc: "Launching the CRM system." },
+        {
+          title: "Enhancements & Support",
+          desc: "Providing updates and improvements.",
+        },
       ],
       faq: [
         {
-          question: "Do you develop both cloud and on-premise CRMs?",
-          answer:
-            "Yes, we develop both types based on your data and business requirements.",
+          question: "Can CRM be customized for sales teams?",
+          answer: "Workflows are tailored per team requirements.",
         },
         {
-          question: "Can CRM be integrated with our website or ERP?",
-          answer:
-            "Absolutely. We offer end-to-end integration with existing systems.",
+          question: "Does CRM support automation?",
+          answer: "Automation is built into core processes.",
         },
         {
-          question: "Do you build CRMs for specific industries?",
-          answer:
-            "Yes, we tailor CRMs for real estate, finance, logistics, healthcare, and more.",
+          question: "Can CRM integrate with email tools?",
+          answer: "Email and communication integrations are supported.",
         },
         {
-          question: "Can you migrate from existing CRM software?",
-          answer:
-            "Yes, we ensure secure and complete data migration from tools like Zoho or HubSpot.",
+          question: "Is CRM scalable?",
+          answer: "Designed to grow with business needs.",
         },
         {
-          question: "Do you offer ongoing CRM support?",
-          answer:
-            "Yes, we provide continuous maintenance, optimization, and new feature rollout.",
+          question: "Do you provide CRM training?",
+          answer: "Training and documentation are included.",
+        },
+        {
+          question: "Is post-launch support available?",
+          answer: "Yes, ongoing support is provided.",
         },
       ],
     },
 
     cloud: {
-      title: "Cloud Computing",
+      title: "Cloud & DevOps Services",
       intro:
-        "We offer end-to-end cloud computing services — from migration and deployment to monitoring and optimization. Our cloud experts ensure scalability, security, and cost efficiency.",
+        "We enable scalable cloud infrastructure and DevOps practices for reliable deployments and operations.",
       technologies: [
         "AWS",
         "Google Cloud",
@@ -892,24 +862,24 @@ const ServiceInfoPage = () => {
       buttonText: "Hire Cloud Experts",
       expertise: [
         {
-          title: "Cloud Migration",
-          desc: "Seamless transition from on-premises to cloud.",
+          title: "Cloud Architecture Design",
+          desc: "Secure and scalable cloud environments.",
         },
         {
-          title: "DevOps Automation",
-          desc: "Streamline CI/CD workflows using automation tools.",
+          title: "CI/CD Pipelines",
+          desc: "Automated build and deployment workflows.",
         },
         {
-          title: "Serverless Architecture",
-          desc: "Deploy scalable apps without managing servers.",
+          title: "Infrastructure Automation",
+          desc: "Reducing manual operational effort.",
+        },
+        {
+          title: "Monitoring & Optimization",
+          desc: "Tracking system performance and uptime.",
         },
         {
           title: "Cloud Security",
-          desc: "Implement identity, encryption, and compliance systems.",
-        },
-        {
-          title: "Cost Optimization",
-          desc: "Maximize efficiency with intelligent resource scaling.",
+          desc: "Protecting infrastructure and data.",
         },
       ],
       whyUs: [
@@ -921,42 +891,48 @@ const ServiceInfoPage = () => {
       ],
       process: [
         {
-          title: "Assessment",
-          desc: "Analyze existing infrastructure and plan migration.",
+          title: "Infrastructure Assessment",
+          desc: "Reviewing existing systems and needs.",
         },
         {
-          title: "Design",
-          desc: "Build scalable and secure cloud architecture.",
+          title: "Architecture Design",
+          desc: "Planning cloud and DevOps setup.",
         },
-        { title: "Deployment", desc: "Migrate workloads and apps seamlessly." },
-        { title: "Automation", desc: "Implement CI/CD and IaC processes." },
-        { title: "Monitoring", desc: "Track performance and resource usage." },
+        {
+          title: "Implementation",
+          desc: "Setting up cloud services and pipelines.",
+        },
+        { title: "Automation", desc: "Configuring CI/CD workflows." },
+        { title: "Monitoring", desc: "Tracking performance and reliability." },
+        {
+          title: "Optimization & Support",
+          desc: "Continuous system improvements.",
+        },
       ],
       faq: [
         {
-          question: "Do you handle cloud migration for existing systems?",
-          answer:
-            "Yes, we offer end-to-end migration with zero data loss and minimal downtime.",
+          question: "Do you support cloud migration?",
+          answer: "We handle full and partial cloud migrations.",
         },
         {
           question: "Which cloud platforms do you support?",
-          answer:
-            "We work with AWS, Azure, and Google Cloud — as well as hybrid and private clouds.",
+          answer: "AWS, Azure, and Google Cloud are supported.",
         },
         {
-          question: "Can you automate our deployment process?",
-          answer:
-            "Absolutely. We build CI/CD pipelines tailored to your infrastructure.",
+          question: "Is CI/CD mandatory?",
+          answer: "CI/CD improves reliability and speed of delivery.",
         },
         {
-          question: "Do you offer ongoing cloud management?",
-          answer:
-            "Yes, we provide managed cloud services including monitoring, scaling, and cost optimization.",
+          question: "How is cloud security handled?",
+          answer: "Security best practices are applied throughout.",
         },
         {
-          question: "Is DevOps suitable for small businesses?",
-          answer:
-            "Definitely. Automation and scalability help businesses of any size improve productivity.",
+          question: "Do you provide ongoing monitoring?",
+          answer: "Yes, continuous monitoring is included.",
+        },
+        {
+          question: "Is long-term support available?",
+          answer: "Ongoing cloud support is offered.",
         },
       ],
     },
@@ -964,7 +940,7 @@ const ServiceInfoPage = () => {
     maintenance: {
       title: "Maintenance & Support",
       intro:
-        "We ensure your digital solutions remain up-to-date, secure, and optimized. Our maintenance services include bug fixing, performance optimization, and feature enhancements.",
+        "We provide continuous maintenance to ensure applications remain secure, stable, and up to date.",
       technologies: [
         "React.js",
         "Node.js",
@@ -978,24 +954,24 @@ const ServiceInfoPage = () => {
       buttonText: "Hire Maintenance Experts",
       expertise: [
         {
-          title: "Bug Fixing",
-          desc: "Identify and resolve issues quickly and effectively.",
+          title: "Application Maintenance",
+          desc: "Ensuring system health and stability.",
         },
         {
-          title: "Performance Optimization",
-          desc: "Enhance speed, load time, and scalability.",
+          title: "Bug Fixes",
+          desc: "Resolving issues efficiently.",
+        },
+        {
+          title: "Performance Monitoring",
+          desc: "Tracking uptime and responsiveness.",
         },
         {
           title: "Security Updates",
-          desc: "Regular patches to keep systems protected.",
+          desc: "Applying regular protection updates.",
         },
         {
-          title: "Feature Enhancement",
-          desc: "Add new functionalities as your business evolves.",
-        },
-        {
-          title: "Monitoring",
-          desc: "Proactive system tracking for uptime and stability.",
+          title: "Technical Support",
+          desc: "Providing reliable assistance.",
         },
       ],
       whyUs: [
@@ -1007,51 +983,54 @@ const ServiceInfoPage = () => {
       ],
       process: [
         {
-          title: "Audit & Analysis",
-          desc: "Evaluate system performance and security.",
+          title: "System Review",
+          desc: "Assessing application health.",
         },
         {
-          title: "Prioritization",
-          desc: "Identify critical fixes and improvements.",
+          title: "Issue Resolution",
+          desc: "Fixing bugs and errors.",
         },
         {
-          title: "Implementation",
-          desc: "Deploy fixes, patches, and enhancements.",
+          title: "Enhancements",
+          desc: "Implementing improvements.",
         },
         {
-          title: "Testing",
-          desc: "Validate system stability and functionality.",
+          title: "Monitoring",
+          desc: "Tracking system performance.",
+        },
+        {
+          title: "Security Updates",
+          desc: "Applying security patches.",
         },
         {
           title: "Ongoing Support",
-          desc: "Monitor and maintain post-implementation.",
+          desc: "Providing continuous assistance.",
         },
       ],
       faq: [
         {
-          question: "Do you provide support for third-party applications?",
-          answer:
-            "Yes, we can maintain and enhance software developed by other vendors.",
+          question: "Do you support legacy applications?",
+          answer: "Legacy systems can be maintained and upgraded.",
         },
         {
-          question: "How often do you perform updates?",
-          answer:
-            "We schedule updates based on project needs — monthly, quarterly, or as required.",
+          question: "Is performance monitoring included?",
+          answer: "Continuous monitoring is part of support.",
         },
         {
-          question: "Can you fix issues without disrupting operations?",
-          answer:
-            "Absolutely. We implement fixes in staging environments before live deployment.",
+          question: "Can support plans be customized?",
+          answer: "Support plans are flexible.",
         },
         {
-          question: "Do you offer 24/7 monitoring?",
-          answer:
-            "Yes, our monitoring and alert systems ensure round-the-clock availability.",
+          question: "Are security updates regular?",
+          answer: "Updates are applied consistently.",
         },
         {
-          question: "Can you scale existing applications?",
-          answer:
-            "Yes, we specialize in performance tuning and scalability optimization.",
+          question: "Do you provide SLAs?",
+          answer: "Service agreements can be defined.",
+        },
+        {
+          question: "Is long-term support available?",
+          answer: "Yes, extended support is offered.",
         },
       ],
     },
@@ -1059,7 +1038,7 @@ const ServiceInfoPage = () => {
     blockchain: {
       title: "Blockchain Development",
       intro:
-        "We build secure and transparent blockchain-based applications for finance, supply chain, and beyond. Our blockchain experts help businesses adopt decentralized solutions with confidence.",
+        "We develop secure blockchain applications and smart contracts with transparent and reliable architecture.",
       technologies: [
         "Solidity",
         "Ethereum",
@@ -1073,24 +1052,24 @@ const ServiceInfoPage = () => {
       buttonText: "Hire Blockchain Developers",
       expertise: [
         {
+          title: "Decentralized Applications",
+          desc: "Blockchain-based application development.",
+        },
+        {
           title: "Smart Contracts",
-          desc: "Automate transactions using Solidity-based contracts.",
+          desc: "Automated and secure contract logic.",
         },
         {
-          title: "DApp Development",
-          desc: "Decentralized applications for finance and gaming.",
+          title: "Transaction Systems",
+          desc: "Blockchain-powered transaction processing.",
         },
         {
-          title: "NFT Marketplaces",
-          desc: "Build tokenized digital asset trading platforms.",
+          title: "Decentralized Architecture",
+          desc: "Distributed system design.",
         },
         {
-          title: "Private Blockchains",
-          desc: "Secure enterprise-grade blockchain networks.",
-        },
-        {
-          title: "Tokenization",
-          desc: "Custom token creation on major blockchain networks.",
+          title: "Blockchain Integration",
+          desc: "Connecting blockchain with applications.",
         },
       ],
       whyUs: [
@@ -1102,55 +1081,53 @@ const ServiceInfoPage = () => {
       ],
       process: [
         {
-          title: "Requirement Analysis",
-          desc: "Define blockchain use case and scope.",
+          title: "Use-Case Analysis",
+          desc: "Defining blockchain objectives.",
         },
         {
           title: "Design",
-          desc: "Plan tokenomics, contracts, and architecture.",
+          desc: "Planning decentralized structure.",
         },
-        { title: "Development", desc: "Implement smart contracts and DApps." },
-        { title: "Testing", desc: "Audit and verify for vulnerabilities." },
-        { title: "Deployment", desc: "Deploy to mainnet or private network." },
+        { title: "Development", desc: "Building blockchain components." },
+        { title: "Testing", desc: "Validating security and performance." },
+        { title: "Deployment", desc: "Launching blockchain solutions." },
         {
-          title: "Maintenance",
-          desc: "Support upgrades and ongoing management.",
+          title: "Support & Maintenance",
+          desc: "Continuous monitoring and updates.",
         },
       ],
       faq: [
         {
-          question:
-            "Do you build both public and private blockchain solutions?",
-          answer:
-            "Yes, we design both based on business needs and security preferences.",
+          question: "Do you build private blockchains?",
+          answer: "Both private and public solutions are supported.",
         },
         {
-          question: "Can you create NFTs or tokenization platforms?",
-          answer:
-            "Absolutely. We specialize in NFT, DeFi, and token development.",
+          question: "Are smart contracts audited?",
+          answer: "Security testing is part of development.",
         },
         {
-          question: "How do you ensure blockchain security?",
-          answer:
-            "We follow strict audit protocols and implement multi-layer security mechanisms.",
+          question: "Can blockchain integrate with apps?",
+          answer: "Yes, integrations are supported.",
         },
         {
-          question: "Can blockchain integrate with our existing system?",
-          answer:
-            "Yes, we build APIs to connect blockchain with your ERP, CRM, or web apps.",
+          question: "Is scalability considered?",
+          answer: "Scalability is planned from the start.",
         },
         {
-          question: "What industries can benefit from blockchain?",
-          answer:
-            "Finance, logistics, supply chain, healthcare, and real estate are among the most common.",
+          question: "Do you provide post-launch support?",
+          answer: "Ongoing support is available.",
+        },
+        {
+          question: "Can existing blockchain systems be improved?",
+          answer: "Yes, enhancements and optimizations are possible.",
         },
       ],
     },
 
     iot: {
-      title: "IoT Development",
+      title: "Internet of Things",
       intro:
-        "We connect devices, systems, and people with intelligent IoT solutions. From smart homes to industrial IoT, we build platforms that collect, analyze, and act on real-time data.",
+        "We build IoT solutions that connect devices, data, and cloud platforms for real-time insights.",
       technologies: [
         "Arduino",
         "Raspberry Pi",
@@ -1164,24 +1141,24 @@ const ServiceInfoPage = () => {
       buttonText: "Hire IoT Developers",
       expertise: [
         {
-          title: "Smart Home Systems",
-          desc: "IoT-enabled control for appliances and security.",
+          title: "IoT Application Development",
+          desc: "Connected applications for smart devices.",
         },
         {
-          title: "Industrial IoT",
-          desc: "Monitor and optimize industrial operations.",
+          title: "Device Integration",
+          desc: "Linking hardware with software systems.",
         },
         {
-          title: "Wearable Devices",
-          desc: "Track and sync health and activity data.",
+          title: "Real-Time Data Processing",
+          desc: "Handling live device data streams.",
         },
         {
-          title: "IoT Dashboards",
-          desc: "Visualize and control devices in real-time.",
+          title: "Cloud Connectivity",
+          desc: "Secure communication with cloud platforms.",
         },
         {
-          title: "Edge Computing",
-          desc: "Faster analytics and reduced latency.",
+          title: "IoT Monitoring Systems",
+          desc: "Continuous device performance tracking.",
         },
       ],
       whyUs: [
@@ -1193,43 +1170,48 @@ const ServiceInfoPage = () => {
       ],
       process: [
         {
-          title: "Requirement Analysis",
-          desc: "Define IoT goals, hardware, and connectivity.",
+          title: "Use-Case Analysis",
+          desc: "Understanding device and data requirements.",
         },
         {
-          title: "Hardware Integration",
-          desc: "Connect sensors and microcontrollers.",
+          title: "System Design",
+          desc: "Planning IoT architecture.",
         },
-        { title: "Development", desc: "Build firmware and backend systems." },
-        { title: "Testing", desc: "Simulate performance and safety checks." },
-        { title: "Deployment", desc: "Implement and scale the IoT ecosystem." },
-        { title: "Maintenance", desc: "Ensure uptime and firmware updates." },
+        { title: "Development", desc: "Building IoT applications." },
+        {
+          title: "Integration",
+          desc: "Connecting devices and cloud platforms.",
+        },
+        { title: "Testing", desc: "Validating performance and security." },
+        {
+          title: "Deployment & Support",
+          desc: "Launching and maintaining systems.",
+        },
       ],
       faq: [
         {
-          question: "Do you develop both hardware and software for IoT?",
-          answer:
-            "Yes, we handle firmware programming, device setup, and software development.",
+          question: "Can IoT integrate with existing hardware?",
+          answer: "Existing devices can be integrated.",
         },
         {
-          question: "Can IoT integrate with AI and analytics systems?",
-          answer:
-            "Absolutely. We integrate IoT data with AI models for predictive insights.",
+          question: "How is IoT data secured?",
+          answer: "Encryption and access controls are applied.",
         },
         {
-          question: "How do you ensure IoT security?",
-          answer:
-            "We use encryption, authentication, and secure communication protocols like MQTT and SSL.",
+          question: "Can IoT scale to many devices?",
+          answer: "Solutions are designed for large device networks.",
         },
         {
-          question: "Do you work with specific IoT platforms?",
-          answer:
-            "Yes, we use AWS IoT, Azure IoT, and Google Cloud IoT depending on project needs.",
+          question: "Is real-time monitoring available?",
+          answer: "Dashboards provide live insights.",
         },
         {
-          question: "Can IoT be customized for any industry?",
-          answer:
-            "Yes, our IoT solutions are adaptable for manufacturing, logistics, healthcare, agriculture, and more.",
+          question: "Do you provide long-term IoT support?",
+          answer: "Continuous support is available.",
+        },
+        {
+          question: "Can IoT integrate with analytics platforms?",
+          answer: "Yes, analytics and reporting integrations are supported.",
         },
       ],
     },
@@ -1262,13 +1244,20 @@ const ServiceInfoPage = () => {
 
           <div className="relative w-full flex overflow-hidden">
             <motion.div
-              className="flex  gap-[20px]"
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{
-                ease: "linear",
-                duration: 20,
-                repeat: Infinity,
-              }}
+              className="flex gap-[20px]"
+              animate={controls}
+              initial={{ x: "0%" }}
+              onHoverStart={() => controls.stop()}
+              onHoverEnd={() =>
+                controls.start({
+                  x: ["0%", "-50%"],
+                  transition: {
+                    ease: "linear",
+                    duration: 20,
+                    repeat: Infinity,
+                  },
+                })
+              }
             >
               {[
                 ...(serviceInfo[service].technologies || []),
@@ -1278,7 +1267,8 @@ const ServiceInfoPage = () => {
                   key={index}
                   className="py-3 px-4 h-fit w-fit rounded-md border border-[#C8C1C1]
                        font-poppins font-normal text-[1rem] md:text-[1.5rem] text-[#C8C1C1]
-                       whitespace-nowrap"
+                       whitespace-nowrap hover:bg-gradient-to-r hover:from-[#BBABEB] hover:to-[#6A6185]
+              transition-all duration-300 ease-in-out"
                 >
                   {value}
                 </div>
@@ -1332,8 +1322,8 @@ const ServiceInfoPage = () => {
                   key={index}
                   className="
                   
-        w-[90vw] sm:w-[42vw] md:w-[30vw] lg:w-[21vw] 
-        h-auto min-h-[20vh]  
+        w-[90vw] sm:w-[42vw] md:w-[30vw] lg:w-[360px] 
+        h-[260px] sm:h-[280px] md:h-[160px] 
         flex flex-col justify-center gap-[0.8rem] 
         border border-white rounded-md 
         px-5 py-4  
@@ -1358,10 +1348,10 @@ const ServiceInfoPage = () => {
         </div>
         <div className="relative mt-[150px] md:mt-[100px] w-full">
           <p className="text-[2rem] md:text-[4rem] font-garotaSans  bg-gradient-to-b font-bold  from-[#C7B9F6] to-[#6A6185] bg-clip-text text-transparent leading-[1] absolute -top-5 md:-top-11 left-0 z-20 ">
-            Why VedaPixel ?
+            Why choose VedaPixel ?
           </p>
           <div
-            className=" [@media(min-width:300px)_and_(max-width:450px)]:min-h-[20vh] min-h-[23.5vh]  flex place-items-center px-7 md:px-14 md:max-h-[42vh] lg:min-h-[21vh] xl:min-h-[40vh] [@media(min-width:2550px)]:min-h-[20vh] border-2 rounded-b-[80px] rounded-tr-[80px]"
+            className=" [@media(min-width:300px)_and_(max-width:450px)]:min-h-[22vh] min-h-[23.5vh]  flex place-items-center px-2 md:px-14 md:max-h-[42vh] lg:min-h-[21vh] xl:min-h-[40vh] [@media(min-width:2550px)]:min-h-[20vh] border-2 rounded-b-[50px] rounded-tr-[50px] md:rounded-b-[80px] md:rounded-tr-[80px]"
             style={{
               background:
                 "linear-gradient(139.47deg, rgba(47, 54, 64, 0.8) -45.69%, rgba(16, 24, 32, 0.8) 54.7%)",
@@ -1375,7 +1365,7 @@ const ServiceInfoPage = () => {
               {serviceInfo[service]?.whyUs.map((value, index) => (
                 <li
                   key={index}
-                  className=" font-poppins font-normal [@media(min-width:300px)_and_(max-width:450px)]:text-[0.5rem] text-[0.6rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.5rem] text-[#C8C1C1] "
+                  className=" font-poppins font-normal [@media(min-width:300px)_and_(max-width:450px)]:text-[11px] text-[0.6rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.3rem] 2xl:text-[1.5rem] text-[#C8C1C1] "
                 >
                   {value}
                 </li>
@@ -1392,10 +1382,10 @@ const ServiceInfoPage = () => {
             {serviceInfo[service]?.process.map((item, index) => (
               <div
                 key={index}
-                className="flex flex-row items-center md:items-center gap-3 md:gap-7"
+                className="flex flex-row items-center md:items-center gap-3 md:gap-1 "
               >
                 {/* Step number */}
-                <p className="text-[#C8C1C1] w-[8vw] sm:w-[6vw] md:w-[3vw]  text-[20px] md:text-[30px] lg:text-[40px] xl:text-[48px]">
+                <p className="text-[#C8C1C1] w-[8vw] sm:w-[6vw] md:w-[3vw]  text-[20px] md:text-[30px] lg:text-[40px] xl:text-[30px]">
                   {index + 1}.
                 </p>
 
@@ -1410,7 +1400,7 @@ const ServiceInfoPage = () => {
                       activeIndex === index
                         ? "border-[#BBABEB]/40 text-[#BBABEB]"
                         : "text-[#F8F9FA] hover:border-[#BBABEB]/40"
-                    } text-left font-garotaSans font-normal text-[20px] md:text-[30px] lg:text-[40px] xl:text-[40px] 2xl:text-[48px] hover:text-[#BBABEB] z-10`}
+                    } text-left font-garotaSans font-normal text-[20px] md:text-[30px] lg:text-[40px] xl:text-[30px]  hover:text-[#BBABEB] z-10`}
                   >
                     {item.title}
                   </p>
@@ -1437,10 +1427,28 @@ const ServiceInfoPage = () => {
         </div>
 
         <div className="w-full flex mt-[100px] flex-col gap-[1.3rem]">
-          <p className="text-[2.3rem] md:text-[2.7rem] service-title text-[#F8F9FA]">
+          <p className="text-[2.3rem] md:text-[2.7rem] gap-2 service-title text-[#F8F9FA] flex place-items-center">
             FAQs
+            <span>
+              <ChevronDown
+                onClick={() => setShowFAQ(!showFAQ)}
+                size={44}
+                color="#BBABEB"
+                className={`${showFAQ ? "hidden" : "block"}`}
+              />
+              <ChevronUp
+                onClick={() => setShowFAQ(!showFAQ)}
+                size={44}
+                color="#BBABEB"
+                className={`${showFAQ ? "block" : "hidden"}`}
+              />
+            </span>
           </p>
-          <div className="bg-[#0e141d]/50 backdrop-blur-lg  border rounded-lg border-[#F8F9FA]">
+          <div
+            className={`bg-[#0e141d]/50 backdrop-blur-lg  border rounded-lg border-[#F8F9FA] ${
+              showFAQ ? "block" : "hidden"
+            }`}
+          >
             {serviceInfo[service]?.faq.map((faq, index) => (
               <div key={index} className="border-b border-[#2a2f37] ">
                 <button
@@ -1454,7 +1462,7 @@ const ServiceInfoPage = () => {
                       openIndex === index
                         ? "text-[#BBABEB]"
                         : "text-[#F8F9FA] hover:text-[#BBABEB]"
-                    } text-[1rem] cursor-pointer w-[90%] md:text-[1.2rem] lg:text-[1.5rem] xl:text-[24px] font-poppins font-normal `}
+                    } text-[1rem] cursor-pointer w-[90%] md:text-[1.2rem] lg:text-[1.5rem] xl:text-[20px] font-poppins font-normal `}
                   >
                     {faq.question}
                   </span>
