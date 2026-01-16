@@ -170,9 +170,9 @@ const Services = () => {
             </title>
     
             <meta
-              name="description"
-              content=""
-            />
+  name="description"
+  content="Explore VedaPixel’s services including web design, branding, UI/UX design, SEO, and digital marketing solutions tailored for business growth."
+/>
             <link rel="canonical" href="https://vedapixel.com/services" />
     </Helmet>
       <div className=" flex flex-col gap-5 mt-30 md:mt-45 lg:mt-[192px] px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40">

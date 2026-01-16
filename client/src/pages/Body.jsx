@@ -435,13 +435,13 @@ const Body = () => {
   return (
     <>
       {/* ✅ Team Popup */}
-       <Helmet>
-        <title>Home|Vedapixel
+      <Helmet>
+        <title>
+          Creative Digital Agency | Web Design & Branding – VedaPixel
         </title>
-
         <meta
           name="description"
-          content=""
+          content="VedaPixel is a creative digital agency offering web design, branding, UI/UX design, SEO, and digital marketing services to grow your business."
         />
         <link rel="canonical" href="https://vedapixel.com" />
       </Helmet>
@@ -582,8 +582,9 @@ const Body = () => {
               </motion.p>
             )}
             <p className="text-white font-garotaSans font-normal   [@media(min-width:300px)_and_(max-width:410px)]:text-[19px]  text-[24px]   md:text-[28px] lg:text-[2.2rem] xl:text-[2.7rem] 2xl:text-[3rem] leading-tight">
-              We bridge innovation and execution with <br className="hidden sm:block" /> user-centric,
-              future-ready systems that <br className="hidden sm:block" />
+              We bridge innovation and execution with{" "}
+              <br className="hidden sm:block" /> user-centric, future-ready
+              systems that <br className="hidden sm:block" />
               <span
                 id="tag"
                 className=" relative  inline-block align-baseline text-[#b19cd9]  overflow-hidden"
@@ -969,28 +970,28 @@ const Body = () => {
               </div>
             </div> */}
 
-            <div id="helloSections" className="relative pt-5 w-[95%] [@media(min-width:300px)_and_(max-width:410px)]:h-[155px] h-[180px] md:w-[490px] md:-[200px] lg:w-[620px] lg:h-[300px] xl:w-[763px] xl:h-[347px]">
-              <div
-                className=" [@media(min-width:300px)_and_(max-width:400px)]:py-2 py-4 px-[clamp(1.5rem,3vw,2.3rem)]  sm:p-[clamp(1.5rem,3vw,2.3rem)] sm:mt-[clamp(20px,3vw,30px)]   transition-all duration-300"
-                
-              >
-              <div className=" flex flex-col justify-center sm:pl-5  h-full space-y-[10px] sm:space-y-3 ">
-                <p className="font-garotaSans sm:text-[clamp(1.3rem,2.5vw,3rem)] xl:text-[48px] text-white font-normal leading-tight">
-                  we are experienced innovators building scalable digital
-                  platforms
-                </p>
+            <div
+              id="helloSections"
+              className="relative pt-5 w-[95%] [@media(min-width:300px)_and_(max-width:410px)]:h-[155px] h-[180px] md:w-[490px] md:-[200px] lg:w-[620px] lg:h-[300px] xl:w-[763px] xl:h-[347px]"
+            >
+              <div className=" [@media(min-width:300px)_and_(max-width:400px)]:py-2 py-4 px-[clamp(1.5rem,3vw,2.3rem)]  sm:p-[clamp(1.5rem,3vw,2.3rem)] sm:mt-[clamp(20px,3vw,30px)]   transition-all duration-300">
+                <div className=" flex flex-col justify-center sm:pl-5  h-full space-y-[10px] sm:space-y-3 ">
+                  <p className="font-garotaSans sm:text-[clamp(1.3rem,2.5vw,3rem)] xl:text-[48px] text-white font-normal leading-tight">
+                    we are experienced innovators building scalable digital
+                    platforms
+                  </p>
 
-                <p className="begin-card-desc text-[#C8C1C1] text-[0.7rem] sm:text-[clamp(0.9rem,1.8vw,1.5rem)]">
-                  Driving enterprise & consumer innovation
-                </p>
+                  <p className="begin-card-desc text-[#C8C1C1] text-[0.7rem] sm:text-[clamp(0.9rem,1.8vw,1.5rem)]">
+                    Driving enterprise & consumer innovation
+                  </p>
 
-                <div className="relative inline-block">
-                  <button
-                    disabled={isDisabled}
-                    onClick={
-                      isDisabled ? () => setShowTeamPopup(true) : undefined
-                    }
-                    className={`
+                  <div className="relative inline-block">
+                    <button
+                      disabled={isDisabled}
+                      onClick={
+                        isDisabled ? () => setShowTeamPopup(true) : undefined
+                      }
+                      className={`
     rotating-btn relative font-garota
     text-[12px] md:text-[16px]
     rounded-md w-[25vw] h-[4.5vh]
@@ -1005,11 +1006,11 @@ const Body = () => {
         : "text-[#b19cd9] cursor-pointer hover:from-[#6A6185] hover:to-[#B19CD9] hover:text-white hover:shadow-[0_0_15px_rgba(177,156,217,0.4)] hover:-translate-y-1"
     }
   `}
-                  >
-                    Our Team
-                  </button>
+                    >
+                      Our Team
+                    </button>
+                  </div>
                 </div>
-              </div>
               </div>
             </div>
           </section>

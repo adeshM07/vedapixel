@@ -93,13 +93,12 @@ const AboutPage = () => {
 
   return (
     <>
-     <Helmet>
-        <title>About | Vedapixel
-        </title>
+      <Helmet>
+        <title>About | Vedapixel</title>
 
         <meta
           name="description"
-          content=""
+          content="Know more about VedaPixel, an India-based creative digital agency specializing in web design, branding, UI/UX, and digital marketing."
         />
         <link rel="canonical" href="https://vedapixel-topaz.vercel.app/about" />
       </Helmet>
