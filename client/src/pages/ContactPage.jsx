@@ -14,8 +14,6 @@ const ContactPage = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [collabErrors, setCollabErrors] = useState({});
   const [careerErrors, setCareerErrors] = useState({});
-  const careerFormRef = useRef(null);
-  const careerFileRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -60,9 +58,15 @@ const ContactPage = () => {
   };
   const handleCareerFile = (e) => {
     const file = e.target.files[0];
+    if (!file) return;
+
     setCareerForm({ ...careerForm, resume: file });
 
-    // ✅ remove red border instantly after selecting file
+    // ✅ Attach file to hidden form input
+    // if (careerFileRef.current) {
+    //   careerFileRef.current.files = e.target.files;
+    // }
+
     setCareerErrors((prev) => ({ ...prev, resume: false }));
   };
 
@@ -409,29 +413,52 @@ const ContactPage = () => {
   const url =
     "https://script.google.com/macros/s/AKfycbzulucg71YRIFDoSx9itCqAUrNAocjdP9gCL1afynij84Kf17HtnjpDAW4EQkv7aioWHg/exec";
 
-  const submitCareerForm = () => {
+  const submitCareerForm = async (e) => {
+    e.preventDefault();
+
     const { isValid, missingFields } = validateCareer();
 
     if (!isValid) {
-      toast.error(`Please fill: ${missingFields.join(", ")}`, {
-        duration: 3000,
-      });
+      toast.error(`Please fill: ${missingFields.join(", ")}`);
       return;
     }
 
-    careerFormRef.current.submit();
+    try {
+      // Convert file to base64
+      const fileBase64 = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(",")[1]); // Get base64 part only
+        reader.onerror = reject;
+        reader.readAsDataURL(careerForm.resume);
+      });
 
-    toast.success("Career form submitted successfully!", {
-      duration: 3000,
-    });
+      const formData = new FormData();
+      formData.append("name", careerForm.name);
+      formData.append("email", careerForm.email);
+      formData.append("contact", careerForm.contact);
+      formData.append("message", careerForm.message);
+      formData.append("resume", fileBase64);
+      formData.append("resumeName", careerForm.resume.name);
+      formData.append("resumeType", careerForm.resume.type);
 
-    setCareerForm({
-      name: "",
-      email: "",
-      contact: "+91",
-      message: "",
-      resume: null,
-    });
+      await fetch("https://script.google.com/macros/s/AKfycbwiRLkNIRc1ANg8EtMYIpi9ya6axFzG17FtD0f-Chn4ynwk9FqX9mCKTV_JxdQVQhWdcg/exec", {
+        method: "POST",
+        body: formData,
+      });
+
+      toast.success("Career form submitted successfully!");
+
+      setCareerForm({
+        name: "",
+        email: "",
+        contact: "+91",
+        message: "",
+        resume: null,
+      });
+    } catch (error) {
+      console.error(error);
+      toast.error("Error submitting career form!");
+    }
   };
 
   return (
@@ -772,7 +799,11 @@ const ContactPage = () => {
                     Tell us about yourself
                   </p>
 
-                  <form className="w-full flex flex-col gap-[clamp(18px,3vw,28px)] h-auto">
+                  <form
+                    className="w-full flex flex-col gap-[clamp(18px,3vw,28px)] h-auto"
+                    onSubmit={submitCareerForm}
+                  >
+                    
                     <div className="flex flex-col md:flex-row flex-wrap justify-between gap-[clamp(15px,2vw,26px)]">
                       <input
                         type="text"
@@ -875,14 +906,17 @@ const ContactPage = () => {
                       >
                         <input
                           type="file"
-                          onChange={handleCareerFile}
+                          name="resume" // 🔥 REQUIRED
                           id="resume"
-                          name="resume"
-                          // onChange={(e) =>
-                          //   setFileName(e.target.files[0] ? e.target.files[0].name : "Upload Resume *")
-                          // }
-                          className="hidden "
+                          accept=".pdf,.doc,.docx"
+                          className="hidden"
+                          onChange={(e) => {
+                            const file = e.target.files[0];
+                            if (!file) return;
+                            setCareerForm({ ...careerForm, resume: file });
+                          }}
                         />
+
                         <label
                           htmlFor="resume"
                           className={`flex items-center gap-2 border 
@@ -920,7 +954,6 @@ const ContactPage = () => {
                         </label>
                       </div>
                     </div>
-
                     <textarea
                       name="message"
                       value={careerForm.message}
@@ -932,47 +965,28 @@ const ContactPage = () => {
   p-[clamp(8px,1vw,12px)] rounded-[clamp(6px,1vw,10px)]
   w-full h-[clamp(100px,5vh,160px)] resize-none`}
                     ></textarea>
-                  </form>
-
-                  <button
-                    onClick={submitCareerForm}
-                    className={`${
-                      careerFilled ? "active-btn" : "rotating-btn"
-                    } border border-[#B1A2DF] rounded-[8px] text-white font-medium 
+                    <button
+                      // onClick={submitCareerForm}
+                      type="submit"
+                      className={`${
+                        careerFilled ? "active-btn" : "rotating-btn"
+                      } border border-[#B1A2DF] rounded-[8px] text-white font-medium 
   w-[clamp(200px,60vw,300px)] h-[clamp(40px,5vh,60px)] 
   md:h-[clamp(40px,3vh,60px)] 2xl:h-[clamp(40px,5vh,60px)] 
   md:w-[clamp(200px,30vw,300px)] 2xl:w-[clamp(500px,60vw,300px)]
   mx-auto mt-[clamp(10px,2vw,20px)] 
   hover:bg-[#B1A2DF]/10 transition 
   text-[clamp(0.9rem,1.5vw,1.3rem)]`}
-                  >
-                    Submit
-                  </button>
+                    >
+                      Submit
+                    </button>
+                  </form>
                 </motion.div>
               </div>
             </section>
           </div>
         </div>
       </div>
-      <form
-        ref={careerFormRef}
-        action="https://script.google.com/macros/s/AKfycbywMcn96lRy_SzIztM_2sGCEmnfA6XF7pSjDUfwhVXZ9TDCgzGgQ5fRYA_Rt7_wOYBHzg/exec"
-        method="POST"
-        encType="multipart/form-data"
-        target="hidden_iframe"
-        style={{ display: "none" }}
-      >
-        <input name="formType" value="career" readOnly />
-        <input name="name" value={careerForm.name} readOnly />
-        <input name="email" value={careerForm.email} readOnly />
-        <input name="contact" value={careerForm.contact} readOnly />
-        <input name="message" value={careerForm.message} readOnly />
-
-        {/* IMPORTANT: file input for GAS */}
-        <input type="file" id="resume" name="resume" ref={careerFileRef} />
-      </form>
-
-      <iframe name="hidden_iframe" style={{ display: "none" }} />
     </>
   );
 };
