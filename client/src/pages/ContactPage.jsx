@@ -463,7 +463,7 @@ const ContactPage = () => {
 
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>Contact US | Vedapixel</title>
 
         <meta
@@ -471,7 +471,7 @@ const ContactPage = () => {
   content="Get in touch with VedaPixel for web design, branding, UI/UX, SEO, and digital marketing services. Let’s build something great together."
 />
         <link rel="canonical" href="https://vedapixel.com/contactus" />
-      </Helmet>
+      </Helmet> */}
       <div
         ref={pageRef}
         className="contact-page-content  relative h-fit w-full pb-[40px] flex px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40"

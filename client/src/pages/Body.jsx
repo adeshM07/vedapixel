@@ -435,7 +435,7 @@ const Body = () => {
   return (
     <>
       {/* ✅ Team Popup */}
-      <Helmet>
+      {/* <Helmet>
         <title>
           Creative Digital Agency | Web Design & Branding – VedaPixel
         </title>
@@ -444,7 +444,7 @@ const Body = () => {
           content="VedaPixel is a creative digital agency offering web design, branding, UI/UX design, SEO, and digital marketing services to grow your business."
         />
         <link rel="canonical" href="https://vedapixel.com" />
-      </Helmet>
+      </Helmet> */}
       <SectionWrapper></SectionWrapper>
       <AnimatePresence>
         {showTeamPopup && (
