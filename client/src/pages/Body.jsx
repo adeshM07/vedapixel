@@ -582,8 +582,8 @@ const Body = () => {
               </motion.p>
             )}
             <p className="text-white font-garotaSans font-normal   [@media(min-width:300px)_and_(max-width:410px)]:text-[19px]  text-[24px]   md:text-[28px] lg:text-[2.2rem] xl:text-[2.7rem] 2xl:text-[3rem] leading-tight">
-              We bridge innovation and execution with{" "}
-              <br className="hidden sm:block" /> user-centric, future-ready
+              Building Scalable Digital Products That 
+              <br className="hidden sm:block" /> Solve real Business Problems
               systems that <br className="hidden sm:block" />
               <span
                 id="tag"
@@ -612,11 +612,11 @@ const Body = () => {
               </span>
             </p>
             <p className="about-card-desc [@media(min-width:300px)_and_(max-width:410px)]:text-[10px] text-[#C8C1C1] text-[15px] md:text-[16px] lg:text-[0.9rem]  2xl:text-[1.5rem]">
-              We offer future-ready solutions to streamline your business, drive
+              Vedapixel Tech Solutions is a product-focused technology
               <br className="hidden sm:block" />
-              growth, and put your processes in place. Explore our range of
-              <br className="hidden sm:block" />
-              solutions below.
+              studio delivering web platforms, mobile apps , and intelligent systems for 
+               <br className="hidden sm:block" />
+              startups and enterprises
             </p>
             <div className="relative inline-block">
               <Link to="/about">
@@ -625,7 +625,7 @@ const Body = () => {
              hover:text-white hover:shadow-[0_0_15px_rgba(177,156,217,0.4)]
              hover:-translate-y-1"
                 >
-                  Know More
+                  Start Project
                 </button>
               </Link>
             </div>
@@ -986,11 +986,13 @@ const Body = () => {
                   </p>
 
                   <div className="relative inline-block">
+                    <Link to='/contactus'>
+                  
                     <button
-                      disabled={isDisabled}
-                      onClick={
-                        isDisabled ? () => setShowTeamPopup(true) : undefined
-                      }
+                      // disabled={isDisabled}
+                      // onClick={
+                      //   isDisabled ? () => setShowTeamPopup(true) : undefined
+                      // }
                       className={`
     rotating-btn relative font-garota
     text-[12px] md:text-[16px]
@@ -1009,6 +1011,7 @@ const Body = () => {
                     >
                       Our Team
                     </button>
+                      </Link>
                   </div>
                 </div>
               </div>

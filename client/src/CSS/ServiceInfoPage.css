@@ -22,3 +22,12 @@
   font-weight: 400;
   font-style: normal;
 }
+
+
+#whyVedapixel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../assets/whyVedapixelBG.png") center/cover no-repeat;
+  z-index: 0;
+}

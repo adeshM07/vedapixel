@@ -126,14 +126,9 @@ const AboutPage = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.4 }}
             >
-              Vedapixel Tech Solutions Pvt. Ltd. is a professional IT services
-              company specializing in the development of reliable and scalable
-              digital solutions. Supported by a skilled in-house team, we
-              deliver web and mobile applications with a strong focus on quality
-              and on-time delivery. We follow clear processes, communicate
-              transparently, and ensure every project is delivered smoothly,
-              helping businesses achieve real and measurable results.
-            </motion.p>
+              Vedapixel Tech Solutions Pvt. Ltd. is a technology company focused on building reliable, scalable, and user-centric digital products. We help businesses transform complex requirements into structured, high-performance platforms.
+
+Our approach combines strong product thinking, clean system architecture, and disciplined execution. From early-stage startups to established enterprises, we work as a long-term technology partner-not just a development vendor. </motion.p>
 
             <motion.p
               className="font-garotaSans font-normal  mt-4 md:mt-1  text-[1.4rem] md:text-[3rem] text-[#BBABEB] text-end"

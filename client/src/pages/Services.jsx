@@ -108,12 +108,12 @@ const Services = () => {
       img: pic3,
       link: "game",
     },
-    {
-      title: "AR/VR",
-      desc: "Delivering lifelike AR and VR experiences for learning and innovation.",
-      img: pic4,
-      link: "arvr",
-    },
+    // {
+    //   title: "AR/VR",
+    //   desc: "Delivering lifelike AR and VR experiences for learning and innovation.",
+    //   img: pic4,
+    //   link: "arvr",
+    // },
     {
       title: "ERP",
       desc: " Streamlining operations with intelligent, all-in-one ERP systems.",
@@ -127,7 +127,7 @@ const Services = () => {
       link: "chatbot",
     },
     {
-      title: "AL/ML",
+      title: "AI/ML",
       desc: "Empowering automation and insights through advanced AI and ML.",
       img: pic7,
       link: "ai",
@@ -138,30 +138,31 @@ const Services = () => {
       img: pic8,
       link: "crm",
     },
-    {
-      title: "Cloud & DevOps Services",
-      desc: "Driving efficiency with seamless cloud and DevOps tools.",
-      img: pic9,
-      link: "cloud",
-    },
-    {
-      title: "Maintenance & Support",
-      desc: "Ensuring software stays secure, reliable, and up to date.",
-      img: pic10,
-      link: "maintenance",
-    },
+    // {
+    //   title: "Cloud & DevOps Services",
+    //   desc: "Driving efficiency with seamless cloud and DevOps tools.",
+    //   img: pic9,
+    //   link: "cloud",
+    // },
+   
     {
       title: "Blockchain",
       desc: "Developing secure, transparent blockchain apps and smart contracts.",
       img: pic11,
       link: "blockchain",
     },
-    {
-      title: "Internet of Things",
-      desc: "We ensure secure, end-to-end data flow from devices to actionable cloud insights.",
-      img: pic12,
-      link: "iot",
+     {
+      title: "Maintenance & Support",
+      desc: "Ensuring software stays secure, reliable, and up to date.",
+      img: pic10,
+      link: "maintenance",
     },
+    // {
+    //   title: "Internet of Things",
+    //   desc: "We ensure secure, end-to-end data flow from devices to actionable cloud insights.",
+    //   img: pic12,
+    //   link: "iot",
+    // },
   ];
   return (
     <>
@@ -179,7 +180,7 @@ const Services = () => {
         <p className="font-garotaSans font-normal   w-full  text-4xl md:text-[3rem] lg:text-[3rem]  text-white">
           Our Services
         </p>
-        <p className="text-[24px] font-poppins font-normal text-[#C8C1C1]">Vedapixel Tech Solutions Pvt. Ltd. builds intelligent, scalable digital platforms that solve  real-world business challenges. With over a decade of experience, we focus on creating solutions that streamline operations, enhance accessibility, and enable sustainable growth across industries. We don’t just deliver technology.</p>
+        <p className="text-[24px] font-poppins font-normal text-[#C8C1C1]">Vedapixel Tech Solutions Pvt. Ltd. builds powerful digital solutions that help businesses work smarter and grow faster. From mobile and web applications to advanced technologies like AI, cloud, and automation, we design and develop reliable systems that are easy to use, scalable, and built for real business needs.</p>
         
 
         <motion.div
@@ -194,7 +195,7 @@ const Services = () => {
             <motion.div
               layout
               key={index}
-              className="w-full sm:w-[80%]  md:w-[40vw] xl:lg:w-[25vw] xl:h-[230px] 2xl:w-[360px] 2xl:h-[222px]"
+              className="w-full  sm:w-[80%]  md:w-[40vw] xl:lg:w-[25vw] xl:h-[230px] 2xl:w-[360px] 2xl:h-[230px]"
             >
               <Link
                 to="/serviceInfo"
@@ -231,7 +232,7 @@ const Services = () => {
                     loading="lazy"
                   />
 
-                  <p className="font-garotaSans font-normal text-xl md:text-[1.75rem] lg:text-[1.5rem] 2xl:text-[1.7rem] text-white ">
+                  <p className="font-garotaSans font-normal text-xl md:text-[1.75rem] lg:text-[1.5rem] 2xl:text-[1.7rem] text-white leading-tight">
                     {service.title}
                   </p>
 

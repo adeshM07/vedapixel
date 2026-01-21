@@ -19,7 +19,7 @@ const Industries = () => {
     { img: pic1, name: "Real estate & property" },
     { img: pic2, name: "Health care & wellness" },
     { img: pic3, name: "E-commerce" },
-    { img: pic4, name: "Fintech" },
+    { img: pic4, name: "Fintech & Banking" },
     { img: pic5, name: "Social Networking" },
     { img: pic6, name: "E-Learning" },
     { img: pic7, name: "Entertainment" },

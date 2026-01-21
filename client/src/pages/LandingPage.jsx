@@ -11,6 +11,7 @@ import AboutPage from "./AboutPage";
 import ScrollToTop from "./ScrollToTop";
 import Services from "./Services";
 import ServiceInfoPage from "./ServiceInfoPage";
+import Blogs from "./Blogs";
 import Faq from "./Faq";
 import { Routes, Route } from "react-router-dom";
 
@@ -32,6 +33,7 @@ const LandingPage = () => {
             <Route path="/services" element={<Services />} />
             <Route path="/serviceInfo" element={<ServiceInfoPage />} />
             <Route path="/faqs" element={<Faq />} />
+            <Route path="/blogs" element={<Blogs />} />
           </Routes>
         </div>
 

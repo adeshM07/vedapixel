@@ -55,7 +55,7 @@ const ServiceInfoPage = () => {
     mobile: {
       title: "Mobile Application Development",
       intro:
-        "We design and develop scalable mobile applications that combine performance, usability, and reliability to support long-term business growth across Android, iOS, and cross-platform environments.",
+        "Vedapixel builds production-ready mobile applications designed for performance, scalability and real-world usage. We develop Android, iOS and cross-platform apps with a strong focus on stability, clean architecture and long-term maintainability.",
       technologies: [
         "Swift",
         "Kotlin",
@@ -75,7 +75,7 @@ const ServiceInfoPage = () => {
         "Google Cloud",
         "Docker",
       ],
-      buttonText: "Hire App Developers",
+      buttonText: "Connect with our Experts",
       expertise: [
         {
           title: "Native Mobile Applications",
@@ -184,7 +184,7 @@ const ServiceInfoPage = () => {
         "Vercel",
         "Docker",
       ],
-      buttonText: "Hire Web Developers",
+      buttonText: "Connect with our Experts",
       expertise: [
         {
           title: "Custom Web Applications",
@@ -284,7 +284,7 @@ const ServiceInfoPage = () => {
         "Firebase",
         "PlayFab",
       ],
-      buttonText: "Hire Game Developers",
+      buttonText: "Connect with our Experts",
       expertise: [
         {
           title: "Mobile Game Development",
@@ -381,7 +381,7 @@ const ServiceInfoPage = () => {
         "Oculus SDK",
         "Vuforia",
       ],
-      buttonText: "Hire AR/VR Developers",
+      buttonText: "Connect with our Experts",
       expertise: [
         {
           title: "Augmented Reality Applications",
@@ -484,7 +484,7 @@ const ServiceInfoPage = () => {
         "AWS",
         "Docker",
       ],
-      buttonText: "Hire ERP Experts",
+      buttonText: "Connect with our Experts",
       expertise: [
         {
           title: "Custom ERP Systems",
@@ -582,7 +582,7 @@ const ServiceInfoPage = () => {
         "OpenAI API",
         "Twilio",
       ],
-      buttonText: "Hire Chatbot Developers",
+      buttonText: "Connect with our Experts",
       expertise: [
         {
           title: "AI-Powered Chatbots",
@@ -674,7 +674,7 @@ const ServiceInfoPage = () => {
         "Google Cloud AI",
         "Keras",
       ],
-      buttonText: "Hire AI Developers",
+      buttonText: "Connect with our Experts",
       expertise: [
         {
           title: "Machine Learning Models",
@@ -764,7 +764,7 @@ const ServiceInfoPage = () => {
         "Firebase",
         "AWS",
       ],
-      buttonText: "Hire CRM Developers",
+      buttonText: "Connect with our Experts",
       expertise: [
         {
           title: "Custom CRM Systems",
@@ -859,7 +859,7 @@ const ServiceInfoPage = () => {
         "Jenkins",
         "Node.js",
       ],
-      buttonText: "Hire Cloud Experts",
+      buttonText: "Connect with our Experts",
       expertise: [
         {
           title: "Cloud Architecture Design",
@@ -951,7 +951,7 @@ const ServiceInfoPage = () => {
         "AWS",
         "Docker",
       ],
-      buttonText: "Hire Maintenance Experts",
+      buttonText: "Connect with our Experts",
       expertise: [
         {
           title: "Application Maintenance",
@@ -1049,7 +1049,7 @@ const ServiceInfoPage = () => {
         "IPFS",
         "Truffle",
       ],
-      buttonText: "Hire Blockchain Developers",
+      buttonText: "Connect with our Experts",
       expertise: [
         {
           title: "Decentralized Applications",
@@ -1138,7 +1138,7 @@ const ServiceInfoPage = () => {
         "Python",
         "C++",
       ],
-      buttonText: "Hire IoT Developers",
+      buttonText: "Connect with our Experts",
       expertise: [
         {
           title: "IoT Application Development",
@@ -1346,7 +1346,7 @@ const ServiceInfoPage = () => {
             </div>
           </div>
         </div>
-        <div className="relative mt-[150px] md:mt-[100px] w-full">
+        {/* <div className="relative mt-[150px] md:mt-[100px] w-full">
           <p className="text-[2rem] md:text-[4rem] font-garotaSans  bg-gradient-to-b font-bold  from-[#C7B9F6] to-[#6A6185] bg-clip-text text-transparent leading-[1] absolute -top-5 md:-top-11 left-0 z-20 ">
             Why choose VedaPixel ?
           </p>
@@ -1372,7 +1372,46 @@ const ServiceInfoPage = () => {
               ))}
             </ul>
           </div>
-        </div>
+        </div> */}
+        {/* <div className="relative mt-[150px] md:mt-[100px] w-full">
+
+          <div
+            id="whyVedapixel"
+            className="relative isolate overflow-hidden
+    [@media(min-width:300px)_and_(max-width:450px)]:min-h-[22vh]
+    min-h-[23.5vh] flex place-items-center px-2 md:px-14
+    md:max-h-[42vh] lg:min-h-[21vh] xl:min-h-[336px] 2xl:min-h-[386px]
+    [@media(min-width:2550px)]:min-h-[20vh]
+    rounded-b-[50px] rounded-tr-[50px]
+    md:rounded-b-[80px] md:rounded-tr-[80px]"
+          >
+
+            <div
+              className="absolute inset-0 pointer-events-none z-30
+      rounded-b-[50px] rounded-tr-[50px]
+      md:rounded-b-[80px] md:rounded-tr-[80px]
+       border-white/40"
+            />
+
+          
+            <ul className="relative z-20 list-disc md:mt-5 list-inside space-y-2">
+              {serviceInfo[service]?.whyUs.map((value, index) => (
+                <li
+                  key={index}
+                  className="font-poppins font-normal
+          [@media(min-width:300px)_and_(max-width:450px)]:text-[11px]
+          text-[0.6rem] md:text-[1rem] lg:text-[1.2rem]
+          xl:text-[1.3rem] 2xl:text-[1.5rem]
+          text-[#C8C1C1]"
+                >
+                  {value}
+                </li>
+              ))}
+            </ul>
+
+          </div>
+        </div> */}
+
         <div className="flex flex-col mt-[100px] w-full gap-[0.8rem]">
           <p className="text-[2rem] md:text-[3rem] text-[#F8F9FA] font-garotaSans font-normal">
             Our Process
@@ -1396,11 +1435,10 @@ const ServiceInfoPage = () => {
                 >
                   {/* Title */}
                   <p
-                    className={`  ${
-                      activeIndex === index
+                    className={`  ${activeIndex === index
                         ? "border-[#BBABEB]/40 text-[#BBABEB]"
                         : "text-[#F8F9FA] hover:border-[#BBABEB]/40"
-                    } text-left font-garotaSans font-normal text-[20px] md:text-[30px] lg:text-[40px] xl:text-[30px]  hover:text-[#BBABEB] z-10`}
+                      } text-left font-garotaSans font-normal text-[20px] md:text-[30px] lg:text-[40px] xl:text-[30px]  hover:text-[#BBABEB] z-10`}
                   >
                     {item.title}
                   </p>
@@ -1409,13 +1447,12 @@ const ServiceInfoPage = () => {
                   <div
                     className={`
               text-[0.8rem] md:text-[1.2rem] transition-all duration-500 ease-in-out overflow-hidden
-              ${
-                isMobile
-                  ? activeIndex === index
-                    ? "max-h-[500px] opacity-100 mt-2"
-                    : "max-h-0 opacity-0 mt-0"
-                  : "opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-[500px] group-hover:mt-2"
-              }
+              ${isMobile
+                        ? activeIndex === index
+                          ? "max-h-[500px] opacity-100 mt-2"
+                          : "max-h-0 opacity-0 mt-0"
+                        : "opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-[500px] group-hover:mt-2"
+                      }
             `}
                   >
                     {item.desc}
@@ -1434,20 +1471,19 @@ const ServiceInfoPage = () => {
                 onClick={() => setShowFAQ(!showFAQ)}
                 size={44}
                 color="#BBABEB"
-                className={`${showFAQ ? "hidden" : "block"}`}
+                className={`${showFAQ ? "hidden" : "block"} cursor-pointer`}
               />
               <ChevronUp
                 onClick={() => setShowFAQ(!showFAQ)}
                 size={44}
                 color="#BBABEB"
-                className={`${showFAQ ? "block" : "hidden"}`}
+                className={`${showFAQ ? "block" : "hidden"} cursor-pointer`}
               />
             </span>
           </p>
           <div
-            className={`bg-[#0e141d]/50 backdrop-blur-lg  border rounded-lg border-[#F8F9FA] ${
-              showFAQ ? "block" : "hidden"
-            }`}
+            className={`bg-[#0e141d]/50 backdrop-blur-lg  border rounded-lg border-[#F8F9FA] ${showFAQ ? "block" : "hidden"
+              }`}
           >
             {serviceInfo[service]?.faq.map((faq, index) => (
               <div key={index} className="border-b border-[#2a2f37] ">
@@ -1458,11 +1494,10 @@ const ServiceInfoPage = () => {
                   className="w-full flex justify-between items-center px-6 py-5 text-left text-[#F8F9FA] hover:text-[#BBABEB] transition-all duration-200"
                 >
                   <span
-                    className={`  ${
-                      openIndex === index
+                    className={`  ${openIndex === index
                         ? "text-[#BBABEB]"
                         : "text-[#F8F9FA] hover:text-[#BBABEB]"
-                    } text-[1rem] cursor-pointer w-[90%] md:text-[1.2rem] lg:text-[1.5rem] xl:text-[20px] font-poppins font-normal `}
+                      } text-[1rem] cursor-pointer w-[90%] md:text-[1.2rem] lg:text-[1.5rem] xl:text-[20px] font-poppins font-normal `}
                   >
                     {faq.question}
                   </span>
@@ -1476,9 +1511,8 @@ const ServiceInfoPage = () => {
                 </button>
 
                 <div
-                  className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${
-                    openIndex === index ? "max-h-40 py-0" : "max-h-0"
-                  }`}
+                  className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? "max-h-40 py-0" : "max-h-0"
+                    }`}
                 >
                   <p className="text-[#C8C1C1] service-desc text-[0.8rem] md:text-[1rem] leading-relaxed pb-3">
                     {faq.answer}
