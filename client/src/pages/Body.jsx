@@ -619,7 +619,7 @@ const Body = () => {
               startups and enterprises
             </p>
             <div className="relative inline-block">
-              <Link to="/about">
+              <Link to="/contactus">
                 <button
                   className="rotating-btn relative text-[#b19cd9] font-garota text-[0.7rem] md:text-[1.5rem] rounded-md px-3 py-2 md:px-6 md:py-3 overflow-hidden hover:from-[#6A6185] hover:to-[#B19CD9]
              hover:text-white hover:shadow-[0_0_15px_rgba(177,156,217,0.4)]
@@ -986,7 +986,7 @@ const Body = () => {
                   </p>
 
                   <div className="relative inline-block">
-                    <Link to='/contactus'>
+                    <Link to='/about'>
                   
                     <button
                       // disabled={isDisabled}
