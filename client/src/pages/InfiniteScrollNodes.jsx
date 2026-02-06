@@ -182,8 +182,8 @@ const InfiniteScrollNodes = ({ direction = "left", baseSpeed = 35 }) => {
               h-[6vh] sm:h-[6vh] md:h-[40px] lg:h-[68px]
               w-[40vw] sm:w-[60vw] md:w-[220px] lg:w-[287px]
               text-[14px] sm:text-[16px] md:text-[18px] lg:text-[24px]
-              hover:bg-gradient-to-r hover:from-[#BBABEB] hover:to-[#6A6185]
-              transition-all duration-300 ease-in-out
+              hover:bg-gradient-to-r  hover:from-[#BBABEB] hover:to-[#6A6185]
+              transition-all duration-1000 ease-in-out
               active:bg-gradient-to-r active:from-[#BBABEB] active:to-[#6A6185]
             "
             >
