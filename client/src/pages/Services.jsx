@@ -15,7 +15,7 @@ import pic9 from "../assets/cloud.png";
 import pic10 from "../assets/maintenance.png";
 import pic11 from "../assets/blockchain.png";
 import pic12 from "../assets/iot.png";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const Services = () => {
   const controls = useAnimation();
@@ -144,14 +144,14 @@ const Services = () => {
     //   img: pic9,
     //   link: "cloud",
     // },
-   
+
     {
       title: "Blockchain",
       desc: "Developing secure, transparent blockchain apps and smart contracts.",
       img: pic11,
       link: "blockchain",
     },
-     {
+    {
       title: "Maintenance & Support",
       desc: "Ensuring software stays secure, reliable, and up to date.",
       img: pic10,
@@ -166,22 +166,27 @@ const Services = () => {
   ];
   return (
     <>
-    <Helmet>
-            <title>Services | Vedapixel
-            </title>
-    
-            <meta
-  name="description"
-  content="Explore VedaPixel’s services including web design, branding, UI/UX design, SEO, and digital marketing solutions tailored for business growth."
-/>
-            <link rel="canonical" href="https://vedapixel.com/services" />
-    </Helmet>
+      <Helmet>
+        <title>
+          Vedapixel Services – Web Development, App Development & SEO
+        </title>
+        <meta
+          name="description"
+          content="Explore Vedapixel’s services including web development, mobile app development, SEO, branding and digital solutions tailored for business growth."
+        />
+        {/* <link rel="canonical" href="https://vedapixel.com/services" /> */}
+      </Helmet>
       <div className=" flex flex-col gap-5 mt-30 md:mt-45 lg:mt-[192px] px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40">
         <p className="font-garotaSans font-normal   w-full  text-4xl md:text-[3rem] lg:text-[3rem]  text-white">
           Our Services
         </p>
-        <p className="text-[24px] font-poppins font-normal text-[#C8C1C1]">Vedapixel Tech Solutions Pvt. Ltd. builds powerful digital solutions that help businesses work smarter and grow faster. From mobile and web applications to advanced technologies like AI, cloud, and automation, we design and develop reliable systems that are easy to use, scalable, and built for real business needs.</p>
-        
+        <p className="text-[24px] font-poppins font-normal text-[#C8C1C1]">
+          Vedapixel Tech Solutions Pvt. Ltd. builds powerful digital solutions
+          that help businesses work smarter and grow faster. From mobile and web
+          applications to advanced technologies like AI, cloud, and automation,
+          we design and develop reliable systems that are easy to use, scalable,
+          and built for real business needs.
+        </p>
 
         <motion.div
           layout
@@ -222,7 +227,6 @@ const Services = () => {
                   }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
                 >
-                  
                   <motion.img
                     src={service.img}
                     alt={service.title}

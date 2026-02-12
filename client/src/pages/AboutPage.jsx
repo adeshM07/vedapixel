@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import aboutImg from "../assets/aboutEntireSectionImg.png";
 import SectionWrapper from "../components/common/SectionWrapper";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const AboutPage = () => {
   // useEffect(() => {
@@ -93,15 +93,14 @@ const AboutPage = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>About | Vedapixel</title>
-
+      <Helmet>
+        <title>About Vedapixel – Digital Growth & Technology Experts</title>
         <meta
           name="description"
-          content="Know more about VedaPixel, an India-based creative digital agency specializing in web design, branding, UI/UX, and digital marketing."
+          content="Learn about Vedapixel, our mission, vision and expertise in delivering scalable web, app and digital solutions for modern businesses."
         />
-        <link rel="canonical" href="https://vedapixel-topaz.vercel.app/about" />
-      </Helmet> */}
+        {/* <link rel="canonical" href="https://vedapixel.com/" /> */}
+      </Helmet>
       <SectionWrapper>
         <div
           id="about"
@@ -126,9 +125,14 @@ const AboutPage = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.4 }}
             >
-              Vedapixel Tech Solutions Pvt. Ltd. is a technology company focused on building reliable, scalable, and user-centric digital products. We help businesses transform complex requirements into structured, high-performance platforms.
-
-Our approach combines strong product thinking, clean system architecture, and disciplined execution. From early-stage startups to established enterprises, we work as a long-term technology partner-not just a development vendor. </motion.p>
+              Vedapixel Tech Solutions Pvt. Ltd. is a technology company focused
+              on building reliable, scalable, and user-centric digital products.
+              We help businesses transform complex requirements into structured,
+              high-performance platforms. Our approach combines strong product
+              thinking, clean system architecture, and disciplined execution.
+              From early-stage startups to established enterprises, we work as a
+              long-term technology partner-not just a development vendor.{" "}
+            </motion.p>
 
             <motion.p
               className="font-garotaSans font-normal  mt-4 md:mt-1  text-[1.4rem] md:text-[3rem] text-[#BBABEB] text-end"

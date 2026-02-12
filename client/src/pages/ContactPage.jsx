@@ -8,7 +8,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import toast from "react-hot-toast";
 import { motion, AnimatePresence } from "framer-motion";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const ContactPage = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -23,10 +23,10 @@ const ContactPage = () => {
   const [showNav, setShowNav] = useState(false);
   const [activeSection, setActiveSection] = useState("banner");
   const [isMobile, setIsMobile] = useState(
-    typeof window !== "undefined" ? window.innerWidth < 768 : false
+    typeof window !== "undefined" ? window.innerWidth < 768 : false,
   );
   const [isTab, setIsTab] = useState(
-    typeof window !== "undefined" ? window.innerWidth < 1536 : false
+    typeof window !== "undefined" ? window.innerWidth < 1536 : false,
   );
 
   const [collabForm, setCollabForm] = useState({
@@ -85,7 +85,7 @@ const ContactPage = () => {
   // ✅ Check if all fields are filled (Career)
   useEffect(() => {
     const allFilled = Object.values(careerForm).every((v) =>
-      typeof v === "string" ? v.trim() !== "" : v !== null
+      typeof v === "string" ? v.trim() !== "" : v !== null,
     );
     setCareerFilled(allFilled);
   }, [careerForm]);
@@ -207,7 +207,7 @@ const ContactPage = () => {
         threshold: isMobile
           ? [0.1, 0.25, 0.5]
           : [0, 0.1, 0.25, 0.4, 0.6, 0.8, 1],
-      }
+      },
     );
 
     elements.forEach((el) => {
@@ -225,7 +225,7 @@ const ContactPage = () => {
     if (!bannerRef.current) return;
     const obs = new IntersectionObserver(
       ([entry]) => setBannerVisible(entry.intersectionRatio > 0.05),
-      { threshold: [0, 0.05, 0.15, 0.3] }
+      { threshold: [0, 0.05, 0.15, 0.3] },
     );
     obs.observe(bannerRef.current);
     return () => obs.disconnect();
@@ -253,7 +253,7 @@ const ContactPage = () => {
             setCareerTitleVisible(entry.intersectionRatio > 0.2);
         });
       },
-      { threshold: [0, 0.15, 0.25, 0.5] }
+      { threshold: [0, 0.15, 0.25, 0.5] },
     );
 
     titleEls.forEach((t) => {
@@ -392,7 +392,7 @@ const ContactPage = () => {
         {
           method: "POST",
           body: formData,
-        }
+        },
       );
 
       alert("Collaborate form submitted successfully!");
@@ -441,10 +441,13 @@ const ContactPage = () => {
       formData.append("resumeName", careerForm.resume.name);
       formData.append("resumeType", careerForm.resume.type);
 
-      await fetch("https://script.google.com/macros/s/AKfycbwiRLkNIRc1ANg8EtMYIpi9ya6axFzG17FtD0f-Chn4ynwk9FqX9mCKTV_JxdQVQhWdcg/exec", {
-        method: "POST",
-        body: formData,
-      });
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbwiRLkNIRc1ANg8EtMYIpi9ya6axFzG17FtD0f-Chn4ynwk9FqX9mCKTV_JxdQVQhWdcg/exec",
+        {
+          method: "POST",
+          body: formData,
+        },
+      );
 
       toast.success("Career form submitted successfully!");
 
@@ -463,15 +466,13 @@ const ContactPage = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>Contact US | Vedapixel</title>
-
+      <Helmet>
+        <title>Contact Vedapixel – Start Your Digital Project Today</title>
         <meta
-  name="description"
-  content="Get in touch with VedaPixel for web design, branding, UI/UX, SEO, and digital marketing services. Let’s build something great together."
-/>
-        <link rel="canonical" href="https://vedapixel.com/contactus" />
-      </Helmet> */}
+          name="description"
+          content="Get in touch with Vedapixel to discuss your web development, app development or digital solution requirements."
+        />
+      </Helmet>
       <div
         ref={pageRef}
         className="contact-page-content  relative h-fit w-full pb-[40px] flex px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40"
@@ -663,14 +664,14 @@ const ContactPage = () => {
                               windowWidth <= 400
                                 ? "39px"
                                 : windowWidth < 640
-                                ? "39px"
-                                : windowWidth <= 1024
-                                ? "39px"
-                                : windowWidth <= 1280
-                                ? "47px"
-                                : windowWidth <= 1560
-                                ? "41px"
-                                : "42px",
+                                  ? "39px"
+                                  : windowWidth <= 1024
+                                    ? "39px"
+                                    : windowWidth <= 1280
+                                      ? "47px"
+                                      : windowWidth <= 1560
+                                        ? "41px"
+                                        : "42px",
                             paddingLeft: "50px",
                           }}
                           buttonStyle={{
@@ -806,7 +807,6 @@ const ContactPage = () => {
                     className="w-full flex flex-col gap-[clamp(18px,3vw,28px)] h-auto"
                     onSubmit={submitCareerForm}
                   >
-                    
                     <div className="flex flex-col md:flex-row flex-wrap justify-between gap-[clamp(15px,2vw,26px)]">
                       <input
                         type="text"
@@ -868,14 +868,14 @@ const ContactPage = () => {
                               windowWidth <= 400
                                 ? "39px"
                                 : windowWidth < 640
-                                ? "39px"
-                                : windowWidth <= 1024
-                                ? "39px"
-                                : windowWidth <= 1280
-                                ? "47px"
-                                : windowWidth <= 1560
-                                ? "44px"
-                                : "42px",
+                                  ? "39px"
+                                  : windowWidth <= 1024
+                                    ? "39px"
+                                    : windowWidth <= 1280
+                                      ? "47px"
+                                      : windowWidth <= 1560
+                                        ? "44px"
+                                        : "42px",
 
                             paddingLeft: "50px",
                           }}

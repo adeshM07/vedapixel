@@ -4,7 +4,7 @@ import "../CSS/Body.css";
 import { motion, AnimatePresence } from "framer-motion";
 import InfiniteScrollNodes from "./InfiniteScrollNodes";
 import InfiniteScrollNodes2 from "./InfiniteScrollNodes2";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import InfiniteScrollNodes3 from "./InfiniteScrollNodes3";
 import profileImg from "../assets/profileImg.png";
 import adesh from "../assets/adesh.png";
@@ -19,7 +19,7 @@ const Body = () => {
   const [navOpacity, setNavOpacity] = useState(1);
   const [showTeamPopup, setShowTeamPopup] = useState(false);
   const [isMobile, setIsMobile] = useState(() =>
-    typeof window !== "undefined" ? window.innerWidth < 768 : false
+    typeof window !== "undefined" ? window.innerWidth < 768 : false,
   );
   const [currentWord, setCurrentWord] = useState("streamline operations");
   const [isDisabled, setIsDisabled] = useState(false);
@@ -315,7 +315,7 @@ const Body = () => {
       stepElements.forEach((el, i) => {
         const rect = el.getBoundingClientRect();
         const distanceToCenter = Math.abs(
-          rect.top + rect.height / 2 - window.innerHeight / 2
+          rect.top + rect.height / 2 - window.innerHeight / 2,
         );
         if (distanceToCenter < closestDistance) {
           closestDistance = distanceToCenter;
@@ -367,7 +367,7 @@ const Body = () => {
       stepElements.forEach((el) => {
         const rect = el.getBoundingClientRect();
         const distanceToCenter = Math.abs(
-          rect.top + rect.height / 2 - window.innerHeight / 2
+          rect.top + rect.height / 2 - window.innerHeight / 2,
         );
         if (distanceToCenter < closestDistance) {
           closestDistance = distanceToCenter;
@@ -434,9 +434,17 @@ const Body = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Vedapixel – Web, App & Digital Solutions Company</title>
+        <meta
+          name="description"
+          content="Vedapixel is a digital solutions company offering web development, mobile app development, SEO and branding services to help businesses grow online."
+        />
+        {/* <link rel="canonical" href="https://vedapixel.com/" /> */}
+      </Helmet>
       {/* ✅ Team Popup */}
       {/* <Helmet>
-        <title>
+        <title>  
           Creative Digital Agency | Web Design & Branding – VedaPixel
         </title>
         <meta
@@ -582,7 +590,7 @@ const Body = () => {
               </motion.p>
             )}
             <p className="text-white font-garotaSans font-normal   [@media(min-width:300px)_and_(max-width:410px)]:text-[19px]  text-[24px]   md:text-[28px] lg:text-[2.2rem] xl:text-[2.7rem] 2xl:text-[3rem] leading-tight">
-              Building Scalable Digital Products That 
+              Building Scalable Digital Products That
               <br className="hidden sm:block" /> Solve real Business Problems
               systems that <br className="hidden sm:block" />
               <span
@@ -614,8 +622,9 @@ const Body = () => {
             <p className="about-card-desc [@media(min-width:300px)_and_(max-width:410px)]:text-[10px] text-[#C8C1C1] text-[15px] md:text-[16px] lg:text-[0.9rem]  2xl:text-[1.5rem]">
               Vedapixel Tech Solutions is a product-focused technology
               <br className="hidden sm:block" />
-              studio delivering web platforms, mobile apps , and intelligent systems for 
-               <br className="hidden sm:block" />
+              studio delivering web platforms, mobile apps , and intelligent
+              systems for
+              <br className="hidden sm:block" />
               startups and enterprises
             </p>
             <div className="relative inline-block">
@@ -986,14 +995,13 @@ const Body = () => {
                   </p>
 
                   <div className="relative inline-block">
-                    <Link to='/about'>
-                  
-                    <button
-                      // disabled={isDisabled}
-                      // onClick={
-                      //   isDisabled ? () => setShowTeamPopup(true) : undefined
-                      // }
-                      className={`
+                    <Link to="/about">
+                      <button
+                        // disabled={isDisabled}
+                        // onClick={
+                        //   isDisabled ? () => setShowTeamPopup(true) : undefined
+                        // }
+                        className={`
     rotating-btn relative font-garota
     text-[12px] md:text-[16px]
     rounded-md w-[25vw] h-[4.5vh]
@@ -1008,10 +1016,10 @@ const Body = () => {
         : "text-[#b19cd9] cursor-pointer hover:from-[#6A6185] hover:to-[#B19CD9] hover:text-white hover:shadow-[0_0_15px_rgba(177,156,217,0.4)] hover:-translate-y-1"
     }
   `}
-                    >
-                      Our Team
-                    </button>
-                      </Link>
+                      >
+                        Our Team
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>

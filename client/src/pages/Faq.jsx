@@ -10,72 +10,77 @@ const Faq = () => {
       question:
         "How much does it cost to develop a custom mobile or web application?",
       answer:
-        "The cost depends on several factors, including project complexity, features, technology stack, design requirements, and development timeline. We provide a detailed quote after understanding your business goals and project scope.",
+        "The cost of a custom mobile or web application depends on its features, complexity, platform, and technology stack. We provide an exact quote after understanding your business goals and project requirements.",
     },
     {
       question: "What is your process for custom app development?",
       answer:
-        "Our process includes discovery & consultation, UI/UX design, development, testing, deployment, and post-launch support. We maintain transparency at every stage to ensure your vision is fully realized.",
+        "Our app development process includes discovery, UI/UX design, development, testing, deployment, and post-launch support. Each stage is transparent and aligned with your business objectives.",
     },
     {
-      question:
-        "Can you take over an existing app or incomplete project from another vendor?",
+      question: "Can you take over an existing or incomplete app project?",
       answer:
-        "Yes, we can audit your existing project, understand the current codebase and progress, and seamlessly take over to ensure smooth continuation and delivery.",
+        "Yes, we can take over existing or incomplete projects by auditing the codebase and current progress. We ensure a smooth transition and timely delivery. ",
     },
     {
-      question: "Do you offer guidance in choosing the right technology stack?",
+      question: "Do you help in choosing the right technology stack?",
       answer:
-        "Absolutely. Our technical experts evaluate your business needs and recommend the most suitable frameworks, tools, and technologies to ensure scalability, performance, and cost efficiency.",
+        "Yes, we recommend the right technology stack based on your business needs, scalability requirements, and budget. This ensures long-term performance and maintainability.",
     },
     {
-      question:
-        "How do you handle changes in project requirements during development?",
+      question: "How do you manage changes during app development",
       answer:
-        "We follow agile methodologies that allow flexibility for updates and modifications. Any change requests are assessed for impact and implemented with your approval.",
+        "We use agile development methods that allow changes during the project lifecycle. All change requests are reviewed, approved, and implemented transparently. ",
     },
     {
       question:
         "What technologies and frameworks do you use for app development?",
       answer:
-        "We work with the latest technologies such as React Native, Flutter, Swift, Kotlin, Node.js, Python, and Java Spring Boot — choosing the stack based on project goals and platform requirements.",
+        "We use modern technologies such as React Native, Flutter, Swift, Kotlin, Node.js, Python, and Java Spring Boot. The choice depends on your project goals and platform requirements. ",
     },
     {
-      question: "Do you develop both Android and iOS applications?",
+      question: "Do you develop applications for both Android and iOS?",
       answer:
-        "Yes, we specialize in building native apps for Android and iOS, as well as cross-platform solutions that run smoothly on both.",
+        "Yes, we build native Android and iOS applications as well as cross-platform apps that work seamlessly on both platforms. ",
     },
     {
       question:
-        "Are you experienced in integrating AI, ML, or third-party APIs into applications?",
+        "Can you integrate AI, ML, or third-party APIs into applications?",
       answer:
-        "Yes, we have experience in integrating AI-based features like chatbots, predictive analytics, image recognition, and API integrations for payments, maps, or CRM tools.",
+        "Yes, we integrate AI features, machine learning models, and third-party APIs such as payment gateways, maps, analytics, and CRM systems.",
     },
     {
       question: "How long does it take to build a custom application?",
       answer:
-        "Project timelines depend on complexity and scope — typically ranging from 8 to 20 weeks. We provide a clear timeline after initial discussions and requirement analysis.",
+        "The timeline for building a custom application typically ranges from 8 to 20 weeks, depending on the project scope and complexity",
     },
     {
       question: "Do you provide post-launch support and maintenance?",
       answer:
-        "Yes, we offer ongoing support, updates, bug fixes, and performance optimization to keep your application running efficiently.",
+        "Yes, we provide ongoing support, maintenance, updates, and performance optimization after launch. ",
     },
     {
       question: "Will my app idea remain confidential?",
       answer:
-        "Absolutely. We sign a Non-Disclosure Agreement (NDA) before starting any project to ensure your concept and data are completely secure.",
+        "Yes, your app idea remains fully confidential. We sign a Non-Disclosure Agreement (NDA) before starting the project. ",
     },
     {
-      question: "Can you scale the app as my business grows?",
+      question: "Can the application scale as my business grows?",
       answer:
-        "Yes, scalability is built into our architecture. We design applications that can easily accommodate new users, features, and integrations as your business expands.",
+        "Yes, we design scalable application architectures that support growth, new users, and future feature expansion.",
     },
   ];
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
     <>
+      <Helmet>
+        <title>Vedapixel FAQs – Services, Pricing & Process</title>
+        <meta
+          name="description"
+          content="Find answers to common questions about Vedapixel’s services, pricing, timelines and development process."
+        />
+      </Helmet>
       <div className="flex  justify-center mt-[192px] w-full h-fit px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40">
         <div className="w-[90vw] md:w-[90vw] lg::w-[73vw] flex mt-[60px] flex-col gap-[1.3rem]">
           <p className="text-[3rem] service-title text-[#BBABEB]">FAQs</p>
