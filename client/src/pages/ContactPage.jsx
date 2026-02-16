@@ -410,8 +410,8 @@ const ContactPage = () => {
     }
   };
 
-  const url =
-    "https://script.google.com/macros/s/AKfycbzulucg71YRIFDoSx9itCqAUrNAocjdP9gCL1afynij84Kf17HtnjpDAW4EQkv7aioWHg/exec";
+  // const url =
+  //   "https://script.google.com/macros/s/AKfycbzulucg71YRIFDoSx9itCqAUrNAocjdP9gCL1afynij84Kf17HtnjpDAW4EQkv7aioWHg/exec";
 
   const submitCareerForm = async (e) => {
     e.preventDefault();
@@ -442,7 +442,7 @@ const ContactPage = () => {
       formData.append("resumeType", careerForm.resume.type);
 
       await fetch(
-        "https://script.google.com/macros/s/AKfycbwiRLkNIRc1ANg8EtMYIpi9ya6axFzG17FtD0f-Chn4ynwk9FqX9mCKTV_JxdQVQhWdcg/exec",
+        "https://script.google.com/macros/s/AKfycbwf21Df84jTU21E8fNYGjeF27BktDhabFeSFZbGMKEVrx-7N8ll32g6syuprPQNDA_YdA/exec",
         {
           method: "POST",
           body: formData,
