@@ -442,7 +442,7 @@ const ContactPage = () => {
       formData.append("resumeType", careerForm.resume.type);
 
       await fetch(
-        "https://script.google.com/macros/s/AKfycbwf21Df84jTU21E8fNYGjeF27BktDhabFeSFZbGMKEVrx-7N8ll32g6syuprPQNDA_YdA/exec",
+        "https://script.google.com/macros/s/AKfycbz-W0RzmpUWhBEDkqz80AYM26nMnuAyoD2JSE0RYtvj3xkVFROcuHzSWAvcWwGRD5xV/exec",
         {
           method: "POST",
           body: formData,
