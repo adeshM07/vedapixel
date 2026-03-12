@@ -14,9 +14,9 @@ import ServiceInfoPage from "./ServiceInfoPage";
 import Blogs from "./Blogs";
 import Faq from "./Faq";
 import { Routes, Route } from "react-router-dom";
+import AnalyticsTracker from "../components/common/AnalyticsTracker";
 
 const LandingPage = () => {
-  
   return (
     <>
       <div>
@@ -26,6 +26,7 @@ const LandingPage = () => {
         <ScrollToTop />
 
         <div className="w-full pt-[32px] h-fit">
+          <AnalyticsTracker />
           <Routes>
             <Route path="/" element={<MainSection />} />
             <Route path="/contactus" element={<ContactPage />} />
