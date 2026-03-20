@@ -11,14 +11,20 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import sent from "../assets/sent.png";
 import { useState } from "react";
-import { Phone,Mail,MapPin,Copyright,Instagram,Linkedin  } from "lucide-react";
-
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Copyright,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [isMobile, setIsMobile] = useState(() =>
-      typeof window !== "undefined" ? window.innerWidth < 768 : false
-    );
+    typeof window !== "undefined" ? window.innerWidth < 768 : false,
+  );
   // Animation variants
   const container = {
     hidden: { opacity: 0, y: 30 },
@@ -60,7 +66,7 @@ const Footer = () => {
             variants={item}
           >
             {/* go throw this at last */}
-            <Link to='/'>
+            <Link to="/">
               <img
                 src={logo}
                 alt="VedaPixel Logo"
@@ -76,47 +82,53 @@ const Footer = () => {
                 Innovation in every Pixel
               </p>
             </div>
-            {isMobile?false:
-            <div className="mt-4 flex flex-col gap-3">
-             
-
-              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-                <div className="flex items-center gap-2 cursor-pointer">
-                  {/* <img
+            {isMobile ? (
+              false
+            ) : (
+              <div className="mt-4 flex flex-col gap-3">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+                  <div className="flex items-center gap-2 cursor-pointer">
+                    {/* <img
                     src={emaill}
                     alt="email"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
                   /> */}
-                  <Mail size={18} className="text-[#BBABEB]" />
-                  <a
-                    href="mailto:info@vedapixel.com"
-                    className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
-                  >
-                    info@vedapixel.com
-                  </a>
-                </div>
-                <div className="hidden sm:block text-white">|</div>
-                <div className="flex items-center gap-2 cursor-pointer">
-                  {/* <img
+                    <Mail size={18} className="text-[#BBABEB]" />
+                    <a
+                      href="mailto:info@vedapixel.com"
+                      className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
+                    >
+                      info@vedapixel.com
+                    </a>
+                  </div>
+                  <div className="hidden sm:block text-white">|</div>
+                  <div className="flex items-center gap-2 cursor-pointer">
+                    {/* <img
                     src={phone}
                     alt="phone"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
                   /> */}
-                  <Phone size={18} className="text-[#BBABEB]" />
-                  <a
-                    href="tel:+919036354261"
-                    className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] no-underline md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
-                  >
-                    +91 9036354261
-                  </a>
+                    <Phone size={18} className="text-[#BBABEB]" />
+                    <a
+                      href="tel:+919036354261"
+                      onClick={() => {
+                        window.gtag("event", "click_call", {
+                          event_category: "Contact",
+                          event_label: "Phone Click",
+                        });
+                      }}
+                      className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] no-underline md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
+                    >
+                      +91 9036354261
+                    </a>
+                  </div>
                 </div>
+                <p className="text-[#F8F9FA] flex gap-3 place-items-center text-[clamp(0.6rem,2vw,0.9rem)] md:text-[clamp(0.6rem,1.2vw,0.9rem)] 2xl:text-[clamp(0.6rem,2vw,0.9rem)]">
+                  <Copyright size={12} className="text-[#BBABEB]" />
+                  2026 VedaPixel Tech Solution Pvt. Ltd. All Rights Reserved.
+                </p>
               </div>
-               <p className="text-[#F8F9FA] flex gap-3 place-items-center text-[clamp(0.6rem,2vw,0.9rem)] md:text-[clamp(0.6rem,1.2vw,0.9rem)] 2xl:text-[clamp(0.6rem,2vw,0.9rem)]">
-                <Copyright size={12} className="text-[#BBABEB]" />
-                 2026 VedaPixel Tech Solution Pvt. Ltd. All Rights
-                Reserved.
-              </p>
-            </div>}
+            )}
           </motion.div>
 
           {/* ✅ Middle + Right Sections */}
@@ -164,43 +176,45 @@ const Footer = () => {
               className="h-fit w-full sm:w-1/2 2xl:w-fit flex flex-col gap-5"
               variants={item}
             >
-              {isMobile?<div className=" flex flex-col gap-3">
-             
-
-              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-                <div className="flex items-center gap-2 cursor-pointer">
-                  {/* <img
+              {isMobile ? (
+                <div className=" flex flex-col gap-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+                    <div className="flex items-center gap-2 cursor-pointer">
+                      {/* <img
                     src={emaill}
                     alt="email"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
                   /> */}
-                  <Mail size={18} className="text-[#BBABEB]" />
-                 
-                  <a
-                    href="mailto:info@vedapixel.com"
-                    className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
-                  >
-                    info@vedapixel.com
-                  </a>
-                </div>
-                <div className="hidden sm:block text-white">|</div>
-                <div className="flex items-center gap-2 cursor-pointer">
-                  {/* <img
+                      <Mail size={18} className="text-[#BBABEB]" />
+
+                      <a
+                        href="mailto:info@vedapixel.com"
+                        className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
+                      >
+                        info@vedapixel.com
+                      </a>
+                    </div>
+                    <div className="hidden sm:block text-white">|</div>
+                    <div className="flex items-center gap-2 cursor-pointer">
+                      {/* <img
                     src={phone}
                     alt="phone"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
                   /> */}
-                  <Phone size={18} className="text-[#BBABEB]" />
-                  <a
-                    href="tel:+919036354261"
-                    className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] no-underline md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
-                  >
-                    +91 9036354261
-                  </a>
+                      <Phone size={18} className="text-[#BBABEB]" />
+                      <a
+                        href="tel:+919036354261"
+                        className="text-[#E4E3E3] text-[clamp(0.8rem,2vw,1rem)] no-underline md:text-[clamp(0.8rem,1.2vw,1rem)] 2xl:text-[clamp(0.8rem,2vw,1rem)]"
+                      >
+                        +91 9036354261
+                      </a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>:false}
-            
+              ) : (
+                false
+              )}
+
               <div className="">
                 <p className="text-[#C8C1C1] text-[clamp(1rem,2vw,1.2rem)] mb-2 font-medium">
                   Let's Get in Touch
@@ -224,11 +238,14 @@ const Footer = () => {
                   />
                 </div>
               </div>
-              {isMobile? <p className="flex gap-2 place-items-center text-[#F8F9FA] text-[clamp(0.6rem,2vw,0.9rem)] md:text-[clamp(0.6rem,1.2vw,0.9rem)] 2xl:text-[clamp(0.6rem,2vw,0.9rem)]">
-                <Copyright size={14} className="text-[#BBABEB]" />
-                  2026 VedaPixel Tech Solution Pvt. Ltd. All Rights
-                Reserved.
-              </p>:false}
+              {isMobile ? (
+                <p className="flex gap-2 place-items-center text-[#F8F9FA] text-[clamp(0.6rem,2vw,0.9rem)] md:text-[clamp(0.6rem,1.2vw,0.9rem)] 2xl:text-[clamp(0.6rem,2vw,0.9rem)]">
+                  <Copyright size={14} className="text-[#BBABEB]" />
+                  2026 VedaPixel Tech Solution Pvt. Ltd. All Rights Reserved.
+                </p>
+              ) : (
+                false
+              )}
 
               {/* Social Links */}
               <div className="flex flex-col sm:flex-row sm:items-center gap-3">
@@ -246,7 +263,7 @@ const Footer = () => {
                       className="w-[25px] sm:w-[30px] md:w-[22px]  2xl:w-[2vw] cursor-pointer"
                       whileHover={{ scale: 1.2, y: -3 }}
                     /> */}
-                    <Linkedin size={30} className="text-[#BBABEB]"/>
+                    <Linkedin size={30} className="text-[#BBABEB]" />
                   </a>
                   <a
                     target="_blank"
@@ -258,7 +275,7 @@ const Footer = () => {
                       className="w-[25px] sm:w-[30px] md:w-[22px] ] 2xl:w-[2vw] cursor-pointer"
                       whileHover={{ scale: 1.2, y: -3 }}
                     /> */}
-                    <Instagram size={30} className="text-[#BBABEB]"/>
+                    <Instagram size={30} className="text-[#BBABEB]" />
                   </a>
                   {/* <a target="_blank" href="https://wa.me/919036354263">
                     <motion.img

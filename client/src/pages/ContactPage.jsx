@@ -473,6 +473,7 @@ const ContactPage = () => {
           content="Get in touch with Vedapixel to discuss your web development, app development or digital solution requirements."
         />
       </Helmet>
+
       <div
         ref={pageRef}
         className="contact-page-content  relative h-fit w-full pb-[40px] flex px-4 md:px-15 lg:px-15 xl:px-30 2xl:px-40"
@@ -985,6 +986,15 @@ const ContactPage = () => {
                     </button>
                   </form>
                 </motion.div>
+              </div>
+              <div style={{ height: 0, overflow: "hidden" }}>
+                <iframe
+                  src="https://www.google.com/maps?q=bangalore&output=embed"
+                  width="1"
+                  height="1"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                />
               </div>
             </section>
           </div>
