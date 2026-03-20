@@ -108,6 +108,8 @@ const Footer = () => {
                     alt="phone"
                     className="h-[16px] md:h-[14px] sm:h-[20px]"
                   /> */}
+
+                  {/* for gat */}
                     <Phone size={18} className="text-[#BBABEB]" />
                     <a
                       href="tel:+919036354261"
